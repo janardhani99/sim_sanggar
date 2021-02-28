@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EditProfilFragment"
+    android:orientation="vertical"
+    android:background="@color/grey">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/header"
+        android:orientation="vertical"
+        android:padding="10dp"
+        >
+<!--        gimana biar bisa klik image ke direktori-->
+        <ImageView
+            android:id="@+id/foto_profil"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:src="@drawable/foto"
+            android:layout_marginTop="30dp">
+        </ImageView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="40dp"
+        android:layout_marginTop="180dp">
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/edit_nama"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:hint="Nama"
+            android:inputType="textPersonName"
+            android:textSize="20dp">
+        </com.rengwuxian.materialedittext.MaterialEditText>
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/input_email"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:hint="Email"
+            android:inputType="textPersonName"
+            android:textSize="20dp">
+        </com.rengwuxian.materialedittext.MaterialEditText>
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/edit_alamat"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:hint="Alamat"
+            android:inputType="text"
+            android:textSize="20dp">
+        </com.rengwuxian.materialedittext.MaterialEditText>
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/edit_password"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:hint="Password"
+            android:inputType="number"
+            android:textSize="20dp">
+        </com.rengwuxian.materialedittext.MaterialEditText>
+
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="53dp"
+            android:background="@drawable/btn_submit"
+            android:layout_gravity="center"
+            android:layout_marginTop="100dp"
+            android:text="SIMPAN"
+            android:textSize="25dp">
+
+        </Button>
+
+    </LinearLayout>
+
+</FrameLayout>
