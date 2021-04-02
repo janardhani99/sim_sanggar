@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -14,93 +13,93 @@
         android:background="@drawable/header"
         android:orientation="vertical"
         android:padding="10dp">
+
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_gravity="center">
-<!--            android:src="@drawable/icon_daftar"-->
+            <!--            android:src="@drawable/icon_daftar"-->
         </ImageView>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Daftarkan Sanggarmu"
-            android:textAlignment="center"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:textSize="30dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="Daftarkan Sanggarmu"
+            android:textAlignment="center"
             android:textColor="@color/black"
-            android:fontFamily="sans-serif-medium">
-        </TextView>
+            android:textSize="30dp"></TextView>
     </LinearLayout>
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="40dp">
+        android:layout_height="match_parent">
 
-        <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/input_nama"
-            android:layout_height="wrap_content"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:hint="Nama Sanggar"
-            android:inputType="textPersonName"
-            android:textSize="25dp"
-            app:met_floatingLabel="highlight">
-        </com.rengwuxian.materialedittext.MaterialEditText>
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="40dp">
 
-        <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/input_alamat"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:hint="Alamat"
-            android:inputType="textPersonName"
-            android:textSize="25dp"
-            app:met_floatingLabel="highlight">
-        </com.rengwuxian.materialedittext.MaterialEditText>
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/input_nama"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nama Sanggar"
+                android:inputType="textPersonName"
+                android:textSize="25dp"
+                app:met_floatingLabel="highlight"></com.rengwuxian.materialedittext.MaterialEditText>
 
-        <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/input_telepon"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:hint="Telepon"
-            android:inputType="number"
-            android:textSize="25dp"
-            app:met_floatingLabel="highlight">
-        </com.rengwuxian.materialedittext.MaterialEditText>
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/input_alamat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Alamat"
+                android:inputType="textPersonName"
+                android:textSize="25dp"
+                app:met_floatingLabel="highlight"></com.rengwuxian.materialedittext.MaterialEditText>
 
-        <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/input_email"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:hint="Email"
-            android:inputType="textPersonName"
-            android:textSize="25dp"
-            app:met_floatingLabel="highlight">
-        </com.rengwuxian.materialedittext.MaterialEditText>
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/input_telepon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Telepon"
+                android:inputType="number"
+                android:textSize="25dp"
+                app:met_floatingLabel="highlight"></com.rengwuxian.materialedittext.MaterialEditText>
 
-        <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/input_password"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:hint="Password"
-            android:inputType="textPersonName"
-            android:textSize="25dp"
-            app:met_floatingLabel="highlight">
-        </com.rengwuxian.materialedittext.MaterialEditText>
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/input_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email"
+                android:inputType="textPersonName"
+                android:textSize="25dp"
+                app:met_floatingLabel="highlight"></com.rengwuxian.materialedittext.MaterialEditText>
 
-        <Button
-            android:layout_width="200dp"
-            android:layout_height="53dp"
-            android:background="@drawable/btn_submit"
-            android:layout_gravity="center"
-            android:layout_marginTop="100dp"
-            android:text="DAFTAR"
-            android:textSize="24dp">
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/input_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                android:inputType="textPersonName"
+                android:textSize="25dp"
+                app:met_floatingLabel="highlight"></com.rengwuxian.materialedittext.MaterialEditText>
 
-        </Button>
+            <Button
+                android:layout_width="200dp"
+                android:layout_height="53dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="100dp"
+                android:background="@drawable/btn_submit"
+                android:text="DAFTAR"
+                android:textSize="24dp">
 
-    </LinearLayout>
+            </Button>
+
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

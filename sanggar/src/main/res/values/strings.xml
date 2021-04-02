@@ -2,4 +2,19 @@
     <string name="app_name">sanggar</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="jam_operasional_sangggar">Jam Operasional Sanggar</string>
+    <string name="kegiatan_sangggar">Kegiatan Sanggar</string>
+    <string name="tambah_kegiatan">+ Tambah Kegiatan</string>
+    <string name="kegiatan">Kegiatan</string>
+    <string name="judul">Judul</string>
+    <string name="deskripsi">Deskripsi</string>
+    <string name="simpan">Simpan</string>
+    <string name="error_cannot_be_empty">%1$s cannot be empty</string>
+    <string name="error_input_must_more_than">must be at least %1$d character</string>
+    <string name="error_cannot_be_zero">%1$s cannot be 0 if product available</string>
+    <string name="jadwal_sanggar">Jadwal Sanggar</string>
+    <string name="tambah_jadwal_sanggar">+ Tambah Jadwal Sanggar</string>
+    <string name="jam_operasional">Jam Operasional</string>
+    <string name="jam_mulai">Jam Mulai</string>
+    <string name="jam_selesai">Jam Selesai</string>
 </resources>
