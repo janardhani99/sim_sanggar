@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment
 import com.example.sim_sanggar.view.fragment.beranda.BerandaFragment
 import com.example.sim_sanggar.view.fragment.daftar.DaftarFragment
 import com.example.sim_sanggar.view.fragment.profil.ProfilFragment
-import com.example.sim_sanggar.view.fragment.sewa.SewaFragment
+import com.example.sim_sanggar.view.fragment.sewa.JadwalSewaFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main_tab.*
 
@@ -25,7 +25,7 @@ class MainTabActivity: AppCompatActivity() {
             }
 
             R.id.menu_sewa -> {
-                replaceFragment(SewaFragment())
+                replaceFragment(JadwalSewaFragment())
                 return@OnNavigationItemSelectedListener true
             }
 

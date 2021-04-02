@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".view.fragment.sewa.SewaFragment">
+    tools:context=".view.fragment.sewa.JadwalSewaFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/grey"
         android:orientation="vertical">
 
         <LinearLayout
@@ -50,16 +49,15 @@
                     android:layout_width="267dp"
                     android:layout_height="wrap_content"
                     android:hint="Pilih Tanggal Sewa"
-                    android:textSize="20dp"
                     android:inputType="date">
                 </com.rengwuxian.materialedittext.MaterialEditText>
 
-<!--                <Button-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="54dp"-->
-<!--                    android:width="10dp"-->
-<!--                    android:height="10dp"-->
-<!--                    android:background="@drawable/icon_datepicker"></Button>-->
+                <!--                <Button-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="54dp"-->
+                <!--                    android:width="10dp"-->
+                <!--                    android:height="10dp"-->
+                <!--                    android:background="@drawable/icon_datepicker"></Button>-->
 
             </LinearLayout>
 
@@ -69,7 +67,6 @@
                 android:layout_width="match_parent"
                 android:hint="Jam Mulai"
                 android:inputType="time"
-                android:textSize="20dp"
                 app:met_floatingLabel="highlight">
             </com.rengwuxian.materialedittext.MaterialEditText>
 
@@ -79,7 +76,6 @@
                 android:layout_width="match_parent"
                 android:hint="Jam Selesai"
                 android:inputType="time"
-                android:textSize="20dp"
                 app:met_floatingLabel="highlight">
             </com.rengwuxian.materialedittext.MaterialEditText>
 
@@ -89,41 +85,60 @@
                 android:layout_width="match_parent"
                 android:hint="No Telp"
                 android:inputType="number"
-                android:textSize="20dp"
                 app:met_floatingLabel="highlight">
             </com.rengwuxian.materialedittext.MaterialEditText>
 
             <TextView
-                android:id="@+id/input_metodeBayar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Pilih Pembayaran"
-                android:textSize="20dp"
+                android:text="Pilih Metode Pembayaran"
+                android:padding="10dp"
                 android:textColor="@color/black"
-                android:padding="10dp">
+                android:textStyle="bold">
             </TextView>
 
-            <CheckBox
+            <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:checked="false"
-                android:text="Bayar di Tempat"
-                android:textSize="20dp"
-                android:padding="10dp"
-                android:textColor="@color/black">
+                android:orientation="vertical">
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/radiobtn_ditempat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Bayar di Tempat"
+                    android:onClick="onRadioButtonClicked">
+                </com.google.android.material.radiobutton.MaterialRadioButton>
 
-            </CheckBox>
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/radiobtn_transfer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Transfer Bank"
+                    android:onClick="onRadioButtonClicked">
+                </com.google.android.material.radiobutton.MaterialRadioButton>
+            </RadioGroup>
 
-            <CheckBox
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:checked="false"
-                android:text="Transfer"
-                android:textSize="20dp"
-                android:padding="10dp"
-                android:textColor="@color/black">
+            <!--            <CheckBox-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:checked="false"-->
+            <!--                android:text="Bayar di Tempat"-->
+            <!--                android:textSize="20dp"-->
+            <!--                android:padding="10dp"-->
+            <!--                android:textColor="@color/black">-->
 
-            </CheckBox>
+            <!--            </CheckBox>-->
+
+            <!--            <CheckBox-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:checked="false"-->
+            <!--                android:text="Transfer"-->
+            <!--                android:textSize="20dp"-->
+            <!--                android:padding="10dp"-->
+            <!--                android:textColor="@color/black">-->
+
+            <!--            </CheckBox>-->
 
             <Button
                 android:layout_width="200dp"
@@ -133,7 +148,7 @@
                 android:layout_marginTop="30dp"
                 android:text="SEWA"
                 android:textSize="25dp">
-<!--                android:onClick="Btn_daftar"-->
+                <!--                android:onClick="Btn_daftar"-->
 
             </Button>
 
@@ -142,4 +157,4 @@
 
     </LinearLayout>
 
-</FrameLayout>
+</LinearLayout>
