@@ -27,6 +27,10 @@
         <item name="cornerRadius">16dp</item>
         <item name="strokeColor">@color/colorPrimary</item>
     </style>
+    <style name="AppTheme.OutlinedButon" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="cornerRadius">16dp</item>
+        <item name="strokeColor">@color/colorPrimary</item>
+    </style>
 
     <style name="AppTheme.AppBarStyle" parent="Widget.MaterialComponents.Toolbar.Surface">
         <item name="titleTextColor">@color/white</item>
@@ -55,6 +59,15 @@
         <item name="boxCornerRadiusBottomEnd">@dimen/til_radius</item>
     </style>
 
+    <style name="AppTheme.TextInputAutoComplete" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <item name="boxBackgroundMode">outline</item>
+        <item name="boxBackgroundColor">@color/background</item>
+        <item name="boxStrokeColor">@color/color_grey_primary</item>
+        <item name="boxCornerRadiusTopStart">@dimen/til_radius</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/til_radius</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/til_radius</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/til_radius</item>
+    </style>
 
     <!--    Bottom Sheet-->
     <style name="AppTheme.BottomSheetDialog" parent="Theme.MaterialComponents.Light.BottomSheetDialog">

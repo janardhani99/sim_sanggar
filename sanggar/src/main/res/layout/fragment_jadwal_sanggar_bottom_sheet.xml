@@ -15,13 +15,33 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/dp32"
-            android:text="@string/jam_operasional_sangggar"
+            android:text="@string/jadwal_sanggar"
             android:textAlignment="center" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hari" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_hari_jadwal"
+            style="@style/AppTheme.TextInputAutoComplete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <AutoCompleteTextView
+                android:focusableInTouchMode="false"
+                android:focusable="false"
+                android:id="@+id/ac_hari_jadwal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <LinearLayout
             android:id="@+id/jam_section"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp16"
             android:orientation="horizontal"
             android:weightSum="2">
 
@@ -82,28 +102,8 @@
             </LinearLayout>
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp16"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Status Buka" />
-
-            <com.google.android.material.switchmaterial.SwitchMaterial
-                android:id="@+id/switch_status"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="@dimen/dp16"
-                android:text="Buka" />
-
-        </LinearLayout>
-
         <Button
-            android:id="@+id/btn_simpan_jam_operasional"
+            android:id="@+id/btn_simpan_jadwal"
             style="@style/AppTheme.UnelevatedButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -111,7 +111,7 @@
             android:text="@string/simpan" />
 
         <Button
-            android:id="@+id/btn_batal"
+            android:id="@+id/btn_cancel"
             style="@style/AppTheme.OutlinedButon"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

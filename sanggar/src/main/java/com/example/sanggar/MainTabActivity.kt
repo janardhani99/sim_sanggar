@@ -48,7 +48,7 @@ class MainTabActivity : BaseActivity() {
         }
     }
 
-    fun replaceFragment(fragment: Fragment) {
+    private fun replaceFragment(fragment: Fragment) {
         supportFragmentManager
                 .beginTransaction()
                 .replace(R.id.frame_layout, fragment, fragment.javaClass.simpleName)

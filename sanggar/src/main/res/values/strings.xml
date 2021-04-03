@@ -17,4 +17,6 @@
     <string name="jam_operasional">Jam Operasional</string>
     <string name="jam_mulai">Jam Mulai</string>
     <string name="jam_selesai">Jam Selesai</string>
+    <string name="batal">Batal</string>
+    <string name="hari">Hari</string>
 </resources>
