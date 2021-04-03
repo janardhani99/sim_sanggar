@@ -10,6 +10,8 @@ import com.example.sanggar.common.clickWithDebounce
 import com.example.sanggar.data.model.jadwal_sanggar.JadwalSanggarItem
 import com.example.sanggar.view.activity.common.BaseActivity
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.google.android.material.timepicker.MaterialTimePicker
+import com.google.android.material.timepicker.TimeFormat
 import kotlinx.android.synthetic.main.fragment_jadwal_sanggar_bottom_sheet.*
 
 class JadwalSanggarBottomSheetFragment(val data: JadwalSanggarItem? = null) : BottomSheetDialogFragment() {
@@ -57,6 +59,35 @@ class JadwalSanggarBottomSheetFragment(val data: JadwalSanggarItem? = null) : Bo
         btn_cancel?.clickWithDebounce {
             dismiss()
         }
+
+        val jamMulai = data?.jamMulai?.split(":")?.get(0)?.toInt() ?: 0
+        val menitMulai = data?.jamMulai?.split(":")?.get(1)?.toInt() ?: 0
+        val jamSelesai = data?.jamSelesai?.split(":")?.get(0)?.toInt() ?: 0
+        val menitSelesai = data?.jamSelesai?.split(":")?.get(1)?.toInt() ?: 0
+        et_jam_mulai?.setOnClickListener {
+            val jamMulaiPicker = MaterialTimePicker.Builder().setInputMode(MaterialTimePicker.INPUT_MODE_KEYBOARD).setTimeFormat(TimeFormat.CLOCK_24H).setHour(jamMulai
+                    ?: 0).setMinute(menitMulai ?: 0).build()
+            jamMulaiPicker.addOnPositiveButtonClickListener {
+                val value = "${getTimeStringFormat(jamMulaiPicker.hour.toString())}:${getTimeStringFormat(jamMulaiPicker.minute.toString())}"
+                et_jam_mulai?.setText(value)
+            }
+            jamMulaiPicker.show(childFragmentManager, "")
+        }
+        et_jam_selesai?.setOnClickListener {
+            val jamSelesaiPicker = MaterialTimePicker.Builder().setInputMode(MaterialTimePicker.INPUT_MODE_KEYBOARD).setTimeFormat(TimeFormat.CLOCK_24H).setHour(jamSelesai
+                    ?: 0).setMinute(menitSelesai ?: 0).build()
+            jamSelesaiPicker.addOnPositiveButtonClickListener {
+                val value = "${getTimeStringFormat(jamSelesaiPicker.hour.toString())}:${getTimeStringFormat(jamSelesaiPicker.minute.toString())}"
+                et_jam_selesai?.setText(value)
+            }
+            jamSelesaiPicker.show(childFragmentManager, "")
+        }
+    }
+
+    private fun getTimeStringFormat(time: String): String {
+        var waktu = time
+        if (time.length == 1) waktu = "0$time"
+        return waktu
     }
 
 

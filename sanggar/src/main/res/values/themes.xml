@@ -61,6 +61,7 @@
 
     <style name="AppTheme.TextInputAutoComplete" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
         <item name="boxBackgroundMode">outline</item>
+        <item name="hintEnabled">false</item>
         <item name="boxBackgroundColor">@color/background</item>
         <item name="boxStrokeColor">@color/color_grey_primary</item>
         <item name="boxCornerRadiusTopStart">@dimen/til_radius</item>

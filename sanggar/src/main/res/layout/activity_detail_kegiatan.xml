@@ -38,9 +38,9 @@
                 app:counterMaxLength="50">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:hint="@string/judul"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:hint="@string/judul"
                     android:inputType="textCapSentences" />
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
@@ -65,12 +65,44 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
-                    android:hint="@string/deskripsi"
                     android:layout_height="wrap_content"
+                    android:hint="@string/deskripsi"
                     android:inputType="textMultiLine" />
             </com.google.android.material.textfield.TextInputLayout>
 
         </LinearLayout>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_marginTop="@dimen/dp32"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <ImageView
+                android:id="@+id/iv_kegiatan_detail"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="H, 2:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <ImageButton
+                android:id="@+id/btn_image_kegiatan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:src="@drawable/ic_baseline_add_a_photo_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
     </LinearLayout>
 
 
