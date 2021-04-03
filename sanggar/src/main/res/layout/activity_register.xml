@@ -17,7 +17,8 @@
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_gravity="center">
+            android:layout_gravity="center"
+            android:src="@drawable/foto">
             <!--            android:src="@drawable/icon_daftar"-->
         </ImageView>
 
@@ -29,75 +30,149 @@
             android:fontFamily="sans-serif-medium"
             android:text="Daftarkan Sanggarmu"
             android:textAlignment="center"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="30dp"></TextView>
     </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:overScrollMode="never">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="40dp">
+            android:padding="@dimen/dp16">
 
-            <com.rengwuxian.materialedittext.MaterialEditText
-                android:id="@+id/input_nama"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/email" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_email_register"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/email"
+                    android:inputType="textEmailAddress" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp16"
+                android:text="@string/password" />
+
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Nama Sanggar"
-                android:inputType="textPersonName"
-                android:textSize="25dp"
-                app:met_floatingLabel="highlight"></com.rengwuxian.materialedittext.MaterialEditText>
+                app:endIconMode="password_toggle">
 
-            <com.rengwuxian.materialedittext.MaterialEditText
-                android:id="@+id/input_alamat"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Alamat"
-                android:inputType="textPersonName"
-                android:textSize="25dp"
-                app:met_floatingLabel="highlight"></com.rengwuxian.materialedittext.MaterialEditText>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/password"
+                    android:inputType="textPassword" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <com.rengwuxian.materialedittext.MaterialEditText
-                android:id="@+id/input_telepon"
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="Telepon"
-                android:inputType="number"
-                android:textSize="25dp"
-                app:met_floatingLabel="highlight"></com.rengwuxian.materialedittext.MaterialEditText>
+                android:layout_marginTop="@dimen/dp16"
+                android:text="@string/nama_sanggar" />
 
-            <com.rengwuxian.materialedittext.MaterialEditText
-                android:id="@+id/input_email"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_nama_sanggar_register"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Email"
-                android:inputType="textPersonName"
-                android:textSize="25dp"
-                app:met_floatingLabel="highlight"></com.rengwuxian.materialedittext.MaterialEditText>
+                android:layout_height="wrap_content">
 
-            <com.rengwuxian.materialedittext.MaterialEditText
-                android:id="@+id/input_password"
-                android:layout_width="match_parent"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/nama_sanggar"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="Password"
-                android:inputType="textPersonName"
-                android:textSize="25dp"
-                app:met_floatingLabel="highlight"></com.rengwuxian.materialedittext.MaterialEditText>
+                android:layout_marginTop="@dimen/dp16"
+                android:text="@string/nomor_telepon" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_telepon_register"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/nomor_telepon"
+                    android:inputType="phone" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <!--            <com.rengwuxian.materialedittext.MaterialEditText-->
+            <!--                android:id="@+id/input_nama"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:hint="Nama Sanggar"-->
+            <!--                android:inputType="textPersonName"-->
+            <!--                android:textSize="25dp"-->
+            <!--                app:met_floatingLabel="highlight"></com.rengwuxian.materialedittext.MaterialEditText>-->
+
+            <!--            <com.rengwuxian.materialedittext.MaterialEditText-->
+            <!--                android:id="@+id/input_alamat"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:hint="Alamat"-->
+            <!--                android:inputType="textPersonName"-->
+            <!--                android:textSize="25dp"-->
+            <!--                app:met_floatingLabel="highlight"></com.rengwuxian.materialedittext.MaterialEditText>-->
+
+            <!--            <com.rengwuxian.materialedittext.MaterialEditText-->
+            <!--                android:id="@+id/input_telepon"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:hint="Telepon"-->
+            <!--                android:inputType="number"-->
+            <!--                android:textSize="25dp"-->
+            <!--                app:met_floatingLabel="highlight"></com.rengwuxian.materialedittext.MaterialEditText>-->
+
+            <!--            <com.rengwuxian.materialedittext.MaterialEditText-->
+            <!--                android:id="@+id/input_email"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:hint="Email"-->
+            <!--                android:inputType="textPersonName"-->
+            <!--                android:textSize="25dp"-->
+            <!--                app:met_floatingLabel="highlight"></com.rengwuxian.materialedittext.MaterialEditText>-->
+
+            <!--            <com.rengwuxian.materialedittext.MaterialEditText-->
+            <!--                android:id="@+id/input_password"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:hint="Password"-->
+            <!--                android:inputType="textPersonName"-->
+            <!--                android:textSize="25dp"-->
+            <!--                app:met_floatingLabel="highlight"></com.rengwuxian.materialedittext.MaterialEditText>-->
 
             <Button
-                android:layout_width="200dp"
-                android:layout_height="53dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="100dp"
-                android:background="@drawable/btn_submit"
-                android:text="DAFTAR"
-                android:textSize="24dp">
+                android:id="@+id/btn_register"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp32"
+                android:text="@string/register" />
 
-            </Button>
+            <Button
+                android:id="@+id/btn_login_register"
+                style="@style/AppTheme.OutlinedButon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/login" />
 
         </LinearLayout>
     </ScrollView>

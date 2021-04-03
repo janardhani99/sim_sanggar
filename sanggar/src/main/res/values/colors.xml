@@ -19,7 +19,7 @@
     <color name="surface">#FFFFFF</color>
     <color name="onBackground">#000000</color>
     <color name="onSurface">#1E1E47</color>
-    <color name="colorAccent">#009688</color>
+    <color name="colorAccent">#ffb037</color>
 
     <color name="transparent">#00FFFFFF</color>
     <color name="divider_color">#CFCFCFCF</color>

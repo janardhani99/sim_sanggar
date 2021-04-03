@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="@dimen/dp16"
     tools:context=".view.fragment.jam_operasional.JamOperasionalBottomSheetFragment">
 
@@ -12,6 +13,7 @@
         android:orientation="vertical">
 
         <TextView
+            style="@style/TextAppearance.AppCompat.Title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/dp32"
@@ -94,6 +96,7 @@
                 android:text="Status Buka" />
 
             <com.google.android.material.switchmaterial.SwitchMaterial
+                app:thumbTint="@color/colorAccent"
                 android:id="@+id/switch_status"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
