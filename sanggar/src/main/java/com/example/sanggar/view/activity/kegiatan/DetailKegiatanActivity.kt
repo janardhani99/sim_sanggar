@@ -19,7 +19,7 @@ class DetailKegiatanActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_kegiatan)
-        action = intent.getIntExtra(Constants.Intent.ACTION, 0)
+        action = intent.getIntExtra("action", 0)
         setView(action)
 
         //set Toolbar
@@ -76,7 +76,7 @@ class DetailKegiatanActivity : BaseActivity() {
         Toast.makeText(this, "${isAllValid()}", Toast.LENGTH_SHORT).show()
         if (isAllValid()) {
             when (action) {
-                Constants.Action.CREATE -> {
+                0 -> {
 
                 }
                 else -> {

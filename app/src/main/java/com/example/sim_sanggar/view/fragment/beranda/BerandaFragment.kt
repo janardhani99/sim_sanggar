@@ -11,6 +11,7 @@ import com.example.sim_sanggar.R
 import com.example.sim_sanggar.view.adapter.HomeCardviewAdapter
 import kotlinx.android.synthetic.main.fragment_beranda.*
 import com.example.sim_sanggar.data.model.HomeCardview
+import java.lang.Package.getPackage
 
 
 class BerandaFragment : Fragment() {
@@ -34,9 +35,9 @@ class BerandaFragment : Fragment() {
         cardViewAdapter = HomeCardviewAdapter(activity!!)
         rv_home.adapter = cardViewAdapter
 
-        addCardviewList.add(HomeCardview("android.resource://sim_sanggar" + R.drawable.iconjadwal,"Jadwal Sanggar", "Lihat Hari Apa Sanggarmu Berlatih"))
-        addCardviewList.add(HomeCardview("android.resource://sim_sanggar" + R.drawable.iconsewa,"Jadwal Booking Studio", "Cek Slot Booking"))
-        addCardviewList.add(HomeCardview("android.resource://sim_sanggar" + R.drawable.iconinfo,"Info Sanggar", "Lihat Informasi Sanggarmu"))
+        addCardviewList.add(HomeCardview("android.resource://" + getPackage("com.example.sim_sanggar") + "/" + R.drawable.iconjadwal,"Jadwal Sanggar", "Lihat Hari Apa Sanggarmu Berlatih"))
+        addCardviewList.add(HomeCardview("android.resource://" + getPackage("com.example.sim_sanggar") + + R.drawable.iconsewa,"Jadwal Booking Studio", "Cek Slot Booking"))
+        addCardviewList.add(HomeCardview("android.resource://" + getPackage("com.example.sim_sanggar") + + R.drawable.iconinfo,"Info Sanggar", "Lihat Informasi Sanggarmu"))
         cardViewAdapter.setCardview(addCardviewList)
 
     }

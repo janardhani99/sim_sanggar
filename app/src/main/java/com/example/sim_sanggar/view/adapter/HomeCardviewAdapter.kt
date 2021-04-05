@@ -2,9 +2,11 @@ package com.example.sim_sanggar.view.adapter
 
 import android.content.Context
 import android.content.Intent
+import android.media.Image
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.FragmentTransaction
@@ -37,12 +39,13 @@ class HomeCardviewAdapter(val context: Context): RecyclerView.Adapter<HomeCardvi
         notifyDataSetChanged()
     }
     inner class CardviewViewHolder(item: View): RecyclerView.ViewHolder(item) {
-
+        val imgCardView: ImageView = item.findViewById(R.id.item_image)
         val txtJudul: TextView = item.findViewById(R.id.item_judul)
         val txtDeskripsi: TextView = item.findViewById(R.id.item_deskripsi)
         val cvHome: CardView = item.findViewById(R.id.cardviewHome)
 
         fun bindmodel(c: HomeCardview) {
+            imgCardView. = c.getFoto()
             txtJudul.text = c.getJudul()
             txtDeskripsi.text = c.getDeskripsi()
 

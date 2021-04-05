@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.sanggar.R
+import com.example.sanggar.common.Constants
 import com.example.sanggar.common.clickWithDebounce
 import com.example.sanggar.view.activity.common.BaseActivity
 import kotlinx.android.synthetic.main.activity_kegiatan.*
@@ -17,7 +18,9 @@ class KegiatanActivity : BaseActivity(){
         toolbar_title?.text = getString(R.string.kegiatan)
 
         cv_tambah_kegiatan?.clickWithDebounce {
-            startActivity(Intent(this, DetailKegiatanActivity::class.java))
+            val intent = Intent(this, DetailKegiatanActivity::class.java)
+            intent.putExtra("intent",0)
+            startActivity(intent)
         }
     }
 }
