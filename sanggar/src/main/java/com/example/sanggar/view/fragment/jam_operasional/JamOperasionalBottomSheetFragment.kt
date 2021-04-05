@@ -38,6 +38,10 @@ class JamOperasionalBottomSheetFragment(val data: JamOperasionalItem, val saveLi
             this.dismiss()
         }
 
+        btn_batal?.clickWithDebounce {
+            dismiss()
+        }
+
         switch_status?.setOnCheckedChangeListener { _, isChecked ->
             data.status = isChecked
             switch_status?.text = getStatusText(isChecked)
@@ -54,6 +58,7 @@ class JamOperasionalBottomSheetFragment(val data: JamOperasionalItem, val saveLi
             jamMulaiPicker.addOnPositiveButtonClickListener {
                 val value = "${getTimeStringFormat(jamMulaiPicker.hour.toString())}:${getTimeStringFormat(jamMulaiPicker.minute.toString())}"
                 et_jam_mulai?.setText(value)
+                data.jamMulai = value
             }
             jamMulaiPicker.show(childFragmentManager, "")
         }
@@ -63,6 +68,7 @@ class JamOperasionalBottomSheetFragment(val data: JamOperasionalItem, val saveLi
             jamSelesaiPicker.addOnPositiveButtonClickListener {
                 val value = "${getTimeStringFormat(jamSelesaiPicker.hour.toString())}:${getTimeStringFormat(jamSelesaiPicker.minute.toString())}"
                 et_jam_selesai?.setText(value)
+                data.jamSelesai = value
             }
             jamSelesaiPicker.show(childFragmentManager, "")
         }

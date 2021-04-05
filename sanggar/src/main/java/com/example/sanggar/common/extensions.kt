@@ -5,6 +5,9 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import android.widget.EditText
+import android.widget.ImageView
+import coil.load
+import com.example.sanggar.R
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
@@ -29,7 +32,7 @@ fun <T> Observable<T>.doSubscribe(observer: DisposableObserver<in T>): Disposabl
 }
 
 
-fun EditText.onTextChanged(onTextChanged: (String)->Unit){
+fun EditText.onTextChanged(onTextChanged: (String) -> Unit) {
     this.addTextChangedListener(object : TextWatcher {
         override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
         }
@@ -42,4 +45,12 @@ fun EditText.onTextChanged(onTextChanged: (String)->Unit){
         }
 
     })
+}
+
+fun ImageView.loadImage(url: String) {
+    this.load(url) {
+        crossfade(true)
+        fallback(R.drawable.ic_baseline_image_24)
+        placeholder(R.drawable.ic_baseline_image_24)
+    }
 }

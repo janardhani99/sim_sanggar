@@ -39,7 +39,7 @@
         <com.google.android.material.tabs.TabLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:tabMode="fixed"
+            app:tabMode="scrollable"
             android:id="@+id/tl_sewa"/>
 
         <androidx.viewpager.widget.ViewPager

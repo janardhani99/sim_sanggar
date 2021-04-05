@@ -16,7 +16,7 @@
         android:orientation="vertical">
 
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cv_tambah_kegiatan"
+            android:id="@+id/cv_tambah_jadwal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/dp8"

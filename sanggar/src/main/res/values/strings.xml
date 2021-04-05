@@ -17,4 +17,12 @@
     <string name="jam_operasional">Jam Operasional</string>
     <string name="jam_mulai">Jam Mulai</string>
     <string name="jam_selesai">Jam Selesai</string>
+    <string name="batal">Batal</string>
+    <string name="hari">Hari</string>
+    <string name="register">Register</string>
+    <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="nama_sanggar">Nama Sanggar</string>
+    <string name="nomor_telepon">Nomor Telepon</string>
 </resources>
