@@ -17,7 +17,7 @@ object Constants {
         const val EDIT = 1
     }
 
-    object Intent{
+    object Intent {
         const val ACTION = "action"
     }
 }

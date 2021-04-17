@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.sanggar.R
 import com.example.sanggar.common.clickWithDebounce
+import com.example.sanggar.view.activity.fasilitas.FasilitasActivity
 import com.example.sanggar.view.activity.jadwal_sanggar.JadwalSanggarActivity
 import com.example.sanggar.view.activity.jam_operasional.JamOperasionalActivity
 import com.example.sanggar.view.activity.kegiatan.KegiatanActivity
@@ -30,6 +31,10 @@ class LainnyaFragment : Fragment() {
 
         cv_kegiatan_sanggar?.clickWithDebounce {
             startActivity(Intent(context, KegiatanActivity::class.java))
+        }
+
+        cv_fasilitas_sanggar?.clickWithDebounce {
+            startActivity(Intent(context, FasilitasActivity::class.java))
         }
     }
 

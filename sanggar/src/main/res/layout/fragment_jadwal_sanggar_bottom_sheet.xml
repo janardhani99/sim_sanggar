@@ -22,7 +22,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/hari" />
+            android:text="@string/hari"
+            android:textSize="18dp"
+            android:layout_marginBottom="7dp"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/til_hari_jadwal"
@@ -37,6 +39,27 @@
                 android:id="@+id/ac_hari_jadwal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Kategori Latihan"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="7dp"
+            android:textSize="18dp"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_kategori_latihan"
+            style="@style/AppTheme.TextInputAutoComplete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <AutoCompleteTextView
+                android:hint="Cth. Tari Bali, Olah Tubuh, dll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
         </com.google.android.material.textfield.TextInputLayout>
 
         <LinearLayout
@@ -57,7 +80,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/jam_mulai" />
+                    android:text="@string/jam_mulai"
+                    android:textSize="17dp"
+                    android:layout_marginBottom="7dp"/>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/til_jam_mulai"
@@ -71,7 +96,9 @@
                         android:layout_height="wrap_content"
                         android:focusable="false"
                         android:focusableInTouchMode="false"
-                        android:hint="@string/jam_mulai" />
+                        android:hint="@string/jam_mulai"
+                        android:textSize="17dp"
+                        android:layout_marginBottom="7dp"/>/>
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
 

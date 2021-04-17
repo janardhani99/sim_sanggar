@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.fragment.beranda.JadwalLatihanFragment">
+    tools:context=".view.activity.jadwalsanggar.JadwalLatihanActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,43 +19,15 @@
             android:padding="20dp"
             android:textSize="20dp">
         </TextView>
-        <androidx.cardview.widget.CardView
+
+        <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:listitem="@layout/recycler_jadwal_sanggar_item"/>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="10dp">
-                <TextView
-                    android:id="@+id/kategori_latihan"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Kategori Latihan">
-                </TextView>
-
-                <TextView
-                    android:id="@+id/hari_latihan"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Hari">
-
-                </TextView>
-
-                <TextView
-                    android:id="@+id/jam_latihan"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Jam">
-
-                </TextView>
-
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
     </LinearLayout>
     <!-- TODO: Update blank fragment layout -->
 
 
-</ScrollView>
+</LinearLayout>

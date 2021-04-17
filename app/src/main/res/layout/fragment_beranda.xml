@@ -107,62 +107,161 @@
                 android:textStyle="bold"
                 android:layout_margin="10dp">
             </TextView>
-<!--                <LinearLayout-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:orientation="horizontal">-->
-
-<!--                    <androidx.cardview.widget.CardView-->
-<!--                        android:id="@+id/cv_jadwalLatihan"-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        app:cardCornerRadius="30dp">-->
-
-<!--                        <RelativeLayout-->
-<!--                            android:layout_width="154dp"-->
-<!--                            android:layout_height="132dp"-->
-<!--                            android:layout_margin="5dp"-->
-<!--                            android:background="@drawable/menu_jadwal">-->
-<!--                        </RelativeLayout>-->
-<!--                    </androidx.cardview.widget.CardView>-->
-
-<!--                    <androidx.cardview.widget.CardView-->
-<!--                        android:id="@+id/cv_jadwalSewa"-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="match_parent">-->
-
-<!--                        <RelativeLayout-->
-<!--                            android:layout_width="154dp"-->
-<!--                            android:layout_height="132dp"-->
-<!--                            android:layout_margin="5dp"-->
-<!--                            android:background="@drawable/menu_sewa">-->
-<!--                        </RelativeLayout>-->
-<!--                    </androidx.cardview.widget.CardView>-->
-
-<!--                    <androidx.cardview.widget.CardView-->
-<!--                        android:id="@+id/cv_info"-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content">-->
-<!--                        <RelativeLayout-->
-<!--                            android:layout_width="154dp"-->
-<!--                            android:layout_height="132dp"-->
-<!--                            android:layout_margin="5dp"-->
-<!--                            android:background="@drawable/menu_info">-->
-<!--                        </RelativeLayout>-->
-<!--                    </androidx.cardview.widget.CardView>-->
-<!--                </LinearLayout>-->
 
         </LinearLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_home"
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:id="@+id/rv_home"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:orientation="vertical"-->
+<!--            tools:listitem="@layout/item_cardview"-->
+<!--            android:layout_margin="10dp"-->
+<!--            android:padding="10dp">-->
+<!--        </androidx.recyclerview.widget.RecyclerView>-->
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            tools:listitem="@layout/item_cardview"
-            android:layout_margin="10dp"
-            android:padding="10dp">
-        </androidx.recyclerview.widget.RecyclerView>
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cv_jadwalsanggar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    app:cardCornerRadius="15dp"
+                    android:clickable="true">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:id="@+id/img_jadwalsanggar"
+                            android:layout_width="300dp"
+                            android:layout_height="240dp"
+                            android:src="@drawable/iconcardview"
+                            android:scaleType="fitXY"
+                            android:layout_gravity="center">
+                        </ImageView>
+
+                        <TextView
+                            android:id="@+id/judul_jadwalsanggar"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Jadwal Sanggar"
+                            android:layout_margin="10dp"
+                            android:textColor="@color/black"
+                            android:textAlignment="center"
+                            android:layout_gravity="center">
+                        </TextView>
+
+                        <TextView
+                            android:id="@+id/deskripsi_jadwalsanggar"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Lihat Jadwal Sanggar Setiap Minggunya"
+                            android:layout_margin="10dp"
+                            android:textColor="@color/black"
+                            android:textAlignment="center"
+                            android:layout_gravity="center">
+                        </TextView>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cv_fasilitas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    app:cardCornerRadius="15dp"
+                    android:clickable="true">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:id="@+id/img_fasilitas"
+                            android:layout_width="300dp"
+                            android:layout_height="240dp"
+                            android:src="@drawable/iconcardview"
+                            android:scaleType="fitXY"
+                            android:layout_gravity="center">
+                        </ImageView>
+
+                        <TextView
+                            android:id="@+id/judul_jadwalsewa"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Fasilitas"
+                            android:layout_margin="10dp"
+                            android:textColor="@color/black"
+                            android:textAlignment="center"
+                            android:layout_gravity="center">
+                        </TextView>
+
+                        <TextView
+                            android:id="@+id/deskripsi_jadwalsewa"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Lihat Fasilitas Studio"
+                            android:layout_margin="10dp"
+                            android:textColor="@color/black"
+                            android:textAlignment="center"
+                            android:layout_gravity="center">
+                        </TextView>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cv_kegiatansanggar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    app:cardCornerRadius="15dp"
+                    android:clickable="true">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:id="@+id/img_kegiatansanggar"
+                            android:layout_width="300dp"
+                            android:layout_height="240dp"
+                            android:src="@drawable/iconcardview"
+                            android:scaleType="fitXY"
+                            android:layout_gravity="center">
+                        </ImageView>
+
+                        <TextView
+                            android:id="@+id/judul_kegiatansanggar"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Kegiatan Sanggar"
+                            android:layout_margin="10dp"
+                            android:textColor="@color/black"
+                            android:textAlignment="center"
+                            android:layout_gravity="center">
+                        </TextView>
+
+                        <TextView
+                            android:id="@+id/deskripsi_kegiatansanggar"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Lihat Kegiatan dan Dokumentasi Sanggar"
+                            android:layout_margin="10dp"
+                            android:textColor="@color/black"
+                            android:textAlignment="center"
+                            android:layout_gravity="center">
+                        </TextView>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+        </ScrollView>
+
 
     </LinearLayout>
 

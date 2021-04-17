@@ -7,4 +7,6 @@
         <item>Bayar Langsung</item>
         <item>Transfer Bank</item>
     </string>
+
+    <string name="error_cannot_be_empty">%1$s cannot be empty</string>
 </resources>

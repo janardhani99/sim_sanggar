@@ -6,9 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import com.example.sim_sanggar.R
-import com.example.sim_sanggar.view.activity.auth.SewaActivity
+import com.example.sim_sanggar.view.activity.sewa.SewaActivity
 import kotlinx.android.synthetic.main.fragment_jadwal_sewa.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -36,15 +35,16 @@ class JadwalSewaFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_jadwal_sewa, container, false)
 
         when(view?.id) {
-//            R.id.btn_sewa ->
-//                sendMessage(btn_sewa)
+            R.id.btn_sewa ->
+                sendMessage(btn_sewa)
         }
+//        sendMessage()
 
     }
 
     fun sendMessage(view: View) {
 
-        val btn_sewa: Button = view.findViewById(R.id.btn_sewa)
+//        val btn_sewa: Button = view.findViewById(R.id.btn_sewa)
 
         btn_sewa.setOnClickListener {
             var intent = Intent(context, SewaActivity::class.java)

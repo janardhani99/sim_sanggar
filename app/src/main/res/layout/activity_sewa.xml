@@ -105,16 +105,16 @@
                     android:id="@+id/radiobtn_ditempat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Bayar di Tempat"
-                    android:onClick="onRadioButtonClicked">
+                    android:text="Bayar di Tempat">
+
+<!--                    android:onClick="onRadioButtonClicked"-->
                 </com.google.android.material.radiobutton.MaterialRadioButton>
 
                 <com.google.android.material.radiobutton.MaterialRadioButton
                     android:id="@+id/radiobtn_transfer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Transfer Bank"
-                    android:onClick="onRadioButtonClicked">
+                    android:text="Transfer Bank">
                 </com.google.android.material.radiobutton.MaterialRadioButton>
             </RadioGroup>
 

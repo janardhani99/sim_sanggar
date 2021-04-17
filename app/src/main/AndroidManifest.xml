@@ -9,8 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SIM_Sanggar">
-        <activity android:name=".view.activity.auth.SewaActivity"></activity>
-        <activity android:name=".view.activity.auth.JadwalLatihanActivity" />
+        <activity android:name=".view.activity.edit_profil.EditProfilActivity"></activity>
+        <activity android:name=".view.activity.fasilitas.FasilitasActivity" />
+        <activity android:name=".view.activity.kegiatan.KegiatanActivity" />
+        <activity android:name=".view.activity.sewa.SewaActivity" />
+        <activity android:name=".view.activity.jadwalsanggar.JadwalLatihanActivity" />
         <activity android:name=".view.activity.auth.RegisterActivity" />
         <activity android:name=".view.activity.auth.LoginActivity" />
         <activity android:name=".MainTabActivity">

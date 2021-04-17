@@ -2,18 +2,16 @@ package com.example.sim_sanggar.view.adapter
 
 import android.content.Context
 import android.content.Intent
-import android.media.Image
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
-import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sim_sanggar.R
 import com.example.sim_sanggar.data.model.HomeCardview
-import com.example.sim_sanggar.view.activity.auth.JadwalLatihanActivity
+import com.example.sim_sanggar.view.activity.jadwalsanggar.JadwalLatihanActivity
 
 
 class HomeCardviewAdapter(val context: Context): RecyclerView.Adapter<HomeCardviewAdapter.CardviewViewHolder>() {
@@ -21,7 +19,7 @@ class HomeCardviewAdapter(val context: Context): RecyclerView.Adapter<HomeCardvi
     private val cardviews : MutableList<HomeCardview> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardviewViewHolder {
-        return CardviewViewHolder(LayoutInflater.from(context).inflate(R.layout.item_cardview, parent, false))
+        return CardviewViewHolder(LayoutInflater.from(context).inflate(R.layout.recycler_kegiatan_item, parent, false))
     }
 
     override fun getItemCount(): Int {
@@ -45,7 +43,7 @@ class HomeCardviewAdapter(val context: Context): RecyclerView.Adapter<HomeCardvi
         val cvHome: CardView = item.findViewById(R.id.cardviewHome)
 
         fun bindmodel(c: HomeCardview) {
-            imgCardView. = c.getFoto()
+//            imgCardView. = c.getFoto()
             txtJudul.text = c.getJudul()
             txtDeskripsi.text = c.getDeskripsi()
 
