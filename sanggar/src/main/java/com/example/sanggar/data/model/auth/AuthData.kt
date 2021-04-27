@@ -1,6 +1,7 @@
 package com.example.sanggar.data.model.auth
 
 import com.example.sanggar.data.model.common.BaseResultData
+import com.example.sanggar.data.model.sanggar.SanggarData
 import com.google.gson.annotations.Expose
 
 class AuthResponse : BaseResultData() {
@@ -21,4 +22,6 @@ class AuthData {
     var photoURL : String? = null
     @Expose
     var phone : String? = null
+    @Expose
+    var sanggar : SanggarData? = null
 }

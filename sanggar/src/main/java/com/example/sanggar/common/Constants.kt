@@ -22,6 +22,6 @@ object Constants {
     }
 
     object Url {
-        const val baseUrl = "https://192.168.43.41:8000/api/admin/"
+        const val baseUrl =  "https://7fb40f7ce398.ngrok.io/api/admin/"
     }
 }

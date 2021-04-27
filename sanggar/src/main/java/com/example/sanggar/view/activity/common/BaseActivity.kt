@@ -1,10 +1,13 @@
 package com.example.sanggar.view.activity.common
 
+import android.content.Context
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sanggar.R
 import kotlinx.android.synthetic.main.fragment_toolbar.*
+import org.jetbrains.anko.alert
+import org.jetbrains.anko.yesButton
 
 open class BaseActivity : AppCompatActivity() {
     fun setToolbar() {
@@ -29,4 +32,15 @@ open class BaseActivity : AppCompatActivity() {
     fun toast(text: String) {
         Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
     }
+
+    fun showErrorAlert(mTitle: String, message: String){
+        alert(message) {
+            title = mTitle
+            yesButton{
+                it.dismiss()
+            }
+        }.show()
+    }
+
+
 }

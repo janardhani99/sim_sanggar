@@ -6,8 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.sanggar.GlobalClass
 import com.example.sanggar.R
+import com.example.sanggar.common.Preferences
 import com.example.sanggar.common.clickWithDebounce
+import com.example.sanggar.view.activity.auth.LoginActivity
 import com.example.sanggar.view.activity.fasilitas.FasilitasActivity
 import com.example.sanggar.view.activity.jadwal_sanggar.JadwalSanggarActivity
 import com.example.sanggar.view.activity.jam_operasional.JamOperasionalActivity
@@ -15,6 +18,9 @@ import com.example.sanggar.view.activity.kegiatan.KegiatanActivity
 import kotlinx.android.synthetic.main.fragment_lainnya.*
 
 class LainnyaFragment : Fragment() {
+
+    val preferences = Preferences(GlobalClass.context)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -35,6 +41,12 @@ class LainnyaFragment : Fragment() {
 
         cv_fasilitas_sanggar?.clickWithDebounce {
             startActivity(Intent(context, FasilitasActivity::class.java))
+        }
+
+        btn_logout?.clickWithDebounce {
+            preferences.userLoggedOut()
+            activity?.finishAffinity()
+            startActivity(Intent(context, LoginActivity::class.java))
         }
     }
 

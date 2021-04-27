@@ -2,12 +2,12 @@ package com.example.sanggar.presenter.common
 
 interface BaseContract {
     interface View {
-        fun showError(title: String, message: String?)
+        fun showError(title: String, message: String)
     }
 
     interface Presenter {
-        fun showError(title: String, message: String?)
-        fun updateFirebaseToken(token: String)
+        fun showError(title: String, message: String)
+//        fun updateFirebaseToken(token: String)
     }
 
 //    interface Handler {
@@ -21,3 +21,8 @@ interface BaseContract {
 //        ): Observable<BaseResultData>
 //    }
 }
+
+open class BasePresenter(private val baseView: BaseContract.View) : BaseContract.Presenter {
+    override fun showError(title: String, message: String) = baseView.showError(title, message)
+}
+
