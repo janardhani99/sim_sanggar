@@ -18,6 +18,6 @@
         app:menu="@menu/bottomnav_menu"
         app:labelVisibilityMode="labeled"
         android:id="@+id/btmnav_menu"
-        android:layout_alignParentBottom="true"/>
+        android:layout_alignParentBottom="true" />
 
 </RelativeLayout>

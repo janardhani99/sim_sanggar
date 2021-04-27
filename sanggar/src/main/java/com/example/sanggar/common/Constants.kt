@@ -20,4 +20,8 @@ object Constants {
     object Intent {
         const val ACTION = "action"
     }
+
+    object Url {
+        const val baseUrl = "https://192.168.43.41:8000/api/admin/"
+    }
 }

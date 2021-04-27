@@ -27,4 +27,11 @@
     <string name="nomor_telepon">Nomor Telepon</string>
     <string name="fasilitas">Fasilitas Studio</string>
     <string name="tambah_fasilitas">Tambah Fasilitas Studio</string>
+    <string name="forbidden">Forbidden</string>
+    <string name="error">Error</string>
+    <string name="unprocessed_entity">Unprocessed Entity</string>
+    <string name="no_connection">No Connection</string>
+    <string name="connection_timeout">Connection Timeout</string>
+    <string name="io_exception">IO Exception</string>
+
 </resources>

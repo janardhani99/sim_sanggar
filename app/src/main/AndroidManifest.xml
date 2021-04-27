@@ -2,7 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.sim_sanggar">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
+        android:name=".GlobalClass"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -15,8 +19,8 @@
         <activity android:name=".view.activity.sewa.SewaActivity" />
         <activity android:name=".view.activity.jadwalsanggar.JadwalLatihanActivity" />
         <activity android:name=".view.activity.auth.RegisterActivity" />
-        <activity android:name=".view.activity.auth.LoginActivity" />
-        <activity android:name=".MainTabActivity">
+        <activity android:name=".MainTabActivity"/>
+        <activity android:name=".view.activity.auth.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

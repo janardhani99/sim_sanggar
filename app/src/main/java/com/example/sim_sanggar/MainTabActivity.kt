@@ -40,6 +40,7 @@ class MainTabActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_tab)
+
         btmnav_menu.setOnNavigationItemSelectedListener(navigationListener)
 
         if (savedInstanceState == null) {

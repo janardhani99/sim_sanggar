@@ -7,17 +7,17 @@
     tools:context=".MainTabActivity">
 
     <FrameLayout
+        android:id="@+id/frame_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/btmnav_menu"
-        android:id="@+id/frame_layout"/>
+        android:layout_above="@id/btmnav_menu"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/btmnav_menu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:menu="@menu/bottomnav_menu"
         app:labelVisibilityMode="labeled"
-        android:id="@+id/btmnav_menu"
         android:layout_alignParentBottom="true"/>
 
 </RelativeLayout>
