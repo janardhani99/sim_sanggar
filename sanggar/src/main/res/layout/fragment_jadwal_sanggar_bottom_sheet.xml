@@ -41,26 +41,26 @@
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Kategori Latihan"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="7dp"
-            android:textSize="18dp"/>
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Kategori Latihan"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:layout_marginBottom="7dp"-->
+<!--            android:textSize="18dp"/>-->
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/til_kategori_latihan"
-            style="@style/AppTheme.TextInputAutoComplete"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            android:id="@+id/til_kategori_latihan"-->
+<!--            style="@style/AppTheme.TextInputAutoComplete"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content">-->
 
-            <AutoCompleteTextView
-                android:hint="Cth. Tari Bali, Olah Tubuh, dll"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+<!--            <AutoCompleteTextView-->
+<!--                android:hint="Cth. Tari Bali, Olah Tubuh, dll"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"/>-->
 
-        </com.google.android.material.textfield.TextInputLayout>
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
 
         <LinearLayout
             android:id="@+id/jam_section"
@@ -90,7 +90,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <EditText
+                    <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/et_jam_mulai"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

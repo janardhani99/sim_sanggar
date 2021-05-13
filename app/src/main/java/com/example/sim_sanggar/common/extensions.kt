@@ -9,6 +9,7 @@ import android.widget.ImageView
 import coil.load
 import com.example.sim_sanggar.R
 import io.reactivex.Observable
+import io.reactivex.Observer
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.observers.DisposableObserver
@@ -25,12 +26,11 @@ fun View.clickWithDebounce(debounceTime: Long = 600L, action: (View) -> Unit) {
     })
 }
 
-fun <T> Observable<T>.doSubscribe(observer: DisposableObserver<in T>): Disposable {
-    return this.subscribeOn(Schedulers.newThread())
+fun <T: Any> Observable<T>.doSubscribe(observer: Observer<in T>) {
+    this.subscribeOn(Schedulers.newThread())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribeWith(observer)
+            .subscribe(observer)
 }
-
 
 fun EditText.onTextChanged(onTextChanged: (String) -> Unit) {
     this.addTextChangedListener(object : TextWatcher {

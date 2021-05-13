@@ -1,14 +1,23 @@
 package com.example.sanggar.data.model.jadwal_sanggar
 
+import com.example.sanggar.data.model.common.BaseResultData
 import com.google.gson.annotations.Expose
 
-data class JadwalSanggarResponse(@Expose var data: List<JadwalSanggarItem>? = null)
+class JadwalSanggarResponse: BaseResultData() {
+        @Expose
+        var data: JadwalSanggarItem? = null
+}
 
-data class JadwalSanggarItem(
+class JadwalSanggarItem {
         @Expose
-        var hari: String? = null,
+        var accesToken: String? = null
+
         @Expose
-        var jamMulai: String? = null,
+        var hari: String? = null
+
+        @Expose
+        var jamMulai: String? = null
+
         @Expose
         var jamSelesai: String? = null
-)
+}

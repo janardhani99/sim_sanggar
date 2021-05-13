@@ -1,6 +1,7 @@
 package com.example.sanggar.data.handler.common
 
 import android.provider.SyncStateContract
+import android.util.Log
 import com.example.sanggar.GlobalClass.Companion.context
 import com.example.sanggar.common.Constants
 import com.example.sanggar.common.Preferences
@@ -9,6 +10,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
+import kotlin.math.log
 
 
 open class BaseHandler {
@@ -25,6 +27,7 @@ open class BaseHandler {
                     .method(original.method(), original.body())
                     .build()
             chain.proceed(request)
+
         }
         enabledLog()
 

@@ -1,13 +1,14 @@
 package com.example.sanggar.data.model.jam_operasional
 
+import com.example.sanggar.data.model.common.BaseResultData
 import com.google.gson.annotations.Expose
 
-data class JamOperasionalData(
+class JamOperasionalResponse: BaseResultData() {
         @Expose
         var data: List<JamOperasionalItem>? = null
-)
+}
 
-data class JamOperasionalItem(
+class JamOperasionalItem(
         @Expose
         var hari: String? = null,
         @Expose

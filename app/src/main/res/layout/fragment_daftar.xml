@@ -46,7 +46,7 @@
                 android:id="@+id/input_nama"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:hint="Nama"
+                android:hint="Nama Anak"
                 android:inputType="textPersonName"
                 android:textSize="20dp"
                 app:met_floatingLabel="highlight">

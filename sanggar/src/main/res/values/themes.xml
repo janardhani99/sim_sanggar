@@ -28,7 +28,7 @@
         <item name="cornerRadius">16dp</item>
         <item name="strokeColor">@color/colorPrimary</item>
     </style>
-    <style name="AppTheme.OutlinedButon" parent="Widget.MaterialComponents.Button.OutlinedButton">
+    <style name="AppTheme.OutlinedButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
         <item name="cornerRadius">16dp</item>
         <item name="strokeColor">@color/colorPrimary</item>
     </style>

@@ -103,8 +103,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="20dp"
-            android:text="Sewa Sekarang"
-            android:onClick="sendMessage">
+            android:text="Sewa Sekarang">
         </Button>
 
 

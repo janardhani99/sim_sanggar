@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".view.activity.auth.LoginActivity">
 
@@ -13,73 +13,88 @@
         android:background="@drawable/header"
         android:orientation="vertical"
         android:padding="10dp">
+
         <ImageView
+            android:src="@drawable/foto"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_gravity="center"
-            android:src="@drawable/icon_daftar">
+            android:layout_gravity="center">
+
+            <!--            android:src="@drawable/icon_daftar"-->
         </ImageView>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="LOGIN"
-            android:textAlignment="center"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:textSize="30dp"
-            android:textColor="@color/black"
-            android:fontFamily="sans-serif-medium">
-        </TextView>
+            android:fontFamily="sans-serif-medium"
+            android:text="Login"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="30dp"></TextView>
     </LinearLayout>
 
-    <LinearLayout
+    <ScrollView
+        android:padding="@dimen/dp16"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="40dp">
-        <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/input_nama"
-            android:layout_height="wrap_content"
+        android:layout_height="match_parent">
+        <LinearLayout
             android:layout_width="match_parent"
-            android:hint="Email"
-            android:inputType="textPersonName"
-            android:textSize="25dp"
-            app:met_floatingLabel="highlight">
-        </com.rengwuxian.materialedittext.MaterialEditText>
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/input_nama_ortu"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:hint="Password"
-            android:inputType="textPassword"
-            android:textSize="25dp"
-            app:met_floatingLabel="highlight"
-            >
-        </com.rengwuxian.materialedittext.MaterialEditText>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/username" />
 
-        <Button
-            android:id="@+id/btn_login"
-            android:layout_width="200dp"
-            android:layout_height="53dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="100dp"
-            android:text="Masuk"
-            android:textSize="24dp">
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_email_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-        </Button>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:hint="@string/username"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
-        <Button
-            android:id="@+id/btn_register"
-            android:layout_width="200dp"
-            android:layout_height="53dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="100dp"
-            android:text="Register"
-            android:textSize="24dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp16"
+                android:text="@string/password" />
 
-        </Button>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_password_user_login"
+                app:endIconMode="password_toggle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-    </LinearLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:hint="@string/password_user"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/btn_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp32"
+                android:text="@string/login" />
+
+            <Button
+                android:id="@+id/btn_register_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/AppTheme.OutlinedButton"
+                android:text="@string/register" />
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>

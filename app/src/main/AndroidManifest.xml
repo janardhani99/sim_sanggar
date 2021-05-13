@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".GlobalClass"
@@ -13,13 +14,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SIM_Sanggar">
-        <activity android:name=".view.activity.edit_profil.EditProfilActivity"></activity>
-        <activity android:name=".view.activity.fasilitas.FasilitasActivity" />
-        <activity android:name=".view.activity.kegiatan.KegiatanActivity" />
-        <activity android:name=".view.activity.sewa.SewaActivity" />
-        <activity android:name=".view.activity.jadwalsanggar.JadwalLatihanActivity" />
-        <activity android:name=".view.activity.auth.RegisterActivity" />
-        <activity android:name=".MainTabActivity"/>
+        <activity
+            android:name=".view.activity.edit_profil.EditProfilActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".view.activity.fasilitas.FasilitasActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".view.activity.kegiatan.KegiatanActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".view.activity.sewa.SewaActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".view.activity.jadwalsanggar.JadwalLatihanActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".view.activity.auth.RegisterActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".MainTabActivity"
+            android:screenOrientation="portrait"/>
         <activity android:name=".view.activity.auth.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.SIM_Sanggar" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="Theme.SIM_Sanggar" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryVariant">@color/colorPrimaryVariant</item>
@@ -12,6 +12,60 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="toolbarStyle">@style/AppTheme.AppBarStyle</item>
         <!-- Customize your theme here. -->
+        <item name="materialCardViewStyle">@style/AppTheme.CardView</item>
+        <item name="textInputStyle">@style/AppTheme.TextInputLayout</item>
+        <item name="materialButtonStyle">@style/AppTheme.UnelevatedButton</item>
     </style>
+
+    <style name="AppTheme.OutlinedButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="cornerRadius">16dp</item>
+        <item name="strokeColor">@color/colorPrimary</item>
+    </style>
+
+    <style name="AppTheme.AppBarStyle" parent="Widget.MaterialComponents.Toolbar.Surface">
+        <item name="titleTextColor">@color/white</item>
+        <item name="subtitleTextColor">@color/white</item>
+    </style>
+
+    <style name="ToolbarText">
+        <item name="android:textSize">@dimen/body_text_size</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="AppTheme.CardView" parent="Widget.MaterialComponents.CardView">
+        <item name="cardElevation">@dimen/dp8</item>
+        <item name="cardCornerRadius">@dimen/dp8</item>
+    </style>
+
+    <style name="AppTheme.UnelevatedButton" parent="Widget.MaterialComponents.Button.UnelevatedButton">
+        <item name="cornerRadius">16dp</item>
+        <item name="strokeColor">@color/colorPrimary</item>
+    </style>
+
+    <style name="AppTheme.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxBackgroundColor">@color/background</item>
+        <item name="hintEnabled">false</item>
+        <item name="passwordToggleTint">@null</item>
+        <item name="boxStrokeColor">@color/color_grey_primary</item>
+        <item name="boxCornerRadiusTopStart">@dimen/til_radius</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/til_radius</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/til_radius</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/til_radius</item>
+    </style>
+
+    <style name="AppTheme.TextInputAutoComplete" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <item name="boxBackgroundMode">outline</item>
+        <item name="hintEnabled">false</item>
+        <item name="boxBackgroundColor">@color/background</item>
+        <item name="boxStrokeColor">@color/color_grey_primary</item>
+        <item name="boxCornerRadiusTopStart">@dimen/til_radius</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/til_radius</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/til_radius</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/til_radius</item>
+    </style>
+
+
 </resources>

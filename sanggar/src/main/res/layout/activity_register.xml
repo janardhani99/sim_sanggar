@@ -170,7 +170,7 @@
 
             <Button
                 android:id="@+id/btn_login_register"
-                style="@style/AppTheme.OutlinedButon"
+                style="@style/AppTheme.OutlinedButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/login" />

@@ -8,5 +8,24 @@
         <item>Transfer Bank</item>
     </string>
 
+    <string name="register">Register</string>
+    <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="nomor_telepon">Nomor Telepon</string>
+    <string name="sanggar_user">Nama Sanggar</string>
+    <string name="error_input_must_more_than">must be at least %1$d character</string>
+    <string name="error_cannot_be_zero">%1$s cannot be 0 if product available</string>
+    <string name="error">Error</string>
+    <string name="unprocessed_entity">Unprocessed Entity</string>
+    <string name="no_connection">No Connection</string>
+    <string name="connection_timeout">Connection Timeout</string>
+    <string name="io_exception">IO Exception</string>
     <string name="error_cannot_be_empty">%1$s cannot be empty</string>
+    <string name="nama_user">Nama</string>
+    <string name="username">Username</string>
+    <string name="email_user">Email</string>
+    <string name="password_user">Password</string>
+    <string name="tanggal_lahir">Tanggal Lahir</string>
+    <string name="telepon_user">Nomor Telepon</string>
 </resources>

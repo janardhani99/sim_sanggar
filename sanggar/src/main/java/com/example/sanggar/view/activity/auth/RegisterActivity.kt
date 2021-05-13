@@ -21,6 +21,7 @@ class RegisterActivity : BaseActivity(), AuthContract.View {
 
     val presenter = AuthPresenter(this)
     val preferences = Preferences(GlobalClass.context)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
@@ -52,6 +53,7 @@ class RegisterActivity : BaseActivity(), AuthContract.View {
         registerData["telepon"] = nomor_telepon
         isLoadingProcess(true)
         presenter.register(registerData)
+
     }
 
     override fun loginResponse(response: AuthResponse) {

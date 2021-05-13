@@ -1,20 +1,38 @@
 package com.example.sanggar.view.fragment.jadwal_sanggar
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import androidx.fragment.app.DialogFragment.STYLE_NORMAL
+import com.example.sanggar.GlobalClass
 import com.example.sanggar.R
+import com.example.sanggar.common.Preferences
+import com.example.sanggar.common.Utilities
 import com.example.sanggar.common.clickWithDebounce
 import com.example.sanggar.data.model.jadwal_sanggar.JadwalSanggarItem
+import com.example.sanggar.data.model.jadwal_sanggar.JadwalSanggarResponse
+import com.example.sanggar.presenter.auth.AuthPresenter
+import com.example.sanggar.presenter.jadwal_sanggar.JadwalSanggarContract
+import com.example.sanggar.presenter.jadwal_sanggar.JadwalSanggarPresenter
 import com.example.sanggar.view.activity.common.BaseActivity
+import com.example.sanggar.view.activity.jadwal_sanggar.JadwalSanggarActivity
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
+import kotlinx.android.synthetic.main.activity_register.*
 import kotlinx.android.synthetic.main.fragment_jadwal_sanggar_bottom_sheet.*
+import okhttp3.internal.Util
+import kotlin.math.log
 
-class JadwalSanggarBottomSheetFragment(val data: JadwalSanggarItem? = null) : BottomSheetDialogFragment() {
+class JadwalSanggarBottomSheetFragment(val data: JadwalSanggarItem? = null) : BottomSheetDialogFragment(), JadwalSanggarContract.View {
+
+    val presenter = JadwalSanggarPresenter(this)
+    val preferences = Preferences(GlobalClass.context)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setStyle(STYLE_NORMAL, R.style.AppTheme_BottomSheetDialog)
@@ -52,7 +70,8 @@ class JadwalSanggarBottomSheetFragment(val data: JadwalSanggarItem? = null) : Bo
         } else {
             //create data
             btn_simpan_jadwal?.clickWithDebounce {
-                (activity as BaseActivity?)?.toast("create data")
+//                (activity as BaseActivity?)?.toast("create data")
+                tambahJadwalSanggarProcess()
             }
         }
 
@@ -90,5 +109,43 @@ class JadwalSanggarBottomSheetFragment(val data: JadwalSanggarItem? = null) : Bo
         return waktu
     }
 
+    private fun tambahJadwalSanggarProcess() {
+        val hari = til_hari_jadwal?.editText?.text.toString()
+        val jam_mulai = til_jam_mulai?.editText?.text.toString()
+        val jam_selesai = til_jam_selesai?.editText?.text.toString()
 
+        val tambahData = HashMap<String, Any?>()
+        tambahData["hari"] = hari
+        tambahData["jam_mulai"] = jam_mulai
+        tambahData["jam_selesai"] = jam_selesai
+
+//        isLoadingProcess(true)
+        presenter.tambahJadwalSanggar(tambahData)
+
+        Preferences(GlobalClass.context).accessToken?.let { Log.d("ACCESS TOKENKU", it) }
+
+    }
+
+    override fun jadwalSanggarResponse(response: JadwalSanggarResponse) {
+        dismiss()
+
+//        val data = response.data
+//        preferences.apply {
+//            accessToken = data?.accesToken
+//            userLoggedIn = true
+//        }
+
+//        startActivity(Intent (context, JadwalSanggarActivity::class.java))
+    }
+
+    override fun showError(title: String, message: String) {
+
+//        showErrorAlert(title, message)
+    }
+
+//    fun isLoadingPRocess(loading: Boolean) {
+//        if(loading) Utilities.showProgress(this)
+//        else Utilities.hideProgress()
+//
+//    }
 }
