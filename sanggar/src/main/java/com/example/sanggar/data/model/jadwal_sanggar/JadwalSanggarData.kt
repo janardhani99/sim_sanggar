@@ -8,16 +8,21 @@ class JadwalSanggarResponse: BaseResultData() {
         var data: JadwalSanggarItem? = null
 }
 
+class JadwalSanggarListResponse : BaseResultData() {
+        @Expose
+        var data: List<JadwalSanggarItem>? = null
+}
+
 class JadwalSanggarItem {
         @Expose
-        var accesToken: String? = null
+        var id: Int? = null
 
         @Expose
         var hari: String? = null
 
         @Expose
-        var jamMulai: String? = null
+        var jam_mulai: String? = null
 
         @Expose
-        var jamSelesai: String? = null
+        var jam_selesai: String? = null
 }

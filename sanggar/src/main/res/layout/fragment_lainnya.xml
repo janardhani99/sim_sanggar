@@ -80,7 +80,7 @@
                         android:layout_marginStart="@dimen/dp8"
                         android:layout_marginLeft="@dimen/dp8"
                         android:layout_weight="1"
-                        android:text="@string/kegiatan_sangggar"
+                        android:text="@string/kegiatan"
                         android:textColor="@color/white"
                         android:textStyle="bold" />
                 </LinearLayout>

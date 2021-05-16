@@ -28,20 +28,17 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/judul" />
+                android:text="@string/judul_kegiatan" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_judul_kegiatan"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:counterEnabled="true"
-                app:counterMaxLength="50">
+                android:layout_height="wrap_content">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/judul"
-                    android:inputType="textCapSentences" />
+                    android:hint="@string/judul_kegiatan"/>
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
 
@@ -54,7 +51,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/deskripsi" />
+                android:text="@string/deskripsi_kegiatan" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_deskripsi_kegiatan"
@@ -66,7 +63,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/deskripsi"
+                    android:hint="@string/deskripsi_kegiatan"
                     android:inputType="textMultiLine" />
             </com.google.android.material.textfield.TextInputLayout>
 

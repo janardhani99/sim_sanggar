@@ -3,11 +3,11 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="jam_operasional_sangggar">Jam Operasional Sanggar</string>
-    <string name="kegiatan_sangggar">Kegiatan Sanggar</string>
+    <string name="kegiatan_sanggar">Kegiatan Sanggar</string>
     <string name="tambah_kegiatan">+ Tambah Kegiatan</string>
     <string name="kegiatan">Kegiatan</string>
-    <string name="judul">Judul</string>
-    <string name="deskripsi">Deskripsi</string>
+    <string name="judul_kegiatan">Judul</string>
+    <string name="deskripsi_kegiatan">Deskripsi</string>
     <string name="simpan">Simpan</string>
     <string name="error_cannot_be_empty">%1$s cannot be empty</string>
     <string name="error_input_must_more_than">must be at least %1$d character</string>

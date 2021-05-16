@@ -11,7 +11,7 @@ class AuthResponse : BaseResultData() {
 
 class AuthData {
     @Expose
-    var accesToken : String? = null
+    var accessToken : String? = null
     @Expose
     var fcmToken : String? = null
     @Expose

@@ -4,31 +4,41 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import com.example.sanggar.R
-import com.example.sanggar.common.Constants
-import com.example.sanggar.common.Validations
-import com.example.sanggar.common.clickWithDebounce
+import com.example.sanggar.common.*
+import com.example.sanggar.data.model.common.EmptyResponse
+import com.example.sanggar.data.model.kegiatan.KegiatanListItem
+import com.example.sanggar.data.model.kegiatan.KegiatanListResponse
+import com.example.sanggar.data.model.kegiatan.KegiatanResponse
+import com.example.sanggar.presenter.kegiatan.KegiatanContract
+import com.example.sanggar.presenter.kegiatan.KegiatanPresenter
 import com.example.sanggar.view.activity.common.BaseActivity
 import com.theartofdev.edmodo.cropper.CropImage
 import com.theartofdev.edmodo.cropper.CropImageView
 import kotlinx.android.synthetic.main.activity_detail_kegiatan.*
+import kotlinx.android.synthetic.main.fragment_jadwal_sanggar_bottom_sheet.*
 import kotlinx.android.synthetic.main.fragment_toolbar.*
+import okhttp3.internal.Util
 
 
-class DetailKegiatanActivity : BaseActivity() {
-    var action = 0
+class DetailKegiatanActivity : BaseActivity(), KegiatanContract.View {
+    var data: KegiatanListItem? = null
+    val presenter = KegiatanPresenter(this)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_kegiatan)
-        action = intent.getIntExtra("action", 0)
-        setView(action)
-
-        //set Toolbar
+        data = intent.getParcelableExtra<KegiatanListItem>("data")
         setToolbar()
         toolbar_title?.text = getString(R.string.kegiatan)
+//        setView(data)
+
+        //set Toolbar
+
 
         //init listener
         initListener()
     }
+
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -61,10 +71,15 @@ class DetailKegiatanActivity : BaseActivity() {
                 .start(this)
     }
 
-    private fun setView(action: Int?) {
-        when (action) {
-            Constants.Action.CREATE -> createMode()
-            else -> editMode()
+    private fun setView(data: KegiatanListItem) {
+//        when (data) {
+//            Constants.Action.CREATE -> createMode()
+//            else -> editMode()
+//        }
+        data?.run {
+            til_judul_kegiatan?.editText?.setText(judul)
+            til_deskripsi_kegiatan?.editText?.setText(deskripsi)
+            foto?.let { iv_kegiatan_detail?.loadImage(it) }
         }
     }
 
@@ -73,25 +88,49 @@ class DetailKegiatanActivity : BaseActivity() {
     private fun createMode() {}
 
     private fun addOrEditKegiatan() {
-        Toast.makeText(this, "${isAllValid()}", Toast.LENGTH_SHORT).show()
-        if (isAllValid()) {
-            when (action) {
-                0 -> {
+//        Toast.makeText(this, "${isAllValid()}", Toast.LENGTH_SHORT).show()
+        val judul = til_judul_kegiatan?.editText?.text.toString()
+        val deskripsi = til_deskripsi_kegiatan?.editText?.text.toString()
 
-                }
-                else -> {
+        val tambahData = HashMap<String, Any?>()
+        tambahData["judul"] = judul
+        tambahData["deskripsi"] = deskripsi
+        isLoading(true)
+        presenter.addKegiatan(tambahData)
+    }
 
-                }
-            }
+
+    private fun isLoading(isLoad: Boolean) {
+        if (isLoad) Utilities.showProgress(this)
+        else {
+            Utilities.hideProgress()
         }
     }
 
-    private fun isAllValid(): Boolean {
-        val valid = mutableListOf<Boolean>()
-        valid.apply {
-            add(Validations.isTextValid(Constants.Validations.VALIDATION_EMPTY, textInputLayout = til_judul_kegiatan))
-            add(Validations.isTextValid(Constants.Validations.VALIDATION_EMPTY, textInputLayout = til_deskripsi_kegiatan))
-        }
-        return !valid.contains(false)
+    override fun kegiatanResponse(response: KegiatanResponse) {
+        this.showCustomDialog("Data berhasil", "Data berhasil ditambahkan")
+        startActivity(Intent(this, KegiatanActivity::class.java))
+    }
+
+    override fun getKegiatanResponse(response: KegiatanListResponse) {
+        TODO("Not yet implemented")
+    }
+
+    override fun deleteKegiatanResponse(response: EmptyResponse) {
+        TODO("Not yet implemented")
+    }
+
+    override fun showError(title: String, message: String) {
+        this.showErrorAlert(title, message)
     }
 }
+
+//private fun isAllValid(): Boolean {
+//    val valid = mutableListOf<Boolean>()
+//    valid.apply {
+//        add(Validations.isTextValid(Constants.Validations.VALIDATION_EMPTY, textInputLayout = til_judul_kegiatan))
+//        add(Validations.isTextValid(Constants.Validations.VALIDATION_EMPTY, textInputLayout = til_deskripsi_kegiatan))
+//    }
+//    return !valid.contains(false)
+//}
+

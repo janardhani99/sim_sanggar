@@ -59,7 +59,7 @@ class LoginActivity : BaseActivity(), AuthContract.View {
         isLoadingProcess(false)
         val data = response.data
         preferences.apply {
-            accessToken = data?.accesToken
+            accessToken = data?.accessToken
             userLoggedIn = true
         }
         finishAffinity()

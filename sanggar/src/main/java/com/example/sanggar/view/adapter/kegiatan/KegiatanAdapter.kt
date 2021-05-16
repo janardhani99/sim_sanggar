@@ -10,9 +10,8 @@ import com.example.sanggar.common.loadImage
 import com.example.sanggar.data.model.kegiatan.KegiatanListItem
 import kotlinx.android.synthetic.main.recycler_kegiatan_item.view.*
 
-class KegiatanAdapter(val detailListener: (Int) -> Unit) : RecyclerView.Adapter<KegiatanAdapter.ViewHolder>() {
+class KegiatanAdapter(val detailListener: (KegiatanListItem) -> Unit) : RecyclerView.Adapter<KegiatanAdapter.ViewHolder>() {
     var kegiatanList = mutableListOf<KegiatanListItem>()
-
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -21,24 +20,25 @@ class KegiatanAdapter(val detailListener: (Int) -> Unit) : RecyclerView.Adapter<
         )
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = kegiatanList[position]
-        holder.itemView.apply {
-            cv_kegiatan_recycler?.clickWithDebounce {
-                item.id?.let { it1 -> detailListener(it1) }
-            }
-            tv_judul_kegiatan_recycler?.text = item.judul
-            tv_deskripsi_kegiatan_recycler?.text = item.deskripsi
-            item.judul?.let { iv_kegiatan_recycler?.loadImage(it) }
-        }
-    }
-
     override fun getItemCount(): Int {
         return kegiatanList.count()
     }
 
-    fun setData(data: MutableList<KegiatanListItem>) {
-        kegiatanList = data
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val item = kegiatanList[position]
+        holder.itemView.apply {
+            cv_kegiatan_recycler?.clickWithDebounce {
+//                item.id?.let { it1 -> detailListener(it1) }
+                detailListener(item)
+            }
+            tv_judul_kegiatan_recycler?.text = item.judul
+            tv_deskripsi_kegiatan_recycler?.text = item.deskripsi
+            item.foto?.let { iv_kegiatan_recycler?.loadImage(it) }
+        }
+    }
+
+    fun setData(data: List<KegiatanListItem>) {
+        kegiatanList = data.toMutableList()
         notifyDataSetChanged()
     }
 }
