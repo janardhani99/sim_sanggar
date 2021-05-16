@@ -2,7 +2,9 @@ package com.example.sanggar.view.activity.kegiatan
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
+import com.bumptech.glide.Glide
 import com.example.sanggar.R
 import com.example.sanggar.common.*
 import com.example.sanggar.data.model.common.EmptyResponse
@@ -15,10 +17,7 @@ import com.example.sanggar.view.activity.common.BaseActivity
 import com.theartofdev.edmodo.cropper.CropImage
 import com.theartofdev.edmodo.cropper.CropImageView
 import kotlinx.android.synthetic.main.activity_detail_kegiatan.*
-import kotlinx.android.synthetic.main.fragment_jadwal_sanggar_bottom_sheet.*
 import kotlinx.android.synthetic.main.fragment_toolbar.*
-import okhttp3.internal.Util
-
 
 class DetailKegiatanActivity : BaseActivity(), KegiatanContract.View {
     var data: KegiatanListItem? = null
@@ -30,12 +29,7 @@ class DetailKegiatanActivity : BaseActivity(), KegiatanContract.View {
         data = intent.getParcelableExtra<KegiatanListItem>("data")
         setToolbar()
         toolbar_title?.text = getString(R.string.kegiatan)
-//        setView(data)
-
-        //set Toolbar
-
-
-        //init listener
+        setView(data)
         initListener()
     }
 
@@ -71,15 +65,19 @@ class DetailKegiatanActivity : BaseActivity(), KegiatanContract.View {
                 .start(this)
     }
 
-    private fun setView(data: KegiatanListItem) {
+    private fun setView(data: KegiatanListItem?) {
 //        when (data) {
 //            Constants.Action.CREATE -> createMode()
 //            else -> editMode()
 //        }
         data?.run {
-            til_judul_kegiatan?.editText?.setText(judul)
-            til_deskripsi_kegiatan?.editText?.setText(deskripsi)
+            til_judul_kegiatan?.editText?.setText(data.judul)
+            til_deskripsi_kegiatan?.editText?.setText(data.deskripsi)
             foto?.let { iv_kegiatan_detail?.loadImage(it) }
+        }
+
+        btn_simpan_kegiatan.clickWithDebounce {
+            addOrEditKegiatan()
         }
     }
 
@@ -89,16 +87,23 @@ class DetailKegiatanActivity : BaseActivity(), KegiatanContract.View {
 
     private fun addOrEditKegiatan() {
 //        Toast.makeText(this, "${isAllValid()}", Toast.LENGTH_SHORT).show()
+
         val judul = til_judul_kegiatan?.editText?.text.toString()
         val deskripsi = til_deskripsi_kegiatan?.editText?.text.toString()
+        val foto = Glide.with(applicationContext).load(data?.foto).into(iv_kegiatan_detail)
 
         val tambahData = HashMap<String, Any?>()
         tambahData["judul"] = judul
         tambahData["deskripsi"] = deskripsi
+        tambahData["foto"] = foto
         isLoading(true)
-        presenter.addKegiatan(tambahData)
-    }
 
+        if(data == null) {
+            presenter.addKegiatan(tambahData)
+        } else {
+           data!!.id?.let { presenter.editKegiatan(it, tambahData) }
+        }
+    }
 
     private fun isLoading(isLoad: Boolean) {
         if (isLoad) Utilities.showProgress(this)

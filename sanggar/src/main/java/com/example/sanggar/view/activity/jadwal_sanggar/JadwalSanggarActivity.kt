@@ -49,7 +49,6 @@ class JadwalSanggarActivity : BaseActivity(), JadwalSanggarContract.View {
                     dialog.dismiss()
                 }
             })
-
         })
         rv_jadwal_sanggar?.layoutManager = LinearLayoutManager(this)
         rv_jadwal_sanggar?.adapter = adapter

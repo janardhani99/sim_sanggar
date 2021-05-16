@@ -1,5 +1,6 @@
 package com.example.sanggar.view.adapter.kegiatan
 
+import android.content.DialogInterface
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,9 +9,11 @@ import com.example.sanggar.R
 import com.example.sanggar.common.clickWithDebounce
 import com.example.sanggar.common.loadImage
 import com.example.sanggar.data.model.kegiatan.KegiatanListItem
+import com.example.sanggar.view.activity.common.BaseActivity
+import com.example.sanggar.view.activity.common.ButtonDialogListener
 import kotlinx.android.synthetic.main.recycler_kegiatan_item.view.*
 
-class KegiatanAdapter(val detailListener: (KegiatanListItem) -> Unit) : RecyclerView.Adapter<KegiatanAdapter.ViewHolder>() {
+class KegiatanAdapter(val detailListener: (KegiatanListItem) -> Unit, val deleteItem: (KegiatanListItem)->Unit) : RecyclerView.Adapter<KegiatanAdapter.ViewHolder>() {
     var kegiatanList = mutableListOf<KegiatanListItem>()
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view)
 
@@ -30,6 +33,10 @@ class KegiatanAdapter(val detailListener: (KegiatanListItem) -> Unit) : Recycler
             cv_kegiatan_recycler?.clickWithDebounce {
 //                item.id?.let { it1 -> detailListener(it1) }
                 detailListener(item)
+            }
+            cv_kegiatan_recycler?.setOnLongClickListener {
+                deleteItem(item)
+                return@setOnLongClickListener true
             }
             tv_judul_kegiatan_recycler?.text = item.judul
             tv_deskripsi_kegiatan_recycler?.text = item.deskripsi

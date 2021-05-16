@@ -115,7 +115,7 @@ class JadwalSanggarBottomSheetFragment(val data: JadwalSanggarItem? = null) : Bo
         tambahData["jam_mulai"] = jam_mulai
         tambahData["jam_selesai"] = jam_selesai
 
-//        isLoadingProcess(true)
+        isLoadingProcess(true)
         if(data == null) {
             presenter.tambahJadwalSanggar(tambahData)
         }else{
@@ -133,11 +133,6 @@ class JadwalSanggarBottomSheetFragment(val data: JadwalSanggarItem? = null) : Bo
         baseActivity.showCustomDialog("Data Berhasil", "Data berhasil ditambahkan")
 
         (activity as JadwalSanggarActivity?)?.fetchData()
-//        val data = response.data
-//        preferences.apply {
-//            accessToken = data?.accesToken
-//            userLoggedIn = true
-//        }
 
 //        startActivity(Intent (context, JadwalSanggarActivity::class.java))
     }
@@ -156,10 +151,10 @@ class JadwalSanggarBottomSheetFragment(val data: JadwalSanggarItem? = null) : Bo
         baseActivity.showErrorAlert(title, message)
     }
 
-//    fun isLoadingPRocess(loading: Boolean) {
-//        if(loading) Utilities.showProgress(this)
-//        else Utilities.hideProgress()
-//
-//    }
+    fun isLoadingProcess(isLoad: Boolean) {
+        if(isLoad) this.context?.let { Utilities.showProgress(it) }
+        else Utilities.hideProgress()
+
+    }
 
 }
