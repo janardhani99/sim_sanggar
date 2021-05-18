@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment
 import com.example.sanggar.view.activity.common.BaseActivity
 import com.example.sanggar.view.fragment.daftar.DaftarFragment
 import com.example.sanggar.view.fragment.lainnya.LainnyaFragment
-import com.example.sanggar.view.fragment.profil.ProfilFragment
+import com.example.sanggar.view.fragment.sanggar.ProfilFragment
 import com.example.sanggar.view.fragment.sewa.SewaFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main_tab.*

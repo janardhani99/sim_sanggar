@@ -23,8 +23,14 @@
     <string name="login">Login</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
+    <string name="edit_profil">Edit Profil</string>
     <string name="nama_sanggar">Nama Sanggar</string>
+    <string name="alamat">Alamat</string>
     <string name="nomor_telepon">Nomor Telepon</string>
+    <string name="bank">Bank</string>
+    <string name="no_rekening">No Rekening</string>
+    <string name="harga_pendaftaran">Biaya Pendaftaran</string>
+    <string name="harga_sewa">Biaya Sewa Perjam</string>
     <string name="fasilitas">Fasilitas Studio</string>
     <string name="tambah_fasilitas">Tambah Fasilitas Studio</string>
     <string name="forbidden">Forbidden</string>

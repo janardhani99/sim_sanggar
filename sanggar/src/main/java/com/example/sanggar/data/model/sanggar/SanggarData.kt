@@ -1,6 +1,11 @@
 package com.example.sanggar.data.model.sanggar
 
+import com.example.sanggar.data.model.common.BaseResultData
 import com.google.gson.annotations.Expose
+
+class ProfilSanggarResponse: BaseResultData() {
+    var data: SanggarData? = null
+}
 
 class SanggarData {
 

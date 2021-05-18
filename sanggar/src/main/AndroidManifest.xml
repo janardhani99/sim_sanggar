@@ -43,7 +43,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".view.activity.profil.EditProfilActivity"
+            android:name=".view.activity.sanggar.EditProfilActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".MainTabActivity"
