@@ -46,7 +46,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginTop="20dp">
             <TextView
-                android:id="@+id/nama_sanggar"
+                android:id="@+id/tv_nama_sanggar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
@@ -56,7 +56,7 @@
             </TextView>
 
             <TextView
-                android:id="@+id/alamat_sanggar"
+                android:id="@+id/tv_alamat_sanggar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/alamat"
@@ -66,7 +66,7 @@
             </TextView>
 
             <TextView
-                android:id="@+id/tlp_sanggar"
+                android:id="@+id/tv_no_telepon"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/nomor_telepon"
@@ -76,7 +76,7 @@
             </TextView>
 
             <TextView
-                android:id="@+id/bank"
+                android:id="@+id/tv_bank"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/bank"
@@ -86,7 +86,7 @@
             </TextView>
 
             <TextView
-                android:id="@+id/no_rekening"
+                android:id="@+id/tv_no_rekening"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/no_rekening"
@@ -96,7 +96,7 @@
             </TextView>
 
             <TextView
-                android:id="@+id/harga_pendafataran"
+                android:id="@+id/tv_harga_pendafataran"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/harga_pendaftaran"
@@ -106,7 +106,7 @@
             </TextView>
 
             <TextView
-                android:id="@+id/harga_sewa"
+                android:id="@+id/tv_harga_sewa"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/harga_sewa"

@@ -3,7 +3,9 @@ package com.example.sanggar.view.activity.sanggar
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.sanggar.GlobalClass
 import com.example.sanggar.R
+import com.example.sanggar.common.Preferences
 import com.example.sanggar.common.Utilities
 import com.example.sanggar.common.clickWithDebounce
 import com.example.sanggar.data.model.sanggar.ProfilSanggarResponse
@@ -18,6 +20,7 @@ import kotlinx.android.synthetic.main.fragment_toolbar.*
 class EditProfilActivity : BaseActivity(), ProfilSanggarContract.View {
 
     val presenter = ProfilSanggarPresenter(this)
+    val preferences = Preferences(GlobalClass.context)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,6 +38,7 @@ class EditProfilActivity : BaseActivity(), ProfilSanggarContract.View {
     }
 
     private fun addProfilProcess() {
+
         val nama_sanggar = til_nama_sanggar.editText?.text.toString()
         val alamat = til_alamat.editText?.text.toString()
         val nomor_telepon = til_nomor_telepon.editText?.text.toString()
@@ -46,23 +50,29 @@ class EditProfilActivity : BaseActivity(), ProfilSanggarContract.View {
         val tambahData = HashMap<String, Any?>()
         tambahData["nama"] = nama_sanggar
         tambahData["alamat"] = alamat
-        tambahData["telepon"] = nomor_telepon
         tambahData["bank"] = bank
+        tambahData["telepon"] = nomor_telepon
         tambahData["nomor_rekening"] = no_rekening
         tambahData["harga_pendaftaran_siswa"] = harga_pendaftaran
         tambahData["harga_penyewaan_perjam"] = harga_sewa
+
         isLoadingProcess(true)
         presenter.addProfilSanggar(tambahData)
     }
 
     override fun addProfilSanggarResponse(response: ProfilSanggarResponse) {
         isLoadingProcess(false)
+//        val data = response.data
+//        preferences.apply {
+//            userId = data?.id!!
+//            userLoggedIn = true
+//        }
         finishAffinity()
         startActivity(Intent(this, ProfilFragment::class.java))
     }
 
     override fun showError(title: String, message: String) {
-        showError(title, message)
+        showErrorAlert(title, message)
     }
 
     private fun isLoadingProcess(isLoad: Boolean) {

@@ -8,7 +8,8 @@ class ProfilSanggarResponse: BaseResultData() {
 }
 
 class SanggarData {
-
+//    @Expose
+//    var accessToken : String? = null
     @Expose
     var id : Int? = null
     @Expose

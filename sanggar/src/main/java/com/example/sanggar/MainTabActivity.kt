@@ -3,6 +3,7 @@ package com.example.sanggar
 import android.os.Bundle
 import android.os.Handler
 import androidx.fragment.app.Fragment
+import com.example.sanggar.data.model.sanggar.SanggarData
 import com.example.sanggar.view.activity.common.BaseActivity
 import com.example.sanggar.view.fragment.daftar.DaftarFragment
 import com.example.sanggar.view.fragment.lainnya.LainnyaFragment

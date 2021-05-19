@@ -8,11 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.sanggar.R
 import com.example.sanggar.common.clickWithDebounce
+import com.example.sanggar.data.model.sanggar.SanggarData
 import com.example.sanggar.view.activity.sanggar.EditProfilActivity
+import kotlinx.android.synthetic.main.activity_edit_profil.*
 import kotlinx.android.synthetic.main.fragment_profil_sanggar.*
 
 
-class ProfilFragment : Fragment() {
+class ProfilFragment(): Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,5 +34,21 @@ class ProfilFragment : Fragment() {
         }
     }
 
+//    override fun onStart() {
+//        super.onStart()
+//        initView()
+//    }
+
+    private fun initView() {
+        var data = SanggarData()
+        tv_nama_sanggar?.setText(data?.nama)
+        tv_alamat_sanggar?.setText(data?.alamat)
+        tv_no_telepon?.setText(data?.telepon)
+        tv_bank?.setText(data?.bank)
+        tv_no_rekening?.setText(data?.nomor_rekening)
+        tv_harga_pendafataran?.setText(data?.harga_pendaftaran_siswa?.let { Integer.toString(it) })
+        tv_harga_sewa?.setText(data?.harga_penyewaan_siswa?.let { Integer.toString(it) })
+
+    }
 
 }
