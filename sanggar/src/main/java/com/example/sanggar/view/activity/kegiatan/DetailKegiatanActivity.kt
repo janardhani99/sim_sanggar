@@ -2,9 +2,6 @@ package com.example.sanggar.view.activity.kegiatan
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
-import com.bumptech.glide.Glide
 import com.example.sanggar.R
 import com.example.sanggar.common.*
 import com.example.sanggar.data.model.common.EmptyResponse
@@ -18,6 +15,9 @@ import com.theartofdev.edmodo.cropper.CropImage
 import com.theartofdev.edmodo.cropper.CropImageView
 import kotlinx.android.synthetic.main.activity_detail_kegiatan.*
 import kotlinx.android.synthetic.main.fragment_toolbar.*
+import okhttp3.MediaType
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import java.io.File
 
 class DetailKegiatanActivity : BaseActivity(), KegiatanContract.View {
@@ -48,8 +48,6 @@ class DetailKegiatanActivity : BaseActivity(), KegiatanContract.View {
             }
         }
     }
-
-    private
 
     private fun initListener() {
         Validations.removeError(til_judul_kegiatan, til_deskripsi_kegiatan)
@@ -97,7 +95,6 @@ class DetailKegiatanActivity : BaseActivity(), KegiatanContract.View {
         val deskripsi = til_deskripsi_kegiatan?.editText?.text.toString()
 //        val foto = Glide.with(applicationContext).load(data?.foto).into(iv_kegiatan_detail)
 
-
         val tambahData = HashMap<String, Any?>()
         tambahData["judul"] = judul
         tambahData["deskripsi"] = deskripsi
@@ -119,8 +116,24 @@ class DetailKegiatanActivity : BaseActivity(), KegiatanContract.View {
     }
 
     override fun kegiatanResponse(response: KegiatanResponse) {
-        this.showCustomDialog("Data berhasil", "Data berhasil ditambahkan")
-        startActivity(Intent(this, KegiatanActivity::class.java))
+        if (imageFile != null) {
+            imageFile?.let { uploadImage(response.data?.id,it) }
+        } else {
+            this.showCustomDialogBack("Data berhasil", "Data berhasil ditambahkan")
+        }
+//        finish()
+//        startActivity(Intent(this, KegiatanActivity::class.java))
+    }
+
+    private fun uploadImage(id: Int?, it: File) {
+        val requestBody =
+                RequestBody.create(MediaType.parse("multipart/form-data"), imageFile)
+        val part = MultipartBody.Part.createFormData(
+                "image",
+                it.name,
+                requestBody
+        )
+        id?.let { presenter.addImage(it,part) }
     }
 
     override fun getKegiatanResponse(response: KegiatanListResponse) {
@@ -129,6 +142,10 @@ class DetailKegiatanActivity : BaseActivity(), KegiatanContract.View {
 
     override fun deleteKegiatanResponse(response: EmptyResponse) {
         TODO("Not yet implemented")
+    }
+
+    override fun uploadImageResponse() {
+        this.showCustomDialogBack("Data berhasil", "Data berhasil ditambahkan")
     }
 
     override fun showError(title: String, message: String) {

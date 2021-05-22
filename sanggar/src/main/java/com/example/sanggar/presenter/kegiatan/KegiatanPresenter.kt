@@ -7,6 +7,7 @@ import com.example.sanggar.data.model.common.EmptyResponse
 import com.example.sanggar.data.model.kegiatan.KegiatanListResponse
 import com.example.sanggar.data.model.kegiatan.KegiatanResponse
 import com.example.sanggar.presenter.common.BasePresenter
+import okhttp3.MultipartBody
 
 class KegiatanPresenter(val view: KegiatanContract.View): BasePresenter(view), KegiatanContract.Presenter {
 
@@ -43,6 +44,15 @@ class KegiatanPresenter(val view: KegiatanContract.View): BasePresenter(view), K
     override fun editKegiatan(id: Int, data: HashMap<String, Any?>) {
         handler.editKegiatan(id, data)
                 .doSubscribe(object : ErrorHandler<KegiatanResponse>(this){
+                    override fun onNext(t: KegiatanResponse) {
+                        view.kegiatanResponse(t)
+                    }
+                })
+    }
+
+    override fun addImage(id: Int, part: MultipartBody.Part) {
+        handler.addImage(id, part)
+                .doSubscribe(object : ErrorHandler<KegiatanResponse>(this) {
                     override fun onNext(t: KegiatanResponse) {
                         view.kegiatanResponse(t)
                     }

@@ -94,8 +94,12 @@ class KegiatanActivity : BaseActivity(), KegiatanContract.View {
 
     }
 
+    override fun uploadImageResponse() {
+
+    }
+
     override fun showError(title: String, message: String) {
-        TODO("Not yet implemented")
+        this.showErrorAlert(title, message)
     }
 
 }

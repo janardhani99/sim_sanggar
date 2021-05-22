@@ -6,6 +6,7 @@ import com.example.sanggar.data.model.kegiatan.KegiatanListResponse
 import com.example.sanggar.data.model.kegiatan.KegiatanResponse
 import com.example.sanggar.presenter.kegiatan.KegiatanContract
 import io.reactivex.Observable
+import okhttp3.MultipartBody
 
 class KegiatanHandler: BaseHandler() {
     val service = getClient().create(KegiatanContract.Handler::class.java)
@@ -24,5 +25,9 @@ class KegiatanHandler: BaseHandler() {
 
     fun editKegiatan(id: Int, data: HashMap<String, Any?>): Observable<KegiatanResponse> {
         return service.editKegiatan(id, data)
+    }
+
+    fun addImage(id: Int, part: MultipartBody.Part): Observable<KegiatanResponse> {
+        return service.addImage(id, part)
     }
 }

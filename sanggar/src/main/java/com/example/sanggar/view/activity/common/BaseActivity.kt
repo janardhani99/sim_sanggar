@@ -53,6 +53,16 @@ open class BaseActivity : AppCompatActivity() {
         } .show()
     }
 
+    fun showCustomDialogBack(mTitle: String, message: String) {
+        alert(message) {
+            title = mTitle
+            yesButton {
+                onBackPressed()
+                it.dismiss()
+            }
+        } .show()
+    }
+
     fun showConfirmationDialog(mTitle: String, message: String, listener: ButtonDialogListener) {
         alert(message) {
             title = mTitle
