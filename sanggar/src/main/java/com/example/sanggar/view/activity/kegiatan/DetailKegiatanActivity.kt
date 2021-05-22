@@ -18,10 +18,12 @@ import com.theartofdev.edmodo.cropper.CropImage
 import com.theartofdev.edmodo.cropper.CropImageView
 import kotlinx.android.synthetic.main.activity_detail_kegiatan.*
 import kotlinx.android.synthetic.main.fragment_toolbar.*
+import java.io.File
 
 class DetailKegiatanActivity : BaseActivity(), KegiatanContract.View {
     var data: KegiatanListItem? = null
     val presenter = KegiatanPresenter(this)
+    var imageFile : File? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,11 +42,14 @@ class DetailKegiatanActivity : BaseActivity(), KegiatanContract.View {
             val result = CropImage.getActivityResult(data)
             if (resultCode == RESULT_OK) {
                 iv_kegiatan_detail?.setImageURI(result.uri)
+                imageFile = File(result.uri.path)
             } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
                 toast(result.error.toString())
             }
         }
     }
+
+    private
 
     private fun initListener() {
         Validations.removeError(til_judul_kegiatan, til_deskripsi_kegiatan)
@@ -90,12 +95,13 @@ class DetailKegiatanActivity : BaseActivity(), KegiatanContract.View {
 
         val judul = til_judul_kegiatan?.editText?.text.toString()
         val deskripsi = til_deskripsi_kegiatan?.editText?.text.toString()
-        val foto = Glide.with(applicationContext).load(data?.foto).into(iv_kegiatan_detail)
+//        val foto = Glide.with(applicationContext).load(data?.foto).into(iv_kegiatan_detail)
+
 
         val tambahData = HashMap<String, Any?>()
         tambahData["judul"] = judul
         tambahData["deskripsi"] = deskripsi
-        tambahData["foto"] = foto
+//        tambahData["foto"] = foto
         isLoading(true)
 
         if(data == null) {
