@@ -2,11 +2,9 @@ package com.example.sanggar.view.activity.kegiatan
 
 import android.content.DialogInterface
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.sanggar.R
-import com.example.sanggar.common.Constants
 import com.example.sanggar.common.Utilities
 import com.example.sanggar.common.clickWithDebounce
 import com.example.sanggar.data.model.common.EmptyResponse
@@ -18,11 +16,11 @@ import com.example.sanggar.presenter.kegiatan.KegiatanPresenter
 import com.example.sanggar.view.activity.common.BaseActivity
 import com.example.sanggar.view.activity.common.ButtonDialogListener
 import com.example.sanggar.view.adapter.kegiatan.KegiatanAdapter
-import kotlinx.android.parcel.Parcelize
 import kotlinx.android.synthetic.main.activity_kegiatan.*
 import kotlinx.android.synthetic.main.fragment_toolbar.*
 
 class KegiatanActivity : BaseActivity(), KegiatanContract.View {
+
     var data: KegiatanListItem? = null
     private var presenter = KegiatanPresenter(this)
     lateinit var adapter: KegiatanAdapter
@@ -30,13 +28,15 @@ class KegiatanActivity : BaseActivity(), KegiatanContract.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_kegiatan)
+
         data = intent.getParcelableExtra<KegiatanListItem>("data")
+
         setToolbar()
         toolbar_title?.text = getString(R.string.kegiatan)
 
         initListener()
         initAdapter()
-        fetchData()
+//        fetchData()
     }
 
     private fun initListener() {
@@ -50,9 +50,12 @@ class KegiatanActivity : BaseActivity(), KegiatanContract.View {
 
     private fun initAdapter() {
         adapter = KegiatanAdapter({detailItem->
-//            startActivity(Intent(this, DetailKegiatanActivity::class.java).getParcelableExtra("data"))
+            val intent = Intent(this, DetailKegiatanActivity::class.java)
+            intent.putExtra("data", detailItem)
+            startActivity(intent)
+//            startActivity(Intent(this, DetailKegiatanActivity::class.java).getParcelableExtra("data", detailItem))
         },{deleteItem->
-            showConfirmationDialog("Konfirmasi","Hapus Kegiatan?", object : ButtonDialogListener{
+            showConfirmationDialog("Konfirmasi","Hapus Kegiatan Ini?", object : ButtonDialogListener{
                 override fun onOkButton(dialog: DialogInterface) {
                     isLoading(true)
                     deleteItem.id?.let { presenter.deleteKegiatan(it) }
@@ -60,8 +63,6 @@ class KegiatanActivity : BaseActivity(), KegiatanContract.View {
                     showCustomDialog("hapus data", "Data berhasil dihapus")
                 }
             })
-
-
         })
         rv_kegiatan?.layoutManager = LinearLayoutManager(this)
         rv_kegiatan?.adapter = adapter
@@ -77,6 +78,11 @@ class KegiatanActivity : BaseActivity(), KegiatanContract.View {
         else {
             Utilities.hideProgress()
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        fetchData()
     }
 
     override fun kegiatanResponse(response: KegiatanResponse) {

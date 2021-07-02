@@ -98,7 +98,7 @@
                         android:focusableInTouchMode="false"
                         android:hint="@string/jam_mulai"
                         android:textSize="17dp"
-                        android:layout_marginBottom="7dp"/>/>
+                        android:layout_marginBottom="7dp"/>
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
 

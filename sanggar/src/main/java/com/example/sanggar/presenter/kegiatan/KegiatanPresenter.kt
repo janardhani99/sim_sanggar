@@ -54,7 +54,7 @@ class KegiatanPresenter(val view: KegiatanContract.View): BasePresenter(view), K
         handler.addImage(id, part)
                 .doSubscribe(object : ErrorHandler<KegiatanResponse>(this) {
                     override fun onNext(t: KegiatanResponse) {
-                        view.kegiatanResponse(t)
+                        view.uploadImageResponse()
                     }
                 })
     }

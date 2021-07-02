@@ -62,13 +62,14 @@ class EditProfilActivity : BaseActivity(), ProfilSanggarContract.View {
 
     override fun addProfilSanggarResponse(response: ProfilSanggarResponse) {
         isLoadingProcess(false)
+        onBackPressed()
 //        val data = response.data
 //        preferences.apply {
 //            userId = data?.id!!
 //            userLoggedIn = true
 //        }
-        finishAffinity()
-        startActivity(Intent(this, ProfilFragment::class.java))
+//        finishAffinity()
+//        startActivity(Intent(this, ProfilFragment::class.java))
     }
 
     override fun showError(title: String, message: String) {

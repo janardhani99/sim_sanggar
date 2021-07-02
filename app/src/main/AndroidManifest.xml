@@ -14,27 +14,29 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SIM_Sanggar">
+        <activity android:name=".view.activity.anak.AnakTerdaftarActivity"></activity>
+        <activity android:name=".view.activity.anak.AnakActivity" />
         <activity
             android:name=".view.activity.edit_profil.EditProfilActivity"
-            android:screenOrientation="portrait"></activity>
-        <activity
-            android:name=".view.activity.fasilitas.FasilitasActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
+<!--        <activity-->
+<!--            android:name=".view.activity.fasilitas.FasilitasActivity"-->
+<!--            android:screenOrientation="portrait" />-->
         <activity
             android:name=".view.activity.kegiatan.KegiatanActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.sewa.SewaActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.jadwalsanggar.JadwalLatihanActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.auth.RegisterActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".MainTabActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity android:name=".view.activity.auth.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -52,7 +52,6 @@ class LoginActivity : BaseActivity(), AuthContract.View {
         loginData["password"] = password
         isLoadingProcess(true)
         presenter.login(loginData)
-
     }
 
     override fun loginResponse(response: AuthResponse) {

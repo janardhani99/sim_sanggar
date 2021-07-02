@@ -38,121 +38,127 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="40dp">
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:orientation="vertical">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <com.rengwuxian.materialedittext.MaterialEditText
-                    android:layout_width="267dp"
-                    android:layout_height="wrap_content"
-                    android:hint="Pilih Tanggal Sewa"
-                    android:inputType="date">
-                </com.rengwuxian.materialedittext.MaterialEditText>
+                android:orientation="vertical">
 
-                <!--                <Button-->
-                <!--                    android:layout_width="match_parent"-->
-                <!--                    android:layout_height="54dp"-->
-                <!--                    android:width="10dp"-->
-                <!--                    android:height="10dp"-->
-                <!--                    android:background="@drawable/icon_datepicker"></Button>-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tanggal_sewa" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_tanggal_sewa"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/tanggal_lahir" />
+                </com.google.android.material.textfield.TextInputLayout>
+
 
             </LinearLayout>
 
-            <com.rengwuxian.materialedittext.MaterialEditText
-                android:id="@+id/input_jamMulai"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:hint="Jam Mulai"
-                android:inputType="time"
-                app:met_floatingLabel="highlight">
-            </com.rengwuxian.materialedittext.MaterialEditText>
-
-            <com.rengwuxian.materialedittext.MaterialEditText
-                android:id="@+id/input_jamSelesai"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:hint="Jam Selesai"
-                android:inputType="time"
-                app:met_floatingLabel="highlight">
-            </com.rengwuxian.materialedittext.MaterialEditText>
-
-            <com.rengwuxian.materialedittext.MaterialEditText
-                android:id="@+id/input_no_telp"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:hint="No Telp"
-                android:inputType="number"
-                app:met_floatingLabel="highlight">
-            </com.rengwuxian.materialedittext.MaterialEditText>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Pilih Metode Pembayaran"
-                android:padding="10dp"
-                android:textColor="@color/black"
-                android:textStyle="bold">
-            </TextView>
-
-            <RadioGroup
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-                <com.google.android.material.radiobutton.MaterialRadioButton
-                    android:id="@+id/radiobtn_ditempat"
-                    android:layout_width="match_parent"
+
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Bayar di Tempat">
+                    android:text="@string/jam_mulai" />
 
-<!--                    android:onClick="onRadioButtonClicked"-->
-                </com.google.android.material.radiobutton.MaterialRadioButton>
-
-                <com.google.android.material.radiobutton.MaterialRadioButton
-                    android:id="@+id/radiobtn_transfer"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_jam_mulai"
                     android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_jam_mulai"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:hint="@string/jam_mulai"
+                        android:textSize="17dp"
+                        android:layout_marginBottom="7dp"/>
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Transfer Bank">
-                </com.google.android.material.radiobutton.MaterialRadioButton>
-            </RadioGroup>
+                    android:text="@string/jam_selesai" />
 
-            <!--            <CheckBox-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:checked="false"-->
-            <!--                android:text="Bayar di Tempat"-->
-            <!--                android:textSize="20dp"-->
-            <!--                android:padding="10dp"-->
-            <!--                android:textColor="@color/black">-->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_jam_selesai"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-            <!--            </CheckBox>-->
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_jam_selesai"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:hint="@string/jam_selesai"
+                        android:textSize="17dp"
+                        android:layout_marginBottom="7dp"/>
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
 
-            <!--            <CheckBox-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:checked="false"-->
-            <!--                android:text="Transfer"-->
-            <!--                android:textSize="20dp"-->
-            <!--                android:padding="10dp"-->
-            <!--                android:textColor="@color/black">-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-            <!--            </CheckBox>-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/metode_pembayaran" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_metode_pembayaran"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/metode_pembayaran" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_button_action"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/background"
+            app:cardCornerRadius="@dimen/dp0"
+            app:cardElevation="@dimen/dp24">
 
             <Button
-                android:layout_width="200dp"
-                android:layout_height="53dp"
-                android:background="@drawable/btn_submit"
-                android:layout_gravity="center"
-                android:layout_marginTop="30dp"
-                android:text="SEWA"
-                android:textSize="25dp">
-                <!--                android:onClick="Btn_daftar"-->
+                android:id="@+id/btn_sewa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp16"
+                android:text="@string/sewa" />
 
-            </Button>
-
-        </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
 
     </LinearLayout>

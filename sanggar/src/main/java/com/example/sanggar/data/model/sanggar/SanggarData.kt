@@ -13,7 +13,7 @@ class SanggarData {
     @Expose
     var id : Int? = null
     @Expose
-    var nama : String? = null
+    var nama_sanggar : String? = null
     @Expose
     var alamat : String? = null
     @Expose

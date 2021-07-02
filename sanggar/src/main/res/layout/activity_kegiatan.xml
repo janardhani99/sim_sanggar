@@ -38,7 +38,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/recycler_kegiatan_item" />
+            tools:listitem="@layout/recycler_kegiatan_item"/>
 
     </LinearLayout>
 

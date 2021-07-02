@@ -9,7 +9,6 @@ import android.view.ViewGroup
 //import androidx.cardview.widget.CardView
 import com.example.sim_sanggar.R
 import com.example.sim_sanggar.common.clickWithDebounce
-import com.example.sim_sanggar.view.activity.fasilitas.FasilitasActivity
 import kotlinx.android.synthetic.main.fragment_beranda.*
 import com.example.sim_sanggar.view.activity.jadwalsanggar.JadwalLatihanActivity
 import com.example.sim_sanggar.view.activity.sewa.SewaActivity
@@ -32,9 +31,9 @@ class BerandaFragment : Fragment() {
             startActivity(Intent(context, JadwalLatihanActivity::class.java))
         }
 
-        cv_fasilitas?.clickWithDebounce {
-            startActivity(Intent(context, FasilitasActivity::class.java))
-        }
+//        cv_fasilitas?.clickWithDebounce {
+//            startActivity(Intent(context, FasilitasActivity::class.java))
+//        }
 
         cv_kegiatansanggar?.clickWithDebounce {
             startActivity(Intent(context, KegiatanActivity::class.java))

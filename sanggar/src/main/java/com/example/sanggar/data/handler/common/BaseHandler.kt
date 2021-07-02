@@ -27,7 +27,6 @@ open class BaseHandler {
                     .method(original.method(), original.body())
                     .build()
             chain.proceed(request)
-
         }
         enabledLog()
 

@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.Spinner
 import com.example.sanggar.R
 import com.example.sanggar.view.adapter.daftar.DaftarPagerAdapter
-import kotlinx.android.synthetic.main.fragment_daftar.*
+import kotlinx.android.synthetic.main.fragment_daftar_anak.*
 
 class DaftarFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,7 +20,7 @@ class DaftarFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_daftar, container, false)
+        return inflater.inflate(R.layout.fragment_daftar_anak, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

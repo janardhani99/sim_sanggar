@@ -16,8 +16,11 @@ import kotlinx.android.synthetic.main.fragment_profil_sanggar.*
 
 class ProfilFragment(): Fragment() {
 
+    var data: SanggarData? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        data?.let { setView(it) }
 
     }
 
@@ -39,15 +42,27 @@ class ProfilFragment(): Fragment() {
 //        initView()
 //    }
 
-    private fun initView() {
-        var data = SanggarData()
-        tv_nama_sanggar?.setText(data?.nama)
-        tv_alamat_sanggar?.setText(data?.alamat)
-        tv_no_telepon?.setText(data?.telepon)
-        tv_bank?.setText(data?.bank)
-        tv_no_rekening?.setText(data?.nomor_rekening)
-        tv_harga_pendafataran?.setText(data?.harga_pendaftaran_siswa?.let { Integer.toString(it) })
-        tv_harga_sewa?.setText(data?.harga_penyewaan_siswa?.let { Integer.toString(it) })
+    private fun setView(data: SanggarData) {
+
+        data?.run {
+            tv_nama_sanggar?.text = data.nama_sanggar
+            tv_alamat_sanggar?.text = data.alamat
+            tv_no_telepon?.text = data.telepon
+            tv_bank?.text = data.bank
+            tv_no_rekening?.text = data.nomor_rekening
+
+//            tv_harga_pendafataran.setText(data.harga_pendaftaran_siswa)
+//            tv_harga_sewa.setText(data.harga_penyewaan_siswa)
+        }
+
+//        var data = SanggarData()
+//        tv_nama_sanggar?.setText(data?.nama_sanggar)
+//        tv_alamat_sanggar?.setText(data?.alamat)
+//        tv_no_telepon?.setText(data?.telepon)
+//        tv_bank?.setText(data?.bank)
+//        tv_no_rekening?.setText(data?.nomor_rekening)
+//        tv_harga_pendafataran?.setText(data?.harga_pendaftaran_siswa?.let { Integer.toString(it) })
+//        tv_harga_sewa?.setText(data?.harga_penyewaan_siswa?.let { Integer.toString(it) })
 
     }
 

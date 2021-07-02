@@ -21,6 +21,7 @@ class RegisterActivity: BaseActivity(), AuthContract.View {
 
     val presenter = AuthPresenter(this)
     val preferences = Preferences(GlobalClass.context)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
@@ -60,7 +61,7 @@ class RegisterActivity: BaseActivity(), AuthContract.View {
         isLoadingProcess(false)
         val data = response.data
         preferences.apply {
-            accessToken = data?.accesToken
+            accessToken = data?.accessToken
             userLoggedIn = true
         }
         finishAffinity()

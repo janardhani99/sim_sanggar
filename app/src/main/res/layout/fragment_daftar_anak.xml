@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.fragment.anak.AnakFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/tl_kegiatan_detail"
+            layout="@layout/fragment_toolbar" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/daftar_anak"
+            android:layout_margin="30dp"
+            android:textSize="20dp"
+            android:textAlignment="center"/>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_button_action"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/background"
+            app:cardCornerRadius="@dimen/dp0"
+            app:cardElevation="@dimen/dp24">
+
+            <Button
+                android:id="@+id/btn_daftar_sekarang"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp16"
+                android:text="@string/daftar_sekarang"/>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/background"
+            app:cardCornerRadius="@dimen/dp0"
+            app:cardElevation="@dimen/dp24">
+
+            <Button
+                android:id="@+id/btn_list_anak"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp16"
+                android:text="@string/lihat_list_anak"/>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
+
+
+</FrameLayout>

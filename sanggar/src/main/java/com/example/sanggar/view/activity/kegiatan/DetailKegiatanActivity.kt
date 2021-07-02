@@ -21,6 +21,7 @@ import okhttp3.RequestBody
 import java.io.File
 
 class DetailKegiatanActivity : BaseActivity(), KegiatanContract.View {
+
     var data: KegiatanListItem? = null
     val presenter = KegiatanPresenter(this)
     var imageFile : File? = null
@@ -28,13 +29,13 @@ class DetailKegiatanActivity : BaseActivity(), KegiatanContract.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_kegiatan)
+
         data = intent.getParcelableExtra<KegiatanListItem>("data")
         setToolbar()
         toolbar_title?.text = getString(R.string.kegiatan)
-        setView(data)
+        data?.let { setView(it) }
         initListener()
     }
-
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -68,7 +69,7 @@ class DetailKegiatanActivity : BaseActivity(), KegiatanContract.View {
                 .start(this)
     }
 
-    private fun setView(data: KegiatanListItem?) {
+    private fun setView(data: KegiatanListItem) {
 //        when (data) {
 //            Constants.Action.CREATE -> createMode()
 //            else -> editMode()
@@ -83,10 +84,6 @@ class DetailKegiatanActivity : BaseActivity(), KegiatanContract.View {
             addOrEditKegiatan()
         }
     }
-
-    private fun editMode() {}
-
-    private fun createMode() {}
 
     private fun addOrEditKegiatan() {
 //        Toast.makeText(this, "${isAllValid()}", Toast.LENGTH_SHORT).show()
@@ -104,7 +101,7 @@ class DetailKegiatanActivity : BaseActivity(), KegiatanContract.View {
         if(data == null) {
             presenter.addKegiatan(tambahData)
         } else {
-           data!!.id?.let { presenter.editKegiatan(it, tambahData) }
+            data?.id?.let { presenter.editKegiatan(it, tambahData) }
         }
     }
 
@@ -116,9 +113,11 @@ class DetailKegiatanActivity : BaseActivity(), KegiatanContract.View {
     }
 
     override fun kegiatanResponse(response: KegiatanResponse) {
+
         if (imageFile != null) {
             imageFile?.let { uploadImage(response.data?.id,it) }
         } else {
+            isLoading(false)
             this.showCustomDialogBack("Data berhasil", "Data berhasil ditambahkan")
         }
 //        finish()
@@ -145,6 +144,7 @@ class DetailKegiatanActivity : BaseActivity(), KegiatanContract.View {
     }
 
     override fun uploadImageResponse() {
+        isLoading(false)
         this.showCustomDialogBack("Data berhasil", "Data berhasil ditambahkan")
     }
 

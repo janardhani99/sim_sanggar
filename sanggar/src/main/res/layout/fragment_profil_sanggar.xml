@@ -50,7 +50,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
-                android:text="@string/nama_sanggar"
+                android:hint="@string/nama_sanggar"
                 android:textSize="24dp"
                 style="@style/TextAppearance.AppCompat.Title">
             </TextView>
@@ -59,7 +59,7 @@
                 android:id="@+id/tv_alamat_sanggar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/alamat"
+                android:hint="@string/alamat"
                 android:textSize="24dp"
                 android:layout_margin="15dp"
                 style="@style/TextAppearance.AppCompat.Title">
@@ -69,7 +69,7 @@
                 android:id="@+id/tv_no_telepon"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/nomor_telepon"
+                android:hint="@string/nomor_telepon"
                 android:textSize="24dp"
                 android:layout_margin="15dp"
                 style="@style/TextAppearance.AppCompat.Title">
@@ -79,7 +79,7 @@
                 android:id="@+id/tv_bank"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/bank"
+                android:hint="@string/bank"
                 android:textSize="24dp"
                 android:layout_margin="15dp"
                 style="@style/TextAppearance.AppCompat.Title">
@@ -89,7 +89,7 @@
                 android:id="@+id/tv_no_rekening"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/no_rekening"
+                android:hint="@string/no_rekening"
                 android:textSize="24dp"
                 android:layout_margin="15dp"
                 style="@style/TextAppearance.AppCompat.Title">
@@ -99,7 +99,7 @@
                 android:id="@+id/tv_harga_pendafataran"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/harga_pendaftaran"
+                android:hint="@string/harga_pendaftaran"
                 android:textSize="24dp"
                 android:layout_margin="15dp"
                 style="@style/TextAppearance.AppCompat.Title">
@@ -109,7 +109,7 @@
                 android:id="@+id/tv_harga_sewa"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/harga_sewa"
+                android:hint="@string/harga_sewa"
                 android:textSize="24dp"
                 android:layout_margin="15dp"
                 style="@style/TextAppearance.AppCompat.Title">

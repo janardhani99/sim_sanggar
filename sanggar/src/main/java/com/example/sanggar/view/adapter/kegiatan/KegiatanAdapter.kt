@@ -14,6 +14,7 @@ import com.example.sanggar.view.activity.common.ButtonDialogListener
 import kotlinx.android.synthetic.main.recycler_kegiatan_item.view.*
 
 class KegiatanAdapter(val detailListener: (KegiatanListItem) -> Unit, val deleteItem: (KegiatanListItem)->Unit) : RecyclerView.Adapter<KegiatanAdapter.ViewHolder>() {
+
     var kegiatanList = mutableListOf<KegiatanListItem>()
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view)
 

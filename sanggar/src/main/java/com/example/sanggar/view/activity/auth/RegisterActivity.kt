@@ -17,7 +17,7 @@ import com.example.sanggar.view.activity.common.BaseActivity
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_register.*
 
-class RegisterActivity : BaseActivity(), AuthContract.View {
+class RegisterActivity: BaseActivity(), AuthContract.View {
 
     val presenter = AuthPresenter(this)
     val preferences = Preferences(GlobalClass.context)
