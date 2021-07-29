@@ -1,24 +1,36 @@
 package com.example.sim_sanggar.view.activity.sewa
 
+import android.app.Activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.FrameLayout
 import android.widget.Toast
+import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import com.example.sim_sanggar.R
 import com.example.sim_sanggar.common.Utilities
 import com.example.sim_sanggar.common.Validations
 import com.example.sim_sanggar.common.clickWithDebounce
 import com.example.sim_sanggar.data.model.sewa.SewaListItem
 import com.example.sim_sanggar.data.model.sewa.SewaResponse
+import com.example.sim_sanggar.presenter.DatePickerHelper
 import com.example.sim_sanggar.presenter.sewa.SewaContract
 import com.example.sim_sanggar.presenter.sewa.SewaPresenter
 import com.example.sim_sanggar.view.activity.common.BaseActivity
+import com.google.android.material.timepicker.MaterialTimePicker
+import com.google.android.material.timepicker.TimeFormat
 import kotlinx.android.synthetic.main.activity_sewa.*
 import kotlinx.android.synthetic.main.fragment_toolbar.*
+import java.util.*
+import kotlin.collections.HashMap
 
 class SewaActivity : BaseActivity(),SewaContract.View {
 
     var data: SewaListItem? = null
     val presenter = SewaPresenter(this)
+
+    lateinit var datePicker: DatePickerHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,7 +38,82 @@ class SewaActivity : BaseActivity(),SewaContract.View {
 
         setToolbar()
         toolbar_title?.text = getString(R.string.sewa)
+
+        datePicker = DatePickerHelper(this)
+
+        btn_pilih_tanggal.setOnClickListener {
+            showDatePickerDialog()
+        }
+
         initListener()
+        initView(data)
+    }
+
+    private fun showDatePickerDialog() {
+        val cal = Calendar.getInstance()
+        val d = cal.get(Calendar.DAY_OF_MONTH)
+        val m = cal.get(Calendar.MONTH)
+        val y = cal.get(Calendar.YEAR)
+
+        val minDate = Calendar.getInstance()
+        minDate.set(Calendar.HOUR_OF_DAY, 0)
+        minDate.set(Calendar.MINUTE, 0)
+        minDate.set(Calendar.SECOND, 0)
+        datePicker.setMinDate(minDate.timeInMillis)
+
+        val maxDate = Calendar.getInstance()
+        maxDate.add(Calendar.DAY_OF_MONTH, 30)
+        datePicker.setMaxDate(maxDate.timeInMillis)
+
+        datePicker.showDialog(y, m, d, object: DatePickerHelper.Callback {
+            override fun onDateSelected(year: Int, month: Int, dayOfMonth: Int) {
+                val dayStr = if(dayOfMonth<10) "0${dayOfMonth}" else "${dayOfMonth}"
+                val mon = month + 1
+                val monthStr = if (mon<10) "0${mon}" else "${mon}"
+                tv_tanggal_sewa.text = "${year}-${monthStr}-${dayStr}"
+            }
+        })
+    }
+
+    private fun initView(data: SewaListItem?) {
+        val jamMulai = data?.jamMulai?.split(":")?.get(0)?.toInt() ?: 0
+        val menitMulai = data?.jamMulai?.split(":")?.get(1)?.toInt() ?: 0
+        val jamSelesai = data?.jamSelesai?.split(":")?.get(0)?.toInt() ?: 0
+        val menitSelesai = data?.jamSelesai?.split(":")?.get(1)?.toInt() ?: 0
+
+        et_jam_mulai_sewa?.setOnClickListener {
+            val jamMulaiPicker = MaterialTimePicker.Builder()
+                    .setInputMode(MaterialTimePicker.INPUT_MODE_KEYBOARD)
+                    .setTimeFormat(TimeFormat.CLOCK_24H)
+                    .setHour(jamMulai?: 0).setMinute(menitMulai?: 0).build()
+
+            jamMulaiPicker.addOnPositiveButtonClickListener {
+                val value = "${getTimeStringFormat(jamMulaiPicker.hour.toString())}:${
+                getTimeStringFormat(jamMulaiPicker.minute.toString())}"
+                et_jam_mulai_sewa?.setText(value)
+            }
+            jamMulaiPicker.show(fragmentManager,  "")
+        }
+
+        et_jam_selesai_sewa?.setOnClickListener {
+            val jamSelesaiPicker = MaterialTimePicker.Builder()
+                    .setInputMode(MaterialTimePicker.INPUT_MODE_KEYBOARD)
+                    .setTimeFormat(TimeFormat.CLOCK_24H)
+                    .setHour(jamSelesai?: 0).setMinute(menitSelesai?: 0).build()
+
+            jamSelesaiPicker.addOnPositiveButtonClickListener {
+                val value = "${getTimeStringFormat(jamSelesaiPicker.hour.toString())}:${
+                getTimeStringFormat(jamSelesaiPicker.minute.toString())}"
+                et_jam_selesai_sewa?.setText(value)
+            }
+            jamSelesaiPicker
+        }
+    }
+
+    private fun getTimeStringFormat(time: String): String {
+        var waktu = time
+        if (time.length == 1) waktu ="0$time"
+        return waktu
     }
 
     private fun initListener() {
@@ -36,9 +123,9 @@ class SewaActivity : BaseActivity(),SewaContract.View {
     }
 
     private fun addSewa() {
-        val tanggal_sewa = til_tanggal_sewa?.editText?.toString()
-        val jam_mulai = til_jam_mulai?.editText?.toString()
-        val jam_selesai = til_jam_selesai?.editText?.toString()
+        val tanggal_sewa = tv_tanggal_sewa?.text?.toString()
+        val jam_mulai = til_jam_mulai_sewa?.editText?.toString()
+        val jam_selesai = til_jam_selesai_sewa?.editText?.toString()
         val metode_pembayatan = til_metode_pembayaran?.editText?.toString()
 
         val tambahData = HashMap<String, Any?>()

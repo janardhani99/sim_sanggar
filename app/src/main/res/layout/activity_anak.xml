@@ -87,7 +87,8 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/umur_anak" />
+                        android:hint="@string/umur_anak"
+                        android:inputType="number"/>
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
 
@@ -109,7 +110,7 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/tanggal_lahir" />
+                        android:hint="@string/contoh_tanggal_lahir"/>
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
 
@@ -131,7 +132,8 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/telepon_anak" />
+                        android:hint="@string/telepon_anak"
+                        android:inputType="number"/>
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
         </LinearLayout>

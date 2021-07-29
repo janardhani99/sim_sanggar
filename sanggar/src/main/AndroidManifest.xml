@@ -14,8 +14,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SIM_Sanggar">
-        <activity android:name=".view.activity.fasilitas.DetailFasilitasActivity"></activity>
-        <activity android:name=".view.activity.fasilitas.FasilitasActivity" />
+        <activity
+            android:name=".view.activity.fasilitas.DetailFasilitasActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.fasilitas.FasilitasActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.kegiatan.DetailKegiatanActivity"
             android:screenOrientation="portrait" />

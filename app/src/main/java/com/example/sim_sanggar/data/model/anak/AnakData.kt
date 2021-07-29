@@ -7,12 +7,16 @@ import kotlinx.android.parcel.Parcelize
 
 data class AnakResponse(@Expose var data: AnakListItem? = null): BaseResultData()
 
+data class AnakListResponse(@Expose var data: List<AnakListItem>? = null): BaseResultData()
+
 @Parcelize
 data class AnakListItem (
         @Expose
         var id: Int? = null,
         @Expose
         var namaAnak: String? = null,
+        @Expose
+        var umurAnak: String? = null,
         @Expose
         var tanggalLahir: String? = null,
         @Expose

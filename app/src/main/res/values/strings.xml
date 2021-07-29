@@ -27,6 +27,7 @@
     <string name="email_user">Email</string>
     <string name="password_user">Password</string>
     <string name="tanggal_lahir">Tanggal Lahir</string>
+    <string name="contoh_tanggal_lahir">Contoh: 2000-01-12</string>
     <string name="telepon_user">Nomor Telepon</string>
     <string name="nama_anak">Nama Anak</string>
     <string name="umur_anak">Umur</string>
@@ -34,9 +35,13 @@
     <string name="daftar_sekarang">Daftar Sekarang</string>
     <string name="daftar">Daftar</string>
     <string name="daftar_anak">Daftarkan Anak atau Rekanmu menjadi siswa sanggar ini </string>
-    <string name="lihat_list_anak">Lihat Riwayat Pendaftaran Siswa</string>
+    <string name="lihat_list_anak">Lihat Riwayat Pendaftaran Anak</string>
+    <string name="riwayat_daftar_anak">Riwayat Pendaftaran Anak</string>
+    <string name="teks_sewa">Cek Jam Operasional di Beranda sebelum melakukan sewa.
+    Setelah mengirim data penyewaan, mohon tunggu konfirmasi dari pihak Sanggar</string>
     <string name="sewa">Sewa Studio</string>
     <string name="tanggal_sewa">Tanggal Sewa</string>
+    <string name="data_tanggal">yyyy-mm-dd</string>
     <string name="jam_mulai">Jam Mulai</string>
     <string name="jam_selesai">Jam Selesai</string>
     <string name="metode_pembayaran">Metode Pembayaran</string>

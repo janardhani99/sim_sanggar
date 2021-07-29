@@ -8,6 +8,7 @@ import com.example.sim_sanggar.common.Utilities
 import com.example.sim_sanggar.common.Validations
 import com.example.sim_sanggar.common.clickWithDebounce
 import com.example.sim_sanggar.data.model.anak.AnakListItem
+import com.example.sim_sanggar.data.model.anak.AnakListResponse
 import com.example.sim_sanggar.data.model.anak.AnakResponse
 import com.example.sim_sanggar.presenter.anak.AnakContract
 import com.example.sim_sanggar.presenter.anak.AnakPresenter
@@ -67,7 +68,11 @@ class AnakActivity : BaseActivity(), AnakContract.View {
     override fun anakResponse(response: AnakResponse) {
         isLoading(false)
         this.showCustomDialogBack("Data Berhasil", "Pendaftaran diproses, tunggu konfirmasi dari Admin sanggar")
-        finish()
+//        finish()
+    }
+
+    override fun getAnakResponse(response: AnakListResponse) {
+        TODO("Not yet implemented")
     }
 
     override fun showError(title: String, message: String) {
