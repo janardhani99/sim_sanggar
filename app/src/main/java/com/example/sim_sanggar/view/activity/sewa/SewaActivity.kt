@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.FrameLayout
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
@@ -76,6 +77,12 @@ class SewaActivity : BaseActivity(),SewaContract.View {
     }
 
     private fun initView(data: SewaListItem?) {
+        data?.run {
+            et_jam_mulai_sewa?.setText(data.jamMulai?.substring(0,5))
+            et_jam_selesai_sewa?.setText(data.jamSelesai?.substring(0,5))
+        }
+
+
         val jamMulai = data?.jamMulai?.split(":")?.get(0)?.toInt() ?: 0
         val menitMulai = data?.jamMulai?.split(":")?.get(1)?.toInt() ?: 0
         val jamSelesai = data?.jamSelesai?.split(":")?.get(0)?.toInt() ?: 0
@@ -85,28 +92,28 @@ class SewaActivity : BaseActivity(),SewaContract.View {
             val jamMulaiPicker = MaterialTimePicker.Builder()
                     .setInputMode(MaterialTimePicker.INPUT_MODE_KEYBOARD)
                     .setTimeFormat(TimeFormat.CLOCK_24H)
-                    .setHour(jamMulai?: 0).setMinute(menitMulai?: 0).build()
+                    .setHour(jamMulai?: 0).setMinute(menitMulai ?: 0).build()
 
             jamMulaiPicker.addOnPositiveButtonClickListener {
                 val value = "${getTimeStringFormat(jamMulaiPicker.hour.toString())}:${
                 getTimeStringFormat(jamMulaiPicker.minute.toString())}"
                 et_jam_mulai_sewa?.setText(value)
             }
-            jamMulaiPicker.show(fragmentManager,  "")
+            jamMulaiPicker.show(supportFragmentManager, "")
         }
 
         et_jam_selesai_sewa?.setOnClickListener {
             val jamSelesaiPicker = MaterialTimePicker.Builder()
                     .setInputMode(MaterialTimePicker.INPUT_MODE_KEYBOARD)
                     .setTimeFormat(TimeFormat.CLOCK_24H)
-                    .setHour(jamSelesai?: 0).setMinute(menitSelesai?: 0).build()
+                    .setHour(jamSelesai?: 0).setMinute(menitSelesai ?: 0).build()
 
             jamSelesaiPicker.addOnPositiveButtonClickListener {
                 val value = "${getTimeStringFormat(jamSelesaiPicker.hour.toString())}:${
                 getTimeStringFormat(jamSelesaiPicker.minute.toString())}"
                 et_jam_selesai_sewa?.setText(value)
             }
-            jamSelesaiPicker
+            jamSelesaiPicker.show(supportFragmentManager, "")
         }
     }
 
@@ -123,24 +130,25 @@ class SewaActivity : BaseActivity(),SewaContract.View {
     }
 
     private fun addSewa() {
-        val tanggal_sewa = tv_tanggal_sewa?.text?.toString()
-        val jam_mulai = til_jam_mulai_sewa?.editText?.toString()
-        val jam_selesai = til_jam_selesai_sewa?.editText?.toString()
-        val metode_pembayatan = til_metode_pembayaran?.editText?.toString()
+        val tanggal_sewa = tv_tanggal_sewa?.text.toString()
+        val jam_mulai = til_jam_mulai_sewa?.editText?.text.toString()
+        val jam_selesai = til_jam_selesai_sewa?.editText?.text.toString()
+        val metode_pembayaran = til_metode_pembayaran?.editText?.text.toString()
 
         val tambahData = HashMap<String, Any?>()
         tambahData["tanggal"] = tanggal_sewa
         tambahData["jam_mulai"] = jam_mulai
         tambahData["jam_selesai"] = jam_selesai
-        tambahData["metode_pembayaran"] = metode_pembayatan
+        tambahData["metode_pembayaran"] = metode_pembayaran
 
         isLoading(true)
 
-        if (data == null) {
+//        if (data == null) {
             presenter.addSewa(tambahData)
-        } else {
-            Toast.makeText(this, "edit data", Toast.LENGTH_SHORT).show()
-        }
+//        }
+//        else {
+//            Toast.makeText(this, "edit data", Toast.LENGTH_SHORT).show()
+//        }
 
     }
 
