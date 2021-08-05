@@ -14,18 +14,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SIM_Sanggar">
+        <activity android:name=".UploadBuktiActivity"></activity>
         <activity
             android:name=".view.activity.anak.AnakTerdaftarActivity"
-            android:screenOrientation="portrait" ></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.anak.AnakActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.edit_profil.EditProfilActivity"
-            android:screenOrientation="portrait" />
-<!--        <activity-->
-<!--            android:name=".view.activity.fasilitas.FasilitasActivity"-->
-<!--            android:screenOrientation="portrait" />-->
+            android:screenOrientation="portrait" /> <!-- <activity -->
+        <!-- android:name=".view.activity.fasilitas.FasilitasActivity" -->
+        <!-- android:screenOrientation="portrait" /> -->
         <activity
             android:name=".view.activity.kegiatan.KegiatanActivity"
             android:screenOrientation="portrait" />

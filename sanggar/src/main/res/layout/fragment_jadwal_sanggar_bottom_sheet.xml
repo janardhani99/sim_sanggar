@@ -33,10 +33,10 @@
             android:layout_height="wrap_content">
 
             <AutoCompleteTextView
+                android:id="@+id/ac_hari_jadwal"
                 android:hint="@string/hari"
                 android:focusableInTouchMode="false"
                 android:focusable="false"
-                android:id="@+id/ac_hari_jadwal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -112,7 +112,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/jam_selesai" />
+                    android:text="@string/jam_selesai"
+                    android:textSize="17dp"
+                    android:layout_marginBottom="7dp"/>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/til_jam_selesai"
@@ -126,7 +128,9 @@
                         android:layout_height="wrap_content"
                         android:focusable="false"
                         android:focusableInTouchMode="false"
-                        android:hint="@string/jam_selesai" />
+                        android:hint="@string/jam_selesai"
+                        android:textSize="17dp"
+                        android:layout_marginBottom="7dp"/>
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
         </LinearLayout>

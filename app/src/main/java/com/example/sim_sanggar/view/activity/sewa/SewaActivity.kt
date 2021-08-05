@@ -3,12 +3,14 @@ package com.example.sim_sanggar.view.activity.sewa
 import android.app.Activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import android.widget.FrameLayout
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
+import com.example.sim_sanggar.GlobalClass.Companion.context
 import com.example.sim_sanggar.R
 import com.example.sim_sanggar.common.Utilities
 import com.example.sim_sanggar.common.Validations
@@ -46,6 +48,7 @@ class SewaActivity : BaseActivity(),SewaContract.View {
             showDatePickerDialog()
         }
 
+        initAdapter()
         initListener()
         initView(data)
     }
@@ -76,12 +79,17 @@ class SewaActivity : BaseActivity(),SewaContract.View {
         })
     }
 
+    private fun initAdapter() {
+        val metodePembayaranAdapter = context?.let { ArrayAdapter<String>(it, R.layout.layout_dropdown_item, resources.getStringArray(R.array.metode_pembayaran))}
+        ac_metode_pembayaran?.setAdapter(metodePembayaranAdapter)
+    }
+
     private fun initView(data: SewaListItem?) {
         data?.run {
+            ac_metode_pembayaran?.setText(data.metodePembayaran, false)
             et_jam_mulai_sewa?.setText(data.jamMulai?.substring(0,5))
             et_jam_selesai_sewa?.setText(data.jamSelesai?.substring(0,5))
         }
-
 
         val jamMulai = data?.jamMulai?.split(":")?.get(0)?.toInt() ?: 0
         val menitMulai = data?.jamMulai?.split(":")?.get(1)?.toInt() ?: 0
@@ -139,7 +147,7 @@ class SewaActivity : BaseActivity(),SewaContract.View {
         tambahData["tanggal"] = tanggal_sewa
         tambahData["jam_mulai"] = jam_mulai
         tambahData["jam_selesai"] = jam_selesai
-        tambahData["metode_pembayaran"] = metode_pembayaran
+        tambahData["metode_pembayaran"] = metode_pembayaran.toLowerCase()
 
         isLoading(true)
 

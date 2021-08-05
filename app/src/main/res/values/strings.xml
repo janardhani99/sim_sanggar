@@ -45,4 +45,6 @@
     <string name="jam_mulai">Jam Mulai</string>
     <string name="jam_selesai">Jam Selesai</string>
     <string name="metode_pembayaran">Metode Pembayaran</string>
+    <string name="upload_bukti_pembayaran">Sudah Booking? Upload Bukti Pembayaran Disini!</string>
+    <string name="upload">Upload</string>
 </resources>

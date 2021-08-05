@@ -22,6 +22,37 @@
             android:textSize="18dp">
         </TextView>
 
+
+        <Button
+            android:id="@+id/btn_sewa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:text="Sewa Sekarang">
+        </Button>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/upload_bukti_pembayaran"
+            android:textAlignment="center"
+            android:layout_gravity="center"
+            android:padding="20dp"
+            android:textSize="18dp">
+        </TextView>
+
+
+        <Button
+            android:id="@+id/btn_upload_bukti_pembayaran"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:text="Sewa Sekarang">
+        </Button>
+
+    </LinearLayout>
+
+</FrameLayout>
 <!--        <DatePicker-->
 <!--            android:layout_width="match_parent"-->
 <!--            android:layout_height="wrap_content"-->
@@ -100,15 +131,3 @@
 <!--            android:padding="10dp">-->
 
 <!--        </com.rengwuxian.materialedittext.MaterialAutoCompleteTextView>-->
-
-        <Button
-            android:id="@+id/btn_sewa"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="20dp"
-            android:text="Sewa Sekarang">
-        </Button>
-
-    </LinearLayout>
-
-</FrameLayout>

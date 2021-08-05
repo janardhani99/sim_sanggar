@@ -4,6 +4,7 @@ import com.example.sim_sanggar.data.handler.common.BaseHandler
 import com.example.sim_sanggar.data.model.sewa.SewaResponse
 import com.example.sim_sanggar.presenter.sewa.SewaContract
 import io.reactivex.Observable
+import okhttp3.MultipartBody
 
 class SewaHandler: BaseHandler() {
 
@@ -11,5 +12,9 @@ class SewaHandler: BaseHandler() {
 
     fun addSewa(data: HashMap<String, Any?>): Observable<SewaResponse> {
         return service.addSewa(data)
+    }
+
+    fun addImage(id: Int, part: MultipartBody.Part): Observable<SewaResponse> {
+        return service.addImage(id, part)
     }
 }
