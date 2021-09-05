@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.sim_sanggar.common.Utilities
+import com.example.sim_sanggar.common.clickWithDebounce
 import com.example.sim_sanggar.common.loadImage
 import com.example.sim_sanggar.data.model.sewa.SewaListItem
 import com.example.sim_sanggar.data.model.sewa.SewaResponse
@@ -23,7 +24,7 @@ import java.io.File
 class UploadBuktiActivity : BaseActivity(), SewaContract.View {
 
     var data : SewaListItem? = null
-    var presenter = SewaPresenter(this)
+    val presenter = SewaPresenter(this)
     var imageFile : File? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,26 +55,20 @@ class UploadBuktiActivity : BaseActivity(), SewaContract.View {
             foto?.let { iv_upload_bukti.loadImage(it) }
         }
 
-        btn_upload.setOnClickListener {
-//            presenter.addImage()
+        btn_upload.clickWithDebounce {
+
         }
     }
 
-//    private fun addBuktiPembayaran() {
-//        val tambahData = HashMap<String, Any?>()
-//
-//
-//    }
-
     private fun initListener() {
-        btn_image_bukti_pembayaran.setOnClickListener {
+        btn_image_bukti_pembayaran?.clickWithDebounce {
             openImageResource()
         }
     }
 
     private fun openImageResource() {
         CropImage.activity()
-                .setAspectRatio(2, 1)
+                .setAspectRatio(2, 3)
                 .setGuidelines(CropImageView.Guidelines.ON)
                 .start(this)
     }

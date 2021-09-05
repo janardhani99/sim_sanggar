@@ -24,6 +24,6 @@ object Constants {
 
     object Url {
 //        const val baseUrl =  "https://sanggar.widianapw.com/api/customer/"
-        const val baseUrl =  "https://2d538575464b.ngrok.io/api/customer/"
+        const val baseUrl =  " https://bb74-182-253-132-204.ngrok.io/api/customer/"
     }
 }

@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.sim_sanggar.R
+import com.example.sim_sanggar.UploadBuktiActivity
 import com.example.sim_sanggar.common.clickWithDebounce
 import com.example.sim_sanggar.view.activity.sewa.SewaActivity
 import kotlinx.android.synthetic.main.fragment_jadwal_sewa.*
@@ -37,6 +38,9 @@ class JadwalSewaFragment : Fragment() {
             startActivity(Intent(context, SewaActivity::class.java))
         }
 
+        btn_upload_bukti_pembayaran?.clickWithDebounce {
+            startActivity(Intent(context, UploadBuktiActivity::class.java))
+        }
     }
 }
 

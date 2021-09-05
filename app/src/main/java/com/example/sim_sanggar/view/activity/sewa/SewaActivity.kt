@@ -81,12 +81,12 @@ class SewaActivity : BaseActivity(),SewaContract.View {
 
     private fun initAdapter() {
         val metodePembayaranAdapter = context?.let { ArrayAdapter<String>(it, R.layout.layout_dropdown_item, resources.getStringArray(R.array.metode_pembayaran))}
-        ac_metode_pembayaran?.setAdapter(metodePembayaranAdapter)
+//        ac_metode_pembayaran?.setAdapter(metodePembayaranAdapter)
     }
 
     private fun initView(data: SewaListItem?) {
         data?.run {
-            ac_metode_pembayaran?.setText(data.metodePembayaran, false)
+//            ac_metode_pembayaran?.setText(data.metodePembayaran, false)
             et_jam_mulai_sewa?.setText(data.jamMulai?.substring(0,5))
             et_jam_selesai_sewa?.setText(data.jamSelesai?.substring(0,5))
         }
@@ -141,13 +141,13 @@ class SewaActivity : BaseActivity(),SewaContract.View {
         val tanggal_sewa = tv_tanggal_sewa?.text.toString()
         val jam_mulai = til_jam_mulai_sewa?.editText?.text.toString()
         val jam_selesai = til_jam_selesai_sewa?.editText?.text.toString()
-        val metode_pembayaran = til_metode_pembayaran?.editText?.text.toString()
+//        val metode_pembayaran = til_metode_pembayaran?.editText?.text.toString()
 
         val tambahData = HashMap<String, Any?>()
         tambahData["tanggal"] = tanggal_sewa
         tambahData["jam_mulai"] = jam_mulai
         tambahData["jam_selesai"] = jam_selesai
-        tambahData["metode_pembayaran"] = metode_pembayaran.toLowerCase()
+//        tambahData["metode_pembayaran"] = metode_pembayaran.toLowerCase()
 
         isLoading(true)
 
@@ -168,6 +168,10 @@ class SewaActivity : BaseActivity(),SewaContract.View {
     override fun sewaResponse(response: SewaResponse) {
         isLoading(false)
         this.showCustomDialogBack("data berhasil", "Penyewaan diproses, tunggu konfirmasi dari Admin Sanggar")
+    }
+
+    override fun uploadImageResponse() {
+        TODO("Not yet implemented")
     }
 
     override fun showError(title: String, message: String) {
