@@ -11,11 +11,14 @@ class DaftarPagerAdapter(fm: FragmentManager):
     val title = listOf<String>(
             "Menunggu Verifikasi",
             "Terverifikasi",
+//            "Tes",
             "Batal"
+
     )
     private val fragment = listOf(
             DaftarListFragment(),
             DaftarListFragment(),
+//            DaftarListFragment(),
             DaftarListFragment()
     )
     override fun getItem(position: Int): Fragment {

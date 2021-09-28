@@ -140,9 +140,11 @@ class JadwalSanggarBottomSheetFragment(val data: JadwalSanggarItem? = null) : Bo
 
     override fun jadwalSanggarResponse(response: JadwalSanggarResponse) {
         this.dismiss()
+        isLoadingProcess(false)
         baseActivity.showCustomDialog("Data Berhasil", "Data berhasil ditambahkan")
 
         (activity as JadwalSanggarActivity?)?.fetchData()
+
 
 //        startActivity(Intent (context, JadwalSanggarActivity::class.java))
     }
