@@ -9,7 +9,7 @@ import com.example.sim_sanggar.common.clickWithDebounce
 import com.example.sim_sanggar.data.model.anak.AnakListItem
 import kotlinx.android.synthetic.main.recycler_anak_terdaftar.view.*
 
-class AnakTerdaftarAdapter: RecyclerView.Adapter<AnakTerdaftarAdapter.ViewHolder>() {
+class AnakTerdaftarAdapter(val detailListener: (AnakListItem)-> Unit): RecyclerView.Adapter<AnakTerdaftarAdapter.ViewHolder>() {
 
     var anakTerdaftarList = mutableListOf<AnakListItem>()
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view)
@@ -27,12 +27,12 @@ class AnakTerdaftarAdapter: RecyclerView.Adapter<AnakTerdaftarAdapter.ViewHolder
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = anakTerdaftarList[position]
         holder.itemView.apply {
-//            cv_anak_terdaftar_recycler.clickWithDebounce {
-//                detailListener(item)
-//            }
+            cv_anak_terdaftar_recycler.clickWithDebounce {
+                detailListener(item)
+            }
 
-            tv_nama_anak_recycler?.text = item.namaAnak
-            tv_umur_anak_recycler?.text = item.umurAnak
+            tv_nama_anak_recycler?.text = item.nama
+            tv_umur_anak_recycler?.text = item.umur
         }
 
 

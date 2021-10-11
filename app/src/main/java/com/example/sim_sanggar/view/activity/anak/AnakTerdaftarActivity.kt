@@ -24,7 +24,7 @@ class AnakTerdaftarActivity :BaseActivity(), AnakContract.View {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_anak_terdaftar)
 
-//        data = intent.getParcelableExtra<AnakListItem>("data")
+        data = intent.getParcelableExtra<AnakListItem>("data")
 
         setToolbar()
         toolbar_title?.text = getString(R.string.riwayat_daftar_anak)
@@ -33,7 +33,10 @@ class AnakTerdaftarActivity :BaseActivity(), AnakContract.View {
     }
 
     private fun initAdapter() {
-        adapter = AnakTerdaftarAdapter()
+
+        adapter = AnakTerdaftarAdapter { detailItem->
+            showCustomDialog("Klik", "Data di klik")
+        }
         rv_anak_terdaftar?.layoutManager = LinearLayoutManager(this)
         rv_anak_terdaftar?.adapter = adapter
     }

@@ -6,7 +6,7 @@
     android:orientation="vertical">
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cv_list_daftar"
+        android:id="@+id/cv_list_sewa"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dp8"
@@ -20,17 +20,17 @@
             android:padding="@dimen/dp16">
 
             <TextView
-                android:id="@+id/tv_anak_name"
+                android:id="@+id/tv_username"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Nama Anak"
+                android:text="Nama Penyewa"
                 android:textSize="24dp"/>
 
             <TextView
-                android:id="@+id/tv_anak_umur"
+                android:id="@+id/tv_tanggal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="umur"
+                android:text="Tanggal"
                 android:textSize="24dp"/>
         </LinearLayout>
 

@@ -31,7 +31,8 @@
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
                     android:singleLine="true"
-                    android:text="Nama Anak" />
+                    android:text="Nama Anak"
+                    android:textColor="@color/black"/>
 
                 <TextView
                     android:id="@+id/tv_umur_anak_recycler"
@@ -42,7 +43,8 @@
                     android:ellipsize="end"
                     android:lines="3"
                     android:maxLines="3"
-                    android:text="Umur Anak" />
+                    android:text="Umur Anak"
+                    android:textColor="@color/black"/>
             </LinearLayout>
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>

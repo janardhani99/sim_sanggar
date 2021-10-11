@@ -26,10 +26,11 @@
             </ImageView>
 
             <TextView
+                android:id="@+id/tv_sanggar_name"
+                android:layout_toRightOf="@+id/logo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
-                android:layout_toRightOf="@+id/logo"
                 android:text="Citranala Studio"
                 android:textSize="19dp">
 
@@ -37,15 +38,15 @@
         </RelativeLayout>
 
         <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tl_sewa"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:tabMode="scrollable"
-            android:id="@+id/tl_sewa"/>
+            app:tabMode="scrollable"/>
 
         <androidx.viewpager.widget.ViewPager
+            android:id="@+id/vp_sewa"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/vp_sewa"/>
+            android:layout_height="match_parent"/>
 
     </LinearLayout>
 

@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.sanggar.R
 import com.example.sanggar.view.adapter.sewa.SewaPagerAdapter
-import kotlinx.android.synthetic.main.fragment_sewa.*
+import kotlinx.android.synthetic.main.fragment_sewa_pager.*
 
 class SewaFragment:Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -15,7 +15,7 @@ class SewaFragment:Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_sewa, container, false)
+        return inflater.inflate(R.layout.fragment_sewa_pager, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

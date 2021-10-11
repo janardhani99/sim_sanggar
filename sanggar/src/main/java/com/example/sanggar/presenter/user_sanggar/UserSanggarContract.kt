@@ -1,16 +1,13 @@
-package com.example.sanggar.presenter.daftar
+package com.example.sanggar.presenter.user_sanggar
 
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.sanggar.data.model.common.EmptyResponse
 import com.example.sanggar.data.model.daftar.DaftarListResponse
 import com.example.sanggar.data.model.daftar.DaftarResponse
 import com.example.sanggar.presenter.common.BaseContract
-import com.example.sanggar.view.fragment.daftar.DaftarListFragment
-import retrofit2.http.*
 import io.reactivex.Observable
+import retrofit2.http.*
 
-
-interface DaftarListContract {
+interface UserSanggarContract {
 
     interface View: BaseContract.View {
         fun daftarListResponse(response: DaftarResponse)

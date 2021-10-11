@@ -17,7 +17,7 @@ class FasilitasAdapter(val detailListener: (FasilitasListItem) -> Unit, val dele
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.recycler_fasilitas_item, parent, false)
+                LayoutInflater.from(parent.context).inflate(R.layout.recycler_fasilitas_item, parent, false)
         )
     }
 

@@ -3,7 +3,6 @@ package com.example.sanggar.view.adapter.daftar
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import com.example.sanggar.view.fragment.daftar.DaftarFragment
 import com.example.sanggar.view.fragment.daftar.DaftarListFragment
 
 class DaftarPagerAdapter(fm: FragmentManager):

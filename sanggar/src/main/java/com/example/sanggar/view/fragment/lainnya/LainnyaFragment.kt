@@ -15,6 +15,7 @@ import com.example.sanggar.view.activity.fasilitas.FasilitasActivity
 import com.example.sanggar.view.activity.jadwal_sanggar.JadwalSanggarActivity
 import com.example.sanggar.view.activity.jam_operasional.JamOperasionalActivity
 import com.example.sanggar.view.activity.kegiatan.KegiatanActivity
+import com.example.sanggar.view.activity.user_sanggar.UserSanggarActivity
 import kotlinx.android.synthetic.main.fragment_lainnya.*
 
 class LainnyaFragment : Fragment() {
@@ -41,6 +42,10 @@ class LainnyaFragment : Fragment() {
 
         cv_fasilitas_sanggar?.clickWithDebounce {
             startActivity(Intent(context, FasilitasActivity::class.java))
+        }
+
+        cv_user_sanggar?.clickWithDebounce {
+            startActivity(Intent(context, UserSanggarActivity::class.java))
         }
 
         btn_logout?.clickWithDebounce {

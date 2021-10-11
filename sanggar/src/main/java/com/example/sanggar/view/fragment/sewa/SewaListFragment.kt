@@ -1,58 +1,73 @@
 package com.example.sanggar.view.fragment.sewa
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.sanggar.R
+import com.example.sanggar.common.Utilities
+import com.example.sanggar.data.model.common.EmptyResponse
+import com.example.sanggar.data.model.sewa.SewaListItem
+import com.example.sanggar.data.model.sewa.SewaListResponse
+import com.example.sanggar.data.model.sewa.SewaResponse
+import com.example.sanggar.presenter.sewa.SewaListContract
+import com.example.sanggar.presenter.sewa.SewaListPresenter
+import com.example.sanggar.view.adapter.sewa.SewaListAdapter
+import kotlinx.android.synthetic.main.fragment_sewa_list.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+class SewaListFragment: Fragment(), SewaListContract.View {
 
-/**
- * A simple [Fragment] subclass.
- * Use the [SewaListFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class SewaListFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    var data : SewaListItem? = null
+    private var presenter = SewaListPresenter(this)
+    lateinit var adapter: SewaListAdapter
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initAdapter()
+        fetchData()
+//
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_sewa_list, container, false)
+
+    }
+    private fun initAdapter(){
+        adapter = SewaListAdapter()
+        rv_sewa_list?.hasFixedSize()
+        rv_sewa_list?.layoutManager = LinearLayoutManager(this.activity)
+        rv_sewa_list?.adapter = adapter
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment SewaListFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-                SewaListFragment().apply {
-                    arguments = Bundle().apply {
-                        putString(ARG_PARAM1, param1)
-                        putString(ARG_PARAM2, param2)
-                    }
-                }
+    private fun isLoading(isLoad: Boolean) {
+        if (isLoad) this.context?.let { Utilities.showProgress(it) }
+        else Utilities.hideProgress()
+    }
+
+    fun fetchData() {
+//        isLoading(true)
+        presenter.getListSewa()
+    }
+
+
+    override fun sewaListResponse(response: SewaResponse) {
+        TODO("Not yet implemented")
+    }
+
+    override fun getSewaListResponse(response: SewaListResponse) {
+        isLoading(false)
+        response.data?.let { adapter.setData(it) }
+    }
+
+    override fun deleteSewaListResponse(response: EmptyResponse) {
+        TODO("Not yet implemented")
+    }
+
+    override fun showError(title: String, message: String) {
+        this.showError(title, message)
     }
 }

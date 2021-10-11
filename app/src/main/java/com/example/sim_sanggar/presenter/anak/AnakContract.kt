@@ -5,7 +5,7 @@ import com.example.sim_sanggar.data.model.anak.AnakResponse
 import com.example.sim_sanggar.presenter.common.BaseContract
 import io.reactivex.Observable
 import retrofit2.http.*
-import kotlin.collections.HashMap
+
 
 interface AnakContract {
 

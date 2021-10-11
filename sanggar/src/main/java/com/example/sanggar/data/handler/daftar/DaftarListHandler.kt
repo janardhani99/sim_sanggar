@@ -6,7 +6,6 @@ import com.example.sanggar.data.model.daftar.DaftarListResponse
 import com.example.sanggar.data.model.daftar.DaftarResponse
 import com.example.sanggar.presenter.daftar.DaftarListContract
 import io.reactivex.Observable
-import kotlin.collections.HashMap
 
 class DaftarListHandler: BaseHandler() {
 

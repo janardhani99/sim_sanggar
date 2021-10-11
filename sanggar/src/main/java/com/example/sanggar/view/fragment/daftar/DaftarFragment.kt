@@ -11,11 +11,11 @@ import com.example.sanggar.view.adapter.daftar.DaftarPagerAdapter
 import kotlinx.android.synthetic.main.fragment_daftar_pager.*
 
 class DaftarFragment : Fragment() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-
-    }
+//    override fun onCreate(savedInstanceState: Bundle?) {
+//        super.onCreate(savedInstanceState)
+//
+//
+//    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {

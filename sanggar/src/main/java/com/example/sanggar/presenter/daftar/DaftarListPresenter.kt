@@ -4,18 +4,16 @@ import com.example.sanggar.common.doSubscribe
 import com.example.sanggar.data.handler.common.ErrorHandler
 import com.example.sanggar.data.handler.daftar.DaftarListHandler
 import com.example.sanggar.data.model.common.EmptyResponse
-import com.example.sanggar.data.model.daftar.DaftarListItem
 import com.example.sanggar.data.model.daftar.DaftarListResponse
 import com.example.sanggar.data.model.daftar.DaftarResponse
 import com.example.sanggar.presenter.common.BaseContract
 import com.example.sanggar.presenter.common.BasePresenter
 
-
-class DaftarListPresenter(val view: DaftarListContract.View): BasePresenter(view), BaseContract.Presenter {
+class DaftarListPresenter(val view: DaftarListContract.View): BasePresenter(view), DaftarListContract.Presenter {
 
     val handler = DaftarListHandler()
 
-    override fun addDaftarList(data: HashMap<String, Any?>) {
+    override fun addListDaftar(data: HashMap<String, Any?>) {
         handler.addListDaftar(data)
                 .doSubscribe(object: ErrorHandler<DaftarResponse>(this){
                     override fun onNext(t: DaftarResponse) {
@@ -24,7 +22,7 @@ class DaftarListPresenter(val view: DaftarListContract.View): BasePresenter(view
                 })
     }
 
-    override fun getDaftarList() {
+    override fun getListDaftar() {
         handler.getListDaftar()
                 .doSubscribe(object: ErrorHandler<DaftarListResponse>(this){
                     override fun onNext(t: DaftarListResponse) {
@@ -33,7 +31,7 @@ class DaftarListPresenter(val view: DaftarListContract.View): BasePresenter(view
                 })
     }
 
-    override fun deleteDaftarList(id: Int) {
+    override fun deleteListDaftar(id: Int) {
         handler.deleteListDaftar(id)
                 .doSubscribe(object: ErrorHandler<EmptyResponse>(this){
                     override fun onNext(t: EmptyResponse) {

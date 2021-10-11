@@ -38,6 +38,7 @@ class FasilitasActivity : BaseActivity(), FasilitasContract.View {
         iniAdapter()
     }
 
+//    When click tambah fasilitas, go to detail page
     private fun initListener() {
         cv_tambah_fasilitas?.clickWithDebounce {
             val intent = Intent(this, DetailFasilitasActivity::class.java)
@@ -46,6 +47,7 @@ class FasilitasActivity : BaseActivity(), FasilitasContract.View {
         }
     }
 
+//    enable action edit and delete
     private fun iniAdapter() {
         adapter = FasilitasAdapter({detailItem->
             val intent = Intent(this, DetailFasilitasActivity::class.java)
@@ -62,6 +64,7 @@ class FasilitasActivity : BaseActivity(), FasilitasContract.View {
             })
         })
 
+//    List of fasilitas data from adapter
         rv_fasilitas?.layoutManager = LinearLayoutManager(this)
         rv_fasilitas?.adapter = adapter
 

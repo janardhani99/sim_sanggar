@@ -6,7 +6,7 @@ plugins {
 
 android {
     compileSdkVersion 30
-    buildToolsVersion "30.0.3"
+    buildToolsVersion "31.0.0"
 
     defaultConfig {
         applicationId "com.example.sanggar"
@@ -39,7 +39,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.android.support:design:30.0.2'
+    implementation 'com.android.support:design:30.0.0'
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.4.0-alpha01'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
@@ -80,4 +80,7 @@ dependencies {
 
     implementation 'com.github.bumptech.glide:glide:4.11.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+
+//    viewpager
+//    implementation 'androidx.viewpager:viewpager:1.1.0-alpha01'
 }

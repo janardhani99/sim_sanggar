@@ -14,11 +14,11 @@ data class AnakListItem (
         @Expose
         var id: Int? = null,
         @Expose
-        var namaAnak: String? = null,
+        var nama: String? = null,
         @Expose
-        var umurAnak: String? = null,
+        var umur: String? = null,
         @Expose
-        var tanggalLahir: String? = null,
+        var tanggal_lahir: String? = null,
         @Expose
         var telepon: String? = null
 ):Parcelable

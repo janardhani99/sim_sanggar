@@ -9,16 +9,17 @@ data class DaftarResponse(@Expose var data: DaftarListItem? = null): BaseResultD
 
 data class DaftarListResponse(@Expose var data: List<DaftarListItem>? = null): BaseResultData()
 
+//parcelable: kirim banyak data sekaligus saat intent
 @Parcelize
 data class DaftarListItem(
         @Expose
         var id: Int? = null,
 
-        @Expose
-        var user_name: String? = null,
+//        @Expose
+//        var user_name: String? = null,
 
         @Expose
-        var name: String? = null,
+        var nama: String? = null,
 
         @Expose
         var umur: String? = null,
@@ -27,5 +28,5 @@ data class DaftarListItem(
         var tanggal_lahir: String? = null,
 
         @Expose
-        var no_telp: String? = null
+        var telepon: String? = null
 ):Parcelable
