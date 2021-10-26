@@ -18,6 +18,9 @@ class JadwalSanggarItem {
         var id: Int? = null
 
         @Expose
+        var kategori_latihan: String? = null
+
+        @Expose
         var hari: String? = null
 
         @Expose

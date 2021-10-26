@@ -42,5 +42,7 @@
     <string name="connection_timeout">Connection Timeout</string>
     <string name="io_exception">IO Exception</string>
 
+    <string name="id_pendaftaran">ID: %s</string>
+
 
 </resources>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".view.fragment.sanggar.ProfilFragment"
     android:background="@drawable/bg_profil"
     android:orientation="vertical">
@@ -12,7 +12,8 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_gravity="center_horizontal">
         <LinearLayout
             android:layout_width="357dp"
             android:layout_height="match_parent"
@@ -27,93 +28,104 @@
                 android:background="@drawable/foto">
             </ImageView>
 
-            <Button
-                android:id="@+id/btn_edit_profil"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="100dp"
-                android:layout_marginLeft="40dp"
-                android:textColor="@color/white"
-                android:text="Edit">
-                <!--            android:onClick="Edit_Profil"-->
-            </Button>
+
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="360dp"
-            android:layout_height="wrap_content"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_profile_sanggar"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
             android:orientation="vertical"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="20dp">
-            <TextView
-                android:id="@+id/tv_nama_sanggar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="15dp"
-                android:hint="@string/nama_sanggar"
-                android:textSize="24dp"
-                style="@style/TextAppearance.AppCompat.Title">
-            </TextView>
+            android:layout_gravity="center_horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/recycler_profile_sanggar"/>
 
-            <TextView
-                android:id="@+id/tv_alamat_sanggar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/alamat"
-                android:textSize="24dp"
-                android:layout_margin="15dp"
-                style="@style/TextAppearance.AppCompat.Title">
-            </TextView>
+        <Button
+            android:id="@+id/btn_edit_profil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/white"
+            android:text="Edit Profil">
+            <!--            android:onClick="Edit_Profil"-->
+        </Button>
 
-            <TextView
-                android:id="@+id/tv_no_telepon"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/nomor_telepon"
-                android:textSize="24dp"
-                android:layout_margin="15dp"
-                style="@style/TextAppearance.AppCompat.Title">
-            </TextView>
+<!--        <LinearLayout-->
+<!--            android:layout_width="360dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="vertical"-->
+<!--            android:layout_marginLeft="15dp"-->
+<!--            android:layout_marginTop="20dp">-->
+<!--            <TextView-->
+<!--                android:id="@+id/tv_nama_sanggar"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_margin="15dp"-->
+<!--                android:hint="@string/nama_sanggar"-->
+<!--                android:textSize="24dp"-->
+<!--                style="@style/TextAppearance.AppCompat.Title">-->
+<!--            </TextView>-->
 
-            <TextView
-                android:id="@+id/tv_bank"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/bank"
-                android:textSize="24dp"
-                android:layout_margin="15dp"
-                style="@style/TextAppearance.AppCompat.Title">
-            </TextView>
+<!--            <TextView-->
+<!--                android:id="@+id/tv_alamat_sanggar"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:hint="@string/alamat"-->
+<!--                android:textSize="24dp"-->
+<!--                android:layout_margin="15dp"-->
+<!--                style="@style/TextAppearance.AppCompat.Title">-->
+<!--            </TextView>-->
 
-            <TextView
-                android:id="@+id/tv_no_rekening"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/no_rekening"
-                android:textSize="24dp"
-                android:layout_margin="15dp"
-                style="@style/TextAppearance.AppCompat.Title">
-            </TextView>
+<!--            <TextView-->
+<!--                android:id="@+id/tv_no_telepon"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:hint="@string/nomor_telepon"-->
+<!--                android:textSize="24dp"-->
+<!--                android:layout_margin="15dp"-->
+<!--                style="@style/TextAppearance.AppCompat.Title">-->
+<!--            </TextView>-->
 
-            <TextView
-                android:id="@+id/tv_harga_pendafataran"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/harga_pendaftaran"
-                android:textSize="24dp"
-                android:layout_margin="15dp"
-                style="@style/TextAppearance.AppCompat.Title">
-            </TextView>
+<!--            <TextView-->
+<!--                android:id="@+id/tv_bank"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:hint="@string/bank"-->
+<!--                android:textSize="24dp"-->
+<!--                android:layout_margin="15dp"-->
+<!--                style="@style/TextAppearance.AppCompat.Title">-->
+<!--            </TextView>-->
 
-            <TextView
-                android:id="@+id/tv_harga_sewa"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/harga_sewa"
-                android:textSize="24dp"
-                android:layout_margin="15dp"
-                style="@style/TextAppearance.AppCompat.Title">
-            </TextView>
-        </LinearLayout>
+<!--            <TextView-->
+<!--                android:id="@+id/tv_no_rekening"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:hint="@string/no_rekening"-->
+<!--                android:textSize="24dp"-->
+<!--                android:layout_margin="15dp"-->
+<!--                style="@style/TextAppearance.AppCompat.Title">-->
+<!--            </TextView>-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/tv_harga_pendafataran"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:hint="@string/harga_pendaftaran"-->
+<!--                android:textSize="24dp"-->
+<!--                android:layout_margin="15dp"-->
+<!--                style="@style/TextAppearance.AppCompat.Title">-->
+<!--            </TextView>-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/tv_harga_sewa"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:hint="@string/harga_sewa"-->
+<!--                android:textSize="24dp"-->
+<!--                android:layout_margin="15dp"-->
+<!--                style="@style/TextAppearance.AppCompat.Title">-->
+<!--            </TextView>-->
+<!--        </LinearLayout>-->
     </LinearLayout>
 </FrameLayout>

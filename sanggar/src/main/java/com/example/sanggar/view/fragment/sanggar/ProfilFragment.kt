@@ -6,23 +6,25 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.sanggar.R
-import com.example.sanggar.common.clickWithDebounce
+import com.example.sanggar.common.Utilities
+import com.example.sanggar.data.model.sanggar.ProfilSanggarListResponse
+import com.example.sanggar.data.model.sanggar.ProfilSanggarResponse
 import com.example.sanggar.data.model.sanggar.SanggarData
+import com.example.sanggar.presenter.sanggar.ProfilSanggarContract
+import com.example.sanggar.presenter.sanggar.ProfilSanggarPresenter
 import com.example.sanggar.view.activity.sanggar.EditProfilActivity
-import kotlinx.android.synthetic.main.activity_edit_profil.*
+import com.example.sanggar.view.adapter.sanggar.ProfilSanggarAdapter
 import kotlinx.android.synthetic.main.fragment_profil_sanggar.*
 
 
-class ProfilFragment(): Fragment() {
+class ProfilFragment(): Fragment(), ProfilSanggarContract.View {
 
-    var data: SanggarData? = null
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    var data : SanggarData? = null
+    private var presenter = ProfilSanggarPresenter(this)
+    lateinit var adapter: ProfilSanggarAdapter
 
-        data?.let { setView(it) }
-
-    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -32,28 +34,40 @@ class ProfilFragment(): Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        btn_edit_profil?.clickWithDebounce {
-            startActivity(Intent(context, EditProfilActivity::class.java ))
-        }
+
+        data = getActivity()?.intent?.getParcelableExtra("data")
+        initAdapter()
     }
 
-//    override fun onStart() {
-//        super.onStart()
-//        initView()
-//    }
+    private fun initAdapter() {
+        adapter = ProfilSanggarAdapter {
+            detailItem -> val intent = (Intent(context, EditProfilActivity::class.java ))
+            intent.putExtra("intent", detailItem)
+            startActivity(intent)
+        }
+        rv_profile_sanggar?.layoutManager = LinearLayoutManager(activity)
+        rv_profile_sanggar?.adapter = adapter
+    }
+
+    private fun isLoading(isLoad: Boolean) {
+        if (isLoad) this.context?.let { Utilities.showProgress(it) }
+        else Utilities.hideProgress()
+    }
+
+
 
     private fun setView(data: SanggarData) {
 
-        data?.run {
-            tv_nama_sanggar?.text = data.nama_sanggar
-            tv_alamat_sanggar?.text = data.alamat
-            tv_no_telepon?.text = data.telepon
-            tv_bank?.text = data.bank
-            tv_no_rekening?.text = data.nomor_rekening
-
-//            tv_harga_pendafataran.setText(data.harga_pendaftaran_siswa)
-//            tv_harga_sewa.setText(data.harga_penyewaan_siswa)
-        }
+//        data?.run {
+//            tv_nama_sanggar?.text = data.nama_sanggar
+//            tv_alamat_sanggar?.text = data.alamat
+//            tv_no_telepon?.text = data.telepon
+//            tv_bank?.text = data.bank
+//            tv_no_rekening?.text = data.nomor_rekening
+//
+////            tv_harga_pendafataran.setText(data.harga_pendaftaran_siswa)
+////            tv_harga_sewa.setText(data.harga_penyewaan_siswa)
+//        }
 
 //        var data = SanggarData()
 //        tv_nama_sanggar?.setText(data?.nama_sanggar)
@@ -64,6 +78,20 @@ class ProfilFragment(): Fragment() {
 //        tv_harga_pendafataran?.setText(data?.harga_pendaftaran_siswa?.let { Integer.toString(it) })
 //        tv_harga_sewa?.setText(data?.harga_penyewaan_siswa?.let { Integer.toString(it) })
 
+    }
+
+    override fun profilSanggarResponse(response: ProfilSanggarResponse) {
+        TODO("Not yet implemented")
+    }
+
+    override fun getProfilSanggarResponse(response: ProfilSanggarListResponse) {
+        isLoading(false)
+        response.data?.let { adapter.setData(it) }
+
+    }
+
+    override fun showError(title: String, message: String) {
+        TODO("Not yet implemented")
     }
 
 }

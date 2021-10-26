@@ -27,13 +27,13 @@ interface DaftarListContract {
 
     interface Handler {
         @FormUrlEncoded
-        @POST("anak")
+        @POST("pendaftaran-siswa")
         fun addListDaftar(@FieldMap data: HashMap<String, Any?>): Observable<DaftarResponse>
 
-        @GET("anak")
+        @GET("pendaftaran-siswa")
         fun getListDaftar(): Observable<DaftarListResponse>
 
-        @DELETE("anak/{id}")
+        @DELETE("pendaftaran-siswa/{id}")
         fun deleteListDaftar(@Path("id")id: Int): Observable<EmptyResponse>
     }
 }

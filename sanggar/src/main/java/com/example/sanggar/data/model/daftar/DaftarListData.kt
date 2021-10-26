@@ -1,32 +1,28 @@
 package com.example.sanggar.data.model.daftar
 
 import android.os.Parcelable
+import com.example.sanggar.data.model.anak.AnakListItem
 import com.example.sanggar.data.model.common.BaseResultData
 import com.google.gson.annotations.Expose
 import kotlinx.android.parcel.Parcelize
+import kotlinx.android.parcel.RawValue
 
-data class DaftarResponse(@Expose var data: DaftarListItem? = null): BaseResultData()
+data class DaftarResponse(@Expose var data: PendaftaranAnak? = null): BaseResultData()
 
-data class DaftarListResponse(@Expose var data: List<DaftarListItem>? = null): BaseResultData()
+data class DaftarListResponse(@Expose var data: List<PendaftaranAnak>? = null): BaseResultData()
 
-//parcelable: kirim banyak data sekaligus saat intent
-@Parcelize
-data class DaftarListItem(
+data class PendaftaranAnak (
         @Expose
-        var id: Int? = null,
-
-//        @Expose
-//        var user_name: String? = null,
+        var id: String = "",
 
         @Expose
-        var nama: String? = null,
+        var bukti_pembayaran: String? = null,
 
         @Expose
-        var umur: String? = null,
+        var status: String? = null,
 
         @Expose
-        var tanggal_lahir: String? = null,
+        var anak: AnakListItem? = null
+)
 
-        @Expose
-        var telepon: String? = null
-):Parcelable
+

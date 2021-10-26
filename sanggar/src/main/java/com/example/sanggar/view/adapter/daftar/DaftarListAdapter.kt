@@ -6,13 +6,14 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sanggar.R
 import com.example.sanggar.common.clickWithDebounce
-import com.example.sanggar.data.model.daftar.DaftarListItem
+import com.example.sanggar.data.model.daftar.PendaftaranAnak
 import kotlinx.android.synthetic.main.recycler_list_daftar.view.*
-import kotlin.math.log
 
-class DaftarListAdapter : RecyclerView.Adapter<DaftarListAdapter.ViewHolder>() {
 
-    var daftarList = mutableListOf<DaftarListItem>()
+class DaftarListAdapter(val detailListener: (PendaftaranAnak)-> Unit ) : RecyclerView.Adapter<DaftarListAdapter.ViewHolder>() {
+
+    var daftarList : List<PendaftaranAnak>? = null
+
     inner class ViewHolder(view: View) :RecyclerView.ViewHolder(view)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -24,14 +25,14 @@ class DaftarListAdapter : RecyclerView.Adapter<DaftarListAdapter.ViewHolder>() {
 
     override fun getItemCount(): Int {
 
-        return daftarList.count()
+        return daftarList?.size ?: 0
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = daftarList[position]
+        val item = daftarList?.get(position)
         holder.itemView.apply {
             cv_list_daftar?.clickWithDebounce {
-//                detailListener(item)
+                detailListener(PendaftaranAnak())
             }
 
             cv_list_daftar?.setOnLongClickListener {
@@ -39,14 +40,13 @@ class DaftarListAdapter : RecyclerView.Adapter<DaftarListAdapter.ViewHolder>() {
                 return@setOnLongClickListener true
             }
 //            tv_user_name?.text = item.user_name
-            tv_anak_name?.text = item.nama
-            tv_anak_umur?.text = item.umur
-
+            tv_anak_name?.text = item?.anak?.nama
+            tv_anak_umur?.text = context.getString(R.string.id_pendaftaran, item?.id)
         }
     }
 
-    fun setData(data: List<DaftarListItem>) {
-        daftarList = data.toMutableList()
+    fun setData(data: List<PendaftaranAnak>) {
+        daftarList = data
         notifyDataSetChanged()
     }
 }

@@ -204,7 +204,7 @@
                 app:cardElevation="@dimen/dp24">
 
                 <Button
-                    android:id="@+id/btn_simpan"
+                    android:id="@+id/btn_simpan_profil"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/dp16"
