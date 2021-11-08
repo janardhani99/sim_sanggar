@@ -38,11 +38,11 @@ class DaftarListFragment : Fragment(), DaftarListContract.View {
     }
 
     private fun initAdapter(){
-        adapter = DaftarListAdapter({detailItem->
+        adapter = DaftarListAdapter { detailItem->
             val bottomSheet = PendaftarDetailBottomSheet(detailItem)
             bottomSheet.show(childFragmentManager, "")
-        })
-        rv_daftar_list?.hasFixedSize()
+        }
+//        rv_daftar_list?.hasFixedSize()
         rv_daftar_list?.layoutManager = LinearLayoutManager(this.activity)
         rv_daftar_list?.adapter = adapter
     }

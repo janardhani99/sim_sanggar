@@ -31,8 +31,8 @@ class DaftarListAdapter(val detailListener: (PendaftaranAnak)-> Unit ) : Recycle
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = daftarList?.get(position)
         holder.itemView.apply {
-            cv_list_daftar?.clickWithDebounce {
-                detailListener(PendaftaranAnak())
+            cv_list_daftar?.setOnClickListener {
+                detailListener(item!!)
             }
 
             cv_list_daftar?.setOnLongClickListener {

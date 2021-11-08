@@ -46,9 +46,9 @@ class PendaftarDetailBottomSheet(val data: PendaftaranAnak? = null): BottomSheet
     private fun initView(data: PendaftaranAnak?) {
 
         data?.run {
-            til_nama_anak.editText?.setText(data.anak?.nama)
-            til_umur_anak.editText?.setText(data.anak?.umur)
-            til_telepon.editText?.setText(data.anak?.telepon)
+            til_nama_anak?.editText?.setText(data.anak?.nama)
+            til_umur_anak?.editText?.setText(data.anak?.umur)
+            til_telepon?.editText?.setText(data.anak?.telepon)
         }
 
         btn_verifikasi_pendaftar.clickWithDebounce {

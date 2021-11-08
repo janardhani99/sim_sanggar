@@ -1,12 +1,10 @@
 package com.example.sanggar.presenter.jam_operasional
 
+import com.example.sanggar.data.model.jam_operasional.JamOperasionalListResponse
 import com.example.sanggar.data.model.jam_operasional.JamOperasionalResponse
 import com.example.sanggar.presenter.common.BaseContract
 import io.reactivex.Observable
-import retrofit2.http.Field
-import retrofit2.http.FieldMap
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.POST
+import retrofit2.http.*
 
 import kotlin.collections.HashMap
 
@@ -14,15 +12,27 @@ interface JamOperasionalContract {
 
     interface View: BaseContract.View {
         fun jamOperasionalResponse(response: JamOperasionalResponse)
+        fun getJamOperasionalResponse(response: JamOperasionalListResponse)
     }
 
     interface Presenter {
         fun tambahJamOperasional(data: HashMap<String, Any?>)
+        fun getJamOperasional()
+        fun editJamOperasional(id: Int, data: HashMap<String, Any?>)
     }
 
     interface Handler {
         @FormUrlEncoded
-        @POST("sanggar")
+        @POST("jam-operasional")
         fun tambahJamOperasoional(@FieldMap data: HashMap<String, Any?>): Observable<JamOperasionalResponse>
+
+        @GET("jam-operasional")
+        fun getJamOperasional(): Observable<JamOperasionalListResponse>
+
+        @FormUrlEncoded
+        @PATCH("jam-operasional/{id}")
+        fun editJamOperasional(@Path("id") id: Int, @FieldMap data: HashMap<String, Any?>): Observable<JamOperasionalResponse>
+
+
     }
 }

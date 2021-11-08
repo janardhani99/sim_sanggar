@@ -110,159 +110,160 @@
 
         </LinearLayout>
 
-<!--        <androidx.recyclerview.widget.RecyclerView-->
-<!--            android:id="@+id/rv_home"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:orientation="vertical"-->
-<!--            tools:listitem="@layout/item_cardview"-->
-<!--            android:layout_margin="10dp"-->
-<!--            android:padding="10dp">-->
-<!--        </androidx.recyclerview.widget.RecyclerView>-->
+
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/cv_jadwalsanggar"
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cv_jam_operasional"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    app:cardCornerRadius="15dp"
-                    android:clickable="true">
+                    android:layout_margin="@dimen/dp8"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:cardBackgroundColor="@color/colorPrimary">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:layout_margin="@dimen/dp16"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
+
                         <ImageView
-                            android:id="@+id/img_jadwalsanggar"
-                            android:layout_width="300dp"
-                            android:layout_height="240dp"
-                            android:src="@drawable/iconcardview"
-                            android:scaleType="fitXY"
-                            android:layout_gravity="center">
-                        </ImageView>
-
-                        <TextView
-                            android:id="@+id/judul_jadwalsanggar"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Jadwal Sanggar"
-                            android:layout_margin="10dp"
-                            android:textColor="@color/black"
-                            android:textAlignment="center"
-                            android:layout_gravity="center">
-                        </TextView>
+                            android:layout_weight="2"
+                            android:src="@drawable/foto" />
 
                         <TextView
-                            android:id="@+id/deskripsi_jadwalsanggar"
+                            style="@style/TextAppearance.MaterialComponents.Headline5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Lihat Jadwal Sanggar Setiap Minggunya"
-                            android:layout_margin="10dp"
-                            android:textColor="@color/black"
-                            android:textAlignment="center"
-                            android:layout_gravity="center">
-                        </TextView>
+                            android:layout_gravity="center"
+                            android:layout_marginStart="@dimen/dp8"
+                            android:layout_marginLeft="@dimen/dp8"
+                            android:layout_weight="1"
+                            android:text="Jam Operasional"
+                            android:textColor="@color/white"
+                            android:textStyle="bold" />
                     </LinearLayout>
-                </androidx.cardview.widget.CardView>
+                </com.google.android.material.card.MaterialCardView>
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/cv_fasilitas"
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cv_jadwal_sanggar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    app:cardCornerRadius="15dp"
-                    android:clickable="true">
+                    android:layout_margin="@dimen/dp8"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:cardBackgroundColor="@color/colorPrimary">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:layout_margin="@dimen/dp16"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
+
                         <ImageView
-                            android:id="@+id/img_fasilitas"
-                            android:layout_width="300dp"
-                            android:layout_height="240dp"
-                            android:src="@drawable/iconcardview"
-                            android:scaleType="fitXY"
-                            android:layout_gravity="center">
-                        </ImageView>
-
-                        <TextView
-                            android:id="@+id/judul_jadwalsewa"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Fasilitas"
-                            android:layout_margin="10dp"
-                            android:textColor="@color/black"
-                            android:textAlignment="center"
-                            android:layout_gravity="center">
-                        </TextView>
+                            android:layout_weight="2"
+                            android:src="@drawable/foto" />
 
                         <TextView
-                            android:id="@+id/deskripsi_jadwalsewa"
+                            style="@style/TextAppearance.MaterialComponents.Headline5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Lihat Fasilitas Studio"
-                            android:layout_margin="10dp"
-                            android:textColor="@color/black"
-                            android:textAlignment="center"
-                            android:layout_gravity="center">
-                        </TextView>
+                            android:layout_gravity="center"
+                            android:layout_marginStart="@dimen/dp8"
+                            android:layout_marginLeft="@dimen/dp8"
+                            android:layout_weight="1"
+                            android:text="@string/jadwal_sanggar"
+                            android:textColor="@color/white"
+                            android:textStyle="bold" />
                     </LinearLayout>
-                </androidx.cardview.widget.CardView>
+                </com.google.android.material.card.MaterialCardView>
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/cv_kegiatansanggar"
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cv_kegiatan_sanggar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    app:cardCornerRadius="15dp"
-                    android:clickable="true">
+                    android:layout_margin="@dimen/dp8"
+                    app:cardBackgroundColor="@color/colorPrimary">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:layout_margin="@dimen/dp16"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
+
                         <ImageView
-                            android:id="@+id/img_kegiatansanggar"
-                            android:layout_width="300dp"
-                            android:layout_height="240dp"
-                            android:src="@drawable/iconcardview"
-                            android:scaleType="fitXY"
-                            android:layout_gravity="center">
-                        </ImageView>
-
-                        <TextView
-                            android:id="@+id/judul_kegiatansanggar"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Kegiatan Sanggar"
-                            android:layout_margin="10dp"
-                            android:textColor="@color/black"
-                            android:textAlignment="center"
-                            android:layout_gravity="center">
-                        </TextView>
+                            android:layout_weight="2"
+                            android:src="@drawable/foto" />
 
                         <TextView
-                            android:id="@+id/deskripsi_kegiatansanggar"
+                            style="@style/TextAppearance.MaterialComponents.Headline5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Lihat Kegiatan dan Dokumentasi Sanggar"
-                            android:layout_margin="10dp"
-                            android:textColor="@color/black"
-                            android:textAlignment="center"
-                            android:layout_gravity="center">
-                        </TextView>
+                            android:layout_gravity="center"
+                            android:layout_marginStart="@dimen/dp8"
+                            android:layout_marginLeft="@dimen/dp8"
+                            android:layout_weight="1"
+                            android:text="@string/kegiatan"
+                            android:textColor="@color/white"
+                            android:textStyle="bold" />
                     </LinearLayout>
-                </androidx.cardview.widget.CardView>
+                </com.google.android.material.card.MaterialCardView>
 
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cv_fasilitas_sanggar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp8"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:cardBackgroundColor="@color/colorPrimary">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/dp16"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:src="@drawable/foto" />
+
+                        <TextView
+                            style="@style/TextAppearance.MaterialComponents.Headline5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="@dimen/dp8"
+                            android:layout_marginLeft="@dimen/dp8"
+                            android:layout_weight="1"
+                            android:text="@string/fasilitas"
+                            android:textColor="@color/white"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
             </LinearLayout>
+
         </ScrollView>
-
-
     </LinearLayout>
 
 </LinearLayout>

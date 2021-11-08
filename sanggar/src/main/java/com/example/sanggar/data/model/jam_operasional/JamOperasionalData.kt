@@ -5,10 +5,16 @@ import com.google.gson.annotations.Expose
 
 class JamOperasionalResponse: BaseResultData() {
         @Expose
+        var data: JamOperasionalItem? = null
+}
+class JamOperasionalListResponse: BaseResultData() {
+        @Expose
         var data: List<JamOperasionalItem>? = null
 }
 
 class JamOperasionalItem(
+        @Expose
+        var id: Int? = null,
         @Expose
         var hari: String? = null,
         @Expose

@@ -65,11 +65,11 @@ class JadwalSanggarBottomSheetFragment(val data: JadwalSanggarItem? = null) : Bo
         }
 
             //create data
-            btn_simpan_jadwal?.clickWithDebounce {
+        btn_simpan_jadwal?.clickWithDebounce {
 //                (activity as BaseActivity?)?.toast("create data")
 
-                addOrEditJadwalSanggarProcess()
-            }
+            addOrEditJadwalSanggarProcess()
+        }
 
 
         btn_cancel?.clickWithDebounce {

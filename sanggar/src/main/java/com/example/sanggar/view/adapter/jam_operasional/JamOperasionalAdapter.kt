@@ -36,8 +36,8 @@ class JamOperasionalAdapter(val editListener: (JamOperasionalItem) -> Unit) : Re
         return jamOperasionalList.count()
     }
 
-    fun setData(data: MutableList<JamOperasionalItem>) {
-        jamOperasionalList = data
+    fun setData(data: List<JamOperasionalItem>) {
+        jamOperasionalList = data.toMutableList()
         notifyDataSetChanged()
     }
 }
