@@ -14,9 +14,7 @@ import com.example.sanggar.presenter.jam_operasional.JamOperasionalContract
 import com.example.sanggar.presenter.jam_operasional.JamOperasionalPresenter
 import com.example.sanggar.view.activity.common.BaseActivity
 import com.example.sanggar.view.adapter.jam_operasional.JamOperasionalAdapter
-import com.example.sanggar.view.fragment.jadwal_sanggar.JadwalSanggarBottomSheetFragment
 import com.example.sanggar.view.fragment.jam_operasional.JamOperasionalBottomSheetFragment
-import kotlinx.android.synthetic.main.activity_jadwal_sanggar.*
 import kotlinx.android.synthetic.main.activity_jam_operasional.*
 import kotlinx.android.synthetic.main.fragment_toolbar.*
 
@@ -41,6 +39,11 @@ class JamOperasionalActivity : BaseActivity(), JamOperasionalContract.View {
 
         sr_jam_operasional?.setOnRefreshListener {
             fetchData()
+        }
+
+        cv_tambah_jam_operasional?.clickWithDebounce {
+            val bottomSheet = JamOperasionalBottomSheetFragment()
+            bottomSheet.show(supportFragmentManager, "")
         }
     }
     private fun initAdapter() {
@@ -78,7 +81,7 @@ class JamOperasionalActivity : BaseActivity(), JamOperasionalContract.View {
         if (isload) Utilities.showProgress(this)
         else {
             Utilities.hideProgress()
-            sr_jadwal_sanggar?.isRefreshing = false
+            sr_jam_operasional?.isRefreshing = false
         }
     }
 

@@ -15,6 +15,23 @@
         android:layout_margin="@dimen/dp16"
         android:orientation="vertical">
 
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_tambah_jam_operasional"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp8"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="32dp"
+                android:gravity="center_horizontal"
+                android:text="+ Tambah Jam Operasional"
+                android:textAlignment="center" />
+        </com.google.android.material.card.MaterialCardView>
+
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/sr_jam_operasional"
             android:layout_width="match_parent"

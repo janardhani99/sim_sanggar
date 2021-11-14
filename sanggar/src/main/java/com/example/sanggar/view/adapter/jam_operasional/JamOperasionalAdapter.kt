@@ -1,5 +1,6 @@
 package com.example.sanggar.view.adapter.jam_operasional
 
+import android.text.format.DateFormat.getTimeFormat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,11 +23,13 @@ class JamOperasionalAdapter(val editListener: (JamOperasionalItem) -> Unit) : Re
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = jamOperasionalList[position]
-        val jamOperasional = "${item.hari}, ${item.jamMulai} - ${item.jamSelesai}"
+//        val hariOperasional = "${item.hari}"
+//        val jamOperasional = "${item.jamMulai} - ${item.jamSelesai}"
         holder.itemView.apply {
-            tv_jam_operasional?.text = jamOperasional
+            tv_hari_operasional?.text = "${item.hari}"
+            tv_jam_operasional?.text = "${item.jam_mulai?.let { getTimeFormat(it) }}-${item.jam_selesai?.let { getTimeFormat(it) }}"
             tv_status?.text = if(item.status == true) "Buka" else "Tutup"
-            btn_edit_jam_sanggar?.clickWithDebounce {
+            btn_edit_jam_sanggar.setOnClickListener {
                 editListener(item)
             }
         }
@@ -39,5 +42,9 @@ class JamOperasionalAdapter(val editListener: (JamOperasionalItem) -> Unit) : Re
     fun setData(data: List<JamOperasionalItem>) {
         jamOperasionalList = data.toMutableList()
         notifyDataSetChanged()
+    }
+
+    fun getTimeFormat(time: String): String {
+        return time.substring(0,5)
     }
 }

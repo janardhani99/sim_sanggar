@@ -12,15 +12,19 @@ class JamOperasionalListResponse: BaseResultData() {
         var data: List<JamOperasionalItem>? = null
 }
 
-class JamOperasionalItem(
+class JamOperasionalItem {
         @Expose
-        var id: Int? = null,
+        var id: Int? = null
+
         @Expose
-        var hari: String? = null,
+        var hari: String? = null
+
         @Expose
-        var jamMulai: String? = null,
+        var jam_mulai: String? = null
+
         @Expose
-        var jamSelesai: String? = null,
+        var jam_selesai: String? = null
+
         @Expose
-        var status: Boolean? =false
-)
+        var status: Boolean? = false
+}
