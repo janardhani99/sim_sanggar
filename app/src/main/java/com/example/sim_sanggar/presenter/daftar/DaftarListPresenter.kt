@@ -1,12 +1,13 @@
-package com.example.sanggar.presenter.daftar
+package com.example.sim_sanggar.presenter.daftar
 
-import com.example.sanggar.common.doSubscribe
-import com.example.sanggar.data.handler.common.ErrorHandler
-import com.example.sanggar.data.handler.daftar.DaftarListHandler
-import com.example.sanggar.data.model.common.EmptyResponse
-import com.example.sanggar.data.model.daftar.DaftarListResponse
-import com.example.sanggar.data.model.daftar.DaftarResponse
-import com.example.sanggar.presenter.common.BasePresenter
+import com.example.sim_sanggar.common.doSubscribe
+import com.example.sim_sanggar.data.handler.common.ErrorHandler
+import com.example.sim_sanggar.data.handler.daftar.DaftarListHandler
+import com.example.sim_sanggar.data.model.common.EmptyResponse
+import com.example.sim_sanggar.data.model.daftar.DaftarListResponse
+import com.example.sim_sanggar.data.model.daftar.DaftarResponse
+import com.example.sim_sanggar.presenter.common.BaseContract
+import com.example.sim_sanggar.presenter.common.BasePresenter
 
 class DaftarListPresenter(val view: DaftarListContract.View): BasePresenter(view), DaftarListContract.Presenter {
 
@@ -26,15 +27,6 @@ class DaftarListPresenter(val view: DaftarListContract.View): BasePresenter(view
                 .doSubscribe(object: ErrorHandler<DaftarListResponse>(this){
                     override fun onNext(t: DaftarListResponse) {
                         view.getDaftarListResponse(t)
-                    }
-                })
-    }
-
-    override fun editStatusDaftar(id: String, data: HashMap<String, Any?>) {
-        handler.editStatusDaftar(id, data)
-                .doSubscribe(object : ErrorHandler<DaftarResponse>(this){
-                    override fun onNext(t: DaftarResponse) {
-                        view.daftarListResponse(t)
                     }
                 })
     }

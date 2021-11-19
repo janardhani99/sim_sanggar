@@ -7,24 +7,32 @@ import com.example.sim_sanggar.common.Utilities
 import com.example.sim_sanggar.data.model.anak.AnakListItem
 import com.example.sim_sanggar.data.model.anak.AnakListResponse
 import com.example.sim_sanggar.data.model.anak.AnakResponse
+import com.example.sim_sanggar.data.model.common.EmptyResponse
+import com.example.sim_sanggar.data.model.daftar.DaftarListResponse
+import com.example.sim_sanggar.data.model.daftar.DaftarResponse
+import com.example.sim_sanggar.data.model.daftar.PendaftaranAnak
 import com.example.sim_sanggar.presenter.anak.AnakContract
 import com.example.sim_sanggar.presenter.anak.AnakPresenter
+import com.example.sim_sanggar.presenter.daftar.DaftarListContract
+import com.example.sim_sanggar.presenter.daftar.DaftarListPresenter
 import com.example.sim_sanggar.view.activity.common.BaseActivity
 import com.example.sim_sanggar.view.adapter.anakterdaftar.AnakTerdaftarAdapter
 import kotlinx.android.synthetic.main.activity_anak_terdaftar.*
 import kotlinx.android.synthetic.main.fragment_toolbar.*
+import kotlinx.android.synthetic.main.recycler_anak_terdaftar.*
 
-class AnakTerdaftarActivity :BaseActivity(), AnakContract.View {
-
+class AnakTerdaftarActivity :BaseActivity(), AnakContract.View, DaftarListContract.View {
     var data : AnakListItem? = null
+    var dataDaftar : PendaftaranAnak? = null
     private var presenter = AnakPresenter(this)
+    private var presenterDaftar = DaftarListPresenter(this)
     lateinit var adapter: AnakTerdaftarAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_anak_terdaftar)
 
-        data = intent.getParcelableExtra<AnakListItem>("data")
+        data = intent.getParcelableExtra("data")
 
         setToolbar()
         toolbar_title?.text = getString(R.string.riwayat_daftar_anak)
@@ -34,13 +42,26 @@ class AnakTerdaftarActivity :BaseActivity(), AnakContract.View {
 
     private fun initAdapter() {
 
-        adapter = AnakTerdaftarAdapter { detailItem->
+        adapter = AnakTerdaftarAdapter ({ detailItem->
             showCustomDialog("Klik", "Data di klik")
-        }
+        }, {daftarItem -> addPendaftaran(daftarItem)})
         rv_anak_terdaftar?.layoutManager = LinearLayoutManager(this)
         rv_anak_terdaftar?.adapter = adapter
     }
 
+    private fun addPendaftaran(daftarItem: AnakListItem) {
+
+        val anak_id = daftarItem.id
+
+        val tambahData = HashMap<String, Any?>()
+        tambahData["anak_id"] = anak_id
+
+        isLoading(true)
+        presenterDaftar.addListDaftar(tambahData)
+
+        btn_daftarkan.isClickable = false
+
+    }
     private fun fetchData() {
         isLoading(true)
         presenter.getAnak()
@@ -68,5 +89,19 @@ class AnakTerdaftarActivity :BaseActivity(), AnakContract.View {
     override fun showError(title: String, message: String) {
         this.showErrorAlert(title, message)
 
+    }
+
+    override fun daftarListResponse(response: DaftarResponse) {
+        isLoading(false)
+        this.showCustomDialogBack("Daftar", "Anak sudah didaftarkan")
+    }
+
+
+    override fun getDaftarListResponse(response: DaftarListResponse) {
+
+    }
+
+    override fun deleteDaftarListResponse(response: EmptyResponse) {
+        TODO("Not yet implemented")
     }
 }

@@ -67,7 +67,9 @@ class DaftarListFragment : Fragment(), DaftarListContract.View {
 
     override fun getDaftarListResponse(response: DaftarListResponse) {
         isLoading(false)
+
         response.data?.let { adapter.setData(it) }
+
     }
 
     override fun deleteDaftarListResponse(response: EmptyResponse) {

@@ -40,6 +40,7 @@ class DaftarListAdapter(val detailListener: (PendaftaranAnak)-> Unit ) : Recycle
                 return@setOnLongClickListener true
             }
 //            tv_user_name?.text = item.user_name
+
             tv_anak_name?.text = item?.anak?.nama
             tv_anak_umur?.text = context.getString(R.string.id_pendaftaran, item?.id)
         }

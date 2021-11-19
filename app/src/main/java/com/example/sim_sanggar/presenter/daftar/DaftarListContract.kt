@@ -1,9 +1,10 @@
-package com.example.sanggar.presenter.daftar
+package com.example.sim_sanggar.presenter.daftar
 
-import com.example.sanggar.data.model.common.EmptyResponse
-import com.example.sanggar.data.model.daftar.DaftarListResponse
-import com.example.sanggar.data.model.daftar.DaftarResponse
-import com.example.sanggar.presenter.common.BaseContract
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.sim_sanggar.data.model.common.EmptyResponse
+import com.example.sim_sanggar.data.model.daftar.DaftarListResponse
+import com.example.sim_sanggar.data.model.daftar.DaftarResponse
+import com.example.sim_sanggar.presenter.common.BaseContract
 import retrofit2.http.*
 import io.reactivex.Observable
 
@@ -20,7 +21,6 @@ interface DaftarListContract {
     interface Presenter {
         fun addListDaftar(data: HashMap<String, Any?>)
         fun getListDaftar()
-        fun editStatusDaftar(id: String, data: HashMap<String, Any?>)
         fun deleteListDaftar(id: Int)
     }
 
@@ -31,10 +31,6 @@ interface DaftarListContract {
 
         @GET("pendaftaran-siswa")
         fun getListDaftar(): Observable<DaftarListResponse>
-
-        @FormUrlEncoded
-        @PATCH("pendaftaran-siswa/{id}")
-        fun editStatusDaftar(@Path("id") id: String, @FieldMap data: HashMap<String, Any?>):Observable<DaftarResponse>
 
         @DELETE("pendaftaran-siswa/{id}")
         fun deleteListDaftar(@Path("id")id: Int): Observable<EmptyResponse>

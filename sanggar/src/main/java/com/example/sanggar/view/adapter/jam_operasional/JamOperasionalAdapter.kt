@@ -28,7 +28,8 @@ class JamOperasionalAdapter(val editListener: (JamOperasionalItem) -> Unit) : Re
         holder.itemView.apply {
             tv_hari_operasional?.text = "${item.hari}"
             tv_jam_operasional?.text = "${item.jam_mulai?.let { getTimeFormat(it) }}-${item.jam_selesai?.let { getTimeFormat(it) }}"
-            tv_status?.text = if(item.status == true) "Buka" else "Tutup"
+            tv_status?.text = item.status.toString()
+//                    if(item.status == true) { "Tutup" } else "Buka"
             btn_edit_jam_sanggar.setOnClickListener {
                 editListener(item)
             }

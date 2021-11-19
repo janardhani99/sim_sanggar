@@ -49,7 +49,7 @@ class JamOperasionalActivity : BaseActivity(), JamOperasionalContract.View {
     private fun initAdapter() {
         adapter = JamOperasionalAdapter {
             //open dialog
-            val bottomSheet = JamOperasionalBottomSheetFragment()
+            itemEdit -> val bottomSheet = JamOperasionalBottomSheetFragment(itemEdit)
             bottomSheet.show(supportFragmentManager, "")
         }
 //        rv_jam_operasional?.addItemDecoration(DividerItemDecoration(this, RecyclerView.VERTICAL))
@@ -87,6 +87,7 @@ class JamOperasionalActivity : BaseActivity(), JamOperasionalContract.View {
 
     override fun jamOperasionalResponse(response: JamOperasionalResponse) {
         TODO("Not yet implemented")
+
     }
 
     override fun getJamOperasionalResponse(response: JamOperasionalListResponse) {

@@ -63,6 +63,7 @@ class JamOperasionalBottomSheetFragment(val data: JamOperasionalItem? = null) : 
             ac_hari_operasional?.setText(data.hari, false)
             et_jam_mulai?.setText(data.jam_mulai?.substring(0,5))
             et_jam_selesai?.setText(data.jam_selesai?.substring(0,5))
+//            switch_status?.isChecked()
         }
 
         btn_simpan_jam_operasional?.clickWithDebounce {
@@ -140,7 +141,7 @@ class JamOperasionalBottomSheetFragment(val data: JamOperasionalItem? = null) : 
         val jam_selesai = til_jam_selesai?.editText?.text.toString()
 
 //        switch_status?.text = getStatusText(data?.status == true)
-        val status = switch_status?.getTextOn().toString()
+        val status = switch_status?.text.toString()
 
         val tambahData = HashMap<String, Any?>()
         tambahData["hari"] = hari.toLowerCase()

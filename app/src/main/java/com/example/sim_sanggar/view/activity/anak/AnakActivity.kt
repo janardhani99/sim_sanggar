@@ -10,8 +10,14 @@ import com.example.sim_sanggar.common.clickWithDebounce
 import com.example.sim_sanggar.data.model.anak.AnakListItem
 import com.example.sim_sanggar.data.model.anak.AnakListResponse
 import com.example.sim_sanggar.data.model.anak.AnakResponse
+import com.example.sim_sanggar.data.model.common.EmptyResponse
+import com.example.sim_sanggar.data.model.daftar.DaftarListResponse
+import com.example.sim_sanggar.data.model.daftar.DaftarResponse
+import com.example.sim_sanggar.data.model.daftar.PendaftaranAnak
 import com.example.sim_sanggar.presenter.anak.AnakContract
 import com.example.sim_sanggar.presenter.anak.AnakPresenter
+import com.example.sim_sanggar.presenter.daftar.DaftarListContract
+import com.example.sim_sanggar.presenter.daftar.DaftarListPresenter
 import com.example.sim_sanggar.view.activity.common.BaseActivity
 import kotlinx.android.synthetic.main.activity_anak.*
 import kotlinx.android.synthetic.main.fragment_toolbar.*
@@ -67,13 +73,17 @@ class AnakActivity : BaseActivity(), AnakContract.View {
 
     override fun anakResponse(response: AnakResponse) {
         isLoading(false)
-        this.showCustomDialogBack("Data Berhasil", "Pendaftaran diproses, tunggu konfirmasi dari Admin sanggar")
+        this.showCustomDialogBack("Berhasil", "Data Tersimpan. Kembali untuk mendaftarkan Anak pada Menu Daftar.")
 //        finish()
     }
 
     override fun getAnakResponse(response: AnakListResponse) {
         TODO("Not yet implemented")
     }
+
+//    override fun deleteDaftarListResponse(response: EmptyResponse) {
+//        TODO("Not yet implemented")
+//    }
 
     override fun showError(title: String, message: String) {
         this.showErrorAlert(title, message)

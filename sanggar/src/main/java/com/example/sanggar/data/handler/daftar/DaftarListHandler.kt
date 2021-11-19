@@ -19,6 +19,10 @@ class DaftarListHandler: BaseHandler() {
         return service.getListDaftar()
     }
 
+    fun editStatusDaftar(id: String, data: HashMap<String, Any?>): Observable<DaftarResponse> {
+        return service.editStatusDaftar(id, data)
+    }
+
     fun deleteListDaftar(id: Int): Observable<EmptyResponse> {
         return service.deleteListDaftar(id)
     }

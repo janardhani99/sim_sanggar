@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.sanggar.R
+import com.example.sanggar.common.Utilities
 import com.example.sanggar.common.clickWithDebounce
 import com.example.sanggar.data.model.common.EmptyResponse
 import com.example.sanggar.data.model.daftar.DaftarListResponse
@@ -52,19 +53,31 @@ class PendaftarDetailBottomSheet(val data: PendaftaranAnak? = null): BottomSheet
         }
 
         btn_verifikasi_pendaftar.clickWithDebounce {
-            ubahStatus()
+            ubahStatus(data)
         }
 
         btn_batalkan.clickWithDebounce {
-            ubahStatus()
+            this.dismiss()
         }
     }
 
-    private fun ubahStatus() {
-
+    private fun ubahStatus(data: PendaftaranAnak?) {
+//        val status = data?.status
+        val tambahData = HashMap<String, Any?>()
+        tambahData["status"] = "1"
+        isLoading(true)
+        data?.id?.let { presenter.editStatusDaftar(it, tambahData) }
     }
+
+    private fun isLoading(isLoad: Boolean) {
+        if (isLoad) this.context?.let { Utilities.showProgress(it) }
+        else Utilities.hideProgress()
+    }
+
     override fun daftarListResponse(response: DaftarResponse) {
-        TODO("Not yet implemented")
+        this.dismiss()
+        isLoading(false)
+        baseActivity.showCustomDialogBack("Berhasil", "Berhasil Verifikasi")
     }
 
     override fun getDaftarListResponse(response: DaftarListResponse) {
