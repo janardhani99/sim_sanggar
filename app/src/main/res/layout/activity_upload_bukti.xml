@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UploadBuktiActivity">
+    tools:context=".view.activity.sewa.UploadBuktiActivity">
 
     <include
         android:id="@+id/tl_upload_bukti"
@@ -17,6 +17,22 @@
         android:orientation="vertical"
         android:layout_margin="@dimen/dp16"
         android:layout_below="@+id/tl_upload_bukti">
+
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Transfer Via" />-->
+<!--        -->
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            android:id="@+id/til_transfer_via"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content">-->
+
+<!--            <com.google.android.material.textfield.TextInputEditText-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:hint="" />-->
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"

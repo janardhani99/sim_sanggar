@@ -16,7 +16,7 @@
         android:theme="@style/Theme.SIM_Sanggar">
         <activity android:name=".view.activity.jam_operasional.JamOperasionalActivity"></activity>
         <activity
-            android:name=".UploadBuktiActivity"
+            android:name=".view.activity.sewa.UploadBuktiActivity"
             android:screenOrientation="portrait"></activity>
         <activity
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
@@ -39,6 +39,9 @@
         <activity
             android:name=".view.activity.sewa.SewaActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.sewa.RiwayatSewaActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".view.activity.jadwal_sanggar.JadwalSanggarActivity"
             android:screenOrientation="portrait" />

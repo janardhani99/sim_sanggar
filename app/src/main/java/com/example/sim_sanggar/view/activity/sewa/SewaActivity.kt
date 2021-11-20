@@ -16,6 +16,7 @@ import com.example.sim_sanggar.common.Utilities
 import com.example.sim_sanggar.common.Validations
 import com.example.sim_sanggar.common.clickWithDebounce
 import com.example.sim_sanggar.data.model.sewa.SewaListItem
+import com.example.sim_sanggar.data.model.sewa.SewaListResponse
 import com.example.sim_sanggar.data.model.sewa.SewaResponse
 import com.example.sim_sanggar.presenter.DatePickerHelper
 import com.example.sim_sanggar.presenter.sewa.SewaContract
@@ -168,6 +169,10 @@ class SewaActivity : BaseActivity(),SewaContract.View {
     override fun sewaResponse(response: SewaResponse) {
         isLoading(false)
         this.showCustomDialogBack("data berhasil", "Penyewaan diproses, tunggu konfirmasi dari Admin Sanggar")
+    }
+
+    override fun getSewaResponse(response: SewaListResponse) {
+        TODO("Not yet implemented")
     }
 
     override fun uploadImageResponse() {

@@ -3,6 +3,7 @@ package com.example.sim_sanggar.presenter.sewa
 import com.example.sim_sanggar.common.doSubscribe
 import com.example.sim_sanggar.data.handler.common.ErrorHandler
 import com.example.sim_sanggar.data.handler.sewa.SewaHandler
+import com.example.sim_sanggar.data.model.sewa.SewaListResponse
 import com.example.sim_sanggar.data.model.sewa.SewaResponse
 import com.example.sim_sanggar.presenter.common.BasePresenter
 import okhttp3.MultipartBody
@@ -20,6 +21,16 @@ class SewaPresenter(val view: SewaContract.View):BasePresenter(view), SewaContra
                     }
                 })
     }
+
+    override fun getSewa() {
+        handler.getSewa()
+                .doSubscribe(object : ErrorHandler<SewaListResponse>(this){
+                    override fun onNext(t: SewaListResponse) {
+                        view.getSewaResponse(t)
+                    }
+                })
+    }
+
 
     override fun addImage(id: Int, part: MultipartBody.Part) {
         handler.addImage(id, part)

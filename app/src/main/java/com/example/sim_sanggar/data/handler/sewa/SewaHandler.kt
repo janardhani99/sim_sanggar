@@ -1,6 +1,7 @@
 package com.example.sim_sanggar.data.handler.sewa
 
 import com.example.sim_sanggar.data.handler.common.BaseHandler
+import com.example.sim_sanggar.data.model.sewa.SewaListResponse
 import com.example.sim_sanggar.data.model.sewa.SewaResponse
 import com.example.sim_sanggar.presenter.sewa.SewaContract
 import io.reactivex.Observable
@@ -14,6 +15,9 @@ class SewaHandler: BaseHandler() {
         return service.addSewa(data)
     }
 
+    fun getSewa(): Observable<SewaListResponse> {
+        return service.getSewa()
+    }
     fun addImage(id: Int, part: MultipartBody.Part): Observable<SewaResponse> {
         return service.addImage(id, part)
     }

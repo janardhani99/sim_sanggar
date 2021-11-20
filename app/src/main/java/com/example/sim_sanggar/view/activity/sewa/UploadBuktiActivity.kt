@@ -1,12 +1,13 @@
-package com.example.sim_sanggar
+package com.example.sim_sanggar.view.activity.sewa
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.sim_sanggar.R
 import com.example.sim_sanggar.common.Utilities
 import com.example.sim_sanggar.common.clickWithDebounce
 import com.example.sim_sanggar.common.loadImage
 import com.example.sim_sanggar.data.model.sewa.SewaListItem
+import com.example.sim_sanggar.data.model.sewa.SewaListResponse
 import com.example.sim_sanggar.data.model.sewa.SewaResponse
 import com.example.sim_sanggar.presenter.sewa.SewaContract
 import com.example.sim_sanggar.presenter.sewa.SewaPresenter
@@ -14,7 +15,6 @@ import com.example.sim_sanggar.view.activity.common.BaseActivity
 import com.theartofdev.edmodo.cropper.CropImage
 import com.theartofdev.edmodo.cropper.CropImageView
 import kotlinx.android.synthetic.main.activity_upload_bukti.*
-import kotlinx.android.synthetic.main.fragment_jadwal_sewa.*
 import kotlinx.android.synthetic.main.fragment_toolbar.*
 import okhttp3.MediaType
 import okhttp3.MultipartBody
@@ -57,6 +57,17 @@ class UploadBuktiActivity : BaseActivity(), SewaContract.View {
 
         btn_upload.clickWithDebounce {
 
+            uploadBukti()
+        }
+    }
+
+    private fun uploadBukti() {
+        isLoading(true)
+        if (imageFile != null) {
+            imageFile?.let { uploadImage(data?.id,it) }
+        } else {
+//            isLoading(false)
+            this.showCustomDialogBack("Upload Foto", "Anda belum upload bukti!")
         }
     }
 
@@ -91,12 +102,11 @@ class UploadBuktiActivity : BaseActivity(), SewaContract.View {
     }
 
     override fun sewaResponse(response: SewaResponse) {
-        if (imageFile != null) {
-            imageFile?.let { uploadImage(response.data?.id,it) }
-        } else {
-            isLoading(false)
-            this.showCustomDialogBack("Data Berhasil", "Data berhasil ditambahkan")
-        }
+
+    }
+
+    override fun getSewaResponse(response: SewaListResponse) {
+        TODO("Not yet implemented")
     }
 
     override fun uploadImageResponse() {

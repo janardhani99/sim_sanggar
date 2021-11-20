@@ -6,6 +6,7 @@ import com.google.gson.annotations.Expose
 import kotlinx.android.parcel.Parcelize
 
 data class SewaResponse(@Expose var data: SewaListItem? = null): BaseResultData()
+data class SewaListResponse(@Expose var data: List<SewaListItem>? = null): BaseResultData()
 
 @Parcelize
 data class SewaListItem(

@@ -26,7 +26,7 @@ class JadwalSanggarAdapter(): RecyclerView.Adapter<JadwalSanggarAdapter.ViewHold
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = jadwalList[position]
         holder.itemView.apply {
-            tv_jadwal_sanggar.text = "${item.kategori_latihan}"
+            tv_jadwal_sanggar.text = item.kategori_latihan
             tv_waktu.text = "${item.hari}, ${item.jam_mulai?.let { getTimeFormat(it) }}-${item.jam_selesai?.let { getTimeFormat(it) }}"
 //
         }
