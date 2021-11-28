@@ -10,7 +10,9 @@ import com.example.sim_sanggar.data.model.anak.AnakListItem
 import com.example.sim_sanggar.data.model.daftar.PendaftaranAnak
 import com.example.sim_sanggar.data.model.sewa.SewaListItem
 import kotlinx.android.synthetic.main.activity_sewa.view.*
+import kotlinx.android.synthetic.main.activity_sewa.view.tv_tanggal_sewa
 import kotlinx.android.synthetic.main.recycler_anak_terdaftar.view.*
+import kotlinx.android.synthetic.main.recycler_riwayat_sewa.view.*
 
 class SewaAdapter(val sewaListener: (SewaListItem)-> Unit): RecyclerView.Adapter<SewaAdapter.ViewHolder>() {
 
@@ -31,7 +33,7 @@ class SewaAdapter(val sewaListener: (SewaListItem)-> Unit): RecyclerView.Adapter
         val item = sewaList[position]
         holder.itemView.apply {
             tv_tanggal_sewa.text = "${item.tanggal}"
-            btn_sewa.setOnClickListener {
+            btn_upload.setOnClickListener {
                 sewaListener(item)
             }
         }

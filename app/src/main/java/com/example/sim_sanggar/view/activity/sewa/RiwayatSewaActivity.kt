@@ -22,7 +22,7 @@ class RiwayatSewaActivity :BaseActivity(), SewaContract.View {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_anak_terdaftar)
+        setContentView(R.layout.activity_riwayat_sewa)
 
         data = intent.getParcelableExtra("data")
 

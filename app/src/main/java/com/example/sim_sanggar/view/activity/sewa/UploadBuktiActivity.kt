@@ -55,7 +55,7 @@ class UploadBuktiActivity : BaseActivity(), SewaContract.View {
             foto?.let { iv_upload_bukti.loadImage(it) }
         }
 
-        btn_upload.clickWithDebounce {
+        btn_upload_foto.clickWithDebounce {
 
             uploadBukti()
         }

@@ -28,11 +28,11 @@ class AnakFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        btn_daftar_sekarang.clickWithDebounce {
+        btn_daftar_sekarang?.clickWithDebounce {
             startActivity(Intent(context, AnakActivity::class.java))
         }
 
-        btn_list_anak.clickWithDebounce {
+        btn_list_anak?.clickWithDebounce {
             startActivity(Intent(context, AnakTerdaftarActivity::class.java))
         }
     }
