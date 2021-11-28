@@ -41,6 +41,7 @@
     <string name="no_connection">No Connection</string>
     <string name="connection_timeout">Connection Timeout</string>
     <string name="io_exception">IO Exception</string>
+    <string name="platform_transaksi">Platform Transaksi</string>
 
     <string name="id_pendaftaran">ID: %s</string>
 
