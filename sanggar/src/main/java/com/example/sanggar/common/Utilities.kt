@@ -7,6 +7,10 @@ import android.view.Window
 import com.example.sanggar.R
 import com.example.sanggar.data.handler.common.BaseHandler
 import com.example.sanggar.data.model.common.APIError
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
 import okhttp3.ResponseBody
 import retrofit2.Converter
 import retrofit2.Response
@@ -46,4 +50,10 @@ object Utilities {
     fun hideProgress() = if (this::dialog.isInitialized && dialog.isShowing) dialog.dismiss() else {
     }
 
+    fun doRequest(function: suspend () -> Unit): Job {
+        return GlobalScope.launch(Dispatchers.Main) {
+            function()
+        }
+
+    }
 }

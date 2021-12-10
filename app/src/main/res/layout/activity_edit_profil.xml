@@ -36,7 +36,8 @@
             android:layout_width="match_parent"
             android:hint="Nama"
             android:inputType="textPersonName"
-            android:textSize="20dp">
+            android:textSize="20dp"
+            tools:ignore="MissingClass">
         </com.rengwuxian.materialedittext.MaterialEditText>
 
         <com.rengwuxian.materialedittext.MaterialEditText

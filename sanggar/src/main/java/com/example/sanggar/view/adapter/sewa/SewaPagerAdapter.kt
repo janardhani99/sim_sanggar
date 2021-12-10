@@ -3,6 +3,7 @@ package com.example.sanggar.view.adapter.sewa
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
+import com.example.sanggar.view.fragment.daftar.DaftarListFragment
 import com.example.sanggar.view.fragment.sewa.SewaListFragment
 
 class SewaPagerAdapter(fm: FragmentManager):
@@ -13,18 +14,20 @@ class SewaPagerAdapter(fm: FragmentManager):
             "Batal"
     )
 
-    private val fragment = listOf(
-            SewaListFragment(),
-            SewaListFragment(),
-            SewaListFragment()
-    )
+    val status = listOf("0", "1", "2")
+//
+//    private val fragment = listOf(
+//            SewaListFragment(),
+//            SewaListFragment(),
+//            SewaListFragment()
+//    )
 
     override fun getItem(position: Int): Fragment {
-        return fragment[position]
+        return DaftarListFragment.newInstance(status[position])
     }
 
     override fun getCount(): Int {
-        return title.count()
+        return status.count()
     }
 
     override fun getPageTitle(position: Int): CharSequence? {

@@ -1,146 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.fragment.beranda.BerandaFragment">
-    <!--    android:layout_weight="1"-->
+    tools:context=".view.fragment.beranda.BerandaFragment"
+    android:background="@drawable/bg"
+    android:orientation="vertical">
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        android:orientation="vertical"
-        tools:context=".MainActivity">
-<!--        android:background="@drawable/bg"-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="35dp">
+
+            <TextView
+                android:id="@+id/txt_namauser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sandrayati"
+                android:textColor="#000000"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:layout_toRightOf="@+id/img"
+                android:fontFamily="sans-serif"/>
+
+            <TextView
+                android:id="@+id/txt_sanggar_user"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Citranala Art Studio"
+                android:textColor="#CF5900"
+                android:textSize="12dp"
+                android:layout_below="@+id/txt_namauser"
+                android:layout_marginLeft="80dp"
+                android:layout_marginTop="6dp"
+                android:fontFamily="sans-serif"/>
+
+            <ImageView
+                android:id="@+id/img"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="5dp"
+                android:src="@drawable/foto"/>
+        </RelativeLayout>
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:overScrollMode="never">
+            android:background="@drawable/base_menu"
+            android:layout_marginTop="150dp">
 
-            <RelativeLayout
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cv_jam_operasional"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginTop="35dp">
+                android:layout_marginTop="50dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginLeft="30dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="@color/white"
+                android:outlineSpotShadowColor="@color/black"
+                app:cardElevation="1dp">
 
-                <TextView
-                    android:id="@+id/txt_namauser"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Sandrayati"
-                    android:textColor="#000000"
-                    android:textSize="16dp"
-                    android:textStyle="bold"
-                    android:layout_toRightOf="@+id/img"
-                    android:fontFamily="sans-serif"/>
-
-                <TextView
-                    android:id="@+id/txt_sanggar_user"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Citranala Art Studio"
-                    android:textColor="#CF5900"
-                    android:textSize="12dp"
-                    android:layout_below="@+id/txt_namauser"
-                    android:layout_marginLeft="80dp"
-                    android:layout_marginTop="6dp"
-                    android:fontFamily="sans-serif"/>
-
-                <ImageView
-                    android:id="@+id/img"
-                    android:layout_width="65dp"
-                    android:layout_height="65dp"
-                    android:layout_alignParentLeft="true"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="5dp"
-                    android:src="@drawable/foto"/>
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="150dp"
-                android:layout_marginTop="25dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:background="@drawable/kotak">
-
-                <ImageView
-                    android:id="@+id/people_img"
-                    android:layout_marginTop="10dp"
-                    android:layout_width="200dp"
-                    android:layout_height="128dp"
-                    android:src="@drawable/people"/>
                 <LinearLayout
-                    android:layout_marginTop="10dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_toRightOf="@+id/people_img">
-
-                    <TextView
-                        android:id="@+id/txt_namasanggar"
-                        android:text="Citranala Art Studio"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:textStyle="bold"
-                        android:textSize="14dp"/>
-                    <TextView
-                        android:id="@+id/txt_alamat_sanggar"
-                        android:text="Jalan Tukad Yeh Empas No 25, Sanggulan, Kediri, Tabanan"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:textSize="14dp"/>
-                </LinearLayout>
-            </RelativeLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Tentang Sanggarmu"
-                android:textSize="20dp"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:layout_margin="10dp">
-            </TextView>
-
-        </LinearLayout>
-
-
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/cv_jam_operasional"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/dp8"
-                    android:clickable="true"
-                    android:focusable="true"
-                    app:cardBackgroundColor="@color/colorPrimary">
+                    android:layout_margin="@dimen/dp16"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
 
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:src="@drawable/icon_jam_operasional" />
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/dp16"
-                        android:orientation="horizontal"
-                        android:weightSum="3">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="2"
-                            android:src="@drawable/foto" />
+                        android:orientation="vertical"
+                        android:layout_marginTop="@dimen/dp16">
 
                         <TextView
                             style="@style/TextAppearance.MaterialComponents.Headline5"
@@ -151,32 +100,55 @@
                             android:layout_marginLeft="@dimen/dp8"
                             android:layout_weight="1"
                             android:text="Jam Operasional"
-                            android:textColor="@color/white"
+                            android:textColor="@color/black"
                             android:textStyle="bold" />
-                    </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
 
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/cv_jadwal_sanggar"
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="@dimen/dp8"
+                            android:layout_marginLeft="@dimen/dp8"
+                            android:layout_marginTop="4dp"
+                            android:layout_weight="1"
+                            android:text="Lihat Jam Operasional sanggarmu seiap harinya"
+                            android:textSize="@dimen/dp16" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cv_jadwal_sanggar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginLeft="30dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="@color/white"
+                android:outlineSpotShadowColor="@color/black"
+                app:cardElevation="1dp">
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/dp8"
-                    android:clickable="true"
-                    android:focusable="true"
-                    app:cardBackgroundColor="@color/colorPrimary">
+                    android:layout_margin="@dimen/dp16"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:src="@drawable/icon_jadwal_sanggar" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/dp16"
-                        android:orientation="horizontal"
-                        android:weightSum="3">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="2"
-                            android:src="@drawable/foto" />
+                        android:orientation="vertical"
+                        android:layout_marginTop="@dimen/dp16">
 
                         <TextView
                             style="@style/TextAppearance.MaterialComponents.Headline5"
@@ -187,30 +159,56 @@
                             android:layout_marginLeft="@dimen/dp8"
                             android:layout_weight="1"
                             android:text="@string/jadwal_sanggar"
-                            android:textColor="@color/white"
+                            android:textColor="@color/black"
                             android:textStyle="bold" />
-                    </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
 
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/cv_kegiatan_sanggar"
+                        <TextView
+                            android:layout_width="289dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="@dimen/dp8"
+                            android:layout_marginLeft="@dimen/dp8"
+                            android:layout_marginTop="4dp"
+                            android:layout_weight="1"
+                            android:text="Lihat hari apa sanggarmu melaksanakan latihan rutin"
+                            android:textSize="@dimen/dp16" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cv_kegiatan_sanggar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginLeft="30dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="@color/white"
+                android:outlineSpotShadowColor="@color/black"
+                app:cardElevation="1dp">
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/dp8"
-                    app:cardBackgroundColor="@color/colorPrimary">
+                    android:layout_margin="@dimen/dp16"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:src="@drawable/icon_kegiatan" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/dp16"
-                        android:orientation="horizontal"
-                        android:weightSum="3">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="2"
-                            android:src="@drawable/foto" />
+                        android:orientation="vertical"
+                        android:layout_marginTop="@dimen/dp16">
 
                         <TextView
                             style="@style/TextAppearance.MaterialComponents.Headline5"
@@ -221,32 +219,55 @@
                             android:layout_marginLeft="@dimen/dp8"
                             android:layout_weight="1"
                             android:text="@string/kegiatan"
-                            android:textColor="@color/white"
+                            android:textColor="@color/black"
                             android:textStyle="bold" />
-                    </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
 
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/cv_fasilitas_sanggar"
+                        <TextView
+                            android:layout_width="289dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="@dimen/dp8"
+                            android:layout_marginLeft="@dimen/dp8"
+                            android:layout_marginTop="4dp"
+                            android:layout_weight="1"
+                            android:text="Lihat dokumentasi, pengumuman, dan informasi terbaru"
+                            android:textSize="@dimen/dp16" />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cv_fasilitas_sanggar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginLeft="30dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="@color/white"
+                android:outlineSpotShadowColor="@color/black"
+                app:cardElevation="1dp">
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/dp8"
-                    android:clickable="true"
-                    android:focusable="true"
-                    app:cardBackgroundColor="@color/colorPrimary">
+                    android:layout_margin="@dimen/dp16"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:src="@drawable/icon_fasilitas" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/dp16"
-                        android:orientation="horizontal"
-                        android:weightSum="3">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="2"
-                            android:src="@drawable/foto" />
+                        android:orientation="vertical"
+                        android:layout_marginTop="@dimen/dp16">
 
                         <TextView
                             style="@style/TextAppearance.MaterialComponents.Headline5"
@@ -257,13 +278,23 @@
                             android:layout_marginLeft="@dimen/dp8"
                             android:layout_weight="1"
                             android:text="@string/fasilitas"
-                            android:textColor="@color/white"
+                            android:textColor="@color/black"
                             android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="289dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="@dimen/dp8"
+                            android:layout_marginLeft="@dimen/dp8"
+                            android:layout_marginTop="4dp"
+                            android:layout_weight="1"
+                            android:text="Lihat fasilitas yang tersedia di sanggarmu"
+                            android:textSize="@dimen/dp16" />
+
                     </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
-            </LinearLayout>
-
-        </ScrollView>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
     </LinearLayout>
-
-</LinearLayout>
+</ScrollView>

@@ -55,20 +55,21 @@ class UploadBuktiActivity : BaseActivity(), SewaContract.View {
             foto?.let { iv_upload_bukti.loadImage(it) }
         }
 
-        btn_upload_foto.clickWithDebounce {
+        btn_upload_foto?.clickWithDebounce {
 
             uploadBukti()
         }
     }
 
     private fun uploadBukti() {
+        val transfer_via = til_transfer_via?.editText?.text.toString()
+
+        val tambahData = HashMap<String, Any?>()
+        tambahData["transfervia"] = transfer_via
         isLoading(true)
-        if (imageFile != null) {
-            imageFile?.let { uploadImage(data?.id,it) }
-        } else {
-//            isLoading(false)
-            this.showCustomDialogBack("Upload Foto", "Anda belum upload bukti!")
-        }
+
+        presenter.addSewa(tambahData)
+
     }
 
     private fun initListener() {
@@ -103,6 +104,12 @@ class UploadBuktiActivity : BaseActivity(), SewaContract.View {
 
     override fun sewaResponse(response: SewaResponse) {
 
+        if (imageFile != null) {
+            imageFile?.let { uploadImage(data?.id,it) }
+        } else {
+//            isLoading(false)
+            this.showCustomDialogBack("Berhasil", "Data berhasil ditambahkan")
+        }
     }
 
     override fun getSewaResponse(response: SewaListResponse) {
@@ -111,7 +118,7 @@ class UploadBuktiActivity : BaseActivity(), SewaContract.View {
 
     override fun uploadImageResponse() {
         isLoading(false)
-        this.showCustomDialogBack("Data berhasil", "Data berhasil ditambahkan")
+        this.showCustomDialogBack("Berhasil", "Data berhasil ditambahkan")
     }
 
     override fun showError(title: String, message: String) {

@@ -38,8 +38,7 @@
     <string name="lihat_list_anak">Lihat Riwayat Pendaftaran Anak</string>
     <string name="riwayat_daftar_anak">Riwayat Pendaftaran Anak</string>
     <string name="riwayat_sewa">Riwayat Sewa Studio</string>
-    <string name="teks_sewa">Cek Jam Operasional di Beranda sebelum melakukan sewa.
-    Setelah mengirim data penyewaan, mohon tunggu konfirmasi dari pihak Sanggar</string>
+    <string name="teks_sewa">Booking tempat latihan atau studio sanggarmu</string>
     <string name="sewa">Sewa Studio</string>
     <string name="tanggal_sewa">Tanggal Sewa</string>
     <string name="data_tanggal">yyyy-mm-dd</string>
@@ -52,4 +51,5 @@
     <string name="fasilitas">Fasilitas</string>
     <string name="kegiatan">Kegiatan Sanggar</string>
     <string name="jam_operasional">Jam Operasional</string>
+    <string name="platform_transaksi">Platform Transaksi</string>
 </resources>

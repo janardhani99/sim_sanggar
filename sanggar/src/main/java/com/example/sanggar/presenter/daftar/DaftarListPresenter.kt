@@ -21,8 +21,9 @@ class DaftarListPresenter(val view: DaftarListContract.View): BasePresenter(view
                 })
     }
 
-    override fun getListDaftar() {
-        handler.getListDaftar()
+
+    override fun getListDaftar(status: String) {
+        handler.getListDaftar(status)
                 .doSubscribe(object: ErrorHandler<DaftarListResponse>(this){
                     override fun onNext(t: DaftarListResponse) {
                         view.getDaftarListResponse(t)

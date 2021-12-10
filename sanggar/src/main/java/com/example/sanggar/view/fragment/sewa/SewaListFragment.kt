@@ -15,18 +15,28 @@ import com.example.sanggar.data.model.sewa.SewaResponse
 import com.example.sanggar.presenter.sewa.SewaListContract
 import com.example.sanggar.presenter.sewa.SewaListPresenter
 import com.example.sanggar.view.adapter.sewa.SewaListAdapter
+import com.example.sanggar.view.fragment.daftar.DaftarListFragment
 import kotlinx.android.synthetic.main.fragment_sewa_list.*
 
-class SewaListFragment: Fragment(), SewaListContract.View {
+private const val STATUS = "status"
 
+class SewaListFragment: Fragment(), SewaListContract.View {
+    private var status: String? = null
     var data : SewaListItem? = null
     private var presenter = SewaListPresenter(this)
     lateinit var adapter: SewaListAdapter
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        arguments?.let {
+            status = it.getString(com.example.sanggar.view.fragment.sewa.STATUS)
+        }
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initAdapter()
-        fetchData()
+
 //
     }
 
@@ -35,6 +45,22 @@ class SewaListFragment: Fragment(), SewaListContract.View {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_sewa_list, container, false)
 
+    }
+    companion object {
+        @JvmStatic
+        fun newInstance(status: String) =
+                DaftarListFragment().apply {
+                    arguments = Bundle().apply {
+                        putString(com.example.sanggar.view.fragment.sewa.STATUS, status)
+                    }
+                }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Utilities.doRequest {
+            status?.let { presenter.getListSewa(it) }
+        }
     }
     private fun initAdapter(){
         adapter = SewaListAdapter()
@@ -47,12 +73,6 @@ class SewaListFragment: Fragment(), SewaListContract.View {
         if (isLoad) this.context?.let { Utilities.showProgress(it) }
         else Utilities.hideProgress()
     }
-
-    fun fetchData() {
-//        isLoading(true)
-        presenter.getListSewa()
-    }
-
 
     override fun sewaListResponse(response: SewaResponse) {
         TODO("Not yet implemented")

@@ -19,7 +19,7 @@ interface DaftarListContract {
 
     interface Presenter {
         fun addListDaftar(data: HashMap<String, Any?>)
-        fun getListDaftar()
+        fun getListDaftar(status: String)
         fun editStatusDaftar(id: String, data: HashMap<String, Any?>)
         fun deleteListDaftar(id: Int)
     }
@@ -30,7 +30,7 @@ interface DaftarListContract {
         fun addListDaftar(@FieldMap data: HashMap<String, Any?>): Observable<DaftarResponse>
 
         @GET("pendaftaran-siswa")
-        fun getListDaftar(): Observable<DaftarListResponse>
+        fun getListDaftar(@Query("status") status: String): Observable<DaftarListResponse>
 
         @FormUrlEncoded
         @PATCH("pendaftaran-siswa/{id}")

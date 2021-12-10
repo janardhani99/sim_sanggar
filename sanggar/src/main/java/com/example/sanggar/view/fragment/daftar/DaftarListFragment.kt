@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.sanggar.R
 import com.example.sanggar.common.Utilities
+import com.example.sanggar.common.Utilities.doRequest
 import com.example.sanggar.data.model.common.EmptyResponse
 import com.example.sanggar.data.model.daftar.DaftarListResponse
 import com.example.sanggar.data.model.daftar.DaftarResponse
@@ -17,17 +18,25 @@ import com.example.sanggar.presenter.daftar.DaftarListPresenter
 import com.example.sanggar.view.adapter.daftar.DaftarListAdapter
 import kotlinx.android.synthetic.main.fragment_daftar_list.*
 
+private const val STATUS = "status"
 
 class DaftarListFragment : Fragment(), DaftarListContract.View {
+    private var status: String? = null
     var data : PendaftaranAnak? = null
     private var presenter = DaftarListPresenter(this)
     lateinit var adapter: DaftarListAdapter
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        arguments?.let {
+            status = it.getString(STATUS)
+        }
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initAdapter()
-        fetchData()
+//        fetchData()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -35,6 +44,23 @@ class DaftarListFragment : Fragment(), DaftarListContract.View {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_daftar_list, container, false)
 
+    }
+
+    companion object {
+        @JvmStatic
+        fun newInstance(status: String) =
+                DaftarListFragment().apply {
+                    arguments = Bundle().apply {
+                        putString(STATUS, status)
+                    }
+                }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        doRequest {
+            status?.let { presenter.getListDaftar(it) }
+        }
     }
 
     private fun initAdapter(){
@@ -52,10 +78,10 @@ class DaftarListFragment : Fragment(), DaftarListContract.View {
         else Utilities.hideProgress()
     }
 
-    fun fetchData() {
-//        isLoading(true)
-        presenter.getListDaftar()
-    }
+//    fun fetchData() {
+////        isLoading(true)
+//        presenter.getListDaftar()
+//    }
 
 //    override fun onResume() {
 //        super.onResume()
