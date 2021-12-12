@@ -18,6 +18,7 @@ interface SewaContract {
     interface Presenter {
         fun addSewa(data: HashMap<String, Any?>)
         fun getSewa()
+        fun uploadBukti(id: Int, data: HashMap<String, Any?>)
         fun addImage(id: Int, part: MultipartBody.Part)
     }
 
@@ -28,6 +29,10 @@ interface SewaContract {
 
         @GET("penyewaan-sanggar")
         fun getSewa():Observable<SewaListResponse>
+
+        @FormUrlEncoded
+        @PATCH("penyewaan-sanggar/{id}")
+        fun uploadBukti(@Path("id")id: Int, @FieldMap data: HashMap<String, Any?>): Observable<SewaResponse>
 
         @Multipart
         @POST("penyewaan-sanggar/{id}/update-image")

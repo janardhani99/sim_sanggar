@@ -13,6 +13,7 @@ import com.example.sim_sanggar.view.activity.platform_transaksi.PlatformTransaks
 import com.example.sim_sanggar.view.activity.sewa.RiwayatSewaActivity
 import com.example.sim_sanggar.view.activity.sewa.SewaActivity
 import kotlinx.android.synthetic.main.fragment_jadwal_sewa.*
+import kotlinx.android.synthetic.main.fragment_toolbar.*
 
 
 class JadwalSewaFragment : Fragment() {
@@ -21,6 +22,7 @@ class JadwalSewaFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_jadwal_sewa, container, false)
+
 
     }
 

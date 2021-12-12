@@ -31,6 +31,15 @@ class SewaPresenter(val view: SewaContract.View):BasePresenter(view), SewaContra
                 })
     }
 
+    override fun uploadBukti(id: Int, data: HashMap<String, Any?>) {
+        handler.uploadBukti(id, data)
+                .doSubscribe(object : ErrorHandler<SewaResponse>(this){
+                    override fun onNext(t: SewaResponse) {
+                        view.sewaResponse(t)
+                    }
+                })
+    }
+
 
     override fun addImage(id: Int, part: MultipartBody.Part) {
         handler.addImage(id, part)

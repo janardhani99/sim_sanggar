@@ -73,49 +73,45 @@
                 android:outlineSpotShadowColor="@color/black"
                 app:cardElevation="1dp">
 
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/dp16"
-                    android:orientation="horizontal"
-                    android:weightSum="3">
+                    android:weightSum="2">
 
                     <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="2"
+                        android:id="@+id/img_jam_operasional"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
                         android:src="@drawable/icon_jam_operasional" />
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_marginTop="@dimen/dp16">
 
                         <TextView
+                            android:id="@+id/tv_jam_operasional"
                             style="@style/TextAppearance.MaterialComponents.Headline5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center"
                             android:layout_marginStart="@dimen/dp8"
                             android:layout_marginLeft="@dimen/dp8"
                             android:layout_weight="1"
                             android:text="Jam Operasional"
                             android:textColor="@color/black"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            android:textSize="20dp"
+                            android:layout_toRightOf="@+id/img_jam_operasional"/>
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center"
                             android:layout_marginStart="@dimen/dp8"
                             android:layout_marginLeft="@dimen/dp8"
                             android:layout_marginTop="4dp"
                             android:layout_weight="1"
                             android:text="Lihat Jam Operasional sanggarmu seiap harinya"
-                            android:textSize="@dimen/dp16" />
-                    </LinearLayout>
+                            android:textSize="14dp"
+                            android:layout_toRightOf="@+id/img_jam_operasional"
+                            android:layout_below="@+id/tv_jam_operasional"/>
+                </RelativeLayout>
 
-                </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
@@ -131,26 +127,21 @@
                 android:outlineSpotShadowColor="@color/black"
                 app:cardElevation="1dp">
 
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/dp16"
-                    android:orientation="horizontal"
-                    android:weightSum="3">
+                    android:weightSum="2">
 
                     <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:id="@+id/img_jadwal_sanggar"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
                         android:layout_weight="2"
                         android:src="@drawable/icon_jadwal_sanggar" />
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_marginTop="@dimen/dp16">
-
                         <TextView
+                            android:id="@id/tv_jadwal_sanggar"
                             style="@style/TextAppearance.MaterialComponents.Headline5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -160,10 +151,12 @@
                             android:layout_weight="1"
                             android:text="@string/jadwal_sanggar"
                             android:textColor="@color/black"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            android:textSize="20dp"
+                            android:layout_toRightOf="@+id/img_jadwal_sanggar"/>
 
                         <TextView
-                            android:layout_width="289dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_marginStart="@dimen/dp8"
@@ -171,11 +164,11 @@
                             android:layout_marginTop="4dp"
                             android:layout_weight="1"
                             android:text="Lihat hari apa sanggarmu melaksanakan latihan rutin"
-                            android:textSize="@dimen/dp16" />
+                            android:textSize="14dp"
+                            android:layout_toRightOf="@+id/img_jadwal_sanggar"
+                            android:layout_below="@+id/tv_jadwal_sanggar"/>
 
-                    </LinearLayout>
-
-                </LinearLayout>
+                </RelativeLayout>
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
@@ -191,50 +184,47 @@
                 android:outlineSpotShadowColor="@color/black"
                 app:cardElevation="1dp">
 
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/dp16"
-                    android:orientation="horizontal"
-                    android:weightSum="3">
+                    android:weightSum="2">
 
                     <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:id="@+id/img_kegiatan_sanggar"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
                         android:layout_weight="2"
                         android:src="@drawable/icon_kegiatan" />
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_marginTop="@dimen/dp16">
 
                         <TextView
+                            android:id="@+id/tv_kegiatan_sanggar"
                             style="@style/TextAppearance.MaterialComponents.Headline5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center"
                             android:layout_marginStart="@dimen/dp8"
                             android:layout_marginLeft="@dimen/dp8"
                             android:layout_weight="1"
                             android:text="@string/kegiatan"
                             android:textColor="@color/black"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            android:textSize="20dp"
+                            android:layout_toRightOf="@+id/img_kegiatan_sanggar"/>
 
                         <TextView
-                            android:layout_width="289dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center"
                             android:layout_marginStart="@dimen/dp8"
                             android:layout_marginLeft="@dimen/dp8"
                             android:layout_marginTop="4dp"
                             android:layout_weight="1"
                             android:text="Lihat dokumentasi, pengumuman, dan informasi terbaru"
-                            android:textSize="@dimen/dp16" />
+                            android:textSize="14dp"
+                            android:layout_toRightOf="@+id/img_kegiatan_sanggar"
+                            android:layout_below="@+id/tv_kegiatan_sanggar"/>
 
-                    </LinearLayout>
-                </LinearLayout>
+                </RelativeLayout>
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
@@ -250,39 +240,36 @@
                 android:outlineSpotShadowColor="@color/black"
                 app:cardElevation="1dp">
 
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/dp16"
-                    android:orientation="horizontal"
-                    android:weightSum="3">
+                    android:weightSum="2">
 
                     <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:id="@id/img_fasilitas_sanggar"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
                         android:layout_weight="2"
                         android:src="@drawable/icon_fasilitas" />
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_marginTop="@dimen/dp16">
 
                         <TextView
+                            android:id="@+id/tv_fasilitas_sanggar"
                             style="@style/TextAppearance.MaterialComponents.Headline5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center"
                             android:layout_marginStart="@dimen/dp8"
                             android:layout_marginLeft="@dimen/dp8"
                             android:layout_weight="1"
                             android:text="@string/fasilitas"
                             android:textColor="@color/black"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            android:textSize="20dp"
+                            android:layout_toRightOf="@+id/img_fasilitas_sanggar"/>
 
                         <TextView
-                            android:layout_width="289dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_marginStart="@dimen/dp8"
@@ -290,10 +277,11 @@
                             android:layout_marginTop="4dp"
                             android:layout_weight="1"
                             android:text="Lihat fasilitas yang tersedia di sanggarmu"
-                            android:textSize="@dimen/dp16" />
+                            android:textSize="14dp"
+                            android:layout_toRightOf="@+id/img_fasilitas_sanggar"
+                            android:layout_below="@+id/tv_fasilitas_sanggar"/>
 
-                    </LinearLayout>
-                </LinearLayout>
+                </RelativeLayout>
             </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
     </LinearLayout>

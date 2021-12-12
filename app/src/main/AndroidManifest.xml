@@ -46,6 +46,9 @@
             android:name=".view.activity.jadwal_sanggar.JadwalSanggarActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".view.activity.platform_transaksi.PlatformTransaksiActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".view.activity.auth.RegisterActivity"
             android:screenOrientation="portrait" />
         <activity

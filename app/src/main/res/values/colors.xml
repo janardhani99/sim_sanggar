@@ -16,4 +16,5 @@
     <color name="onBackground">#000000</color>
     <color name="onSurface">#1E1E47</color>
     <color name="color_grey_primary">#A8A8A8</color>
+    <color name="transparent_text">#4FBABABA</color>
 </resources>

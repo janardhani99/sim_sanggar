@@ -12,6 +12,7 @@ import com.example.sim_sanggar.data.model.sewa.SewaResponse
 import com.example.sim_sanggar.presenter.sewa.SewaContract
 import com.example.sim_sanggar.presenter.sewa.SewaPresenter
 import com.example.sim_sanggar.view.activity.common.BaseActivity
+import com.example.sim_sanggar.view.adapter.sewaadapter.SewaAdapter
 import com.theartofdev.edmodo.cropper.CropImage
 import com.theartofdev.edmodo.cropper.CropImageView
 import kotlinx.android.synthetic.main.activity_upload_bukti.*
@@ -26,6 +27,7 @@ class UploadBuktiActivity : BaseActivity(), SewaContract.View {
     var data : SewaListItem? = null
     val presenter = SewaPresenter(this)
     var imageFile : File? = null
+    lateinit var adapter: SewaAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,8 +35,10 @@ class UploadBuktiActivity : BaseActivity(), SewaContract.View {
 
         setToolbar()
         toolbar_title?.text = getString(R.string.sewa)
-        data?.let { setView(it) }
+        data = intent.getParcelableExtra<SewaListItem>("data")
+//        data?.let { setView(it) }
         initListener()
+//        initAdapter()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -50,31 +54,41 @@ class UploadBuktiActivity : BaseActivity(), SewaContract.View {
         }
     }
 
-    private  fun setView(data: SewaListItem) {
-        data?.run {
-            foto?.let { iv_upload_bukti.loadImage(it) }
-        }
-
-        btn_upload_foto?.clickWithDebounce {
-
-            uploadBukti()
-        }
-    }
+//    private fun initAdapter() {
+//        adapter = SewaAdapter { sewaItem-> uploadBukti(sewaItem) }
+//    }
+//
+//    private fun setView(data: SewaListItem) {
+//        data?.run {
+//            foto?.let { iv_upload_bukti.loadImage(it) }
+//        }
+//
+//        btn_upload_foto?.clickWithDebounce {
+//
+//            uploadBukti()
+//        }
+//    }
 
     private fun uploadBukti() {
+//        val sewa_id = sewaItem.id
+
         val transfer_via = til_transfer_via?.editText?.text.toString()
 
         val tambahData = HashMap<String, Any?>()
-        tambahData["transfervia"] = transfer_via
+        tambahData["transfer_via"] = transfer_via
         isLoading(true)
 
-        presenter.addSewa(tambahData)
-
+//        presenter.addSewa(tambahData)
+        data?.id?.let { presenter.uploadBukti(it, tambahData) }
     }
 
     private fun initListener() {
-        btn_image_bukti_pembayaran?.clickWithDebounce {
+        btn_image_bukti_pembayaran.clickWithDebounce {
             openImageResource()
+        }
+
+        btn_upload_foto.clickWithDebounce {
+            uploadBukti()
         }
     }
 
@@ -107,7 +121,7 @@ class UploadBuktiActivity : BaseActivity(), SewaContract.View {
         if (imageFile != null) {
             imageFile?.let { uploadImage(data?.id,it) }
         } else {
-//            isLoading(false)
+            isLoading(false)
             this.showCustomDialogBack("Berhasil", "Data berhasil ditambahkan")
         }
     }
@@ -119,6 +133,7 @@ class UploadBuktiActivity : BaseActivity(), SewaContract.View {
     override fun uploadImageResponse() {
         isLoading(false)
         this.showCustomDialogBack("Berhasil", "Data berhasil ditambahkan")
+//        startActivity()
     }
 
     override fun showError(title: String, message: String) {

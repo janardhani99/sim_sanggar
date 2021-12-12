@@ -23,143 +23,179 @@
             android:orientation="vertical"
             android:padding="10dp">
             <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="10dp"
                 android:layout_gravity="center"
                 android:src="@drawable/icon_sewa">
             </ImageView>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="SEWA SEKARANG"
+                android:text="Sewa Sekarang"
                 android:textAlignment="center"
                 android:layout_gravity="center"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:textSize="25dp"
                 android:textColor="@color/black"
                 android:fontFamily="sans-serif-medium">
             </TextView>
         </LinearLayout>
 
-<!--        form sewa-->
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:orientation="vertical">
-
-<!--            tanggal sewa-->
+            android:layout_height="wrap_content">
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginLeft="12dp"
+                android:padding="45dp"
+                android:background="@drawable/bg_form">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/tanggal_sewa"
-                    android:textSize="17dp"
-                    android:textStyle=""/>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginBottom="10dp">
+                    android:orientation="vertical"
+                    android:layout_marginTop="20dp">
 
                     <TextView
-                        android:id="@+id/tv_tanggal_sewa"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/data_tanggal"
-                        android:textSize="17dp"
-                        android:layout_marginRight="100dp"
-                        android:layout_marginBottom="10dp"/>
+                        android:text="@string/tanggal_sewa"
+                        android:layout_marginBottom="6dp"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:id="@+id/tv_tanggal_sewa"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/data_tanggal"
+                            android:textSize="17dp"
+                            android:layout_marginRight="30dp"
+                            android:layout_marginBottom="10dp"/>
+
+                        <Button
+                            android:id="@+id/btn_pilih_tanggal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Pilih Tanggal"
+                            android:textAllCaps="false"
+                            android:textSize="17dp"/>
+
+
+                    </LinearLayout>
+
+
+<!--                    <com.google.android.material.textfield.TextInputLayout-->
+<!--                        android:id="@+id/til_tanggal_sewa"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">-->
+
+<!--                        <com.google.android.material.textfield.TextInputEditText-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:hint="@string/tanggal_sewa" />-->
+<!--                    </com.google.android.material.textfield.TextInputLayout>-->
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/jam_section"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp16"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/dp8"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/jam_mulai"
+                            android:textSize="17dp"
+                            android:layout_marginBottom="7dp"/>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/til_jam_mulai_sewa"
+                            style="@style/AppTheme.TextInputLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/et_jam_mulai_sewa"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:focusable="false"
+                                android:focusableInTouchMode="false"
+                                android:hint="@string/jam_mulai"
+                                android:textSize="17dp"
+                                android:layout_marginBottom="7dp"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/dp8"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/jam_selesai"
+                            android:textSize="17dp"
+                            android:layout_marginBottom="7dp"/>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/til_jam_selesai_sewa"
+                            style="@style/AppTheme.TextInputLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/et_jam_selesai_sewa"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:focusable="false"
+                                android:focusableInTouchMode="false"
+                                android:hint="@string/jam_selesai"
+                                android:textSize="17dp"
+                                android:layout_marginBottom="7dp"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cv_button_action"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/background"
+                    app:cardCornerRadius="@dimen/dp0"
+                    app:cardElevation="0dp">
 
                     <Button
-                        android:id="@+id/btn_pilih_tanggal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Pilih Tanggal"
-                        android:textAllCaps="false"
-                        android:textSize="17dp"/>
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <!--jam sewa-->
-            <LinearLayout
-                android:id="@+id/jam_section"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dp16"
-                android:orientation="horizontal"
-                android:weightSum="2">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/dp8"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/jam_mulai"
-                        android:textSize="17dp"
-                        android:layout_marginBottom="7dp"/>
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/til_jam_mulai_sewa"
-                        style="@style/AppTheme.TextInputLayout"
+                        android:id="@+id/btn_sewa"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/et_jam_mulai_sewa"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:focusable="false"
-                            android:focusableInTouchMode="false"
-                            android:hint="@string/jam_mulai"
-                            android:textSize="17dp"
-                            android:layout_marginBottom="7dp"/>
-                    </com.google.android.material.textfield.TextInputLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/dp8"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/jam_selesai"
-                        android:textSize="17dp"
-                        android:layout_marginBottom="7dp"/>
+                        android:layout_margin="@dimen/dp16"
+                        android:text="@string/daftar" />
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/til_jam_selesai_sewa"
-                        style="@style/AppTheme.TextInputLayout"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/et_jam_selesai_sewa"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:focusable="false"
-                            android:focusableInTouchMode="false"
-                            android:hint="@string/jam_selesai"
-                            android:textSize="17dp"
-                            android:layout_marginBottom="7dp"/>
-                    </com.google.android.material.textfield.TextInputLayout>
-                </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
             </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</LinearLayout>
 
 <!--            <LinearLayout-->
 <!--                android:layout_width="match_parent"-->
@@ -186,27 +222,3 @@
 <!--                        android:hint="@string/metode_pembayaran" />-->
 <!--                </com.google.android.material.textfield.TextInputLayout>-->
 <!--            </LinearLayout>-->
-        </LinearLayout>
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cv_button_action"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:background="@color/background"
-            app:cardCornerRadius="@dimen/dp0"
-            app:cardElevation="@dimen/dp24">
-
-            <Button
-                android:id="@+id/btn_sewa"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/dp16"
-                android:text="@string/sewa" />
-
-        </com.google.android.material.card.MaterialCardView>
-
-
-    </LinearLayout>
-
-</LinearLayout>

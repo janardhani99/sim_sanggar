@@ -24,7 +24,7 @@ class RiwayatSewaActivity :BaseActivity(), SewaContract.View {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_riwayat_sewa)
 
-        data = intent.getParcelableExtra("data")
+//        data = intent.getParcelableExtra("data")
 
         setToolbar()
         toolbar_title?.text = getString(R.string.riwayat_sewa)

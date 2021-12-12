@@ -12,46 +12,50 @@
         android:clickable="true"
         android:focusable="true">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:weightSum="3">
+            android:layout_height="200dp"
+            android:weightSum="3"
+            android:maxHeight="300dp">
 
             <ImageView
                 android:id="@+id/iv_kegiatan_recycler"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:src="@color/colorPrimary" />
+                android:layout_margin="5dp"/>
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/tv_judul_kegiatan_recycler"
+                style="@style/TextAppearance.AppCompat.Title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:padding="@dimen/dp16">
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="65dp"
+                android:ellipsize="end"
+                android:padding="15dp"
+                android:singleLine="true"
+                android:text="Title"
+                android:background="@color/transparent_text"/>
 
-                <TextView
-                    android:id="@+id/tv_judul_kegiatan_recycler"
-                    style="@style/TextAppearance.AppCompat.Title"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ellipsize="end"
-                    android:singleLine="true"
-                    android:text="Title" />
+            <TextView
+                android:id="@+id/tv_deskripsi_kegiatan_recycler"
+                style="@style/TextAppearance.AppCompat.Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:ellipsize="end"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:paddingBottom="15dp"
+                android:singleLine="true"
+                android:text="Deskripsi"
+                android:textSize="15dp"
+                android:background="@color/transparent_text"
+                android:layout_below="@+id/tv_judul_kegiatan_recycler"/>
 
-                <TextView
-                    android:id="@+id/tv_deskripsi_kegiatan_recycler"
-                    style="@style/TextAppearance.AppCompat.Body1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
-                    android:ellipsize="end"
-                    android:lines="3"
-                    android:maxLines="3"
-                    android:text="Deskripsi" />
-            </LinearLayout>
-        </LinearLayout>
+        </RelativeLayout>
     </com.google.android.material.card.MaterialCardView>
 
 </LinearLayout>

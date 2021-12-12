@@ -21,6 +21,8 @@ data class SewaListItem(
         @Expose
         var metodePembayaran: String? = null,
         @Expose
+        var transferVia: String? = null,
+        @Expose
         var foto: String? = null
 
 ):Parcelable

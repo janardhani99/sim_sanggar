@@ -18,6 +18,11 @@ class SewaHandler: BaseHandler() {
     fun getSewa(): Observable<SewaListResponse> {
         return service.getSewa()
     }
+
+    fun uploadBukti(id: Int, data: HashMap<String, Any?>): Observable<SewaResponse> {
+        return service.uploadBukti(id, data)
+    }
+
     fun addImage(id: Int, part: MultipartBody.Part): Observable<SewaResponse> {
         return service.addImage(id, part)
     }
