@@ -14,6 +14,10 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.observers.DisposableObserver
 import io.reactivex.schedulers.Schedulers
+import okhttp3.MediaType
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
+import java.io.File
 
 fun View.clickWithDebounce(debounceTime: Long = 600L, action: (View) -> Unit) {
     this.setOnClickListener(object : View.OnClickListener {
@@ -53,4 +57,13 @@ fun ImageView.loadImage(url: String) {
         fallback(R.drawable.ic_baseline_image_24)
         placeholder(R.drawable.ic_baseline_image_24)
     }
+}
+
+fun File.createImageMultipart(requestName: String? = "image"): MultipartBody.Part {
+    val requestBody = RequestBody.create(MediaType.parse("image/*"), this)
+    return MultipartBody.Part.createFormData(requestName, this.name, requestBody)
+}
+
+fun String.createPartFromString(): RequestBody {
+    return RequestBody.create(MediaType.parse("multipart/form-data"), this)
 }
