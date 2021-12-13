@@ -69,12 +69,19 @@ class UploadBuktiActivity : BaseActivity(), SewaContract.View {
 //        }
 //    }
 
-    private fun uploadBukti() {
-//        val sewa_id = sewaItem.id
+    private fun uploadBukti(data: SewaListItem?) {
 
+//        val sewa_id = sewaItem.id
+        val tanggal = data?.tanggal
+        val jamMulai = data?.jam_mulai
+        val jamSelesai = data?.jam_selesai
         val transfer_via = til_transfer_via?.editText?.text.toString()
 
         val tambahData = HashMap<String, Any?>()
+
+        tambahData["tanggal"] = tanggal
+        tambahData["jam_mulai"] = jamMulai
+        tambahData["jam_selesai"] = jamSelesai
         tambahData["transfer_via"] = transfer_via
         isLoading(true)
 
@@ -88,7 +95,7 @@ class UploadBuktiActivity : BaseActivity(), SewaContract.View {
         }
 
         btn_upload_foto.clickWithDebounce {
-            uploadBukti()
+            uploadBukti(data)
         }
     }
 

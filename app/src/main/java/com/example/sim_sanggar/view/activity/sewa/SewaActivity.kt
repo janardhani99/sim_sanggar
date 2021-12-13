@@ -88,14 +88,14 @@ class SewaActivity : BaseActivity(),SewaContract.View {
     private fun initView(data: SewaListItem?) {
         data?.run {
 //            ac_metode_pembayaran?.setText(data.metodePembayaran, false)
-            et_jam_mulai_sewa?.setText(data.jamMulai?.substring(0,5))
-            et_jam_selesai_sewa?.setText(data.jamSelesai?.substring(0,5))
+            et_jam_mulai_sewa?.setText(data.jam_mulai?.substring(0,5))
+            et_jam_selesai_sewa?.setText(data.jam_selesai?.substring(0,5))
         }
 
-        val jamMulai = data?.jamMulai?.split(":")?.get(0)?.toInt() ?: 0
-        val menitMulai = data?.jamMulai?.split(":")?.get(1)?.toInt() ?: 0
-        val jamSelesai = data?.jamSelesai?.split(":")?.get(0)?.toInt() ?: 0
-        val menitSelesai = data?.jamSelesai?.split(":")?.get(1)?.toInt() ?: 0
+        val jamMulai = data?.jam_mulai?.split(":")?.get(0)?.toInt() ?: 0
+        val menitMulai = data?.jam_mulai?.split(":")?.get(1)?.toInt() ?: 0
+        val jamSelesai = data?.jam_selesai?.split(":")?.get(0)?.toInt() ?: 0
+        val menitSelesai = data?.jam_selesai?.split(":")?.get(1)?.toInt() ?: 0
 
         et_jam_mulai_sewa?.setOnClickListener {
             val jamMulaiPicker = MaterialTimePicker.Builder()

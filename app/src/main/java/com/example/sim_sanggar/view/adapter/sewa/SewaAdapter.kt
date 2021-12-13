@@ -33,6 +33,7 @@ class SewaAdapter(val sewaListener: (SewaListItem)-> Unit): RecyclerView.Adapter
         val item = sewaList[position]
         holder.itemView.apply {
             tv_tanggal_sewa.text = "${item.tanggal}"
+//            tv_jam_sewa.text = "${item.jam_mulai?.let { getTimeFormat(it) }}--${item.jam_selesai?.let { getTimeFormat(it) }}"
             btn_upload.setOnClickListener {
                 sewaListener(item)
             }
@@ -44,7 +45,7 @@ class SewaAdapter(val sewaListener: (SewaListItem)-> Unit): RecyclerView.Adapter
         notifyDataSetChanged()
     }
 
-//    fun getTimeFormat(time: String): String {
-//        return time.substring(0,5)
-//    }
+    fun getTimeFormat(time: String): String {
+        return time.substring(0,5)
+    }
 }

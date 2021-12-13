@@ -15,9 +15,9 @@ data class SewaListItem(
         @Expose
         var tanggal: String? = null,
         @Expose
-        var jamMulai: String? = null,
+        var jam_mulai: String? = null,
         @Expose
-        var jamSelesai: String? = null,
+        var jam_selesai: String? = null,
         @Expose
         var metodePembayaran: String? = null,
         @Expose

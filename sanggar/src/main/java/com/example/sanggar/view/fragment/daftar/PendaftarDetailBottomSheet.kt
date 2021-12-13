@@ -69,6 +69,8 @@ class PendaftarDetailBottomSheet(val data: PendaftaranAnak? = null): BottomSheet
         data?.id?.let { presenter.editStatusDaftar(it, tambahData) }
     }
 
+
+
     private fun isLoading(isLoad: Boolean) {
         if (isLoad) this.context?.let { Utilities.showProgress(it) }
         else Utilities.hideProgress()
