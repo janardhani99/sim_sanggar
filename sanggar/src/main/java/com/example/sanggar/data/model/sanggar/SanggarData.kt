@@ -30,7 +30,7 @@ data class SanggarData (
     @Expose
     var harga_pendaftaran_siswa : String? = null,
     @Expose
-    var harga_penyewaan_siswa : String? = null
+    var harga_penyewaan_perjam : String? = null
 //    @Expose
 //    var jam_operasional : String? = null
 //    @Expose

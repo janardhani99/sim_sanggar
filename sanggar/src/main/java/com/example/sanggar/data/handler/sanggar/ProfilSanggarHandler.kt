@@ -9,9 +9,9 @@ import io.reactivex.Observable
 class ProfilSanggarHandler: BaseHandler() {
     val service = getClient().create(ProfilSanggarContract.Handler::class.java)
 
-    fun addProfilSanggar(data: HashMap<String,  Any?>): Observable<ProfilSanggarResponse> {
-        return service.addProfilSanggar(data)
-    }
+//    fun addProfilSanggar(data: HashMap<String,  Any?>): Observable<ProfilSanggarResponse> {
+//        return service.addProfilSanggar(data)
+//    }
 
     fun getProfilSanggar(): Observable<ProfilSanggarListResponse> {
         return service.getProfilSanggar()

@@ -38,6 +38,7 @@ class EditProfilActivity : BaseActivity(), ProfilSanggarContract.View {
 
         data = intent.getParcelableExtra<SanggarData>("data")
         data?.let { setView(it) }
+//        setView(data)
     }
 
 //    private fun initListener() {
@@ -55,10 +56,10 @@ class EditProfilActivity : BaseActivity(), ProfilSanggarContract.View {
             til_bank?.editText?.setText(data.bank)
             til_no_rekening?.editText?.setText(data.nomor_rekening)
             til_harga_pendaftaran?.editText?.setText(data.harga_pendaftaran_siswa)
-            til_harga_sewa?.editText?.setText(data.harga_penyewaan_siswa)
+            til_harga_sewa?.editText?.setText(data.harga_penyewaan_perjam)
         }
 
-        btn_simpan_profil?.clickWithDebounce {
+        btn_simpan_profil.clickWithDebounce {
             editProfil()
         }
 

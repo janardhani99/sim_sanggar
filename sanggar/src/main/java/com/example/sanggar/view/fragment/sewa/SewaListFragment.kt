@@ -15,7 +15,6 @@ import com.example.sanggar.data.model.sewa.SewaResponse
 import com.example.sanggar.presenter.sewa.SewaListContract
 import com.example.sanggar.presenter.sewa.SewaListPresenter
 import com.example.sanggar.view.adapter.sewa.SewaListAdapter
-import com.example.sanggar.view.fragment.daftar.DaftarListFragment
 import kotlinx.android.synthetic.main.fragment_sewa_list.*
 
 private const val STATUS = "status"
@@ -29,7 +28,7 @@ class SewaListFragment: Fragment(), SewaListContract.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            status = it.getString(com.example.sanggar.view.fragment.sewa.STATUS)
+            status = it.getString(STATUS)
         }
     }
 
@@ -40,6 +39,7 @@ class SewaListFragment: Fragment(), SewaListContract.View {
 //
     }
 
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
@@ -49,9 +49,9 @@ class SewaListFragment: Fragment(), SewaListContract.View {
     companion object {
         @JvmStatic
         fun newInstance(status: String) =
-                DaftarListFragment().apply {
+                SewaListFragment().apply {
                     arguments = Bundle().apply {
-                        putString(com.example.sanggar.view.fragment.sewa.STATUS, status)
+                        putString(STATUS, status)
                     }
                 }
     }
@@ -63,8 +63,11 @@ class SewaListFragment: Fragment(), SewaListContract.View {
         }
     }
     private fun initAdapter(){
-        adapter = SewaListAdapter()
-        rv_sewa_list?.hasFixedSize()
+        adapter = SewaListAdapter{ detailItem ->
+            val bottomSheet = SewaDetailBottomSheet(detailItem)
+            bottomSheet.show(childFragmentManager, "")
+        }
+//        rv_sewa_list?.hasFixedSize()
         rv_sewa_list?.layoutManager = LinearLayoutManager(this.activity)
         rv_sewa_list?.adapter = adapter
     }

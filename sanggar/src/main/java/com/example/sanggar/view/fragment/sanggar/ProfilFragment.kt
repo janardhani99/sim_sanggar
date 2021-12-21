@@ -9,13 +9,16 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.sanggar.R
 import com.example.sanggar.common.Utilities
+import com.example.sanggar.common.clickWithDebounce
 import com.example.sanggar.data.model.sanggar.ProfilSanggarListResponse
 import com.example.sanggar.data.model.sanggar.ProfilSanggarResponse
 import com.example.sanggar.data.model.sanggar.SanggarData
 import com.example.sanggar.presenter.sanggar.ProfilSanggarContract
 import com.example.sanggar.presenter.sanggar.ProfilSanggarPresenter
+import com.example.sanggar.view.activity.kegiatan.DetailKegiatanActivity
 import com.example.sanggar.view.activity.sanggar.EditProfilActivity
 import com.example.sanggar.view.adapter.sanggar.ProfilSanggarAdapter
+import kotlinx.android.synthetic.main.activity_kegiatan.*
 import kotlinx.android.synthetic.main.fragment_profil_sanggar.*
 
 
@@ -35,14 +38,24 @@ class ProfilFragment(): Fragment(), ProfilSanggarContract.View {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        data = getActivity()?.intent?.getParcelableExtra("data")
+        data = getActivity()?.intent?.getParcelableExtra<SanggarData>("data")
         initAdapter()
+        initListener()
+    }
+
+    private fun initListener() {
+        btn_edit_profil?.clickWithDebounce {
+            val intent = Intent(context, EditProfilActivity::class.java)
+            intent.putExtra("intent", 0)
+            startActivity(intent)
+        }
+
     }
 
     private fun initAdapter() {
         adapter = ProfilSanggarAdapter {
             detailItem -> val intent = (Intent(context, EditProfilActivity::class.java ))
-            intent.putExtra("intent", detailItem)
+            intent.putExtra("data", detailItem)
             startActivity(intent)
         }
         rv_profile_sanggar?.layoutManager = LinearLayoutManager(activity)

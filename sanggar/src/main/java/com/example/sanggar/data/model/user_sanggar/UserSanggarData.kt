@@ -9,7 +9,6 @@ data class UserSanggarResponse(@Expose var data: UserSanggarItem? = null): BaseR
 
 data class UserSanggarListResponse(@Expose var data: List<UserSanggarItem>? = null): BaseResultData()
 
-//parcelable: kirim banyak data sekaligus saat intent
 @Parcelize
 data class UserSanggarItem(
         @Expose

@@ -16,15 +16,15 @@ interface ProfilSanggarContract {
     }
 
     interface Presenter {
-        fun addProfilSanggar(data: HashMap<String, Any?>)
+//        fun addProfilSanggar(data: HashMap<String, Any?>)
         fun getProfilSanggar()
         fun editProfilSanggar(id: Int, data: HashMap<String, Any?>)
     }
 
     interface Handler {
-        @FormUrlEncoded
-        @POST("sanggar")
-        fun addProfilSanggar(@FieldMap data: HashMap<String, Any?>): Observable<ProfilSanggarResponse>
+//        @FormUrlEncoded
+//        @POST("sanggar")
+//        fun addProfilSanggar(@FieldMap data: HashMap<String, Any?>): Observable<ProfilSanggarResponse>
 
         @GET("sanggar")
         fun getProfilSanggar():Observable<ProfilSanggarListResponse>

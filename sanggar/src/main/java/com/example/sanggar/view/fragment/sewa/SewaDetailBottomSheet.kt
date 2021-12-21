@@ -4,16 +4,19 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.example.sanggar.R
 import com.example.sanggar.common.Utilities
 import com.example.sanggar.common.clickWithDebounce
 import com.example.sanggar.data.model.common.EmptyResponse
+import com.example.sanggar.data.model.daftar.PendaftaranAnak
 import com.example.sanggar.data.model.sewa.SewaListItem
 import com.example.sanggar.data.model.sewa.SewaListResponse
 import com.example.sanggar.data.model.sewa.SewaResponse
 import com.example.sanggar.presenter.sewa.SewaListContract
 import com.example.sanggar.presenter.sewa.SewaListPresenter
 import com.example.sanggar.view.activity.common.BaseActivity
+import com.example.sanggar.view.activity.jadwal_sanggar.JadwalSanggarActivity
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.android.synthetic.main.fragment_sewa_detail.*
 
@@ -55,7 +58,7 @@ class SewaDetailBottomSheet(val data: SewaListItem? = null): BottomSheetDialogFr
         }
 
         btn_batalkan.clickWithDebounce {
-            this.dismiss()
+            statusBatal(data)
         }
     }
 
@@ -67,15 +70,25 @@ class SewaDetailBottomSheet(val data: SewaListItem? = null): BottomSheetDialogFr
         data?.id?.let { presenter.editStatusSewa(it, tambahData) }
     }
 
+    private fun statusBatal(data: SewaListItem?) {
+//        val status = data?.status
+        val tambahData = HashMap<String, Any?>()
+        tambahData["status"] = "2"
+        isLoading(true)
+        presenter.editStatusSewa(data?.id!!, tambahData)
+    }
+
     private fun isLoading(isLoad: Boolean) {
         if (isLoad) this.context?.let { Utilities.showProgress(it) }
         else Utilities.hideProgress()
     }
 
     override fun sewaListResponse(response: SewaResponse) {
+
         this.dismiss()
         isLoading(false)
-        baseActivity.showCustomDialogBack("Berhasil", "Berhasil Verifikasi")
+//        Toast.makeText(activity, "Berhasil!", Toast.LENGTH_SHORT).show()
+
     }
 
     override fun getSewaListResponse(response: SewaListResponse) {

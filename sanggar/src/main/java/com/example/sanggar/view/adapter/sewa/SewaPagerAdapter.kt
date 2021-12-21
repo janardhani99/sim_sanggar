@@ -23,7 +23,7 @@ class SewaPagerAdapter(fm: FragmentManager):
 //    )
 
     override fun getItem(position: Int): Fragment {
-        return DaftarListFragment.newInstance(status[position])
+        return SewaListFragment.newInstance(status[position])
     }
 
     override fun getCount(): Int {

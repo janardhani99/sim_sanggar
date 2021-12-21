@@ -9,9 +9,9 @@ import com.example.sanggar.common.clickWithDebounce
 import com.example.sanggar.data.model.sewa.SewaListItem
 import kotlinx.android.synthetic.main.recycler_list_sewa.view.*
 
-class SewaListAdapter : RecyclerView.Adapter<SewaListAdapter.ViewHolder>() {
+class SewaListAdapter(val detailListener: (SewaListItem) -> Unit) : RecyclerView.Adapter<SewaListAdapter.ViewHolder>() {
 
-    var sewaList = mutableListOf<SewaListItem>()
+    var sewaList: List<SewaListItem>? = null
     inner class ViewHolder(view: View) :RecyclerView.ViewHolder(view)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -22,28 +22,29 @@ class SewaListAdapter : RecyclerView.Adapter<SewaListAdapter.ViewHolder>() {
     }
 
     override fun getItemCount(): Int {
-        return sewaList.count()
+        return sewaList?.size ?: 0
     }
 
     fun setData(data: List<SewaListItem>) {
-        sewaList = data.toMutableList()
+        sewaList = data
         notifyDataSetChanged()
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = sewaList[position]
+        val item = sewaList?.get(position)
         holder.itemView.apply {
-//            cv?.clickWithDebounce {
-////                detailListener(item)
-//            }
+            cv_list_sewa?.clickWithDebounce {
+                detailListener(item!!)
+            }
 //
 //            cv_list_daftar?.setOnLongClickListener {
 ////                deleteItem(item)
 //                return@setOnLongClickListener true
 //            }
 //            tv_user_name?.text = item.user_name
-            tv_username?.text = item.id.toString()
-            tv_tanggal?.text = item.tanggal
+            tv_username?.text = item?.user?.username
+            tv_tanggal?.text = item?.status
+//            tv_tanggal?.text = item.tanggal
 
         }
     }

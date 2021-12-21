@@ -12,14 +12,14 @@ import com.example.sanggar.presenter.common.BasePresenter
 class ProfilSanggarPresenter(val view: ProfilSanggarContract.View): BasePresenter(view), ProfilSanggarContract.Presenter {
     val handler = ProfilSanggarHandler()
 
-    override fun addProfilSanggar(data: HashMap<String, Any?>) {
-        handler.addProfilSanggar(data)
-                .doSubscribe(object : ErrorHandler<ProfilSanggarResponse>(this) {
-                    override fun onNext(t: ProfilSanggarResponse) {
-                        view.profilSanggarResponse(t)
-                    }
-                })
-    }
+//    override fun addProfilSanggar(data: HashMap<String, Any?>) {
+//        handler.addProfilSanggar(data)
+//                .doSubscribe(object : ErrorHandler<ProfilSanggarResponse>(this) {
+//                    override fun onNext(t: ProfilSanggarResponse) {
+//                        view.profilSanggarResponse(t)
+//                    }
+//                })
+//    }
 
     override fun getProfilSanggar() {
         handler.getProfilSanggar()

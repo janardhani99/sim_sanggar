@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.sanggar.R
 import com.example.sanggar.common.clickWithDebounce
 import com.example.sanggar.data.model.sanggar.SanggarData
+import kotlinx.android.synthetic.main.fragment_profil_sanggar.view.*
 import kotlinx.android.synthetic.main.recycler_profile_sanggar.view.*
 
 class ProfilSanggarAdapter(val detailListener: (SanggarData)-> Unit): RecyclerView.Adapter<ProfilSanggarAdapter.ViewHolder>() {
@@ -14,7 +15,7 @@ class ProfilSanggarAdapter(val detailListener: (SanggarData)-> Unit): RecyclerVi
     var profileList = mutableListOf<SanggarData>()
     inner class ViewHolder(view: View): RecyclerView.ViewHolder(view)
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProfilSanggarAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
                 LayoutInflater.from(parent.context).inflate(R.layout.recycler_profile_sanggar, parent, false)
         )
@@ -24,10 +25,10 @@ class ProfilSanggarAdapter(val detailListener: (SanggarData)-> Unit): RecyclerVi
         return profileList.count()
     }
 
-    override fun onBindViewHolder(holder: ProfilSanggarAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = profileList[position]
         holder.itemView.apply {
-            cv_profile_recycler?.clickWithDebounce {
+            btn_edit_profil?.clickWithDebounce {
                 detailListener(item)
             }
 

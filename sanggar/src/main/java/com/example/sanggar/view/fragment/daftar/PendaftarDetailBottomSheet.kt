@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.example.sanggar.R
 import com.example.sanggar.common.Utilities
 import com.example.sanggar.common.clickWithDebounce
@@ -53,15 +54,15 @@ class PendaftarDetailBottomSheet(val data: PendaftaranAnak? = null): BottomSheet
         }
 
         btn_verifikasi_pendaftar.clickWithDebounce {
-            ubahStatus(data)
+            statusVerifikasi(data)
         }
 
         btn_batalkan.clickWithDebounce {
-            this.dismiss()
+            statusBatal(data)
         }
     }
 
-    private fun ubahStatus(data: PendaftaranAnak?) {
+    private fun statusVerifikasi(data: PendaftaranAnak?) {
 //        val status = data?.status
         val tambahData = HashMap<String, Any?>()
         tambahData["status"] = "1"
@@ -69,17 +70,27 @@ class PendaftarDetailBottomSheet(val data: PendaftaranAnak? = null): BottomSheet
         data?.id?.let { presenter.editStatusDaftar(it, tambahData) }
     }
 
+    private fun statusBatal(data: PendaftaranAnak?) {
+//        val status = data?.status
+        val tambahData = HashMap<String, Any?>()
+        tambahData["status"] = "2"
+        isLoading(true)
+        data?.id?.let { presenter.editStatusDaftar(it, tambahData) }
+    }
+    override fun daftarListResponse(response: DaftarResponse) {
+        this.dismiss()
+        isLoading(false)
+//        if (data?.status == "1") {
+//            Toast.makeText(context, "Berhasil Verifikasi!", Toast.LENGTH_SHORT).show()
+//        } else if (data?.status == "2") {
+//            Toast.makeText(context, "Berhasil dibatalkan!", Toast.LENGTH_SHORT).show()
+//        }
 
+    }
 
     private fun isLoading(isLoad: Boolean) {
         if (isLoad) this.context?.let { Utilities.showProgress(it) }
         else Utilities.hideProgress()
-    }
-
-    override fun daftarListResponse(response: DaftarResponse) {
-        this.dismiss()
-        isLoading(false)
-        baseActivity.showCustomDialogBack("Berhasil", "Berhasil Verifikasi")
     }
 
     override fun getDaftarListResponse(response: DaftarListResponse) {

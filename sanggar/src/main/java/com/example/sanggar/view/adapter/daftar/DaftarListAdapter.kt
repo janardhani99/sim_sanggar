@@ -35,14 +35,15 @@ class DaftarListAdapter(val detailListener: (PendaftaranAnak)-> Unit ) : Recycle
                 detailListener(item!!)
             }
 
-            cv_list_daftar?.setOnLongClickListener {
+//            cv_list_daftar?.setOnLongClickListener {
 //                deleteItem(item)
-                return@setOnLongClickListener true
-            }
+//                return@setOnLongClickListener true
+//            }
 //            tv_user_name?.text = item.user_name
 
             tv_anak_name?.text = item?.anak?.nama
-            tv_anak_umur?.text = context.getString(R.string.id_pendaftaran, item?.id)
+            tv_anak_umur?.text = item?.status
+//            tv_anak_umur?.text = context.getString(R.string.id_pendaftaran, item?.id)
         }
     }
 
