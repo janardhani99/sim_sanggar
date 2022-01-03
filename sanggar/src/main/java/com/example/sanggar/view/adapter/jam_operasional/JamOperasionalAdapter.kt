@@ -44,7 +44,6 @@ class JamOperasionalAdapter(val editListener: (JamOperasionalItem) -> Unit) : Re
         jamOperasionalList = data.toMutableList()
         notifyDataSetChanged()
     }
-
     fun getTimeFormat(time: String): String {
         return time.substring(0,5)
     }

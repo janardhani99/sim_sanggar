@@ -1,5 +1,6 @@
 package com.example.sanggar.view.fragment.sewa
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,13 +9,17 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.sanggar.R
 import com.example.sanggar.common.Utilities
+import com.example.sanggar.common.clickWithDebounce
 import com.example.sanggar.data.model.common.EmptyResponse
 import com.example.sanggar.data.model.sewa.SewaListItem
 import com.example.sanggar.data.model.sewa.SewaListResponse
 import com.example.sanggar.data.model.sewa.SewaResponse
 import com.example.sanggar.presenter.sewa.SewaListContract
 import com.example.sanggar.presenter.sewa.SewaListPresenter
+import com.example.sanggar.view.activity.kegiatan.DetailKegiatanActivity
+import com.example.sanggar.view.activity.sewa.SewaDetailActivity
 import com.example.sanggar.view.adapter.sewa.SewaListAdapter
+import kotlinx.android.synthetic.main.activity_kegiatan.*
 import kotlinx.android.synthetic.main.fragment_sewa_list.*
 
 private const val STATUS = "status"
@@ -30,6 +35,8 @@ class SewaListFragment: Fragment(), SewaListContract.View {
         arguments?.let {
             status = it.getString(STATUS)
         }
+
+//        data = startActivity(Intent(context, SewaDetailBottomSheet::class.java)).getParcelableExtra<SewaListItem>("data")
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -62,10 +69,12 @@ class SewaListFragment: Fragment(), SewaListContract.View {
             status?.let { presenter.getListSewa(it) }
         }
     }
+
     private fun initAdapter(){
         adapter = SewaListAdapter{ detailItem ->
-            val bottomSheet = SewaDetailBottomSheet(detailItem)
-            bottomSheet.show(childFragmentManager, "")
+            val intent = Intent(context, SewaDetailActivity::class.java)
+            intent.putExtra("data", detailItem)
+            startActivity(intent)
         }
 //        rv_sewa_list?.hasFixedSize()
         rv_sewa_list?.layoutManager = LinearLayoutManager(this.activity)

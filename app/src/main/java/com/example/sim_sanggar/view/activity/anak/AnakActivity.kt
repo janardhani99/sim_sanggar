@@ -14,19 +14,25 @@ import com.example.sim_sanggar.data.model.common.EmptyResponse
 import com.example.sim_sanggar.data.model.daftar.DaftarListResponse
 import com.example.sim_sanggar.data.model.daftar.DaftarResponse
 import com.example.sim_sanggar.data.model.daftar.PendaftaranAnak
+import com.example.sim_sanggar.presenter.DatePickerHelper
 import com.example.sim_sanggar.presenter.anak.AnakContract
 import com.example.sim_sanggar.presenter.anak.AnakPresenter
 import com.example.sim_sanggar.presenter.daftar.DaftarListContract
 import com.example.sim_sanggar.presenter.daftar.DaftarListPresenter
 import com.example.sim_sanggar.view.activity.common.BaseActivity
 import kotlinx.android.synthetic.main.activity_anak.*
+import kotlinx.android.synthetic.main.activity_anak.btn_pilih_tanggal
+import kotlinx.android.synthetic.main.activity_sewa.*
 import kotlinx.android.synthetic.main.fragment_toolbar.*
+import java.util.*
 import javax.xml.validation.Validator
+import kotlin.collections.HashMap
 
 class AnakActivity : BaseActivity(), AnakContract.View {
 
     var data: AnakListItem? = null
     var presenter = AnakPresenter(this)
+    lateinit var datePicker: DatePickerHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,20 +41,49 @@ class AnakActivity : BaseActivity(), AnakContract.View {
         setToolbar()
         toolbar_title?.text = getString(R.string.daftar)
         initListener()
+        datePicker = DatePickerHelper(this)
+
     }
 
+    private fun showDatePickerDialog() {
+        val cal = Calendar.getInstance()
+        val d = cal.get(Calendar.DAY_OF_MONTH)
+        val m = cal.get(Calendar.MONTH)
+        val y = cal.get(Calendar.YEAR)
+
+        val minDate = Calendar.getInstance()
+        minDate.set(Calendar.HOUR_OF_DAY, 0)
+        minDate.set(Calendar.MINUTE, 0)
+        minDate.set(Calendar.SECOND, 0)
+        datePicker.setMinDate(minDate.timeInMillis)
+
+        val maxDate = Calendar.getInstance()
+        maxDate.add(Calendar.DAY_OF_MONTH, 30)
+        datePicker.setMaxDate(maxDate.timeInMillis)
+
+        datePicker.showDialog(y, m, d, object: DatePickerHelper.Callback {
+            override fun onDateSelected(year: Int, month: Int, dayOfMonth: Int) {
+                val dayStr = if(dayOfMonth<10) "0${dayOfMonth}" else "${dayOfMonth}"
+                val mon = month + 1
+                val monthStr = if (mon<10) "0${mon}" else "${mon}"
+                tv_tanggal_lahir.text = "${year}-${monthStr}-${dayStr}"
+            }
+        })
+    }
     private fun initListener() {
-        Validations.removeError(til_nama_anak, til_umur_anak, til_tanggal_lahir, til_telepon_anak)
 
         btn_daftar.clickWithDebounce {
             addOrEditAnak()
+        }
+        btn_pilih_tanggal.setOnClickListener {
+            showDatePickerDialog()
         }
     }
 
     private fun addOrEditAnak() {
         val nama_anak = til_nama_anak?.editText?.text.toString()
         val umur = til_umur_anak?.editText?.text.toString()
-        val tanggal_lahir = til_tanggal_lahir?.editText?.text.toString()
+        val tanggal_lahir = tv_tanggal_lahir?.text.toString()
         val telepon = til_telepon_anak?.editText?.text.toString()
 
         val tambahData = HashMap<String, Any?>()

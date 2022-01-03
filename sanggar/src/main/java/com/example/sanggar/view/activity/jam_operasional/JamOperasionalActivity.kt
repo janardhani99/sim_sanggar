@@ -1,13 +1,10 @@
 package com.example.sanggar.view.activity.jam_operasional
 
 import android.os.Bundle
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.sanggar.R
 import com.example.sanggar.common.Utilities
 import com.example.sanggar.common.clickWithDebounce
-import com.example.sanggar.data.model.jam_operasional.JamOperasionalItem
 import com.example.sanggar.data.model.jam_operasional.JamOperasionalListResponse
 import com.example.sanggar.data.model.jam_operasional.JamOperasionalResponse
 import com.example.sanggar.presenter.jam_operasional.JamOperasionalContract

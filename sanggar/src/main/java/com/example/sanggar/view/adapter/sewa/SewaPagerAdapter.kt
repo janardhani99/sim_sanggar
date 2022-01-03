@@ -10,11 +10,12 @@ class SewaPagerAdapter(fm: FragmentManager):
         FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
     val title = listOf<String>(
             "Menunggu Verifikasi",
-            "Terverifikasi",
+            "Menunggu Pembayaran",
+            "Selesai",
             "Batal"
     )
 
-    val status = listOf("0", "1", "2")
+    val status = listOf("0", "1", "2", "3")
 //
 //    private val fragment = listOf(
 //            SewaListFragment(),

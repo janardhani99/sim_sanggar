@@ -11,9 +11,10 @@ data class DaftarResponse(@Expose var data: PendaftaranAnak? = null): BaseResult
 
 data class DaftarListResponse(@Expose var data: List<PendaftaranAnak>? = null): BaseResultData()
 
+@Parcelize
 data class PendaftaranAnak (
         @Expose
-        var id: String = "",
+        var id: Int,
 
         @Expose
         var bukti_pembayaran: String? = null,
@@ -23,6 +24,6 @@ data class PendaftaranAnak (
 
         @Expose
         var anak: AnakListItem? = null
-)
+):Parcelable
 
 

@@ -1,7 +1,6 @@
 package com.example.sanggar.presenter.sewa
 
 import com.example.sanggar.data.model.common.EmptyResponse
-import com.example.sanggar.data.model.daftar.DaftarResponse
 import com.example.sanggar.data.model.sewa.SewaListResponse
 import com.example.sanggar.data.model.sewa.SewaResponse
 import com.example.sanggar.presenter.common.BaseContract
@@ -19,7 +18,7 @@ interface SewaListContract {
     interface Presenter {
         fun addListSewa(data: HashMap<String, Any?>)
         fun getListSewa(status: String)
-        fun editStatusSewa(id: String, data: HashMap<String, Any?>)
+        fun editStatusSewa(id: Int, data: HashMap<String, Any?>)
         fun deleteListSewa(id: Int)
     }
 
@@ -33,7 +32,7 @@ interface SewaListContract {
 
         @FormUrlEncoded
         @PATCH("penyewaan-sanggar/{id}")
-        fun editStatusSewa(@Path("id") id: String, @FieldMap data: HashMap<String, Any?>):Observable<SewaResponse>
+        fun editStatusSewa(@Path("id") id: Int, @FieldMap data: HashMap<String, Any?>):Observable<SewaResponse>
 
         @DELETE("penyewaan-sanggar/{id}")
         fun deleteListSewa(@Path("id")id: Int): Observable<EmptyResponse>

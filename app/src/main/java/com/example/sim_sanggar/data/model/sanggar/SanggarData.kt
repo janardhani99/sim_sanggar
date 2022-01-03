@@ -1,6 +1,12 @@
 package com.example.sim_sanggar.data.model.sanggar
 
+import com.example.sim_sanggar.data.model.anak.AnakListItem
+import com.example.sim_sanggar.data.model.common.BaseResultData
 import com.google.gson.annotations.Expose
+
+data class SanggarResponse(@Expose var data: SanggarData? = null): BaseResultData()
+
+data class SanggarListResponse(@Expose var data: List<SanggarData>? = null): BaseResultData()
 
 class SanggarData {
 

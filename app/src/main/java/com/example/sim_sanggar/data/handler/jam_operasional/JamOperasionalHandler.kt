@@ -9,7 +9,7 @@ class JamOperasionalHandler: BaseHandler() {
 
     val service = getClient().create(JamOperasionalContract.Handler::class.java)
 
-    fun tambahJamOperasional(data: HashMap<String, Any?>): Observable<JamOperasionalResponse> {
-        return service.tambahJamOperasional(data)
+    fun getJamOperasional(): Observable<JamOperasionalResponse> {
+        return service.getJamOperasional()
     }
 }

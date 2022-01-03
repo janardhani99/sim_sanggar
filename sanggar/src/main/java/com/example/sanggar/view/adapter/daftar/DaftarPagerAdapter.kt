@@ -8,13 +8,17 @@ import java.lang.reflect.Array.newInstance
 
 class DaftarPagerAdapter(fm: FragmentManager):
         FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
-    val title = listOf<String>(
+    private val title = listOf(
             "Menunggu Verifikasi",
-            "Terverifikasi",
-//            "Tes",
+            "Menunggu Pembayaran",
+            "Terdaftar",
             "Batal"
     )
-    val status = listOf("0", "1", "2")
+//    private val status = listOf("0", "1", "2", "3")
+    private val status = listOf( "Menunggu Verifikasi",
+        "Menunggu Pembayaran",
+        "Terdaftar",
+        "Dibatalkan")
 
 //    private val fragment = listOf(
 //            DaftarListFragment(),

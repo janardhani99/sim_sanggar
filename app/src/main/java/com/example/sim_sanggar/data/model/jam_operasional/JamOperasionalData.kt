@@ -12,9 +12,9 @@ class JamOperasionalItem(
         @Expose
         var hari: String? = null,
         @Expose
-        var jamMulai: String? = null,
+        var jam_mulai: String? = null,
         @Expose
-        var jamSelesai: String? = null,
+        var jam_selesai: String? = null,
         @Expose
         var status: Boolean? =false
 )

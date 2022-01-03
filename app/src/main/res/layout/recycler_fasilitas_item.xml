@@ -15,42 +15,48 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:weightSum="3">
+            android:weightSum="3"
+            android:orientation="vertical"
+            android:gravity="center">
 
             <ImageView
                 android:id="@+id/iv_fasilitas_recycler"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:src="@color/colorPrimary" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp5" />
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/tv_judul_fasilitas_recycler"
+                style="@style/TextAppearance.AppCompat.Title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:padding="@dimen/dp16">
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="15dp"
+                android:ellipsize="end"
+                android:padding="15dp"
+                android:singleLine="true"
+                android:text="Title"
+                android:background="@color/transparent_text"/>
 
-                <TextView
-                    android:id="@+id/tv_judul_fasilitas_recycler"
-                    style="@style/TextAppearance.AppCompat.Title"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ellipsize="end"
-                    android:singleLine="true"
-                    android:text="Title" />
-
-                <TextView
-                    android:id="@+id/tv_deskripsi_fasilitas_recycler"
-                    style="@style/TextAppearance.AppCompat.Body1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
-                    android:ellipsize="end"
-                    android:lines="3"
-                    android:maxLines="3"
-                    android:text="Deskripsi" />
-            </LinearLayout>
+            <TextView
+                android:id="@+id/tv_deskripsi_fasilitas_recycler"
+                style="@style/TextAppearance.AppCompat.Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:ellipsize="end"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:paddingBottom="15dp"
+                android:text="Deskripsi"
+                android:textSize="15dp"
+                android:lines="3"
+                android:maxLines="3"
+                android:background="@color/transparent_text"
+                android:layout_below="@+id/tv_judul_fasilitas_recycler"/>
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 

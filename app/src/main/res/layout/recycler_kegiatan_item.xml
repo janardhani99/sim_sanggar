@@ -9,19 +9,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dp8"
-        android:clickable="true"
         android:focusable="true">
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:weightSum="3"
-            android:maxHeight="300dp">
+            android:gravity="center">
 
             <ImageView
                 android:id="@+id/iv_kegiatan_recycler"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_margin="5dp"/>
 
             <TextView
@@ -31,7 +31,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:layout_marginTop="65dp"
+                android:layout_marginTop="15dp"
                 android:ellipsize="end"
                 android:padding="15dp"
                 android:singleLine="true"
@@ -45,17 +45,19 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
                 android:ellipsize="end"
                 android:paddingLeft="15dp"
                 android:paddingRight="15dp"
                 android:paddingBottom="15dp"
-                android:singleLine="true"
                 android:text="Deskripsi"
                 android:textSize="15dp"
+                android:lines="3"
+                android:maxLines="3"
                 android:background="@color/transparent_text"
                 android:layout_below="@+id/tv_judul_kegiatan_recycler"/>
 
-        </RelativeLayout>
+        </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 
 </LinearLayout>

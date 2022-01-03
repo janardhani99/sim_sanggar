@@ -189,7 +189,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="@dimen/dp16"
-                        android:text="@string/daftar" />
+                        android:text="simpan" />
 
                 </com.google.android.material.card.MaterialCardView>
             </LinearLayout>

@@ -1,5 +1,6 @@
 package com.example.sanggar.view.fragment.daftar
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -15,6 +16,7 @@ import com.example.sanggar.data.model.daftar.DaftarResponse
 import com.example.sanggar.data.model.daftar.PendaftaranAnak
 import com.example.sanggar.presenter.daftar.DaftarListContract
 import com.example.sanggar.presenter.daftar.DaftarListPresenter
+import com.example.sanggar.view.activity.daftar.PendaftarDetailActivity
 import com.example.sanggar.view.adapter.daftar.DaftarListAdapter
 import kotlinx.android.synthetic.main.fragment_daftar_list.*
 
@@ -35,6 +37,7 @@ class DaftarListFragment : Fragment(), DaftarListContract.View {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         initAdapter()
 //        fetchData()
     }
@@ -58,16 +61,26 @@ class DaftarListFragment : Fragment(), DaftarListContract.View {
 
     override fun onResume() {
         super.onResume()
+        fetchData()
+    }
+
+    private fun fetchData() {
         doRequest {
             status?.let { presenter.getListDaftar(it) }
         }
     }
+//    (status) { detailItem->
+//        val intent = Intent(context, PendaftarDetailActivity::class.java)
+//        intent.putExtra("data", detailItem)
+//        startActivity(intent)
+//    }
 
     private fun initAdapter(){
-        adapter = DaftarListAdapter { detailItem->
-            val bottomSheet = PendaftarDetailBottomSheet(detailItem)
-            bottomSheet.show(childFragmentManager, "")
-        }
+        adapter = DaftarListAdapter { detailItem ->
+        val intent = Intent(context, PendaftarDetailActivity::class.java)
+        intent.putExtra("data", detailItem)
+        startActivity(intent)}
+
 //        rv_daftar_list?.hasFixedSize()
         rv_daftar_list?.layoutManager = LinearLayoutManager(this.activity)
         rv_daftar_list?.adapter = adapter

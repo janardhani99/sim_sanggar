@@ -1,10 +1,6 @@
-package com.example.sanggar.view.fragment.daftar
+package com.example.sanggar.view.activity.daftar
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.Toast
 import com.example.sanggar.R
 import com.example.sanggar.common.Utilities
 import com.example.sanggar.common.clickWithDebounce
@@ -12,40 +8,33 @@ import com.example.sanggar.data.model.common.EmptyResponse
 import com.example.sanggar.data.model.daftar.DaftarListResponse
 import com.example.sanggar.data.model.daftar.DaftarResponse
 import com.example.sanggar.data.model.daftar.PendaftaranAnak
+import com.example.sanggar.data.model.sewa.SewaListItem
 import com.example.sanggar.presenter.daftar.DaftarListContract
 import com.example.sanggar.presenter.daftar.DaftarListPresenter
 import com.example.sanggar.view.activity.common.BaseActivity
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import kotlinx.android.synthetic.main.fragment_pendaftar_detail.*
+import kotlinx.android.synthetic.main.activity_pendaftar_detail.*
+import kotlinx.android.synthetic.main.activity_pendaftar_detail.btn_batalkan
+import kotlinx.android.synthetic.main.activity_sewa_detail.*
+import kotlinx.android.synthetic.main.fragment_toolbar.*
 
-class PendaftarDetailBottomSheet(val data: PendaftaranAnak? = null): BottomSheetDialogFragment(), DaftarListContract.View {
+class PendaftarDetailActivity(): BaseActivity(), DaftarListContract.View {
 
+    var data: PendaftaranAnak? = null
     val presenter = DaftarListPresenter(this)
-    private lateinit var baseActivity: BaseActivity
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setStyle(STYLE_NORMAL, R.style.AppTheme_BottomSheetDialog)
+        setContentView(R.layout.activity_pendaftar_detail)
+
+        setToolbar()
+        toolbar_title?.text = "Detail Pendaftaran"
+
+        data = intent.getParcelableExtra<PendaftaranAnak>("data")
+        data?.let { initView(it) }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_pendaftar_detail, container, false)
-    }
 
-    override fun onStart() {
-        super.onStart()
-        baseActivity = (activity as BaseActivity)
-        initAdapter()
-        initView(data)
-    }
-
-    private fun initAdapter() {
-
-    }
-
-    private fun initView(data: PendaftaranAnak?) {
+    private fun initView(data: PendaftaranAnak) {
 
         data?.run {
             til_nama_anak?.editText?.setText(data.anak?.nama)
@@ -54,31 +43,34 @@ class PendaftarDetailBottomSheet(val data: PendaftaranAnak? = null): BottomSheet
         }
 
         btn_verifikasi_pendaftar.clickWithDebounce {
-            statusVerifikasi(data)
+            verifikasiDaftar()
         }
 
         btn_batalkan.clickWithDebounce {
-            statusBatal(data)
+            batalkanDaftar()
         }
     }
 
-    private fun statusVerifikasi(data: PendaftaranAnak?) {
-//        val status = data?.status
+    private fun verifikasiDaftar() {
+
         val tambahData = HashMap<String, Any?>()
+//        tambahData["anak_id"] = til_tanggal_sewa?.editText?.text.toString()
+
         tambahData["status"] = "1"
         isLoading(true)
         data?.id?.let { presenter.editStatusDaftar(it, tambahData) }
+        this.showCustomDialogBack("Message", "Berhasil diverifikasi")
     }
 
-    private fun statusBatal(data: PendaftaranAnak?) {
+    private fun batalkanDaftar() {
 //        val status = data?.status
         val tambahData = HashMap<String, Any?>()
-        tambahData["status"] = "2"
+        tambahData["status"] = "3"
         isLoading(true)
         data?.id?.let { presenter.editStatusDaftar(it, tambahData) }
+        this.showCustomDialogBack("Message", "Berhasil dibatalkan")
     }
     override fun daftarListResponse(response: DaftarResponse) {
-        this.dismiss()
         isLoading(false)
 //        if (data?.status == "1") {
 //            Toast.makeText(context, "Berhasil Verifikasi!", Toast.LENGTH_SHORT).show()
@@ -89,7 +81,7 @@ class PendaftarDetailBottomSheet(val data: PendaftaranAnak? = null): BottomSheet
     }
 
     private fun isLoading(isLoad: Boolean) {
-        if (isLoad) this.context?.let { Utilities.showProgress(it) }
+        if (isLoad)  Utilities.showProgress(this)
         else Utilities.hideProgress()
     }
 
@@ -102,6 +94,6 @@ class PendaftarDetailBottomSheet(val data: PendaftaranAnak? = null): BottomSheet
     }
 
     override fun showError(title: String, message: String) {
-        baseActivity.showErrorAlert(title, message)
+        showErrorAlert(title, message)
     }
 }

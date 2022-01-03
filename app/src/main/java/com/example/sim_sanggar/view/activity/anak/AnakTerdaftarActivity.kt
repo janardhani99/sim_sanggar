@@ -30,7 +30,7 @@ class AnakTerdaftarActivity :BaseActivity(), AnakContract.View, DaftarListContra
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_anak_terdaftar)
+        setContentView(R.layout.fragment_daftar_anak)
 
         data = intent.getParcelableExtra("data")
 
@@ -42,9 +42,9 @@ class AnakTerdaftarActivity :BaseActivity(), AnakContract.View, DaftarListContra
 
     private fun initAdapter() {
 
-        adapter = AnakTerdaftarAdapter ({ detailItem->
-            showCustomDialog("Klik", "Data di klik")
-        }, {daftarItem -> addPendaftaran(daftarItem)})
+//        adapter = AnakTerdaftarAdapter ({ detailItem->
+//            showCustomDialog("Klik", "Data di klik")
+//        }, {daftarItem -> addPendaftaran(daftarItem)})
         rv_anak_terdaftar?.layoutManager = LinearLayoutManager(this)
         rv_anak_terdaftar?.adapter = adapter
     }
@@ -102,6 +102,10 @@ class AnakTerdaftarActivity :BaseActivity(), AnakContract.View, DaftarListContra
     }
 
     override fun deleteDaftarListResponse(response: EmptyResponse) {
+        TODO("Not yet implemented")
+    }
+
+    override fun uploadImageResponse() {
         TODO("Not yet implemented")
     }
 }

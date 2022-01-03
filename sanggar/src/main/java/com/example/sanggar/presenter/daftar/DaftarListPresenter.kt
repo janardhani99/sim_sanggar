@@ -31,7 +31,7 @@ class DaftarListPresenter(val view: DaftarListContract.View): BasePresenter(view
                 })
     }
 
-    override fun editStatusDaftar(id: String, data: HashMap<String, Any?>) {
+    override fun editStatusDaftar(id: Int, data: HashMap<String, Any?>) {
         handler.editStatusDaftar(id, data)
                 .doSubscribe(object : ErrorHandler<DaftarResponse>(this){
                     override fun onNext(t: DaftarResponse) {

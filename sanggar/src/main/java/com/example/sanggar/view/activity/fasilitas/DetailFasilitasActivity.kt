@@ -68,7 +68,7 @@ class DetailFasilitasActivity :  BaseActivity(), FasilitasContract.View  {
 
     private fun openImageResource() {
         CropImage.activity()
-                .setAspectRatio(2, 1)
+                .setAspectRatio(2, 2)
                 .setGuidelines(CropImageView.Guidelines.ON)
                 .start(this)
     }
@@ -92,7 +92,9 @@ class DetailFasilitasActivity :  BaseActivity(), FasilitasContract.View  {
 
     private fun isLoading(isLoad: Boolean) {
         if (isLoad) Utilities.showProgress(this)
-        else Utilities.hideProgress()
+        else {
+            Utilities.hideProgress()
+        }
     }
 
     private fun setView(data: FasilitasListItem) {
@@ -112,7 +114,7 @@ class DetailFasilitasActivity :  BaseActivity(), FasilitasContract.View  {
             imageFile?.let { uploadImage(response.data?.id,it) }
         } else {
             isLoading(false)
-            this.showCustomDialogBack("Data Berhasil", "Data berhasil ditambahkan")
+            this.showCustomDialogBack("Data Berhasil", "Data berhasil diubah")
         }
     }
 
@@ -129,11 +131,11 @@ class DetailFasilitasActivity :  BaseActivity(), FasilitasContract.View  {
     }
 
     override fun getFasilitasResponse(response: FasilitasListResponse) {
-
+        TODO("Not yet implemented")
     }
 
     override fun deleteFasilitasResponse(response: EmptyResponse) {
-
+        TODO("Not yet implemented")
     }
 
     override fun uploadImageResponse() {

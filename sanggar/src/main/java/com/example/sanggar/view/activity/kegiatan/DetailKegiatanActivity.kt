@@ -64,7 +64,7 @@ class DetailKegiatanActivity : BaseActivity(), KegiatanContract.View {
 
     private fun openImageResource() {
         CropImage.activity()
-                .setAspectRatio(2, 1)
+                .setAspectRatio(2, 2)
                 .setGuidelines(CropImageView.Guidelines.ON)
                 .start(this)
     }
@@ -118,7 +118,7 @@ class DetailKegiatanActivity : BaseActivity(), KegiatanContract.View {
             imageFile?.let { uploadImage(response.data?.id,it) }
         } else {
             isLoading(false)
-            this.showCustomDialogBack("Data berhasil", "Data berhasil ditambahkan")
+            this.showCustomDialogBack("Data berhasil", "Data berhasil diubah")
         }
 //        finish()
 //        startActivity(Intent(this, KegiatanActivity::class.java))

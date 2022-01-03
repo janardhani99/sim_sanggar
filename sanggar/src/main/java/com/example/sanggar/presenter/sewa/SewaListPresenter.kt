@@ -4,7 +4,6 @@ import com.example.sanggar.common.doSubscribe
 import com.example.sanggar.data.handler.common.ErrorHandler
 import com.example.sanggar.data.handler.sewa.SewaListHandler
 import com.example.sanggar.data.model.common.EmptyResponse
-import com.example.sanggar.data.model.daftar.DaftarResponse
 import com.example.sanggar.data.model.sewa.SewaListResponse
 import com.example.sanggar.data.model.sewa.SewaResponse
 import com.example.sanggar.presenter.common.BasePresenter
@@ -39,7 +38,7 @@ class SewaListPresenter(val view: SewaListContract.View): BasePresenter(view), S
                 })
     }
 
-    override fun editStatusSewa(id: String, data: HashMap<String, Any?>) {
+    override fun editStatusSewa(id: Int, data: HashMap<String, Any?>) {
         handler.editStatusSewa(id, data)
                 .doSubscribe(object : ErrorHandler<SewaResponse>(this){
                     override fun onNext(t: SewaResponse) {

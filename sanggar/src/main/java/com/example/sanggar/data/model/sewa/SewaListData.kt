@@ -15,13 +15,19 @@ data class SewaListResponse(@Expose var data: List<SewaListItem>? = null): BaseR
 @Parcelize
 data class SewaListItem(
         @Expose
-        var id: String = "",
+        var id: Int,
 
 //        @Expose
 //        var username: String? = null,
 
         @Expose
         var tanggal: String? = null,
+
+        @Expose
+        var jam_mulai: String? = null,
+
+        @Expose
+        var jam_selesai: String? = null,
 
         @Expose
         var status: String? = null,

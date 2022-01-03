@@ -3,6 +3,8 @@ package com.example.sim_sanggar.view.activity.auth
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ArrayAdapter
+import androidx.lifecycle.Transformations.map
 import com.example.sim_sanggar.GlobalClass
 import com.example.sim_sanggar.MainTabActivity
 import com.example.sim_sanggar.R
@@ -10,9 +12,12 @@ import com.example.sim_sanggar.common.Preferences
 import com.example.sim_sanggar.common.Utilities
 import com.example.sim_sanggar.common.clickWithDebounce
 import com.example.sim_sanggar.data.model.auth.AuthResponse
+import com.example.sim_sanggar.data.model.sanggar.SanggarData
 import com.example.sim_sanggar.presenter.auth.AuthContract
 import com.example.sim_sanggar.presenter.auth.AuthPresenter
 import com.example.sim_sanggar.view.activity.common.BaseActivity
+import com.example.sim_sanggar.view.adapter.anakterdaftar.AnakTerdaftarAdapter
+import com.example.sim_sanggar.view.adapter.sanggar.SanggarAdapter
 import kotlinx.android.synthetic.main.activity_login.*
 
 import kotlinx.android.synthetic.main.activity_register.*
@@ -21,11 +26,13 @@ class RegisterActivity: BaseActivity(), AuthContract.View {
 
     val presenter = AuthPresenter(this)
     val preferences = Preferences(GlobalClass.context)
+    val namaSanggar : MutableList<SanggarData>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
         initListener()
+//        initAdapter()
     }
 
     private fun initListener() {
@@ -39,6 +46,13 @@ class RegisterActivity: BaseActivity(), AuthContract.View {
 //            startActivity(Intent(this, LoginActivity::class.java))
         }
     }
+
+    private fun initAdapter() {
+
+        val namaSanggarAdapter = namaSanggar?.let { ArrayAdapter<SanggarData>(this, R.layout.layout_dropdown_item, it) }
+        ac_nama_sanggar?.setAdapter(namaSanggarAdapter)
+    }
+
 
     private fun registerProcess() {
         val email = til_email_user_register?.editText?.text.toString()

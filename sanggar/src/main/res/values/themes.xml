@@ -32,6 +32,11 @@
         <item name="cornerRadius">16dp</item>
         <item name="strokeColor">@color/colorPrimary</item>
     </style>
+    <style name="AppTheme.ButtonRed" parent="Widget.MaterialComponents.Button.UnelevatedButton">
+        <item name="cornerRadius">16dp</item>
+        <item name="color">@color/alert_text_color</item>
+    </style>
+
 
     <style name="AppTheme.AppBarStyle" parent="Widget.MaterialComponents.Toolbar.Surface">
         <item name="titleTextColor">@color/white</item>

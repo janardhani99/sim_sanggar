@@ -9,8 +9,6 @@ import com.example.sanggar.R
 import com.example.sanggar.common.clickWithDebounce
 import com.example.sanggar.common.loadImage
 import com.example.sanggar.data.model.kegiatan.KegiatanListItem
-import com.example.sanggar.view.activity.common.BaseActivity
-import com.example.sanggar.view.activity.common.ButtonDialogListener
 import kotlinx.android.synthetic.main.recycler_kegiatan_item.view.*
 
 class KegiatanAdapter(val detailListener: (KegiatanListItem) -> Unit, val deleteItem: (KegiatanListItem)->Unit) : RecyclerView.Adapter<KegiatanAdapter.ViewHolder>() {

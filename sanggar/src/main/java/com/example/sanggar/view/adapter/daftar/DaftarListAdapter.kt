@@ -10,7 +10,7 @@ import com.example.sanggar.data.model.daftar.PendaftaranAnak
 import kotlinx.android.synthetic.main.recycler_list_daftar.view.*
 
 
-class DaftarListAdapter(val detailListener: (PendaftaranAnak)-> Unit ) : RecyclerView.Adapter<DaftarListAdapter.ViewHolder>() {
+class DaftarListAdapter( val detailListener: (PendaftaranAnak)-> Unit ) : RecyclerView.Adapter<DaftarListAdapter.ViewHolder>() {
 
     var daftarList : List<PendaftaranAnak>? = null
 

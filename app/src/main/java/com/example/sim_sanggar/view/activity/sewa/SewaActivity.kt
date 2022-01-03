@@ -45,10 +45,6 @@ class SewaActivity : BaseActivity(),SewaContract.View {
 
         datePicker = DatePickerHelper(this)
 
-        btn_pilih_tanggal.setOnClickListener {
-            showDatePickerDialog()
-        }
-
         initAdapter()
         initListener()
         initView(data)
@@ -135,6 +131,10 @@ class SewaActivity : BaseActivity(),SewaContract.View {
     private fun initListener() {
         btn_sewa.clickWithDebounce {
             addSewa()
+        }
+
+        btn_pilih_tanggal.setOnClickListener {
+            showDatePickerDialog()
         }
     }
 

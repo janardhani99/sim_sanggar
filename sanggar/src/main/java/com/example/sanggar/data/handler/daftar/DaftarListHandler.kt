@@ -19,7 +19,7 @@ class DaftarListHandler: BaseHandler() {
         return service.getListDaftar(status)
     }
 
-    fun editStatusDaftar(id: String, data: HashMap<String, Any?>): Observable<DaftarResponse> {
+    fun editStatusDaftar(id: Int, data: HashMap<String, Any?>): Observable<DaftarResponse> {
         return service.editStatusDaftar(id, data)
     }
 

@@ -90,8 +90,8 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_sanggar_user_register"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-<!--                style="@style/AppTheme.TextInputAutoComplete"-->
+                android:layout_height="wrap_content"
+                style="@style/AppTheme.TextInputAutoComplete">
 
 <!--                <com.google.android.material.textfield.TextInputEditText-->
 <!--                    android:layout_width="match_parent"-->
@@ -101,10 +101,19 @@
 <!--                    android:focusableInTouchMode="false"-->
 <!--                    android:focusable="false"/>-->
 <!--            </com.google.android.material.textfield.TextInputLayout>-->
-                <com.google.android.material.textfield.TextInputEditText
+<!--                <com.google.android.material.textfield.TextInputEditText-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:hint="@string/sanggar_user"/>-->
+                <AutoCompleteTextView
+                    android:id="@+id/ac_nama_sanggar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/sanggar_user"/>
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:hint="Nama Sanggar" />
+
+
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView

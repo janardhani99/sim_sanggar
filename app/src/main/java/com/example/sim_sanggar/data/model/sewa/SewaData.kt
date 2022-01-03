@@ -13,6 +13,8 @@ data class SewaListItem(
         @Expose
         var id: Int? = null,
         @Expose
+        var user_id: Int? = null,
+        @Expose
         var tanggal: String? = null,
         @Expose
         var jam_mulai: String? = null,

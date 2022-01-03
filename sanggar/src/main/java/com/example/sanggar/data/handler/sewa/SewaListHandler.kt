@@ -19,7 +19,7 @@ class SewaListHandler : BaseHandler(){
         return service.getListSewa(status)
     }
 
-    fun editStatusSewa(id: String, data: HashMap<String, Any?>): Observable<SewaResponse> {
+    fun editStatusSewa(id: Int, data: HashMap<String, Any?>): Observable<SewaResponse> {
         return service.editStatusSewa(id, data)
     }
 

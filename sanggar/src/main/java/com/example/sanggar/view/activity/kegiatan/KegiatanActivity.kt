@@ -36,7 +36,7 @@ class KegiatanActivity : BaseActivity(), KegiatanContract.View {
 
         initListener()
         initAdapter()
-//        fetchData()
+
     }
 
     private fun initListener() {
