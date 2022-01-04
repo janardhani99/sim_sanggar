@@ -28,4 +28,7 @@ class JadwalSanggarItem {
 
         @Expose
         var jam_selesai: String? = null
+
+        @Expose
+        var biaya: String? = null
 }

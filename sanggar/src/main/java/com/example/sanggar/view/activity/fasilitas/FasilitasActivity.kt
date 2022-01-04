@@ -29,10 +29,10 @@ class FasilitasActivity : BaseActivity(), FasilitasContract.View {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_fasilitas)
 
-        data = intent.getParcelableExtra<FasilitasListItem>("data")
-
         setToolbar()
         toolbar_title?.text = getString(R.string.fasilitas)
+
+        data = intent.getParcelableExtra<FasilitasListItem>("data")
 
         initListener()
         iniAdapter()
@@ -59,7 +59,7 @@ class FasilitasActivity : BaseActivity(), FasilitasContract.View {
                     isLoading(true)
                     deleteItem.id?.let { presenter.deleteFasilitas(it) }
                     dialog.dismiss()
-                    showCustomDialog("Hapus Data", "Data Berhasil Dihapus")
+                    showCustomDialog("Berhasil", "Data Berhasil Dihapus")
                 }
             })
         })

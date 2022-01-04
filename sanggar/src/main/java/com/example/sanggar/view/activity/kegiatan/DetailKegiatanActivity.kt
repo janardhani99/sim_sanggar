@@ -118,7 +118,7 @@ class DetailKegiatanActivity : BaseActivity(), KegiatanContract.View {
             imageFile?.let { uploadImage(response.data?.id,it) }
         } else {
             isLoading(false)
-            this.showCustomDialogBack("Data berhasil", "Data berhasil diubah")
+            this.showCustomDialogBack("Berhasil", "Data berhasil diubah")
         }
 //        finish()
 //        startActivity(Intent(this, KegiatanActivity::class.java))
@@ -145,7 +145,7 @@ class DetailKegiatanActivity : BaseActivity(), KegiatanContract.View {
 
     override fun uploadImageResponse() {
         isLoading(false)
-        this.showCustomDialogBack("Data berhasil", "Data berhasil ditambahkan")
+        this.showCustomDialogBack("Berhasil", "Data berhasil disimpan")
     }
 
     override fun showError(title: String, message: String) {

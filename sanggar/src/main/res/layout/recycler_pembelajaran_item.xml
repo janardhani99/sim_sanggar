@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_margin="@dimen/dp16"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cv_pembelajaran"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp8"
+        android:clickable="true"
+        android:focusable="true">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tv_judul_pembelajaran"
+                style="@style/TextAppearance.AppCompat.Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="Title" />
+
+            <TextView
+                android:id="@+id/tv_deskripsi_pembelajaran"
+                style="@style/TextAppearance.AppCompat.Body1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:ellipsize="end"
+                android:lines="3"
+                android:maxLines="6"
+                android:text="Deskripsi" />
+
+            <TextView
+                android:id="@+id/tv_link_pembelajaran"
+                style="@style/TextAppearance.AppCompat.Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/dp16"
+                android:text="https://www.youtube.com" />
+        </LinearLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+</LinearLayout>

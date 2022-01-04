@@ -236,7 +236,7 @@
 
                     <ImageView
                         android:id="@+id/img_platform_transaksi"
-                        android:layout_width="100dp"
+                        android:layout_width="101dp"
                         android:layout_height="100dp"
                         android:layout_gravity="center"
                         android:src="@drawable/icon_platform_transaksi" />
@@ -253,6 +253,39 @@
                         android:textColor="@color/black"
                         android:textSize="20dp"
                         android:textStyle="bold" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cv_pembelajaran"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:cardBackgroundColor="@color/white"
+                    android:outlineSpotShadowColor="@color/black"
+                    app:cardElevation="1dp">
+
+                    <ImageView
+                        android:id="@+id/img_pembelajaran"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:src="@drawable/icon_fasilitas"
+                        android:layout_gravity="center"/>
+
+                    <TextView
+                        android:id="@+id/tv_pembelajaran"
+                        style="@style/TextAppearance.MaterialComponents.Headline5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Video Pembelajaran"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:textSize="20dp"
+                        android:layout_marginTop="140dp"
+                        android:textAlignment="center"/>
 
                 </com.google.android.material.card.MaterialCardView>
             </LinearLayout>

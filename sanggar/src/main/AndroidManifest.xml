@@ -15,7 +15,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SIM_Sanggar">
-        <activity android:name=".view.activity.platform_transaksi.DetailPlatformTransaksiActivity"></activity>
+        <activity android:name=".view.activity.pembelajaran.DetailPembelajaranActivity"></activity>
+        <activity android:name=".view.activity.pembelajaran.PembelajaranActivity" />
+        <activity android:name=".view.activity.platform_transaksi.DetailPlatformTransaksiActivity" />
         <activity
             android:name=".view.activity.platform_transaksi.PlatformTransaksiActivity"
             android:screenOrientation="portrait" />
@@ -42,10 +44,10 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.sewa.SewaDetailActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.daftar.PendaftarDetailActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.auth.RegisterActivity"
             android:screenOrientation="portrait" />

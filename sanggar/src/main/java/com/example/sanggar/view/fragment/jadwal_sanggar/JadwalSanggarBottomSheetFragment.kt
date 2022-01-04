@@ -62,6 +62,7 @@ class JadwalSanggarBottomSheetFragment(val data: JadwalSanggarItem? = null) : Bo
             ac_hari_jadwal?.setText(data.hari, false)
             et_jam_mulai?.setText(data.jam_mulai?.substring(0,5))
             et_jam_selesai?.setText(data.jam_selesai?.substring(0,5))
+            til_biaya?.editText?.setText(data.biaya)
         }
 
             //create data
@@ -121,12 +122,14 @@ class JadwalSanggarBottomSheetFragment(val data: JadwalSanggarItem? = null) : Bo
         val hari = til_hari_jadwal?.editText?.text.toString()
         val jam_mulai = til_jam_mulai?.editText?.text.toString()
         val jam_selesai = til_jam_selesai?.editText?.text.toString()
+        val biaya = til_biaya?.editText?.text.toString()
 
         val tambahData = HashMap<String, Any?>()
         tambahData["kategori_latihan"] = kategori_latihan
         tambahData["hari"] = hari.toLowerCase()
         tambahData["jam_mulai"] = jam_mulai
         tambahData["jam_selesai"] = jam_selesai
+        tambahData["biaya"] = biaya
 
         isLoadingProcess(true)
         if(data == null) {
@@ -144,7 +147,7 @@ class JadwalSanggarBottomSheetFragment(val data: JadwalSanggarItem? = null) : Bo
     override fun jadwalSanggarResponse(response: JadwalSanggarResponse) {
         this.dismiss()
         isLoadingProcess(false)
-        baseActivity.showCustomDialog("Data Berhasil", "Data berhasil ditambahkan")
+        baseActivity.showCustomDialog("Berhasil", "Data berhasil disimpan")
 
         (activity as JadwalSanggarActivity?)?.fetchData()
 

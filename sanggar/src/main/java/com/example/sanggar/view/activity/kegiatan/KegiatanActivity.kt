@@ -60,7 +60,7 @@ class KegiatanActivity : BaseActivity(), KegiatanContract.View {
                     isLoading(true)
                     deleteItem.id?.let { presenter.deleteKegiatan(it) }
                     dialog.dismiss()
-                    showCustomDialog("hapus data", "Data berhasil dihapus")
+                    showCustomDialog("Berhasil", "Data berhasil dihapus")
                 }
             })
         })

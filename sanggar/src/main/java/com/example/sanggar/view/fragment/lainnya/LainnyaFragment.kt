@@ -15,6 +15,7 @@ import com.example.sanggar.view.activity.fasilitas.FasilitasActivity
 import com.example.sanggar.view.activity.jadwal_sanggar.JadwalSanggarActivity
 import com.example.sanggar.view.activity.jam_operasional.JamOperasionalActivity
 import com.example.sanggar.view.activity.kegiatan.KegiatanActivity
+import com.example.sanggar.view.activity.pembelajaran.PembelajaranActivity
 import com.example.sanggar.view.activity.platform_transaksi.PlatformTransaksiActivity
 import com.example.sanggar.view.activity.user_sanggar.UserSanggarActivity
 import kotlinx.android.synthetic.main.fragment_lainnya.*
@@ -47,6 +48,10 @@ class LainnyaFragment : Fragment() {
 
         cv_platform_transaksi?.clickWithDebounce {
             startActivity(Intent(context, PlatformTransaksiActivity::class.java))
+        }
+
+        cv_pembelajaran?.clickWithDebounce {
+            startActivity(Intent(context, PembelajaranActivity::class.java))
         }
 
         btn_logout?.clickWithDebounce {
