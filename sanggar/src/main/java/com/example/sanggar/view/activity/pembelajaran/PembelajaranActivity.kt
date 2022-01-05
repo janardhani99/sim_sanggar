@@ -40,7 +40,7 @@ class PembelajaranActivity : BaseActivity(), PembelajaranContract.View {
     }
 
     private fun initListener() {
-        cv_tambah_pembelajaran.clickWithDebounce {
+        cv_tambah_pembelajaran?.clickWithDebounce {
             val intent = Intent(this, DetailPembelajaranActivity::class.java)
             intent.putExtra("intent", 0)
             startActivity(intent)
@@ -51,6 +51,7 @@ class PembelajaranActivity : BaseActivity(), PembelajaranContract.View {
         adapter = PembelajaranAdapter({detailItem ->
             val intent = Intent(this, DetailPembelajaranActivity::class.java)
             intent.putExtra("data", detailItem)
+            startActivity(intent)
         }, {deleteItem ->
             showConfirmationDialog("Hapus Data", "Hapus Pembelajaran ini?", object : ButtonDialogListener{
                 override fun onOkButton(dialog: DialogInterface) {

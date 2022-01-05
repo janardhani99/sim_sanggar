@@ -29,11 +29,11 @@ class PembelajaranAdapter(val detailListener: (PembelajaranData)-> Unit, val del
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = pembelajaranList[position]
         holder.itemView.apply {
-            cv_pembelajaran?.clickWithDebounce {
+            cv_pembelajaran_item?.clickWithDebounce {
                 detailListener(item)
             }
 
-            cv_pembelajaran?.setOnLongClickListener {
+            cv_pembelajaran_item?.setOnLongClickListener {
                 deleteItem(item)
                 return@setOnLongClickListener true
             }
