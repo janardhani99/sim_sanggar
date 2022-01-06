@@ -262,7 +262,7 @@
                             android:layout_marginStart="@dimen/dp8"
                             android:layout_marginLeft="@dimen/dp8"
                             android:layout_weight="1"
-                            android:text="@string/fasilitas"
+                            android:text="Fasilitas"
                             android:textColor="@color/black"
                             android:textStyle="bold"
                             android:textSize="20dp"
@@ -280,6 +280,63 @@
                             android:textSize="14dp"
                             android:layout_toRightOf="@+id/img_fasilitas_sanggar"
                             android:layout_below="@+id/tv_fasilitas_sanggar"/>
+
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cv_pembelajaran"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginLeft="30dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="@color/white"
+                android:outlineSpotShadowColor="@color/black"
+                app:cardElevation="1dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp16"
+                    android:weightSum="2">
+
+                    <ImageView
+                        android:id="@id/img_pembelajaran"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_weight="2"
+                        android:src="@drawable/icon_fasilitas" />
+
+
+                    <TextView
+                        android:id="@+id/tv_pembelajaran"
+                        style="@style/TextAppearance.MaterialComponents.Headline5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp8"
+                        android:layout_marginLeft="@dimen/dp8"
+                        android:layout_weight="1"
+                        android:text="Materi Belajar Tari"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:textSize="20dp"
+                        android:layout_toRightOf="@+id/img_pembelajaran"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/dp8"
+                        android:layout_marginLeft="@dimen/dp8"
+                        android:layout_marginTop="4dp"
+                        android:layout_weight="1"
+                        android:text="Lihat Informasi dan Pembelajaran Tari"
+                        android:textSize="14dp"
+                        android:layout_toRightOf="@+id/img_pembelajaran"
+                        android:layout_below="@+id/tv_pembelajaran"/>
 
                 </RelativeLayout>
             </com.google.android.material.card.MaterialCardView>
