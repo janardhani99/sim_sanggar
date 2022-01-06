@@ -17,6 +17,7 @@ import com.example.sim_sanggar.view.activity.jam_operasional.JamOperasionalActiv
 import kotlinx.android.synthetic.main.fragment_beranda.*
 import com.example.sim_sanggar.view.activity.sewa.SewaActivity
 import com.example.sim_sanggar.view.activity.kegiatan.KegiatanActivity
+import com.example.sim_sanggar.view.activity.pembelajaran.PembelajaranActivity
 
 
 class BerandaFragment : Fragment() {
@@ -43,6 +44,10 @@ class BerandaFragment : Fragment() {
 
         cv_kegiatan_sanggar?.clickWithDebounce {
             startActivity(Intent(context, KegiatanActivity::class.java))
+        }
+
+        cv_pembelajaran?.clickWithDebounce {
+            startActivity(Intent(context, PembelajaranActivity::class.java))
         }
     }
 

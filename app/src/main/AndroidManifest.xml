@@ -37,6 +37,9 @@
             android:name=".view.activity.kegiatan.KegiatanActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".view.activity.pembelajaran.PembelajaranActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".view.activity.sewa.SewaActivity"
             android:screenOrientation="portrait" />
         <activity

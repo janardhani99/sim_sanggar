@@ -45,4 +45,10 @@ class AnakTerdaftarAdapter( val daftarListener: (AnakListItem)-> Unit): Recycler
         anakTerdaftarList = data.toMutableList()
         notifyDataSetChanged()
     }
+
+    fun deleteItem(position: Int) {
+        anakTerdaftarList.removeAt(position);
+        notifyItemRemoved(position)
+        notifyItemRangeChanged(position, anakTerdaftarList.size)
+    }
 }

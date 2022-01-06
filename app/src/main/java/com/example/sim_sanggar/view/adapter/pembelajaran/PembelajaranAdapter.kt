@@ -1,15 +1,18 @@
 package com.example.sim_sanggar.view.adapter.pembelajaran
 
+import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sim_sanggar.R
 import com.example.sim_sanggar.common.clickWithDebounce
 import com.example.sim_sanggar.data.model.pembelajaran.PembelajaranData
 import kotlinx.android.synthetic.main.recycler_pembelajaran_item.view.*
 
-class PembelajaranAdapter(): RecyclerView.Adapter<PembelajaranAdapter.ViewHolder>() {
+class PembelajaranAdapter(val itemVideo: (PembelajaranData)-> Unit ): RecyclerView.Adapter<PembelajaranAdapter.ViewHolder>() {
 
     var pembelajaranList = mutableListOf<PembelajaranData>()
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view)
@@ -30,7 +33,10 @@ class PembelajaranAdapter(): RecyclerView.Adapter<PembelajaranAdapter.ViewHolder
 
             tv_judul_pembelajaran.text = item.judul
             tv_deskripsi_pembelajaran.text = item.deskripsi
-            tv_link_pembelajaran.text = item.link_video
+            btn_lihat_video.setOnClickListener {
+                itemVideo(item)
+            }
+//            tv_link_pembelajaran.text = item.link_video
         }
     }
 

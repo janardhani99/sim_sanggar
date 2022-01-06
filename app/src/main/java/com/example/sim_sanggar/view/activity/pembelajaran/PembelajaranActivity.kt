@@ -2,6 +2,7 @@ package com.example.sim_sanggar.view.activity.pembelajaran
 
 import android.content.DialogInterface
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -39,7 +40,10 @@ class PembelajaranActivity : BaseActivity(), PembelajaranContract.View {
     }
 
     private fun initAdapter() {
-        adapter = PembelajaranAdapter()
+        adapter = PembelajaranAdapter{
+            itemVideo -> val intent = Intent(Intent.ACTION_VIEW, Uri.parse(itemVideo.link_video))
+            startActivity(intent)
+        }
 
         rv_pembelajaran?.layoutManager = LinearLayoutManager(this)
         rv_pembelajaran?.adapter = adapter
@@ -59,19 +63,12 @@ class PembelajaranActivity : BaseActivity(), PembelajaranContract.View {
         super.onResume()
         fetchData()
     }
-    override fun pembelajaranResponse(response: PembelajaranResponse) {
-        TODO("Not yet implemented")
-    }
 
     override fun getPembelajaranResponse(response: PembelajaranListResponse) {
         isLoading(false)
         response.data?.let { adapter.setData(it) }
     }
 
-    override fun deletePembelajaranResponse(response: EmptyResponse) {
-        isLoading(false)
-        fetchData()
-    }
 
     override fun showError(title: String, message: String) {
         showErrorAlert(title, message)

@@ -3,42 +3,55 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center_vertical"
-    android:padding="@dimen/half_app_margin">
-
+    android:padding="@dimen/dp16">
 
     <LinearLayout
-        android:id="@+id/layout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/icon_jam_operasional"
+            android:layout_toLeftOf="@+id/jadwal"/>
 
-        <TextView
-            android:id="@+id/tv_hari_operasional"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/layout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:text="Senin" />
-        <TextView
-            android:id="@+id/tv_jam_operasional"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:text="10:10 - 23:59" />
+            android:orientation="vertical"
+            android:layout_marginLeft="10dp">
 
-        <TextView
-            android:layout_marginEnd="@dimen/dp16"
-            android:id="@+id/tv_status"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:text="Buka"
-            android:layout_marginRight="@dimen/dp16" />
+            <TextView
+                android:id="@+id/tv_hari_operasional"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="Senin" />
+            <TextView
+                android:id="@+id/tv_jam_operasional"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="10:10 - 23:59" />
+
+            <TextView
+                android:layout_marginEnd="@dimen/dp16"
+                android:id="@+id/tv_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="Buka"
+                android:layout_marginRight="@dimen/dp16" />
+
+        </LinearLayout>
 
     </LinearLayout>
+
 
 
 

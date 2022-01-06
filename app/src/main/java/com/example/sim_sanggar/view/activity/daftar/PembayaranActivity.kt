@@ -40,6 +40,7 @@ class PembayaranActivity : BaseActivity(), DaftarListContract.View {
     val presenter = DaftarListPresenter(this)
     var imageFile: File? = null
     lateinit var adapter: AnakTerdaftarAdapter
+    var dataAnak : List<AnakListItem>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,6 +49,7 @@ class PembayaranActivity : BaseActivity(), DaftarListContract.View {
         setToolbar()
         toolbar_title?.text = getString(R.string.daftar_anak)
         data = intent.getParcelableExtra<AnakListItem>("data")!!
+        adapter = AnakTerdaftarAdapter {  }
 //        data?.let { setView(it) }
         initListener()
 //        initAdapter()
@@ -83,7 +85,7 @@ class PembayaranActivity : BaseActivity(), DaftarListContract.View {
 
     private fun kirimData() {
         val transfer_via = til_transfer_via?.editText?.text.toString()
-        val anak_id = data.id
+        val anak_id = data?.id
         val tambahData = HashMap<String, Any?>()
         tambahData["transfer_via"] = transfer_via
         tambahData["anak_id"] = anak_id
@@ -135,6 +137,9 @@ class PembayaranActivity : BaseActivity(), DaftarListContract.View {
             isLoading(false)
             this.showCustomDialogBack("Data berhasil", "Data berhasil diubah")
         }
+
+//        adapter.deleteItem()
+
     }
 
     override fun getDaftarListResponse(response: DaftarListResponse) {

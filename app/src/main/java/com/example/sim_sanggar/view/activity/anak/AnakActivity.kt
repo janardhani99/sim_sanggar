@@ -39,7 +39,7 @@ class AnakActivity : BaseActivity(), AnakContract.View {
         setContentView(R.layout.activity_anak)
 
         setToolbar()
-        toolbar_title?.text = getString(R.string.daftar)
+        toolbar_title?.text = "Pendaftaran Anak"
         initListener()
         datePicker = DatePickerHelper(this)
 
@@ -51,11 +51,11 @@ class AnakActivity : BaseActivity(), AnakContract.View {
         val m = cal.get(Calendar.MONTH)
         val y = cal.get(Calendar.YEAR)
 
-        val minDate = Calendar.getInstance()
-        minDate.set(Calendar.HOUR_OF_DAY, 0)
-        minDate.set(Calendar.MINUTE, 0)
-        minDate.set(Calendar.SECOND, 0)
-        datePicker.setMinDate(minDate.timeInMillis)
+//        val minDate = Calendar.getInstance()
+//        minDate.set(Calendar.HOUR_OF_DAY, 0)
+//        minDate.set(Calendar.MINUTE, 0)
+//        minDate.set(Calendar.SECOND, 0)
+//        datePicker.setMinDate(minDate.timeInMillis)
 
         val maxDate = Calendar.getInstance()
         maxDate.add(Calendar.DAY_OF_MONTH, 30)

@@ -38,6 +38,14 @@
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
                 android:text="Senin, 10:10 - 23:59" />
+
+            <TextView
+                android:id="@+id/tv_biaya"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="Biaya Pendaftaran: Rp 50000" />
         </LinearLayout>
     </LinearLayout>
 
