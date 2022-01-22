@@ -8,8 +8,6 @@ import com.example.sim_sanggar.data.handler.daftar.DaftarListHandler
 import com.example.sim_sanggar.data.model.common.EmptyResponse
 import com.example.sim_sanggar.data.model.daftar.DaftarListResponse
 import com.example.sim_sanggar.data.model.daftar.DaftarResponse
-import com.example.sim_sanggar.data.model.sewa.SewaResponse
-import com.example.sim_sanggar.presenter.common.BaseContract
 import com.example.sim_sanggar.presenter.common.BasePresenter
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -47,7 +45,12 @@ class DaftarListPresenter(val view: DaftarListContract.View): BasePresenter(view
     }
 
     override fun addImage(id: Int, part: MultipartBody.Part) {
-        TODO("Not yet implemented")
+        handler.addImage(id, part)
+                .doSubscribe(object : ErrorHandler<DaftarResponse>(this){
+                    override fun onNext(t: DaftarResponse) {
+                        view.daftarListResponse(t)
+                    }
+                })
     }
 
     override fun uploadBuktiPembayaran(image: File, tf_via: String) {

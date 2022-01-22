@@ -10,6 +10,7 @@ import com.example.sanggar.GlobalClass
 import com.example.sanggar.R
 import com.example.sanggar.common.Preferences
 import com.example.sanggar.common.clickWithDebounce
+import com.example.sanggar.view.activity.absensi_anak.AbsensiActivity
 import com.example.sanggar.view.activity.auth.LoginActivity
 import com.example.sanggar.view.activity.fasilitas.FasilitasActivity
 import com.example.sanggar.view.activity.jadwal_sanggar.JadwalSanggarActivity
@@ -52,6 +53,10 @@ class LainnyaFragment : Fragment() {
 
         cv_pembelajaran?.clickWithDebounce {
             startActivity(Intent(context, PembelajaranActivity::class.java))
+        }
+
+        cv_absensi?.clickWithDebounce {
+            startActivity(Intent(context, AbsensiActivity::class.java))
         }
 
         btn_logout?.clickWithDebounce {

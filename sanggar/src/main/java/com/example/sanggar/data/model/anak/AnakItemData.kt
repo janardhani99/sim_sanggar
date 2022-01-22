@@ -12,7 +12,7 @@ data class AnakListResponse(@Expose var data: List<AnakListItem>? = null): BaseR
 @Parcelize
 data class AnakListItem (
         @Expose
-        var id: Int? = null,
+        var id: String,
         @Expose
         var nama: String? = null,
         @Expose
@@ -22,3 +22,4 @@ data class AnakListItem (
         @Expose
         var telepon: String? = null
 ):Parcelable
+

@@ -4,6 +4,7 @@ import android.os.Bundle
 import com.example.sanggar.R
 import com.example.sanggar.common.Utilities
 import com.example.sanggar.common.clickWithDebounce
+import com.example.sanggar.common.loadImage
 import com.example.sanggar.data.model.common.EmptyResponse
 import com.example.sanggar.data.model.daftar.DaftarListResponse
 import com.example.sanggar.data.model.daftar.DaftarResponse
@@ -40,6 +41,8 @@ class PendaftarDetailActivity(): BaseActivity(), DaftarListContract.View {
             til_nama_anak?.editText?.setText(data.anak?.nama)
             til_umur_anak?.editText?.setText(data.anak?.umur)
             til_telepon?.editText?.setText(data.anak?.telepon)
+            til_bayar_via?.editText?.setText(data.transfer_via)
+            bukti_pembayaran?.let { iv_bukti_transfer?.loadImage(it) }
         }
 
         btn_verifikasi_pendaftar.clickWithDebounce {

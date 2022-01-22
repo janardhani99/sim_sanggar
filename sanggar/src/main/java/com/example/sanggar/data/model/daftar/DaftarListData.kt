@@ -17,6 +17,9 @@ data class PendaftaranAnak (
         var id: Int,
 
         @Expose
+        var transfer_via: String? = null,
+
+        @Expose
         var bukti_pembayaran: String? = null,
 
         @Expose

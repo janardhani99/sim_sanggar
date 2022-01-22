@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.sim_sanggar.GlobalClass.Companion.context
 import com.example.sim_sanggar.R
 import com.example.sim_sanggar.common.Utilities
@@ -22,8 +23,10 @@ import com.example.sim_sanggar.presenter.DatePickerHelper
 import com.example.sim_sanggar.presenter.sewa.SewaContract
 import com.example.sim_sanggar.presenter.sewa.SewaPresenter
 import com.example.sim_sanggar.view.activity.common.BaseActivity
+import com.example.sim_sanggar.view.adapter.sewaadapter.SewaAdapter
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
+import kotlinx.android.synthetic.main.activity_fasilitas.*
 import kotlinx.android.synthetic.main.activity_sewa.*
 import kotlinx.android.synthetic.main.fragment_toolbar.*
 import java.util.*
@@ -35,6 +38,7 @@ class SewaActivity : BaseActivity(),SewaContract.View {
     val presenter = SewaPresenter(this)
 
     lateinit var datePicker: DatePickerHelper
+    lateinit var adapter: SewaAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,9 +49,9 @@ class SewaActivity : BaseActivity(),SewaContract.View {
 
         datePicker = DatePickerHelper(this)
 
-        initAdapter()
         initListener()
         initView(data)
+//        initAdapterTersewa()
     }
 
     private fun showDatePickerDialog() {
@@ -57,7 +61,8 @@ class SewaActivity : BaseActivity(),SewaContract.View {
         val y = cal.get(Calendar.YEAR)
 
         val minDate = Calendar.getInstance()
-        minDate.set(Calendar.HOUR_OF_DAY, 0)
+        minDate.set(Calendar.YEAR, 2022)
+        minDate.set(Calendar.HOUR_OF_DAY, 8)
         minDate.set(Calendar.MINUTE, 0)
         minDate.set(Calendar.SECOND, 0)
         datePicker.setMinDate(minDate.timeInMillis)
@@ -72,14 +77,15 @@ class SewaActivity : BaseActivity(),SewaContract.View {
                 val mon = month + 1
                 val monthStr = if (mon<10) "0${mon}" else "${mon}"
                 tv_tanggal_sewa.text = "${year}-${monthStr}-${dayStr}"
+//                initAdapterTersewa(data.tanggal)
             }
         })
     }
 
-    private fun initAdapter() {
-        val metodePembayaranAdapter = context?.let { ArrayAdapter<String>(it, R.layout.layout_dropdown_item, resources.getStringArray(R.array.metode_pembayaran))}
+//    private fun initAdapter() {
+//        val metodePembayaranAdapter = context?.let { ArrayAdapter<String>(it, R.layout.layout_dropdown_item, resources.getStringArray(R.array.metode_pembayaran))}
 //        ac_metode_pembayaran?.setAdapter(metodePembayaranAdapter)
-    }
+//    }
 
     private fun initView(data: SewaListItem?) {
         data?.run {
@@ -138,6 +144,14 @@ class SewaActivity : BaseActivity(),SewaContract.View {
         }
     }
 
+    private fun initAdapterTersewa(data: SewaListItem?) {
+//        val tanggal_sewa = tv_tanggal_sewa?.text.toString()
+        adapter = SewaAdapter()
+        rv_booked_tanggal?.layoutManager = LinearLayoutManager(this)
+        rv_booked_tanggal?.adapter = adapter
+        fetchData()
+    }
+
     private fun addSewa() {
         val tanggal_sewa = tv_tanggal_sewa?.text.toString()
         val jam_mulai = til_jam_mulai_sewa?.editText?.text.toString()
@@ -160,6 +174,15 @@ class SewaActivity : BaseActivity(),SewaContract.View {
 //        }
 
     }
+    private fun fetchData() {
+        isLoading(true)
+        presenter.getTanggalTersewa()
+    }
+
+//    override fun onResume() {
+//        super.onResume()
+//
+//    }
 
     private fun isLoading(isLoad: Boolean) {
         if (isLoad) Utilities.showProgress(this)
@@ -172,7 +195,13 @@ class SewaActivity : BaseActivity(),SewaContract.View {
     }
 
     override fun getSewaResponse(response: SewaListResponse) {
-        TODO("Not yet implemented")
+        isLoading(false)
+        response.data?.let { adapter.setData(it)}
+    }
+
+    override fun getTanggalSewaResponse(response: SewaListResponse) {
+        isLoading(false)
+        response.data?.let { adapter.setData(it)}
     }
 
     override fun uploadImageResponse() {

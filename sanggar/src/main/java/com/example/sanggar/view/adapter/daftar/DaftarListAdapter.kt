@@ -34,7 +34,6 @@ class DaftarListAdapter( val detailListener: (PendaftaranAnak)-> Unit ) : Recycl
             cv_list_daftar?.setOnClickListener {
                 detailListener(item!!)
             }
-
 //            cv_list_daftar?.setOnLongClickListener {
 //                deleteItem(item)
 //                return@setOnLongClickListener true

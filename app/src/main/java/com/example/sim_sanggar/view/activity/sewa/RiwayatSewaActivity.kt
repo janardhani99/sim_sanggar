@@ -35,10 +35,7 @@ class RiwayatSewaActivity :BaseActivity(), SewaContract.View {
 
     private fun initAdapter() {
 
-        adapter = SewaAdapter {
-            sewaItem-> val intent = Intent(this, UploadBuktiActivity::class.java)
-            intent.putExtra("data", sewaItem)
-            startActivity(intent)}
+        adapter = SewaAdapter()
         rv_riwayat_sewa?.layoutManager = LinearLayoutManager(this)
         rv_riwayat_sewa?.adapter = adapter
     }
@@ -65,6 +62,10 @@ class RiwayatSewaActivity :BaseActivity(), SewaContract.View {
     override fun getSewaResponse(response: SewaListResponse) {
         isLoading(false)
         response.data?.let { adapter.setData(it) }
+    }
+
+    override fun getTanggalSewaResponse(response: SewaListResponse) {
+        TODO("Not yet implemented")
     }
 
     override fun uploadImageResponse() {

@@ -61,6 +61,10 @@ class SewaDetailActivity(): BaseActivity(), SewaListContract.View {
 //            }
         }
 
+        btn_selesai.clickWithDebounce {
+            booked()
+        }
+
         btn_batalkan.clickWithDebounce {
 //            if (data != null) {
                 batalkanSewa()
@@ -87,6 +91,7 @@ class SewaDetailActivity(): BaseActivity(), SewaListContract.View {
 
     }
 
+
     private fun verifikasiSewa() {
 
         val tambahData = HashMap<String, Any?>()
@@ -99,6 +104,20 @@ class SewaDetailActivity(): BaseActivity(), SewaListContract.View {
         isLoading(false)
         this.showCustomDialogBack("Message", "Berhasil diverifikasi")
     }
+
+    private fun booked() {
+
+        val tambahData = HashMap<String, Any?>()
+        tambahData["tanggal"] = til_tanggal_sewa?.editText?.text.toString()
+        tambahData["jam_mulai"] = til_jam_mulai?.editText?.text.toString()
+        tambahData["jam_selesai"] = til_jam_selesai?.editText?.text.toString()
+        tambahData["status"] = "2"
+        isLoading(true)
+        data?.id?.let { presenter.editStatusSewa(it, tambahData) }
+        isLoading(false)
+        this.showCustomDialogBack("Message", "Booking Berhasil")
+    }
+
     private fun batalkanSewa() {
 
         val tambahData = HashMap<String, Any?>()

@@ -36,5 +36,7 @@ class SewaHandler : BaseHandler() {
         return service.addImage(id, part)
     }
 
-
+    fun getTanggalTersewa(): Observable<SewaListResponse> {
+        return service.getTanggalTersewa()
+    }
 }

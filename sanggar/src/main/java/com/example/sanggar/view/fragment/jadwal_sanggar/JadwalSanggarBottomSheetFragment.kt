@@ -62,7 +62,7 @@ class JadwalSanggarBottomSheetFragment(val data: JadwalSanggarItem? = null) : Bo
             ac_hari_jadwal?.setText(data.hari, false)
             et_jam_mulai?.setText(data.jam_mulai?.substring(0,5))
             et_jam_selesai?.setText(data.jam_selesai?.substring(0,5))
-            til_biaya?.editText?.setText(data.biaya)
+            data.biaya?.let { til_biaya?.editText?.setText(it) }
         }
 
             //create data

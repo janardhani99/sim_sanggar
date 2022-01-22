@@ -141,6 +141,10 @@ class UploadBuktiActivity : BaseActivity(), SewaContract.View {
         TODO("Not yet implemented")
     }
 
+    override fun getTanggalSewaResponse(response: SewaListResponse) {
+        TODO("Not yet implemented")
+    }
+
     override fun uploadImageResponse() {
         isLoading(false)
         this.showCustomDialogBack("Berhasil", "Data berhasil ditambahkan")

@@ -10,15 +10,13 @@ class DaftarPagerAdapter(fm: FragmentManager):
         FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
     private val title = listOf(
             "Menunggu Verifikasi",
-            "Menunggu Pembayaran",
             "Terdaftar",
             "Batal"
     )
-//    private val status = listOf("0", "1", "2", "3")
-    private val status = listOf( "Menunggu Verifikasi",
-        "Menunggu Pembayaran",
-        "Terdaftar",
-        "Dibatalkan")
+    private val status = listOf("0", "1", "2")
+//    private val status = listOf( "Menunggu Verifikasi",
+//        "Terdaftar",
+//        "Dibatalkan")
 
 //    private val fragment = listOf(
 //            DaftarListFragment(),

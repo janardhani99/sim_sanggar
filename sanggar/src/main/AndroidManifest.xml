@@ -15,9 +15,30 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SIM_Sanggar">
-        <activity android:name=".view.activity.pembelajaran.DetailPembelajaranActivity"></activity>
-        <activity android:name=".view.activity.pembelajaran.PembelajaranActivity" />
-        <activity android:name=".view.activity.platform_transaksi.DetailPlatformTransaksiActivity" />
+        <activity
+            android:name=".view.activity.absensi_anak.DetailPertemuanActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".view.activity.absensi_anak.DetailProgressAnakActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".view.activity.absensi_anak.ProgressAnakActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".view.activity.absensi_anak.PertemuanActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".view.activity.absensi_anak.AbsensiActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".view.activity.pembelajaran.DetailPembelajaranActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".view.activity.pembelajaran.PembelajaranActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".view.activity.platform_transaksi.DetailPlatformTransaksiActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".view.activity.platform_transaksi.PlatformTransaksiActivity"
             android:screenOrientation="portrait" />
