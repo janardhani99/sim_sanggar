@@ -20,6 +20,7 @@ import com.example.sanggar.view.activity.sanggar.EditProfilActivity
 import com.example.sanggar.view.adapter.sanggar.ProfilSanggarAdapter
 import kotlinx.android.synthetic.main.activity_kegiatan.*
 import kotlinx.android.synthetic.main.fragment_profil_sanggar.*
+import kotlinx.android.synthetic.main.recycler_profile_sanggar.*
 
 
 class ProfilFragment(): Fragment(), ProfilSanggarContract.View {
@@ -38,15 +39,15 @@ class ProfilFragment(): Fragment(), ProfilSanggarContract.View {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        data = getActivity()?.intent?.getParcelableExtra<SanggarData>("data")
+//        data = getActivity()?.intent?.getParcelableExtra<SanggarData>("data")
         initAdapter()
         initListener()
+//        data?.let { setView(it) }
     }
 
     private fun initListener() {
         btn_edit_profil?.clickWithDebounce {
             val intent = Intent(context, EditProfilActivity::class.java)
-            intent.putExtra("intent", 0)
             startActivity(intent)
         }
 
@@ -67,12 +68,10 @@ class ProfilFragment(): Fragment(), ProfilSanggarContract.View {
         else Utilities.hideProgress()
     }
 
-
-
     private fun setView(data: SanggarData) {
 
-//        data?.run {
-//            tv_nama_sanggar?.text = data.nama_sanggar
+        data?.run {
+            tv_nama_sanggar?.text = data.nama_sanggar
 //            tv_alamat_sanggar?.text = data.alamat
 //            tv_no_telepon?.text = data.telepon
 //            tv_bank?.text = data.bank
@@ -80,7 +79,7 @@ class ProfilFragment(): Fragment(), ProfilSanggarContract.View {
 //
 ////            tv_harga_pendafataran.setText(data.harga_pendaftaran_siswa)
 ////            tv_harga_sewa.setText(data.harga_penyewaan_siswa)
-//        }
+        }
 
 //        var data = SanggarData()
 //        tv_nama_sanggar?.setText(data?.nama_sanggar)

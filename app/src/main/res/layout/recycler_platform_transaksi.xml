@@ -2,6 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:padding="@dimen/half_app_margin"
+
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <com.google.android.material.card.MaterialCardView
@@ -11,40 +14,47 @@
         android:layout_margin="@dimen/dp8"
         android:clickable="true"
         android:focusable="true">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:weightSum="3">
-
-            <LinearLayout
-                android:layout_width="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tv_nama_platform_recycler"
+                style="@style/TextAppearance.AppCompat.Headline"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:padding="@dimen/dp16">
-
-                <TextView
-                    android:id="@+id/tv_nama_platform_recycler"
-                    style="@style/TextAppearance.AppCompat.Headline"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ellipsize="end"
-                    android:singleLine="true"
-                    android:text="Nama Platform" />
-
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="Nama Platform"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
                 <TextView
                     android:id="@+id/tv_no_rekening_recycler"
                     style="@style/TextAppearance.AppCompat.Title"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
                     android:ellipsize="end"
                     android:lines="2"
-                    android:maxLines="2"
-                    android:text="Nomor Rekening" />
+                    android:maxLines="3"
+                    android:text="Nomor Rekening "/>
+
+                <Button
+                    android:id="@+id/btn_copy_nomor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Copy"
+                    android:textAlignment="center"
+                    android:layout_marginLeft="90dp" />
             </LinearLayout>
+
         </LinearLayout>
+
+
+
+
     </com.google.android.material.card.MaterialCardView>
 
 </LinearLayout>

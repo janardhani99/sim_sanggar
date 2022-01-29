@@ -25,12 +25,22 @@ class DaftarListPresenter(val view: DaftarListContract.View): BasePresenter(view
     override fun getListDaftar(status: String) {
         status?.let {
             handler.getListDaftar(it)
+                    .doSubscribe(object: ErrorHandler<DaftarListResponse>(this){
+                        override fun onNext(t: DaftarListResponse) {
+                            view.getDaftarListResponse(t)
+                        }
+                    })
+        }
+    }
+
+
+    override fun getAnakTerdaftar() {
+        handler.getAnakTerdaftar()
                 .doSubscribe(object: ErrorHandler<DaftarListResponse>(this){
                     override fun onNext(t: DaftarListResponse) {
-                        view.getDaftarListResponse(t)
+                        view.getAnakTerdaftarResponse(t)
                     }
                 })
-        }
     }
 
     override fun editStatusDaftar(id: Int, data: HashMap<String, Any?>) {

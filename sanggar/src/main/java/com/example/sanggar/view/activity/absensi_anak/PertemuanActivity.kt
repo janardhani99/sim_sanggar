@@ -18,7 +18,6 @@ import com.example.sanggar.view.activity.common.BaseActivity
 import com.example.sanggar.view.adapter.absensi.PertemuanAdapter
 import kotlinx.android.synthetic.main.activity_detail_pertemuan.*
 import kotlinx.android.synthetic.main.activity_pertemuan.*
-import kotlinx.android.synthetic.main.activity_pertemuan.til_kelas
 import kotlinx.android.synthetic.main.fragment_toolbar.*
 
 class PertemuanActivity : BaseActivity(), PertemuanContract.View {
@@ -34,7 +33,7 @@ class PertemuanActivity : BaseActivity(), PertemuanContract.View {
 
         setToolbar()
         toolbar_title?.text = "Pertemuan"
-        data_kelas = intent.getParcelableExtra<JadwalSanggarItem>("data")
+        data_kelas = intent.getParcelableExtra<JadwalSanggarItem>("data kelas")
 
         initAdapter()
         initListener()
@@ -60,13 +59,13 @@ class PertemuanActivity : BaseActivity(), PertemuanContract.View {
 
         cv_tambah_pertemuan?.clickWithDebounce {
             var intent = Intent(this, DetailPertemuanActivity::class.java)
-            intent.putExtra("data", data_kelas)
+            intent.putExtra("data kelas", data_kelas)
             startActivity(intent)
         }
     }
     private fun setView(data: JadwalSanggarItem?) {
 //        data?.id?.let { til_kelas.editText?.setText(it) }
-        til_kelas.editText?.setText(data?.kategori_latihan)
+        til_anak.editText?.setText(data?.kategori_latihan)
     }
 
     private fun fetchData() {

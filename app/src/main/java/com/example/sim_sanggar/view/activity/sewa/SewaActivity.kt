@@ -51,7 +51,7 @@ class SewaActivity : BaseActivity(),SewaContract.View {
 
         initListener()
         initView(data)
-//        initAdapterTersewa()
+        initAdapterTersewa()
     }
 
     private fun showDatePickerDialog() {
@@ -77,8 +77,13 @@ class SewaActivity : BaseActivity(),SewaContract.View {
                 val mon = month + 1
                 val monthStr = if (mon<10) "0${mon}" else "${mon}"
                 tv_tanggal_sewa.text = "${year}-${monthStr}-${dayStr}"
-//                initAdapterTersewa(data.tanggal)
+
+                var tanggalTerpilih = tv_tanggal_sewa.text.toString()
+                isLoading(true)
+                presenter.getTanggalTersewa(tanggalTerpilih)
             }
+
+
         })
     }
 
@@ -135,21 +140,22 @@ class SewaActivity : BaseActivity(),SewaContract.View {
     }
 
     private fun initListener() {
-        btn_sewa.clickWithDebounce {
+        btn_sewa?.clickWithDebounce {
             addSewa()
         }
 
-        btn_pilih_tanggal.setOnClickListener {
+        btn_pilih_tanggal?.setOnClickListener {
             showDatePickerDialog()
         }
     }
 
-    private fun initAdapterTersewa(data: SewaListItem?) {
+    private fun initAdapterTersewa() {
 //        val tanggal_sewa = tv_tanggal_sewa?.text.toString()
+//        isLoading(true)
+
         adapter = SewaAdapter()
         rv_booked_tanggal?.layoutManager = LinearLayoutManager(this)
         rv_booked_tanggal?.adapter = adapter
-        fetchData()
     }
 
     private fun addSewa() {
@@ -174,15 +180,18 @@ class SewaActivity : BaseActivity(),SewaContract.View {
 //        }
 
     }
-    private fun fetchData() {
-        isLoading(true)
-        presenter.getTanggalTersewa()
-    }
 
-//    override fun onResume() {
-//        super.onResume()
-//
+//    private fun fetchData() {
+//        isLoading(true)
+////        presenter.getTanggalTersewa(it)
+//        presenter.getSewa()
 //    }
+
+    override fun onResume() {
+        super.onResume()
+//        fetchData()
+        initAdapterTersewa()
+    }
 
     private fun isLoading(isLoad: Boolean) {
         if (isLoad) Utilities.showProgress(this)
@@ -191,7 +200,7 @@ class SewaActivity : BaseActivity(),SewaContract.View {
 
     override fun sewaResponse(response: SewaResponse) {
         isLoading(false)
-        this.showCustomDialogBack("data berhasil", "Penyewaan diproses, tunggu konfirmasi dari Admin Sanggar")
+        this.showCustomDialogBack("Berhasil", "Penyewaan diproses, tunggu konfirmasi dari Admin Sanggar")
     }
 
     override fun getSewaResponse(response: SewaListResponse) {

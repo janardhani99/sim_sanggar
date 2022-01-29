@@ -1,10 +1,16 @@
 package com.example.sim_sanggar.view.adapter.platform_transaksi
 
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sim_sanggar.R
+import com.example.sim_sanggar.common.clickWithDebounce
 import com.example.sim_sanggar.data.model.platform_transaksi.PlatformTransaksiListItem
 import kotlinx.android.synthetic.main.recycler_platform_transaksi.view.*
 
@@ -28,6 +34,10 @@ class PlatformTransaksiAdapter() : RecyclerView.Adapter<PlatformTransaksiAdapter
         holder.itemView.apply {
             tv_nama_platform_recycler?.text = item.nama_platform
             tv_no_rekening_recycler?.text = item.nomor_rekening
+
+//            btn_copy_nomor.clickWithDebounce {
+//                copyData(item)
+//            }
         }
     }
 

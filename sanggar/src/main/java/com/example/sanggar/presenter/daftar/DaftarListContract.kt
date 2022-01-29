@@ -13,6 +13,7 @@ interface DaftarListContract {
     interface View: BaseContract.View {
         fun daftarListResponse(response: DaftarResponse)
         fun getDaftarListResponse(response: DaftarListResponse)
+        fun getAnakTerdaftarResponse(response: DaftarListResponse)
         fun deleteDaftarListResponse(response: EmptyResponse)
 //        abstract fun LinearLayoutManager(daftarListFragment: DaftarListFragment): LinearLayoutManager
     }
@@ -20,6 +21,7 @@ interface DaftarListContract {
     interface Presenter {
         fun addListDaftar(data: HashMap<String, Any?>)
         fun getListDaftar(status: String)
+        fun getAnakTerdaftar()
         fun editStatusDaftar(id: Int, data: HashMap<String, Any?>)
         fun deleteListDaftar(id: Int)
     }
@@ -31,6 +33,9 @@ interface DaftarListContract {
 
         @GET("pendaftaran-siswa")
         fun getListDaftar(@Query("status") status: String): Observable<DaftarListResponse>
+
+        @GET("pendaftaransiswa/pertemuan")
+        fun getAnakTerdaftar(): Observable<DaftarListResponse>
 
         @FormUrlEncoded
         @PATCH("pendaftaran-siswa/{id}")

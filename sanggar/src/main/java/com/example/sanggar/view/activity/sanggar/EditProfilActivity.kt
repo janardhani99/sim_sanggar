@@ -59,7 +59,7 @@ class EditProfilActivity : BaseActivity(), ProfilSanggarContract.View {
             til_harga_sewa?.editText?.setText(data.harga_penyewaan_perjam)
         }
 
-        btn_simpan_profil.clickWithDebounce {
+        btn_simpan_profil?.clickWithDebounce {
             editProfil()
         }
 

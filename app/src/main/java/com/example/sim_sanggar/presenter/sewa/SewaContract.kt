@@ -21,7 +21,7 @@ interface SewaContract {
     interface Presenter {
         fun addSewa(data: HashMap<String, Any?>)
         fun getSewa()
-        fun getTanggalTersewa()
+        fun getTanggalTersewa(tanggal: String)
         fun uploadBukti(id: Int, data: HashMap<String, Any?>)
         fun addImage(id: Int, part: MultipartBody.Part)
         fun uploadBuktiPembayaran(id: Int, image: File, tf_via: String) {}
@@ -36,7 +36,7 @@ interface SewaContract {
         fun getSewa(): Observable<SewaListResponse>
 
         @GET("penyewaan/tanggal")
-        fun getTanggalTersewa(): Observable<SewaListResponse>
+        fun getTanggalTersewa(@Query ("tanggal") tanggal: String): Observable<SewaListResponse>
 
         @FormUrlEncoded
         @PATCH("penyewaan-sanggar/{id}")

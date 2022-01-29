@@ -11,6 +11,7 @@ import com.example.sanggar.data.model.absensi.ProgressAnakData
 import com.example.sanggar.data.model.absensi.ProgressAnakListResponse
 import com.example.sanggar.data.model.absensi.ProgressAnakResponse
 import com.example.sanggar.data.model.anak.AnakListItem
+import com.example.sanggar.data.model.daftar.PendaftaranAnak
 import com.example.sanggar.presenter.absensi.ProgressAnakContract
 import com.example.sanggar.presenter.absensi.ProgressAnakPresenter
 import com.example.sanggar.view.activity.common.BaseActivity
@@ -22,7 +23,7 @@ class DetailProgressAnakActivity() : BaseActivity(), ProgressAnakContract.View {
 
     var presenter = ProgressAnakPresenter(this)
     val data: ProgressAnakData? = null
-    var data_anak: AnakListItem? = null
+    var data_anak: PendaftaranAnak? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +32,7 @@ class DetailProgressAnakActivity() : BaseActivity(), ProgressAnakContract.View {
         setToolbar()
         toolbar_title.text = "Progress Anak"
 
-        data_anak = intent.getParcelableExtra<AnakListItem>("data")
+        data_anak = intent.getParcelableExtra<PendaftaranAnak>("data anak")
         data?.let { initView(it)}
 
         initListener()
@@ -53,7 +54,7 @@ class DetailProgressAnakActivity() : BaseActivity(), ProgressAnakContract.View {
 
     private fun initView(data: ProgressAnakData) {
         data?.run {
-            til_nama_anak?.editText?.setText(data_anak?.nama)
+            til_nama_anak?.editText?.setText(data_anak?.anak?.nama)
             ac_kehadiran?.setText(data.kehadiran, false)
             til_catatan_progress?.editText?.setText(data.catatan_progress)
         }
@@ -64,13 +65,16 @@ class DetailProgressAnakActivity() : BaseActivity(), ProgressAnakContract.View {
     }
 
     private fun addOrEditProgressAnak() {
-        val nama_anak = til_nama_anak.editText?.text.toString()
+        val anak_id = data_anak?.id
+//        val pertemuan_id = data
+//        val nama_anak = til_nama_anak.editText?.text.toString()
         val kehadiran  = til_kehadiran.editText?.text.toString()
         val catatan_progress = til_catatan_progress.editText?.text.toString()
 
         val tambahData = HashMap<String, Any?>()
 
 //        tambahData["nama_anak"] = nama_anak
+        tambahData["pendaftaran_siswa_id"] = anak_id
         tambahData["kehadiran"] = kehadiran.toLowerCase()
         tambahData["catatan_progress"] = catatan_progress
 

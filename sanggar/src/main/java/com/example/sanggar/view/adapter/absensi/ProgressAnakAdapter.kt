@@ -32,7 +32,7 @@ class ProgressAnakAdapter(val detailListener: (ProgressAnakData)-> Unit): Recycl
                 detailListener(item)
             }
             tv_nama_anak?.text = item.anak?.transfer_via
-            tv_kehadiran?.text = item.kehadiran
+//            tv_kehadiran?.text = item.kehadiran
 
         }
     }

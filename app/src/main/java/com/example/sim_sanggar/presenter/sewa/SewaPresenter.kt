@@ -26,6 +26,7 @@ class SewaPresenter(val view: SewaContract.View) : BasePresenter(view), SewaCont
             })
     }
 
+
     override fun getSewa() {
         handler.getSewa()
             .doSubscribe(object : ErrorHandler<SewaListResponse>(this) {
@@ -35,13 +36,15 @@ class SewaPresenter(val view: SewaContract.View) : BasePresenter(view), SewaCont
             })
     }
 
-    override fun getTanggalTersewa() {
-        handler.getTanggalTersewa()
+    override fun getTanggalTersewa(tanggal: String) {
+        tanggal.let {
+            handler.getTanggalTersewa(it)
                 .doSubscribe(object : ErrorHandler<SewaListResponse>(this){
                     override fun onNext(t: SewaListResponse) {
                         view.getSewaResponse(t)
                     }
                 })
+        }
     }
 
     override fun uploadBukti(id: Int, data: HashMap<String, Any?>) {

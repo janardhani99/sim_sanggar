@@ -111,6 +111,10 @@ class DaftarListFragment : Fragment(), DaftarListContract.View {
 
     }
 
+    override fun getAnakTerdaftarResponse(response: DaftarListResponse) {
+        TODO("Not yet implemented")
+    }
+
     override fun deleteDaftarListResponse(response: EmptyResponse) {
         TODO("Not yet implemented")
     }

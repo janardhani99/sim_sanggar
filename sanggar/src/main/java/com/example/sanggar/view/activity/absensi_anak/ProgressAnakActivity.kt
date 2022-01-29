@@ -2,9 +2,11 @@ package com.example.sanggar.view.activity.absensi_anak
 
 import android.content.Intent
 import android.os.Bundle
+import android.provider.Settings.System.putString
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.sanggar.R
 import com.example.sanggar.common.Utilities
+import com.example.sanggar.common.Utilities.doRequest
 import com.example.sanggar.common.clickWithDebounce
 import com.example.sanggar.data.model.absensi.PertemuanData
 import com.example.sanggar.data.model.absensi.PertemuanDataListResponse
@@ -13,14 +15,20 @@ import com.example.sanggar.data.model.anak.AnakListItem
 import com.example.sanggar.data.model.anak.AnakListResponse
 import com.example.sanggar.data.model.anak.AnakResponse
 import com.example.sanggar.data.model.common.EmptyResponse
+import com.example.sanggar.data.model.daftar.DaftarListResponse
+import com.example.sanggar.data.model.daftar.DaftarResponse
+import com.example.sanggar.data.model.daftar.PendaftaranAnak
 import com.example.sanggar.data.model.jadwal_sanggar.JadwalSanggarItem
 import com.example.sanggar.presenter.DatePickerHelper
 import com.example.sanggar.presenter.absensi.PertemuanContract
 import com.example.sanggar.presenter.absensi.PertemuanPresenter
 import com.example.sanggar.presenter.anak.AnakContract
+import com.example.sanggar.presenter.daftar.DaftarListContract
+import com.example.sanggar.presenter.daftar.DaftarListPresenter
 import com.example.sanggar.view.activity.common.BaseActivity
 import com.example.sanggar.view.adapter.absensi.ProgressAnakAdapter
 import com.example.sanggar.view.adapter.anakterdaftar.AnakTerdaftarAdapter
+import com.example.sanggar.view.fragment.daftar.DaftarListFragment
 import com.example.sim_sanggar.presenter.anak.AnakPresenter
 import kotlinx.android.synthetic.main.activity_detail_pertemuan.btn_pilih_tanggal
 import kotlinx.android.synthetic.main.activity_detail_pertemuan.btn_simpan_pertemuan
@@ -31,20 +39,22 @@ import kotlinx.android.synthetic.main.fragment_toolbar.*
 import java.util.*
 import kotlin.collections.HashMap
 
-class ProgressAnakActivity : BaseActivity(), PertemuanContract.View, AnakContract.View{
+//private const val STATUS = "status"
 
-    var data: PertemuanData? = null
-    var dataAnak : AnakListItem? = null
+class ProgressAnakActivity : BaseActivity(), PertemuanContract.View, DaftarListContract.View{
+
+    var data_pertemuan: PertemuanData? = null
+    var dataAnak : PendaftaranAnak? = null
     var data_kelas: JadwalSanggarItem? = null
 
     val presenter = PertemuanPresenter(this)
-    val presenterAnak = AnakPresenter(this)
+    val presenterAnak = DaftarListPresenter(this)
 
     lateinit var datePicker: DatePickerHelper
     lateinit var adapter : AnakTerdaftarAdapter
 //    lateinit var adapter : ProgressAnakAdapter
 
-
+//    private var status: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,13 +63,16 @@ class ProgressAnakActivity : BaseActivity(), PertemuanContract.View, AnakContrac
         setToolbar()
         toolbar_title.text = "Progress Anak"
 
-        data = intent.getParcelableExtra<PertemuanData>("data")
-//        dataAnak = intent.getParcelableExtra<AnakListItem>("data")
+        data_pertemuan = intent.getParcelableExtra<PertemuanData>("data")
+
         datePicker = DatePickerHelper(this)
-        data?.let { setView(it) }
+        data_pertemuan?.let { setView(it) }
 
         initListener()
         initAdapter()
+
+//        status = intent.getStringExtra(STATUS).toString()
+
     }
 
     private fun showDatePickerDialog() {
@@ -111,7 +124,7 @@ class ProgressAnakActivity : BaseActivity(), PertemuanContract.View, AnakContrac
 
         isLoading(true)
 
-        data?.id?.let { presenter.editPertemuan(it, tambahData)}
+        data_pertemuan?.id?.let { presenter.editPertemuan(it, tambahData)}
 
     }
 
@@ -128,14 +141,10 @@ class ProgressAnakActivity : BaseActivity(), PertemuanContract.View, AnakContrac
     }
 
     private fun initAdapter() {
-//        adapter = ProgressAnakAdapter { itemEdit ->
-//            val intent = Intent(this, DetailProgressAnakActivity::class.java)
-//            startActivity(intent)
-//        }
 
         adapter = AnakTerdaftarAdapter { detailItem->
             val intent = Intent(this, DetailProgressAnakActivity::class.java)
-            intent.putExtra("data", detailItem)
+            intent.putExtra("data anak", detailItem)
             startActivity(intent)
         }
         rv_progress_anak?.layoutManager = LinearLayoutManager(this)
@@ -146,10 +155,15 @@ class ProgressAnakActivity : BaseActivity(), PertemuanContract.View, AnakContrac
         super.onResume()
         fetchData()
     }
+    
 
     private fun fetchData() {
         isLoading(true)
-        presenterAnak.getAnak()
+//        doRequest {
+//            status?.let { presenterAnak.getAnakTerdaftar() }
+//        }
+
+        presenterAnak.getAnakTerdaftar()
     }
 
     private fun isLoading(isLoad: Boolean) {
@@ -171,13 +185,21 @@ class ProgressAnakActivity : BaseActivity(), PertemuanContract.View, AnakContrac
     }
 
 
-    override fun anakResponse(response: AnakResponse) {
+    override fun daftarListResponse(response: DaftarResponse) {
         TODO("Not yet implemented")
     }
 
-    override fun getAnakResponse(response: AnakListResponse) {
-       isLoading(false)
+    override fun getDaftarListResponse(response: DaftarListResponse) {
+
+    }
+
+    override fun getAnakTerdaftarResponse(response: DaftarListResponse) {
+        isLoading(false)
         response.data?.let { adapter.setData(it) }
+    }
+
+    override fun deleteDaftarListResponse(response: EmptyResponse) {
+        TODO("Not yet implemented")
     }
 
     override fun showError(title: String, message: String) {

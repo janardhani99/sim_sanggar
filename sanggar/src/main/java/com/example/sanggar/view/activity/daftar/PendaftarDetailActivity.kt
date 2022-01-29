@@ -45,11 +45,11 @@ class PendaftarDetailActivity(): BaseActivity(), DaftarListContract.View {
             bukti_pembayaran?.let { iv_bukti_transfer?.loadImage(it) }
         }
 
-        btn_verifikasi_pendaftar.clickWithDebounce {
+        btn_verifikasi_pendaftar?.clickWithDebounce {
             verifikasiDaftar()
         }
 
-        btn_batalkan.clickWithDebounce {
+        btn_batalkan?.clickWithDebounce {
             batalkanDaftar()
         }
     }
@@ -89,6 +89,10 @@ class PendaftarDetailActivity(): BaseActivity(), DaftarListContract.View {
     }
 
     override fun getDaftarListResponse(response: DaftarListResponse) {
+        TODO("Not yet implemented")
+    }
+
+    override fun getAnakTerdaftarResponse(response: DaftarListResponse) {
         TODO("Not yet implemented")
     }
 
