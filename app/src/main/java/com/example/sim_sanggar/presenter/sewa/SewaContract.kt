@@ -36,7 +36,7 @@ interface SewaContract {
         fun getSewa(): Observable<SewaListResponse>
 
         @GET("penyewaan/tanggal")
-        fun getTanggalTersewa(@Query ("tanggal") tanggal: String): Observable<SewaListResponse>
+        fun getTanggalTersewa(@Query ("date") tanggal: String): Observable<SewaListResponse>
 
         @FormUrlEncoded
         @PATCH("penyewaan-sanggar/{id}")
