@@ -26,5 +26,5 @@ class JamOperasionalItem {
         var jam_selesai: String? = null
 
         @Expose
-        var status: Boolean? = false
+        var status: String? = null
 }

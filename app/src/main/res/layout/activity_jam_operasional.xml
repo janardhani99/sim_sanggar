@@ -14,11 +14,18 @@
         android:layout_height="match_parent"
         android:layout_margin="@dimen/dp16"
         android:orientation="vertical">
-
-        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-            android:id="@+id/sr_jam_operasional"
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_margin="32dp"
+            android:gravity="center_horizontal"
+            android:text="Jam Operasional Sanggar"
+            android:textAlignment="center" />
+
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="250dp"
+            android:fadeScrollbars="false">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_jam_operasional"
@@ -29,8 +36,31 @@
             tools:itemCount="7"
             tools:listitem="@layout/recycler_jam_operasional" />
 
-        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+<!--        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>-->
+        </ScrollView>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="32dp"
+            android:gravity="center_horizontal"
+            android:text="Libur Tanggal Khusus"
+            android:textAlignment="center" />
+
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="250dp"
+            android:fadeScrollbars="false">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_tanggal_libur"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:itemCount="7"
+                tools:listitem="@layout/recycler_tanggal_libur" />
+        </ScrollView>
     </LinearLayout>
 
 </LinearLayout>

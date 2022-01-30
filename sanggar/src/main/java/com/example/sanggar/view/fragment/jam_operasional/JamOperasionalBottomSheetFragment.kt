@@ -76,7 +76,7 @@ class JamOperasionalBottomSheetFragment(val data: JamOperasionalItem? = null) : 
         }
 
         switch_status?.setOnCheckedChangeListener { _, isChecked ->
-            data?.status = isChecked
+            data?.status = isChecked.toString()
             switch_status?.text = getStatusText(isChecked)
         }
 
@@ -140,7 +140,7 @@ class JamOperasionalBottomSheetFragment(val data: JamOperasionalItem? = null) : 
         val jam_mulai = til_jam_mulai?.editText?.text.toString()
         val jam_selesai = til_jam_selesai?.editText?.text.toString()
 
-//        switch_status?.text = getStatusText(data?.status == true)
+//        switch_status?.text = getStatusText()
         val status = switch_status?.text.toString()
 
         val tambahData = HashMap<String, Any?>()
