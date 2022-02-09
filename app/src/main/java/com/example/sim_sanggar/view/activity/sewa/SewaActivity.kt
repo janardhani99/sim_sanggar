@@ -24,6 +24,7 @@ import com.example.sim_sanggar.presenter.sewa.SewaContract
 import com.example.sim_sanggar.presenter.sewa.SewaPresenter
 import com.example.sim_sanggar.view.activity.common.BaseActivity
 import com.example.sim_sanggar.view.adapter.sewaadapter.SewaAdapter
+import com.example.sim_sanggar.view.adapter.sewaadapter.SewaPerTanggalAdapter
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
 import kotlinx.android.synthetic.main.activity_fasilitas.*
@@ -38,7 +39,8 @@ class SewaActivity : BaseActivity(),SewaContract.View {
     val presenter = SewaPresenter(this)
 
     lateinit var datePicker: DatePickerHelper
-    lateinit var adapter: SewaAdapter
+//    lateinit var adapter: SewaAdapter
+    lateinit var adapter: SewaPerTanggalAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -153,9 +155,9 @@ class SewaActivity : BaseActivity(),SewaContract.View {
 //        val tanggal_sewa = tv_tanggal_sewa?.text.toString()
 //        isLoading(true)
 
-//        adapter = SewaAdapter()
-//        rv_booked_tanggal?.layoutManager = LinearLayoutManager(this)
-//        rv_booked_tanggal?.adapter = adapter
+        adapter = SewaPerTanggalAdapter()
+        rv_booked_tanggal?.layoutManager = LinearLayoutManager(this)
+        rv_booked_tanggal?.adapter = adapter
     }
 
     private fun addSewa() {

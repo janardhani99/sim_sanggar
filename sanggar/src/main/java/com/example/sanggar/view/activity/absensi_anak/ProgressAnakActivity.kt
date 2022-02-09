@@ -59,8 +59,9 @@ class ProgressAnakActivity : BaseActivity(), PertemuanContract.View, DaftarListC
         setToolbar()
         toolbar_title.text = "Edit Pertemuan"
 
-        data_anak = intent.getParcelableExtra<PendaftaranAnak>("data_anak")
+//        data_anak = intent.getParcelableExtra<PendaftaranAnak>("data_anak")
         data_pertemuan = intent.getParcelableExtra<PertemuanData>("data_pertemuan")
+        data_kelas = intent.getParcelableExtra<JadwalSanggarItem>("data_kelas")
 
         datePicker = DatePickerHelper(this)
         data_pertemuan?.let { setView(it) }
@@ -159,7 +160,7 @@ class ProgressAnakActivity : BaseActivity(), PertemuanContract.View, DaftarListC
 
     private fun fetchData() {
         isLoading(true)
-        presenterAnak.getAnakTerdaftar()
+        data_kelas?.id?.let { presenterAnak.getAnakOnKelas(it) }
 //        doRequest {
 //            status?.let { presenterAnak.getAnakTerdaftar() }
 //        }
@@ -196,12 +197,12 @@ class ProgressAnakActivity : BaseActivity(), PertemuanContract.View, DaftarListC
     }
 
     override fun getAnakTerdaftarResponse(response: DaftarListResponse) {
-        isLoading(false)
-        response.data?.let { adapter.setData(it) }
+
     }
 
     override fun getAnakOnKelasResponse(response: DaftarListResponse) {
-
+        isLoading(false)
+        response.data?.let { adapter.setData(it) }
     }
 
     override fun deleteDaftarListResponse(response: EmptyResponse) {

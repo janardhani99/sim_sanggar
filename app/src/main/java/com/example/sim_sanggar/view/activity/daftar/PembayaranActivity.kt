@@ -49,7 +49,7 @@ class PembayaranActivity : BaseActivity(), DaftarListContract.View, AnakContract
 
         data = intent.getParcelableExtra<AnakListItem>("data")
 //        adapter = AnakTerdaftarAdapter
-//        data?.let { setView(it) }
+        data?.let { setView(it) }
         initListener()
         initAdapter()
     }
@@ -73,7 +73,7 @@ class PembayaranActivity : BaseActivity(), DaftarListContract.View, AnakContract
 //
     private fun setView(data: AnakListItem) {
         data?.run {
-//            til_nama_anak?.editText?.setText(data.id)
+            til_nama_anak?.editText?.setText(data.nama)
 //            foto?.let { iv_upload_bukti.loadImage(it) }
         }
 

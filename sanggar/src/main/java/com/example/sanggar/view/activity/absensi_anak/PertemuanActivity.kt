@@ -45,6 +45,7 @@ class PertemuanActivity : BaseActivity(), PertemuanContract.View {
         adapter = PertemuanAdapter { itemEdit->
             val intent = Intent(this, ProgressAnakActivity::class.java)
             intent.putExtra("data_pertemuan", itemEdit)
+            intent.putExtra("data_kelas", data_kelas)
             startActivity(intent)
         }
 

@@ -67,6 +67,9 @@
             android:name=".view.activity.sewa.SewaDetailActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".view.activity.sewa.BuktiBayarActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".view.activity.daftar.PendaftarDetailActivity"
             android:screenOrientation="portrait" />
         <activity

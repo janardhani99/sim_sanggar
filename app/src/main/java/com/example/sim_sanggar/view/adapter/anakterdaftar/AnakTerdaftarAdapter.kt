@@ -34,7 +34,7 @@ class AnakTerdaftarAdapter( val daftarListener: (AnakListItem)-> Unit): Recycler
 //                detailListener(item)
 //            }
             tv_nama_anak_recycler?.text = item.nama
-            tv_umur_anak_recycler?.text = item.umur
+            tv_umur_anak_recycler?.text = "Umur: ${item.umur}"
             btn_daftarkan.setOnClickListener {
                 daftarListener(item)
             }

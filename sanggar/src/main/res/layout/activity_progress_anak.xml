@@ -19,28 +19,28 @@
         android:layout_margin="@dimen/dp24"
         android:orientation="vertical">
 
-        <LinearLayout
-            android:id="@+id/id_jadwal_sanggar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+<!--        <LinearLayout-->
+<!--            android:id="@+id/id_jadwal_sanggar"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="vertical">-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="ID Kelas" />
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="ID Kelas" />-->
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_kelas"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+<!--            <com.google.android.material.textfield.TextInputLayout-->
+<!--                android:id="@+id/til_kelas"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content">-->
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="ID : 1"/>
-            </com.google.android.material.textfield.TextInputLayout>
-        </LinearLayout>
+<!--                <com.google.android.material.textfield.TextInputEditText-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:hint="ID : 1"/>-->
+<!--            </com.google.android.material.textfield.TextInputLayout>-->
+<!--        </LinearLayout>-->
 
         <LinearLayout
             android:id="@+id/title_section"
