@@ -25,9 +25,9 @@ class SewaHandler : BaseHandler() {
     }
 
     fun uploadBuktiPembayaran(
-        id: Int,
-        imagePart: MultipartBody.Part,
-        mapPart: HashMap<String, RequestBody>
+            id: Int,
+            imagePart: MultipartBody.Part,
+            mapPart: HashMap<String, RequestBody>
     ): Observable<SewaResponse> {
         return service.uploadBuktiPembayaran(id, imagePart, mapPart)
     }

@@ -157,22 +157,52 @@
 
             </com.google.android.material.card.MaterialCardView>
 
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cv_button_batal"
+
+
+        </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/jam_section"
+        android:gravity="center">
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_button_bukti_bayar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/background"
+            app:cardCornerRadius="@dimen/dp0"
+            app:cardElevation="0dp">
+
+            <Button
+                android:id="@+id/btn_bukti_bayar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/background"
-                app:cardCornerRadius="@dimen/dp0"
-                app:cardElevation="0dp">
+                android:layout_margin="10dp"
+                android:text="Bukti Pembayaran" />
 
-                <Button
-                    android:id="@+id/btn_batalkan"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:text="Batalkan" />
+        </com.google.android.material.card.MaterialCardView>
 
-            </com.google.android.material.card.MaterialCardView>
-        </LinearLayout>
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_button_batal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/background"
+            app:cardCornerRadius="@dimen/dp0"
+            app:cardElevation="0dp">
+
+            <Button
+                android:id="@+id/btn_batalkan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="Batalkan" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
+
+
     </LinearLayout>
 </RelativeLayout>

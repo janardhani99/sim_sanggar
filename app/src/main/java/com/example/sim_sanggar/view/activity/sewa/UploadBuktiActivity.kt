@@ -5,6 +5,7 @@ import android.os.Bundle
 import com.example.sim_sanggar.R
 import com.example.sim_sanggar.common.Utilities
 import com.example.sim_sanggar.common.clickWithDebounce
+import com.example.sim_sanggar.common.loadImage
 import com.example.sim_sanggar.data.model.sewa.SewaListItem
 import com.example.sim_sanggar.data.model.sewa.SewaListResponse
 import com.example.sim_sanggar.data.model.sewa.SewaResponse
@@ -35,7 +36,7 @@ class UploadBuktiActivity : BaseActivity(), SewaContract.View {
         setToolbar()
         toolbar_title?.text = getString(R.string.sewa)
         data = intent.getParcelableExtra<SewaListItem>("data")
-//        data?.let { setView(it) }
+        data?.let { setView(it) }
         initListener()
 //        initAdapter()
     }
@@ -53,26 +54,28 @@ class UploadBuktiActivity : BaseActivity(), SewaContract.View {
         }
     }
 
-//    private fun initAdapter() {
+    //    private fun initAdapter() {
 //        adapter = SewaAdapter { sewaItem-> uploadBukti(sewaItem) }
 //    }
 //
-//    private fun setView(data: SewaListItem) {
-//        data?.run {
-//            foto?.let { iv_upload_bukti.loadImage(it) }
-//        }
-//
-//        btn_upload_foto?.clickWithDebounce {
-//
-//            uploadBukti()
-//        }
-//    }
+    private fun setView(data: SewaListItem) {
+        data?.run {
+            foto?.let { iv_upload_bukti.loadImage(it) }
+        }
+
+        btn_upload_foto?.clickWithDebounce {
+
+            uploadBukti(data)
+        }
+    }
 
     private fun uploadBukti(data: SewaListItem?) {
+
         val transfer_via = til_transfer_via?.editText?.text.toString()
+        val status = "2"
         val isValid = imageFile != null && data?.id != null
         if (isValid) {
-            presenter.uploadBuktiPembayaran(data?.id!!, imageFile!!, transfer_via)
+            presenter.uploadBuktiPembayaran(data?.id!!, imageFile!!, transfer_via, status)
         }
 
 
@@ -95,29 +98,29 @@ class UploadBuktiActivity : BaseActivity(), SewaContract.View {
     }
 
     private fun initListener() {
-        btn_image_bukti_pembayaran.clickWithDebounce {
+        btn_image_bukti_pembayaran?.clickWithDebounce {
             openImageResource()
         }
 
-        btn_upload_foto.clickWithDebounce {
+        btn_upload_foto?.clickWithDebounce {
             uploadBukti(data)
         }
     }
 
     private fun openImageResource() {
         CropImage.activity()
-            .setAspectRatio(2, 3)
-            .setGuidelines(CropImageView.Guidelines.ON)
-            .start(this)
+                .setAspectRatio(2, 3)
+                .setGuidelines(CropImageView.Guidelines.ON)
+                .start(this)
     }
 
     private fun uploadImage(id: Int?, it: File) {
         val requestBody =
-            RequestBody.create(MediaType.parse("multipart/form-data"), imageFile)
+                RequestBody.create(MediaType.parse("multipart/form-data"), imageFile)
         val part = MultipartBody.Part.createFormData(
-            "image",
-            it.name,
-            requestBody
+                "image",
+                it.name,
+                requestBody
         )
         id?.let { presenter.addImage(it, part) }
     }

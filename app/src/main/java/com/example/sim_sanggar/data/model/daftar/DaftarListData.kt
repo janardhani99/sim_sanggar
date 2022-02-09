@@ -29,8 +29,8 @@ data class PendaftaranAnak (
         @Expose
         var anak_id: AnakListItem? = null,
 
-        @Expose
-        var sanggar_id: Int? = null,
+//        @Expose
+//        var sanggar_id: Int? = null,
 
         @Expose
         var jadwal_sanggar_id: JadwalSanggarItem? = null

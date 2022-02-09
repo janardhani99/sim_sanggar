@@ -72,10 +72,10 @@ class AnakActivity : BaseActivity(), AnakContract.View {
     }
     private fun initListener() {
 
-        btn_daftar.clickWithDebounce {
+        btn_daftar?.clickWithDebounce {
             addOrEditAnak()
         }
-        btn_pilih_tanggal.setOnClickListener {
+        btn_pilih_tanggal?.clickWithDebounce {
             showDatePickerDialog()
         }
     }
@@ -85,14 +85,12 @@ class AnakActivity : BaseActivity(), AnakContract.View {
         val umur = til_umur_anak?.editText?.text.toString()
         val tanggal_lahir = tv_tanggal_lahir?.text.toString()
         val telepon = til_telepon_anak?.editText?.text.toString()
-        val kategori_kelas = til_kategori_kelas.editText?.text.toString()
 
         val tambahData = HashMap<String, Any?>()
         tambahData["nama"] = nama_anak
         tambahData["umur"] = umur
         tambahData["tanggal_lahir"] = tanggal_lahir
         tambahData["telepon"] = telepon
-        tambahData["jadwal_sanggar"] = kategori_kelas
 
         isLoading(true)
 

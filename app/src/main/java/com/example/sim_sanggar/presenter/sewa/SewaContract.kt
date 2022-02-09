@@ -24,7 +24,7 @@ interface SewaContract {
         fun getTanggalTersewa(tanggal: String)
         fun uploadBukti(id: Int, data: HashMap<String, Any?>)
         fun addImage(id: Int, part: MultipartBody.Part)
-        fun uploadBuktiPembayaran(id: Int, image: File, tf_via: String) {}
+        fun uploadBuktiPembayaran(id: Int, image: File, tf_via: String, status: String) {}
     }
 
     interface Handler {

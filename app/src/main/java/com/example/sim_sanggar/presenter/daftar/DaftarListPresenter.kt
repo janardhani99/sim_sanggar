@@ -48,7 +48,7 @@ class DaftarListPresenter(val view: DaftarListContract.View): BasePresenter(view
         handler.addImage(id, part)
                 .doSubscribe(object : ErrorHandler<DaftarResponse>(this){
                     override fun onNext(t: DaftarResponse) {
-                        view.daftarListResponse(t)
+                        view.uploadImageResponse()
                     }
                 })
     }

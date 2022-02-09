@@ -14,6 +14,7 @@ interface DaftarListContract {
         fun daftarListResponse(response: DaftarResponse)
         fun getDaftarListResponse(response: DaftarListResponse)
         fun getAnakTerdaftarResponse(response: DaftarListResponse)
+        fun getAnakOnKelasResponse(response: DaftarListResponse)
         fun deleteDaftarListResponse(response: EmptyResponse)
 //        abstract fun LinearLayoutManager(daftarListFragment: DaftarListFragment): LinearLayoutManager
     }
@@ -22,6 +23,7 @@ interface DaftarListContract {
         fun addListDaftar(data: HashMap<String, Any?>)
         fun getListDaftar(status: String)
         fun getAnakTerdaftar()
+        fun getAnakOnKelas(jadwal_sanggar: String)
         fun editStatusDaftar(id: Int, data: HashMap<String, Any?>)
         fun deleteListDaftar(id: Int)
     }
@@ -36,6 +38,9 @@ interface DaftarListContract {
 
         @GET("pendaftaransiswa/pertemuan")
         fun getAnakTerdaftar(): Observable<DaftarListResponse>
+
+        @GET("anakonkelas")
+        fun getAnakOnKelas(@Query("jadwal_sanggar") jadwal_sanggar: String): Observable<DaftarListResponse>
 
         @FormUrlEncoded
         @PATCH("pendaftaran-siswa/{id}")

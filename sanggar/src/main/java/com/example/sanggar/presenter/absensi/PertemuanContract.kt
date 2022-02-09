@@ -18,7 +18,7 @@ interface PertemuanContract {
     interface Presenter {
         fun addPertemuan(data: HashMap<String, Any?>)
         fun editPertemuan(id: Int, data: HashMap<String, Any?>)
-        fun getPertemuan()
+        fun getPertemuan(jadwal_sanggar: Int)
         fun deletePertemuan(id: Int)
     }
 
@@ -32,7 +32,7 @@ interface PertemuanContract {
         fun editPertemuan(@Path("id")id: Int, @FieldMap data: HashMap<String, Any?>): Observable<PertemuanDataResponse>
 
         @GET("pertemuan")
-        fun getPertemuan(): Observable<PertemuanDataListResponse>
+        fun getPertemuan(@Query("jadwal_sanggar") jadwal_sanggar: Int): Observable<PertemuanDataListResponse>
 
         @DELETE("pertemuan/{id}")
         fun deletePertemuan(@Path("value") id: Int): Observable<EmptyResponse>

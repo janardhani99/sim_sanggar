@@ -2,7 +2,6 @@ package com.example.sanggar.view.activity.absensi_anak
 
 import android.content.Intent
 import android.os.Bundle
-import android.provider.Settings.System.putString
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.sanggar.R
 import com.example.sanggar.common.Utilities
@@ -11,9 +10,6 @@ import com.example.sanggar.common.clickWithDebounce
 import com.example.sanggar.data.model.absensi.PertemuanData
 import com.example.sanggar.data.model.absensi.PertemuanDataListResponse
 import com.example.sanggar.data.model.absensi.PertemuanDataResponse
-import com.example.sanggar.data.model.anak.AnakListItem
-import com.example.sanggar.data.model.anak.AnakListResponse
-import com.example.sanggar.data.model.anak.AnakResponse
 import com.example.sanggar.data.model.common.EmptyResponse
 import com.example.sanggar.data.model.daftar.DaftarListResponse
 import com.example.sanggar.data.model.daftar.DaftarResponse
@@ -44,11 +40,11 @@ import kotlin.collections.HashMap
 class ProgressAnakActivity : BaseActivity(), PertemuanContract.View, DaftarListContract.View{
 
     var data_pertemuan: PertemuanData? = null
-    var dataAnak : PendaftaranAnak? = null
+    var data_anak : PendaftaranAnak? = null
     var data_kelas: JadwalSanggarItem? = null
 
-    val presenter = PertemuanPresenter(this)
-    val presenterAnak = DaftarListPresenter(this)
+    private var presenter = PertemuanPresenter(this)
+    private var presenterAnak = DaftarListPresenter(this)
 
     lateinit var datePicker: DatePickerHelper
     lateinit var adapter : AnakTerdaftarAdapter
@@ -61,9 +57,10 @@ class ProgressAnakActivity : BaseActivity(), PertemuanContract.View, DaftarListC
         setContentView(R.layout.activity_progress_anak)
 
         setToolbar()
-        toolbar_title.text = "Progress Anak"
+        toolbar_title.text = "Edit Pertemuan"
 
-        data_pertemuan = intent.getParcelableExtra<PertemuanData>("data")
+        data_anak = intent.getParcelableExtra<PendaftaranAnak>("data_anak")
+        data_pertemuan = intent.getParcelableExtra<PertemuanData>("data_pertemuan")
 
         datePicker = DatePickerHelper(this)
         data_pertemuan?.let { setView(it) }
@@ -113,24 +110,26 @@ class ProgressAnakActivity : BaseActivity(), PertemuanContract.View, DaftarListC
     }
 
     private fun editPertemuan() {
+
         val pertemuan_ke = til_pertemuan_ke?.editText?.text.toString()
         val tanggal = til_tanggal_sewa?.editText?.text.toString()
 //        val jadwal_sanggar = data_kelas?.id
 
-        val tambahData = HashMap<String, Any?>()
-        tambahData["pertemuan_ke"] = pertemuan_ke
-        tambahData["tanggal"] = tanggal
+        val editData = HashMap<String, Any?>()
+        editData["pertemuan_ke"] = pertemuan_ke
+        editData["tanggal"] = tanggal
 //        tambahData["jadwal_sanggar_id"] = jadwal_sanggar
 
         isLoading(true)
 
-        data_pertemuan?.id?.let { presenter.editPertemuan(it, tambahData)}
+        data_pertemuan?.id?.let { presenter.editPertemuan(it, editData)}
 
     }
 
     private fun setView(data: PertemuanData) {
         data?.run {
 //            data?.id?.let { til_kelas.editText?.setText(it) }
+//            til_kelas?.editText?.setText(data.id)
             til_pertemuan_ke?.editText?.setText(data.pertemuan_ke)
             til_tanggal_sewa?.editText?.setText(data.tanggal)
         }
@@ -144,7 +143,8 @@ class ProgressAnakActivity : BaseActivity(), PertemuanContract.View, DaftarListC
 
         adapter = AnakTerdaftarAdapter { detailItem->
             val intent = Intent(this, DetailProgressAnakActivity::class.java)
-            intent.putExtra("data anak", detailItem)
+            intent.putExtra("data_anak", detailItem)
+            intent.putExtra("data_pertemuan", data_pertemuan)
             startActivity(intent)
         }
         rv_progress_anak?.layoutManager = LinearLayoutManager(this)
@@ -159,11 +159,13 @@ class ProgressAnakActivity : BaseActivity(), PertemuanContract.View, DaftarListC
 
     private fun fetchData() {
         isLoading(true)
+        presenterAnak.getAnakTerdaftar()
 //        doRequest {
 //            status?.let { presenterAnak.getAnakTerdaftar() }
 //        }
 
-        presenterAnak.getAnakTerdaftar()
+//        presenterAnak.getAnakOnKelas()
+
     }
 
     private fun isLoading(isLoad: Boolean) {
@@ -196,6 +198,10 @@ class ProgressAnakActivity : BaseActivity(), PertemuanContract.View, DaftarListC
     override fun getAnakTerdaftarResponse(response: DaftarListResponse) {
         isLoading(false)
         response.data?.let { adapter.setData(it) }
+    }
+
+    override fun getAnakOnKelasResponse(response: DaftarListResponse) {
+
     }
 
     override fun deleteDaftarListResponse(response: EmptyResponse) {

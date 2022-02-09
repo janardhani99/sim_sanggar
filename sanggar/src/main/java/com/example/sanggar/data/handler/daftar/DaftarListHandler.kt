@@ -23,6 +23,9 @@ class DaftarListHandler: BaseHandler() {
         return service.getAnakTerdaftar()
     }
 
+    fun getAnakOnKelas(jadwalSanggar: String): Observable<DaftarListResponse> {
+        return service.getAnakOnKelas(jadwalSanggar)
+    }
     fun editStatusDaftar(id: Int, data: HashMap<String, Any?>): Observable<DaftarResponse> {
         return service.editStatusDaftar(id, data)
     }

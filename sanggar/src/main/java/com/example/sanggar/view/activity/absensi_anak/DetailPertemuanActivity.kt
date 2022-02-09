@@ -24,7 +24,7 @@ import kotlin.collections.HashMap
 
 class DetailPertemuanActivity : BaseActivity(), PertemuanContract.View {
 
-    var data: PertemuanData? = null
+    val data: PertemuanData? = null
     var data_kelas: JadwalSanggarItem? = null
     val presenter = PertemuanPresenter(this)
 

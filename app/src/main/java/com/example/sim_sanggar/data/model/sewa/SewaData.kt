@@ -25,6 +25,8 @@ data class SewaListItem(
         @Expose
         var transferVia: String? = null,
         @Expose
-        var foto: String? = null
+        var foto: String? = null,
+        @Expose
+        var status: String? = null
 
 ):Parcelable

@@ -33,7 +33,7 @@ class PertemuanActivity : BaseActivity(), PertemuanContract.View {
 
         setToolbar()
         toolbar_title?.text = "Pertemuan"
-        data_kelas = intent.getParcelableExtra<JadwalSanggarItem>("data kelas")
+        data_kelas = intent.getParcelableExtra<JadwalSanggarItem>("data_kelas")
 
         initAdapter()
         initListener()
@@ -44,7 +44,7 @@ class PertemuanActivity : BaseActivity(), PertemuanContract.View {
     private fun initAdapter() {
         adapter = PertemuanAdapter { itemEdit->
             val intent = Intent(this, ProgressAnakActivity::class.java)
-            intent.putExtra("data", itemEdit)
+            intent.putExtra("data_pertemuan", itemEdit)
             startActivity(intent)
         }
 
@@ -59,7 +59,7 @@ class PertemuanActivity : BaseActivity(), PertemuanContract.View {
 
         cv_tambah_pertemuan?.clickWithDebounce {
             var intent = Intent(this, DetailPertemuanActivity::class.java)
-            intent.putExtra("data kelas", data_kelas)
+            intent.putExtra("data_kelas", data_kelas)
             startActivity(intent)
         }
     }
@@ -70,7 +70,7 @@ class PertemuanActivity : BaseActivity(), PertemuanContract.View {
 
     private fun fetchData() {
         isLoading(true)
-        presenter.getPertemuan()
+        data_kelas?.id?.let { presenter.getPertemuan(it) }
     }
 
     private fun isLoading(isLoad: Boolean) {

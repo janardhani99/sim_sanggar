@@ -21,8 +21,8 @@ class PertemuanHandler:BaseHandler() {
         return service.editPertemuan(id, data)
     }
 
-    fun getPertemuan(): Observable<PertemuanDataListResponse> {
-        return service.getPertemuan()
+    fun getPertemuan(jadwal_sanggar: Int): Observable<PertemuanDataListResponse> {
+        return service.getPertemuan(jadwal_sanggar)
     }
 
     fun deletePertemuan(id: Int): Observable<EmptyResponse> {

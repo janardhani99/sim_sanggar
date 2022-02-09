@@ -15,14 +15,14 @@ import kotlinx.android.synthetic.main.recycler_anak_terdaftar.view.*
 import kotlinx.android.synthetic.main.recycler_booked_tanggal.view.*
 import kotlinx.android.synthetic.main.recycler_riwayat_sewa.view.*
 
-class SewaAdapter(): RecyclerView.Adapter<SewaAdapter.ViewHolder>() {
+class SewaAdapter(val sewaListener: (SewaListItem)-> Unit): RecyclerView.Adapter<SewaAdapter.ViewHolder>() {
 
     var sewaList = mutableListOf<SewaListItem>()
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
-                LayoutInflater.from(parent.context).inflate(R.layout.recycler_booked_tanggal, parent, false)
+                LayoutInflater.from(parent.context).inflate(R.layout.recycler_riwayat_sewa, parent, false)
         )
     }
 
@@ -35,10 +35,10 @@ class SewaAdapter(): RecyclerView.Adapter<SewaAdapter.ViewHolder>() {
         holder.itemView.apply {
 //            tv_nama_penyewa.text = "Oleh ${item.user_id}"
 
-            tv_jam_sewa.text = "${item.jam_mulai?.let { getTimeFormat(it) }}--${item.jam_selesai?.let { getTimeFormat(it) }}"
-//            btn_upload.setOnClickListener {
-//                sewaListener(item)
-//            }
+            tv_tanggal_sewa.text = "${item.jam_mulai?.let { getTimeFormat(it) }}--${item.jam_selesai?.let { getTimeFormat(it) }}"
+            btn_upload?.clickWithDebounce {
+                sewaListener(item)
+            }
         }
     }
 

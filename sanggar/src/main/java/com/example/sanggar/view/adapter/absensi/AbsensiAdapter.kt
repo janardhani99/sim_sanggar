@@ -27,7 +27,7 @@ class AbsensiAdapter(val editListener: (JadwalSanggarItem)->Unit): RecyclerView.
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = jadwalList[position]
         holder.itemView.apply {
-            tv_id_kelas.text= "ID: ${item.id}"
+//            tv_id_kelas.text= "ID: ${item.id}"
             tv_kategori_kelas.text = "${item.kategori_latihan}"
             tv_waktu.text = "${item.hari}, ${item.jam_mulai?.let { getTimeFormat(it) }}-${item.jam_selesai?.let { getTimeFormat(it) }}"
 

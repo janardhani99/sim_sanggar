@@ -56,9 +56,11 @@ class PendaftarDetailActivity(): BaseActivity(), DaftarListContract.View {
 
     private fun verifikasiDaftar() {
 
+        val transfer_via = data?.transfer_via
         val tambahData = HashMap<String, Any?>()
 //        tambahData["anak_id"] = til_tanggal_sewa?.editText?.text.toString()
 
+        tambahData["transfer_via"] = transfer_via
         tambahData["status"] = "1"
         isLoading(true)
         data?.id?.let { presenter.editStatusDaftar(it, tambahData) }
@@ -67,7 +69,9 @@ class PendaftarDetailActivity(): BaseActivity(), DaftarListContract.View {
 
     private fun batalkanDaftar() {
 //        val status = data?.status
+        val transfer_via = data?.transfer_via
         val tambahData = HashMap<String, Any?>()
+        tambahData["transfer_via"] = transfer_via
         tambahData["status"] = "3"
         isLoading(true)
         data?.id?.let { presenter.editStatusDaftar(it, tambahData) }
@@ -93,6 +97,10 @@ class PendaftarDetailActivity(): BaseActivity(), DaftarListContract.View {
     }
 
     override fun getAnakTerdaftarResponse(response: DaftarListResponse) {
+        TODO("Not yet implemented")
+    }
+
+    override fun getAnakOnKelasResponse(response: DaftarListResponse) {
         TODO("Not yet implemented")
     }
 

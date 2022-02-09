@@ -46,9 +46,10 @@ class PembayaranActivity : BaseActivity(), DaftarListContract.View, AnakContract
 
         setToolbar()
         toolbar_title?.text = getString(R.string.daftar_anak)
+
         data = intent.getParcelableExtra<AnakListItem>("data")
-        adapter = AnakTerdaftarAdapter {  }
-        data?.let { setView(it) }
+//        adapter = AnakTerdaftarAdapter
+//        data?.let { setView(it) }
         initListener()
         initAdapter()
     }
@@ -86,10 +87,13 @@ class PembayaranActivity : BaseActivity(), DaftarListContract.View, AnakContract
 //        val anak_id = daftarItem.id
         val transfer_via = til_transfer_via?.editText?.text.toString()
         val anak_id = data?.id
+        val kategori_kelas = til_kategori_kelas.editText?.text.toString()
+
         val tambahData = HashMap<String, Any?>()
         tambahData["transfer_via"] = transfer_via
         tambahData["anak_id"] = anak_id
-//
+        tambahData["jadwal_sanggar_id"] = kategori_kelas
+
         isLoading(true)
 //        val isValid = imageFile != null && data?.id != null
 //        if (data?.id == null) {
@@ -100,11 +104,11 @@ class PembayaranActivity : BaseActivity(), DaftarListContract.View, AnakContract
     }
 
     private fun initListener() {
-        btn_image_bukti_pembayaran.clickWithDebounce {
+        btn_image_bukti_pembayaran?.clickWithDebounce {
             openImageResource()
         }
 
-        btn_kirim_data.clickWithDebounce {
+        btn_kirim_data?.clickWithDebounce {
 //            data?.let { it1 -> kirimData(it1) }
             kirimData()
         }

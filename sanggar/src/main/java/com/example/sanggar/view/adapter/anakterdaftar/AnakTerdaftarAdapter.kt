@@ -26,18 +26,21 @@ class AnakTerdaftarAdapter(val detailListener: (PendaftaranAnak)-> Unit): Recycl
 
     override fun getItemCount(): Int {
         return anakTerdaftarList.count()
+//        return progressAnak.count()
     }
+
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = anakTerdaftarList[position]
 //        val itemProgress = progressAnak[position]
         holder.itemView.apply {
-            cv_progress_anak_item.clickWithDebounce {
-                detailListener(item)
-            }
+//            tv_nama_anak?.text = itemProgress.anak?.anak?.nama
             tv_nama_anak?.text = item.anak?.nama
 //            tv_kehadiran?.text = itemProgress.kehadiran
 
+            cv_progress_anak_item?.clickWithDebounce {
+                detailListener(item)
+            }
         }
     }
 
@@ -46,9 +49,9 @@ class AnakTerdaftarAdapter(val detailListener: (PendaftaranAnak)-> Unit): Recycl
         notifyDataSetChanged()
     }
 
-    fun deleteItem(position: Int) {
-        anakTerdaftarList.removeAt(position);
-        notifyItemRemoved(position)
-        notifyItemRangeChanged(position, anakTerdaftarList.size)
-    }
+//    fun deleteItem(position: Int) {
+//        anakTerdaftarList.removeAt(position);
+//        notifyItemRemoved(position)
+//        notifyItemRangeChanged(position, anakTerdaftarList.size)
+//    }
 }

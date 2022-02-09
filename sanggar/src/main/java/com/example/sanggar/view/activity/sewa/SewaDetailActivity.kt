@@ -1,6 +1,10 @@
 package com.example.sanggar.view.activity.sewa
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import com.example.sanggar.R
 import com.example.sanggar.common.Utilities
 import com.example.sanggar.common.clickWithDebounce
@@ -55,20 +59,32 @@ class SewaDetailActivity(): BaseActivity(), SewaListContract.View {
             til_jam_selesai?.editText?.setText(data.jam_selesai?.substring(0,5))
         }
 
-        btn_verifikasi_sewa.clickWithDebounce {
+        btn_verifikasi_sewa?.clickWithDebounce {
 //            if (data != null) {
                 verifikasiSewa()
 //            }
         }
 
-        btn_selesai.clickWithDebounce {
+        btn_selesai?.clickWithDebounce {
             booked()
         }
 
-        btn_batalkan.clickWithDebounce {
+        btn_batalkan?.clickWithDebounce {
 //            if (data != null) {
                 batalkanSewa()
 //            }
+        }
+//
+//        if (data.status == "3") {
+//            btn_bukti_bayar.visibility = VISIBLE
+//        } else {
+//            btn_bukti_bayar.visibility = GONE
+//        }
+
+        btn_bukti_bayar?.clickWithDebounce {
+            val intent = Intent(this, BuktiBayarActivity::class.java)
+            intent.putExtra("data", data)
+            startActivity(intent)
         }
     }
 

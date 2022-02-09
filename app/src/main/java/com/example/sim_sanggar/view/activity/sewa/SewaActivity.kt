@@ -153,9 +153,9 @@ class SewaActivity : BaseActivity(),SewaContract.View {
 //        val tanggal_sewa = tv_tanggal_sewa?.text.toString()
 //        isLoading(true)
 
-        adapter = SewaAdapter()
-        rv_booked_tanggal?.layoutManager = LinearLayoutManager(this)
-        rv_booked_tanggal?.adapter = adapter
+//        adapter = SewaAdapter()
+//        rv_booked_tanggal?.layoutManager = LinearLayoutManager(this)
+//        rv_booked_tanggal?.adapter = adapter
     }
 
     private fun addSewa() {

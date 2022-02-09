@@ -43,6 +43,17 @@ class DaftarListPresenter(val view: DaftarListContract.View): BasePresenter(view
                 })
     }
 
+    override fun getAnakOnKelas(jadwal_sanggar: String) {
+        jadwal_sanggar?.let {
+            handler.getAnakOnKelas(it)
+                    .doSubscribe(object: ErrorHandler<DaftarListResponse>(this){
+                        override fun onNext(t: DaftarListResponse) {
+                            view.getAnakOnKelasResponse(t)
+                        }
+                    })
+        }
+    }
+
     override fun editStatusDaftar(id: Int, data: HashMap<String, Any?>) {
         handler.editStatusDaftar(id, data)
                 .doSubscribe(object : ErrorHandler<DaftarResponse>(this){

@@ -42,7 +42,7 @@ class ProfilFragment(): Fragment(), ProfilSanggarContract.View {
 //        data = getActivity()?.intent?.getParcelableExtra<SanggarData>("data")
         initAdapter()
         initListener()
-//        data?.let { setView(it) }
+        data?.let { setView(it) }
     }
 
     private fun initListener() {

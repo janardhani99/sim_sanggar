@@ -39,6 +39,38 @@
                     android:hint="" />
             </com.google.android.material.textfield.TextInputLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pilih Kategori Kelas"
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginTop="10dp"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_kategori_kelas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <!--                    style="@style/AppTheme.TextInputAutoComplete"-->
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Contoh : 1"/>
+                    <!--                    <AutoCompleteTextView-->
+                    <!--                        android:id="@+id/ac_kategori_kelas"-->
+                    <!--                        android:layout_width="match_parent"-->
+                    <!--                        android:layout_height="wrap_content"-->
+                    <!--                        android:focusable="false"-->
+                    <!--                        android:focusableInTouchMode="false"-->
+                    <!--                        android:hint="Kategori Kelas"/>-->
+
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

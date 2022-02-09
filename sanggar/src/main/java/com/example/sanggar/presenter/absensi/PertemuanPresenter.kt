@@ -31,8 +31,8 @@ class PertemuanPresenter(val view: PertemuanContract.View): BasePresenter(view),
                 })
     }
 
-    override fun getPertemuan() {
-        handler.getPertemuan()
+    override fun getPertemuan(jadwal_sanggar: Int) {
+        handler.getPertemuan(jadwal_sanggar)
                 .doSubscribe(object : ErrorHandler<PertemuanDataListResponse>(this){
                     override fun onNext(t: PertemuanDataListResponse) {
                         view.getPertemuanResponse(t)

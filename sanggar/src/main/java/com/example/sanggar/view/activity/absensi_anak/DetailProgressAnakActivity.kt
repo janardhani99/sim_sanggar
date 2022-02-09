@@ -7,6 +7,7 @@ import com.example.sanggar.GlobalClass.Companion.context
 import com.example.sanggar.R
 import com.example.sanggar.common.Utilities
 import com.example.sanggar.common.clickWithDebounce
+import com.example.sanggar.data.model.absensi.PertemuanData
 import com.example.sanggar.data.model.absensi.ProgressAnakData
 import com.example.sanggar.data.model.absensi.ProgressAnakListResponse
 import com.example.sanggar.data.model.absensi.ProgressAnakResponse
@@ -21,9 +22,10 @@ import kotlinx.android.synthetic.main.fragment_toolbar.*
 
 class DetailProgressAnakActivity() : BaseActivity(), ProgressAnakContract.View {
 
-    var presenter = ProgressAnakPresenter(this)
-    val data: ProgressAnakData? = null
+    val presenter = ProgressAnakPresenter(this)
+    var data: ProgressAnakData? = null
     var data_anak: PendaftaranAnak? = null
+    var data_pertemuan: PertemuanData? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,13 +34,12 @@ class DetailProgressAnakActivity() : BaseActivity(), ProgressAnakContract.View {
         setToolbar()
         toolbar_title.text = "Progress Anak"
 
-        data_anak = intent.getParcelableExtra<PendaftaranAnak>("data anak")
+        data_anak = intent.getParcelableExtra<PendaftaranAnak>("data_anak")
+        data_pertemuan = intent.getParcelableExtra<PertemuanData>("data_pertemuan")
         data?.let { initView(it)}
 
         initListener()
         initAdapter()
-
-
     }
 
     private fun initListener(){
@@ -48,13 +49,13 @@ class DetailProgressAnakActivity() : BaseActivity(), ProgressAnakContract.View {
     }
 
     private fun initAdapter() {
-        val kehadiranAdapter = context?.let { ArrayAdapter<String>(it, R.layout.layout_dropdown_item, resources.getStringArray(R.array.kehadiran)) }
+        val kehadiranAdapter = ArrayAdapter<String>(context, R.layout.layout_dropdown_item, resources.getStringArray(R.array.kehadiran))
         ac_kehadiran?.setAdapter(kehadiranAdapter)
     }
 
     private fun initView(data: ProgressAnakData) {
-        data?.run {
-            til_nama_anak?.editText?.setText(data_anak?.anak?.nama)
+        data.run {
+            til_nama_anak?.editText?.setText(data_anak?.transfer_via)
             ac_kehadiran?.setText(data.kehadiran, false)
             til_catatan_progress?.editText?.setText(data.catatan_progress)
         }
@@ -66,7 +67,7 @@ class DetailProgressAnakActivity() : BaseActivity(), ProgressAnakContract.View {
 
     private fun addOrEditProgressAnak() {
         val anak_id = data_anak?.id
-//        val pertemuan_id = data
+        val pertemuan_id = data_pertemuan?.id
 //        val nama_anak = til_nama_anak.editText?.text.toString()
         val kehadiran  = til_kehadiran.editText?.text.toString()
         val catatan_progress = til_catatan_progress.editText?.text.toString()
@@ -75,6 +76,7 @@ class DetailProgressAnakActivity() : BaseActivity(), ProgressAnakContract.View {
 
 //        tambahData["nama_anak"] = nama_anak
         tambahData["pendaftaran_siswa_id"] = anak_id
+        tambahData["pertemuan_id"] = pertemuan_id
         tambahData["kehadiran"] = kehadiran.toLowerCase()
         tambahData["catatan_progress"] = catatan_progress
 
@@ -82,7 +84,7 @@ class DetailProgressAnakActivity() : BaseActivity(), ProgressAnakContract.View {
         if (data == null) {
             presenter.addProgressAnak(tambahData)
         } else {
-            data.id?.let { presenter.editProgressAnak(it, tambahData) }
+            data?.id?.let { presenter.editProgressAnak(it, tambahData) }
         }
     }
 

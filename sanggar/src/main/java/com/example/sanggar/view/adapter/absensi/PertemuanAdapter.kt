@@ -27,7 +27,7 @@ class PertemuanAdapter(val detailListener: (PertemuanData)-> Unit):RecyclerView.
         val item = pertemuanList[position]
         holder.itemView.apply {
 //            tv_id_jadwal_sanggar.text = item?.jadwal_sanggar?.id.toString()
-            tv_pertemuan_ke.text = item.pertemuan_ke
+            tv_pertemuan_ke.text = "Pertemuan Ke : ${item.pertemuan_ke}"
             tv_tanggal_pertemuan.text = "Tanggal : ${item.tanggal}"
 
             cv_pertemuan_recycler?.clickWithDebounce {

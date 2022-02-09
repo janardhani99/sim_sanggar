@@ -33,6 +33,12 @@ data class SewaListItem(
         var status: String? = null,
 
         @Expose
-        var user: UserSanggarItem? = null
+        var user: UserSanggarItem? = null,
+
+        @Expose
+        var transfer_via: String? = null,
+
+        @Expose
+        var bukti_pembayaran: String? = null
 
 ): Parcelable

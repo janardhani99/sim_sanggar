@@ -45,7 +45,7 @@ class AbsensiActivity : BaseActivity(), JadwalSanggarContract.View {
     private fun initAdapter() {
         adapter = AbsensiAdapter{ itemEdit->
             val intent = Intent(this, PertemuanActivity::class.java)
-            intent.putExtra("data", itemEdit)
+            intent.putExtra("data_kelas", itemEdit)
             startActivity(intent)
         }
         rv_kelas?.layoutManager = LinearLayoutManager(this)
