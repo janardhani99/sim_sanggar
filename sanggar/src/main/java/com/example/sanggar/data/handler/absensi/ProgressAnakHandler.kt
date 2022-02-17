@@ -23,4 +23,8 @@ class ProgressAnakHandler: BaseHandler() {
         return service.getProgressAnak()
     }
 
+    fun getDetailProgress(data: HashMap<String, Any?>): Observable<ProgressAnakResponse> {
+        return service.getDetailProgress(data)
+    }
+
 }

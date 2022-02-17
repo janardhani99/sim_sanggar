@@ -13,12 +13,14 @@ interface ProgressAnakContract {
     interface View:BaseContract.View {
         fun progressAnakResponse(response: ProgressAnakResponse)
         fun getProgressAnakResponse(response: ProgressAnakListResponse)
+        fun getDetailProgress(response: ProgressAnakResponse)
     }
 
     interface Presenter {
         fun addProgressAnak(data: HashMap<String, Any?>)
         fun editProgressAnak(id: Int, data: HashMap<String, Any?>)
         fun getProgressAnak()
+        fun getDetailProgress(data: HashMap<String, Any?>)
     }
 
     interface Handler {
@@ -32,6 +34,9 @@ interface ProgressAnakContract {
 
         @GET("progressanak")
         fun getProgressAnak(): Observable<ProgressAnakListResponse>
+
+        @GET("detailprogress")
+        fun getDetailProgress(@QueryMap map:HashMap<String, Any?>):Observable<ProgressAnakResponse>
 
     }
 }

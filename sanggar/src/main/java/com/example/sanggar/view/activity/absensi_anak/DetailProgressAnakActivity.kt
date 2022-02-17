@@ -2,6 +2,7 @@ package com.example.sanggar.view.activity.absensi_anak
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.ArrayAdapter
 import com.example.sanggar.GlobalClass.Companion.context
 import com.example.sanggar.R
@@ -19,14 +20,18 @@ import com.example.sanggar.view.activity.common.BaseActivity
 import kotlinx.android.synthetic.main.activity_detail_progress.*
 import kotlinx.android.synthetic.main.fragment_jadwal_sanggar_bottom_sheet.*
 import kotlinx.android.synthetic.main.fragment_toolbar.*
+import java.lang.Exception
 
 class DetailProgressAnakActivity() : BaseActivity(), ProgressAnakContract.View {
 
     val presenter = ProgressAnakPresenter(this)
-    var data_anak : PendaftaranAnak? = null
+    var data_anak: PendaftaranAnak? = null
     var data_progress: ProgressAnakData? = null
-    var data_pertemuan: PertemuanData? = null
+    var pertemuan_id: Int? = null
+    var pendaftaran_siswa_id: Int? = null
+    var idEdit = false
 
+    var idProgress : Int?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_progress)
@@ -34,16 +39,24 @@ class DetailProgressAnakActivity() : BaseActivity(), ProgressAnakContract.View {
         setToolbar()
         toolbar_title.text = "Progress Anak"
 
-        data_anak = intent.getParcelableExtra<PendaftaranAnak>("data_anak")
-        data_pertemuan = intent.getParcelableExtra<PertemuanData>("data_pertemuan")
-        data_progress = intent.getParcelableExtra<ProgressAnakData>("data_progress")
-        data_progress?.let { initView(it)}
+//        data_anak = intent.getParcelableExtra<PendaftaranAnak>("data_anak")
+//        data_pertemuan = intent.getParcelableExtra<PertemuanData>("data_pertemuan")
+//        data_progress = intent.getParcelableExtra<ProgressAnakData>("data_progress")
+//        data_progress?.let { initView(it)}
+
+        pertemuan_id = intent.getIntExtra("pertemuan_id", 0)
+        pendaftaran_siswa_id = intent.getIntExtra("pendaftaran_siswa_id", 0)
+        Log.d("test", "httty" + pendaftaran_siswa_id)
+        presenter.getDetailProgress(hashMapOf(
+                "pendaftaran_siswa_id" to pendaftaran_siswa_id,
+                "pertemuan_id" to pertemuan_id
+        ))
 
         initListener()
         initAdapter()
     }
 
-    private fun initListener(){
+    private fun initListener() {
         btn_simpan_progress?.clickWithDebounce {
             addOrEditProgressAnak()
         }
@@ -55,7 +68,7 @@ class DetailProgressAnakActivity() : BaseActivity(), ProgressAnakContract.View {
     }
 
     private fun initView(data: ProgressAnakData) {
-        data?.run {
+        data.run {
 //            til_nama_anak?.editText?.setText(data_anak?.anak?.nama)
             ac_kehadiran?.setText(data.kehadiran, false)
             til_catatan_progress?.editText?.setText(data.catatan_progress)
@@ -67,10 +80,10 @@ class DetailProgressAnakActivity() : BaseActivity(), ProgressAnakContract.View {
     }
 
     private fun addOrEditProgressAnak() {
-        val anak_id = data_anak?.id
-        val pertemuan_id = data_pertemuan?.id
+        val anak_id = pendaftaran_siswa_id
+        val pertemuan_id = pertemuan_id
 //        val nama_anak = til_nama_anak.editText?.text.toString()
-        val kehadiran  = til_kehadiran.editText?.text.toString()
+        val kehadiran = til_kehadiran.editText?.text.toString()
         val catatan_progress = til_catatan_progress.editText?.text.toString()
 
         val tambahData = HashMap<String, Any?>()
@@ -82,16 +95,17 @@ class DetailProgressAnakActivity() : BaseActivity(), ProgressAnakContract.View {
         tambahData["catatan_progress"] = catatan_progress
 
         isLoading(true)
-        if (data_progress == null) {
+        if (idEdit == false) {
             presenter.addProgressAnak(tambahData)
         } else {
-            data_progress?.id?.let { presenter.editProgressAnak(it, tambahData) }
+            idProgress?.let { presenter.editProgressAnak(it, tambahData) }
         }
     }
 
     fun isLoading(isLoad: Boolean) {
-        if(isLoad) { Utilities.showProgress(this) }
-        else Utilities.hideProgress()
+        if (isLoad) {
+            Utilities.showProgress(this)
+        } else Utilities.hideProgress()
 
     }
 
@@ -102,6 +116,16 @@ class DetailProgressAnakActivity() : BaseActivity(), ProgressAnakContract.View {
 
     override fun getProgressAnakResponse(response: ProgressAnakListResponse) {
         TODO("Not yet implemented")
+    }
+
+    override fun getDetailProgress(response: ProgressAnakResponse) {
+         try {
+             idEdit =response.data?.id != null
+            idProgress = response.data?.id
+        } catch (e: Exception) {
+             idEdit = false
+        }
+        response.data?.let { initView(it) }
     }
 
     override fun showError(title: String, message: String) {

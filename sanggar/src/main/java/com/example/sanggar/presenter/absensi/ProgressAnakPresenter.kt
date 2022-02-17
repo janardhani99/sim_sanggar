@@ -37,4 +37,13 @@ class ProgressAnakPresenter(val view: ProgressAnakContract.View):BasePresenter(v
                     }
                 })
     }
+
+    override fun getDetailProgress(data: HashMap<String, Any?>) {
+        handler.getDetailProgress(data)
+                .doSubscribe(object : ErrorHandler<ProgressAnakResponse>(this){
+                    override fun onNext(t: ProgressAnakResponse) {
+                        view.getDetailProgress(t)
+                    }
+                })
+    }
 }

@@ -11,7 +11,7 @@ import com.example.sanggar.data.model.anak.AnakListItem
 import com.example.sanggar.data.model.daftar.PendaftaranAnak
 import kotlinx.android.synthetic.main.recycler_progress_anak.view.*
 
-class AnakTerdaftarAdapter(val detailListener: (ProgressAnakData)-> Unit): RecyclerView.Adapter<AnakTerdaftarAdapter.ViewHolder>() {
+class AnakTerdaftarAdapter(val detailListener: (PendaftaranAnak)-> Unit): RecyclerView.Adapter<AnakTerdaftarAdapter.ViewHolder>() {
 
 //    var anakTerdaftarList : AnakListItem? = null
     var anakTerdaftarList = mutableListOf<PendaftaranAnak>()
@@ -37,8 +37,8 @@ class AnakTerdaftarAdapter(val detailListener: (ProgressAnakData)-> Unit): Recyc
             tv_nama_anak?.text = item.anak?.nama
 //            tv_kehadiran?.text = itemProgress.kehadiran
 
-            cv_progress_anak_item?.clickWithDebounce {
-                detailListener(progressAnak)
+            btn_detail_progress?.clickWithDebounce {
+                detailListener(item)
             }
         }
     }
