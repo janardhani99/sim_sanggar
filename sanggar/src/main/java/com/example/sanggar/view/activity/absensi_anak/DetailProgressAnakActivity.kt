@@ -23,7 +23,7 @@ import kotlinx.android.synthetic.main.fragment_toolbar.*
 class DetailProgressAnakActivity() : BaseActivity(), ProgressAnakContract.View {
 
     val presenter = ProgressAnakPresenter(this)
-    var data: PendaftaranAnak? = null
+    var data_anak : PendaftaranAnak? = null
     var data_progress: ProgressAnakData? = null
     var data_pertemuan: PertemuanData? = null
 
@@ -34,9 +34,10 @@ class DetailProgressAnakActivity() : BaseActivity(), ProgressAnakContract.View {
         setToolbar()
         toolbar_title.text = "Progress Anak"
 
-        data = intent.getParcelableExtra<PendaftaranAnak>("data_anak")
+        data_anak = intent.getParcelableExtra<PendaftaranAnak>("data_anak")
         data_pertemuan = intent.getParcelableExtra<PertemuanData>("data_pertemuan")
-        data?.let { initView(it)}
+        data_progress = intent.getParcelableExtra<ProgressAnakData>("data_progress")
+        data_progress?.let { initView(it)}
 
         initListener()
         initAdapter()
@@ -53,11 +54,11 @@ class DetailProgressAnakActivity() : BaseActivity(), ProgressAnakContract.View {
         ac_kehadiran?.setAdapter(kehadiranAdapter)
     }
 
-    private fun initView(data: PendaftaranAnak) {
+    private fun initView(data: ProgressAnakData) {
         data?.run {
-            til_nama_anak?.editText?.setText(data.anak?.nama)
-            ac_kehadiran?.setText(data_progress?.kehadiran, false)
-            til_catatan_progress?.editText?.setText(data_progress?.catatan_progress)
+//            til_nama_anak?.editText?.setText(data_anak?.anak?.nama)
+            ac_kehadiran?.setText(data.kehadiran, false)
+            til_catatan_progress?.editText?.setText(data.catatan_progress)
         }
 
         btn_simpan_progress?.clickWithDebounce {
@@ -66,7 +67,7 @@ class DetailProgressAnakActivity() : BaseActivity(), ProgressAnakContract.View {
     }
 
     private fun addOrEditProgressAnak() {
-        val anak_id = data?.id
+        val anak_id = data_anak?.id
         val pertemuan_id = data_pertemuan?.id
 //        val nama_anak = til_nama_anak.editText?.text.toString()
         val kehadiran  = til_kehadiran.editText?.text.toString()
@@ -81,10 +82,10 @@ class DetailProgressAnakActivity() : BaseActivity(), ProgressAnakContract.View {
         tambahData["catatan_progress"] = catatan_progress
 
         isLoading(true)
-        if (data == null) {
+        if (data_progress == null) {
             presenter.addProgressAnak(tambahData)
         } else {
-            data?.id?.let { presenter.editProgressAnak(it, tambahData) }
+            data_progress?.id?.let { presenter.editProgressAnak(it, tambahData) }
         }
     }
 

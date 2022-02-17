@@ -144,8 +144,9 @@ class ProgressAnakActivity : BaseActivity(), PertemuanContract.View, DaftarListC
 
         adapter = AnakTerdaftarAdapter { detailItem->
             val intent = Intent(this, DetailProgressAnakActivity::class.java)
-            intent.putExtra("data_anak", detailItem)
-            intent.putExtra("data_pertemuan", data_pertemuan)
+            intent.putExtra("data_anak", data_anak)
+//            intent.putExtra("data_pertemuan", data_pertemuan)
+            intent.putExtra("data_progress", detailItem)
             startActivity(intent)
         }
         rv_progress_anak?.layoutManager = LinearLayoutManager(this)

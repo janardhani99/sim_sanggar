@@ -11,11 +11,11 @@ import com.example.sanggar.data.model.anak.AnakListItem
 import com.example.sanggar.data.model.daftar.PendaftaranAnak
 import kotlinx.android.synthetic.main.recycler_progress_anak.view.*
 
-class AnakTerdaftarAdapter(val detailListener: (PendaftaranAnak)-> Unit): RecyclerView.Adapter<AnakTerdaftarAdapter.ViewHolder>() {
+class AnakTerdaftarAdapter(val detailListener: (ProgressAnakData)-> Unit): RecyclerView.Adapter<AnakTerdaftarAdapter.ViewHolder>() {
 
 //    var anakTerdaftarList : AnakListItem? = null
     var anakTerdaftarList = mutableListOf<PendaftaranAnak>()
-//    var progressAnak = mutableListOf<ProgressAnakData>()
+    var progressAnak = ProgressAnakData()
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -29,17 +29,16 @@ class AnakTerdaftarAdapter(val detailListener: (PendaftaranAnak)-> Unit): Recycl
 //        return progressAnak.count()
     }
 
-
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = anakTerdaftarList[position]
-//        val itemProgress = progressAnak[position]
+
         holder.itemView.apply {
 //            tv_nama_anak?.text = itemProgress.anak?.anak?.nama
             tv_nama_anak?.text = item.anak?.nama
 //            tv_kehadiran?.text = itemProgress.kehadiran
 
             cv_progress_anak_item?.clickWithDebounce {
-                detailListener(item)
+                detailListener(progressAnak)
             }
         }
     }
