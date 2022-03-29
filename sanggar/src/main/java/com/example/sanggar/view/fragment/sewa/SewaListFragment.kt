@@ -42,7 +42,7 @@ class SewaListFragment: Fragment(), SewaListContract.View {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initAdapter()
-
+        initListener()
 //
     }
 
@@ -63,8 +63,19 @@ class SewaListFragment: Fragment(), SewaListContract.View {
                 }
     }
 
+    private fun initListener() {
+        sr_list_sewa?.setOnRefreshListener {
+            fetchData()
+        }
+    }
     override fun onResume() {
         super.onResume()
+        Utilities.doRequest {
+            status?.let { presenter.getListSewa(it) }
+        }
+    }
+
+    private fun fetchData() {
         Utilities.doRequest {
             status?.let { presenter.getListSewa(it) }
         }
@@ -83,7 +94,10 @@ class SewaListFragment: Fragment(), SewaListContract.View {
 
     private fun isLoading(isLoad: Boolean) {
         if (isLoad) this.context?.let { Utilities.showProgress(it) }
-        else Utilities.hideProgress()
+        else {
+            Utilities.hideProgress()
+            sr_list_sewa.isRefreshing = false
+        }
     }
 
     override fun sewaListResponse(response: SewaResponse) {

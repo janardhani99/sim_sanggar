@@ -45,7 +45,7 @@ class PembayaranActivity : BaseActivity(), DaftarListContract.View, AnakContract
         setContentView(R.layout.activity_bayar_pendaftaran)
 
         setToolbar()
-        toolbar_title?.text = getString(R.string.daftar_anak)
+        toolbar_title?.text = "Daftarkan Anak"
 
         data = intent.getParcelableExtra<AnakListItem>("data")
 //        adapter = AnakTerdaftarAdapter
@@ -74,6 +74,9 @@ class PembayaranActivity : BaseActivity(), DaftarListContract.View, AnakContract
     private fun setView(data: AnakListItem) {
         data?.run {
             til_nama_anak?.editText?.setText(data.nama)
+            til_alamat?.editText?.setText(data.alamat)
+            til_tanggal_lahir?.editText?.setText(data.tanggal_lahir)
+            til_no_telepon?.editText?.setText(data.telepon)
 //            foto?.let { iv_upload_bukti.loadImage(it) }
         }
 

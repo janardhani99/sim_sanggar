@@ -46,7 +46,7 @@
                         android:layout_marginStart="@dimen/dp8"
                         android:layout_marginLeft="@dimen/dp8"
                         android:layout_weight="1"
-                        android:text="@string/jadwal_sanggar"
+                        android:text="Kelas"
                         android:textColor="@color/white"
                         android:textStyle="bold" />
                 </LinearLayout>

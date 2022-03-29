@@ -26,12 +26,6 @@
                 android:text="Nama Anak"
                 android:textSize="24dp"/>
 
-            <TextView
-                android:id="@+id/tv_anak_umur"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="umur"
-                android:textSize="24dp"/>
         </LinearLayout>
 
     </com.google.android.material.card.MaterialCardView>

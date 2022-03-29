@@ -15,7 +15,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:weightSum="3">
+            android:weightSum="2">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -34,21 +34,12 @@
                     android:text="Nama Anak"
                     android:textColor="@color/black"/>
 
-                <TextView
-                    android:id="@+id/tv_umur_anak_recycler"
-                    style="@style/TextAppearance.AppCompat.Body1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
-                    android:ellipsize="end"
-                    android:lines="3"
-                    android:maxLines="3"
-                    android:text="Umur Anak"
-                    android:textColor="@color/black"/>
+
                 <Button
                     android:id="@+id/btn_daftarkan"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp16"
                     android:text="Konfirmasi Pembayaran" />
             </LinearLayout>
 

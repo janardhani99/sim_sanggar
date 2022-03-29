@@ -39,6 +39,7 @@ class DaftarListFragment : Fragment(), DaftarListContract.View {
         super.onViewCreated(view, savedInstanceState)
 
         initAdapter()
+        initListener()
 //        fetchData()
     }
 
@@ -57,6 +58,12 @@ class DaftarListFragment : Fragment(), DaftarListContract.View {
                         putString(STATUS, status)
                     }
                 }
+    }
+
+    private fun initListener() {
+        sr_list_daftar?.setOnRefreshListener {
+            fetchData()
+        }
     }
 
     override fun onResume() {
@@ -88,7 +95,10 @@ class DaftarListFragment : Fragment(), DaftarListContract.View {
 
     private fun isLoading(isLoad: Boolean) {
         if (isLoad) this.context?.let { Utilities.showProgress(it) }
-        else Utilities.hideProgress()
+        else {
+            Utilities.hideProgress()
+            sr_list_daftar.isRefreshing = false
+        }
     }
 
 //    fun fetchData() {
