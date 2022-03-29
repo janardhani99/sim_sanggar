@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="32dp"
             android:gravity="center_horizontal"
-            android:text="+ Tambah Absensi"
+            android:text="+ Tambah Pertemuan"
             android:textAlignment="center" />
     </com.google.android.material.card.MaterialCardView>
 

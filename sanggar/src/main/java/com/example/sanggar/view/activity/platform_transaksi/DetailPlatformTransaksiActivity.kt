@@ -50,10 +50,11 @@ class DetailPlatformTransaksiActivity : BaseActivity(), PlatformTransaksiContrac
 
         data?.run {
             til_nama_platform?.editText?.setText(data.nama_platform)
+            til_nama_pemilik?.editText?.setText(data.nama_pemilik)
             til_nomor_rekening?.editText?.setText(data.nomor_rekening)
         }
 
-        btn_simpan_kegiatan.clickWithDebounce {
+        btn_simpan_kegiatan?.clickWithDebounce {
             addOrEditPlatform()
         }
     }
@@ -61,10 +62,12 @@ class DetailPlatformTransaksiActivity : BaseActivity(), PlatformTransaksiContrac
     private fun addOrEditPlatform() {
 
         val nama_platform = til_nama_platform?.editText?.text.toString()
+        val nama_pemilik = til_nama_pemilik?.editText?.text.toString()
         val nomor_rekening = til_nomor_rekening?.editText?.text.toString()
 
         val tambahData = HashMap<String, Any?>()
         tambahData["nama_platform"] = nama_platform
+        tambahData["nama_pemilik"] = nama_pemilik
         tambahData["nomor_rekening"] = nomor_rekening
         isLoading(true)
 

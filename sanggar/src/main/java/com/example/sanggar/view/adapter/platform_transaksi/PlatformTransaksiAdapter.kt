@@ -38,6 +38,7 @@ class PlatformTransaksiAdapter(val detailListener: (PlatformTransaksiListItem) -
                 return@setOnLongClickListener true
             }
             tv_nama_platform_recycler?.text = item.nama_platform
+            tv_nama_pemilik?.text = "a.n ${item.nama_pemilik}"
             tv_no_rekening_recycler?.text = item.nomor_rekening
         }
     }

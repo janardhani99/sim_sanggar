@@ -9,7 +9,7 @@ import com.example.sanggar.common.clickWithDebounce
 import com.example.sanggar.data.model.absensi.PertemuanData
 import kotlinx.android.synthetic.main.recycler_pertemuan.view.*
 
-class PertemuanAdapter(val detailListener: (PertemuanData)-> Unit):RecyclerView.Adapter<PertemuanAdapter.ViewHolder>() {
+class PertemuanAdapter(val detailListener: (PertemuanData)-> Unit, val deleteItem:  (PertemuanData)->Unit):RecyclerView.Adapter<PertemuanAdapter.ViewHolder>() {
     var pertemuanList = mutableListOf<PertemuanData>()
     inner class ViewHolder(view: View): RecyclerView.ViewHolder(view)
 
@@ -32,6 +32,11 @@ class PertemuanAdapter(val detailListener: (PertemuanData)-> Unit):RecyclerView.
 
             cv_pertemuan_recycler?.clickWithDebounce {
                 detailListener(item)
+            }
+
+            cv_pertemuan_recycler?.setOnLongClickListener {
+                deleteItem(item)
+                return@setOnLongClickListener true
             }
         }
     }

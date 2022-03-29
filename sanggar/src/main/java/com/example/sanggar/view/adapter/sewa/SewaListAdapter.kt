@@ -43,7 +43,7 @@ class SewaListAdapter(val detailListener: (SewaListItem) -> Unit) : RecyclerView
 //            }
 //            tv_user_name?.text = item.user_name
             tv_username?.text = item?.user?.username
-            tv_tanggal?.text = item?.status
+            tv_tanggal?.text = item?.tanggal
 
 
         }

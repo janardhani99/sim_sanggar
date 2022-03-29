@@ -16,5 +16,7 @@ data class PlatformTransaksiListItem(
         @Expose
         var nama_platform: String? = null,
         @Expose
+        var nama_pemilik: String? = null,
+        @Expose
         var nomor_rekening: String? = null
 ): Parcelable

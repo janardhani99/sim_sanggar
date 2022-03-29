@@ -28,7 +28,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Judul Pembelajaran" />
+                android:text="Judul Materi Pembelajaran" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_judul_pembelajaran"
@@ -37,8 +37,7 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Judul Pembelajaran" />
+                    android:layout_height="wrap_content" />
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
 
@@ -51,19 +50,18 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Deskripsi Pembelajaran" />
+                android:text="Deskripsi Materi Belajar" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_deskripsi_pembelajaran"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:counterEnabled="true"
-                app:counterMaxLength="500">
+                app:counterMaxLength="1000">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Deskrips Pembelajaran"
                     android:inputType="textMultiLine" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -78,7 +76,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Link Video Pembelajaran" />
+                android:text="Link Video" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_link_video_pembelajaran"
@@ -90,7 +88,6 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Link Video Pembelajaran"
                     android:inputType="textMultiLine" />
             </com.google.android.material.textfield.TextInputLayout>
 

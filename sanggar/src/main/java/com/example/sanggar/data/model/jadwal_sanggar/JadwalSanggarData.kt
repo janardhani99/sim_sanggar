@@ -33,5 +33,5 @@ class JadwalSanggarItem (
         var jam_selesai: String? = null,
 
         @Expose
-        var biaya: Int? = 0
+        var biaya: String? = null
 ): Parcelable

@@ -30,18 +30,18 @@
     </LinearLayout>
 
     <TextView
-        android:layout_marginEnd="@dimen/dp16"
+        android:layout_marginEnd="@dimen/dp24"
         android:id="@+id/tv_status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_toStartOf="@id/btn_edit_jam_sanggar"
-        android:layout_toLeftOf="@id/btn_edit_jam_sanggar"
+        android:layout_toStartOf="@id/btn_edit_jam_operasional"
+        android:layout_toLeftOf="@id/btn_edit_jam_operasional"
         android:text="Buka"
         android:layout_marginRight="@dimen/dp16" />
 
     <ImageButton
-        android:id="@+id/btn_edit_jam_sanggar"
+        android:id="@+id/btn_edit_jam_operasional"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
@@ -50,7 +50,19 @@
         android:adjustViewBounds="true"
         android:background="?android:attr/selectableItemBackground"
         android:padding="@dimen/half_app_margin"
+        android:layout_marginEnd="@dimen/dp48"
         android:src="@drawable/ic_baseline_edit_24" />
+
+    <ImageButton
+        android:id="@+id/btn_delete_jam_operasional"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:adjustViewBounds="true"
+        android:background="?android:attr/selectableItemBackground"
+        android:padding="@dimen/half_app_margin"
+        android:src="@drawable/ic_baseline_delete_24" />
 
 
 </RelativeLayout>

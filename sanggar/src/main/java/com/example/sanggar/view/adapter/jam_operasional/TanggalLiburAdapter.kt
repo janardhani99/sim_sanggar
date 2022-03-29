@@ -8,7 +8,7 @@ import com.example.sanggar.R
 import com.example.sanggar.data.model.jam_operasional.TanggalLiburItem
 import kotlinx.android.synthetic.main.recycler_tanggal_libur.view.*
 
-class TanggalLiburAdapter(val editListener: (TanggalLiburItem) -> Unit) : RecyclerView.Adapter<TanggalLiburAdapter.ViewHolder>() {
+class TanggalLiburAdapter(val editListener: (TanggalLiburItem) -> Unit, val deleteListener: (TanggalLiburItem)-> Unit) : RecyclerView.Adapter<TanggalLiburAdapter.ViewHolder>() {
     var tanggalLiburList = mutableListOf<TanggalLiburItem>()
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view)
@@ -26,6 +26,10 @@ class TanggalLiburAdapter(val editListener: (TanggalLiburItem) -> Unit) : Recycl
             tv_keterangan?.text = "${item.keterangan}"
             btn_edit_tanggal_libur.setOnClickListener {
                 editListener(item)
+            }
+
+            btn_delete_tanggal_libur.setOnClickListener {
+                deleteListener(item)
             }
         }
     }

@@ -1,6 +1,7 @@
 package com.example.sanggar.data.handler.jam_operasional
 
 import com.example.sanggar.data.handler.common.BaseHandler
+import com.example.sanggar.data.model.common.EmptyResponse
 import com.example.sanggar.data.model.jam_operasional.TanggalLiburListResponse
 import com.example.sanggar.data.model.jam_operasional.TanggalLiburResponse
 import com.example.sanggar.presenter.jam_operasional.TanggalLiburContract
@@ -21,5 +22,9 @@ class TanggalLiburHandler: BaseHandler() {
 
     fun editTanggalLibur(id: Int, data: HashMap<String, Any?>): Observable<TanggalLiburResponse> {
         return service.editTanggalLibur(id, data)
+    }
+
+    fun deleteTanggalLibur(id: Int):Observable<EmptyResponse> {
+        return service.deleteTanggalLibur(id)
     }
 }

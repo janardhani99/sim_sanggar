@@ -40,6 +40,18 @@
             android:adjustViewBounds="true"
             android:background="?android:attr/selectableItemBackground"
             android:padding="@dimen/half_app_margin"
+            android:layout_marginEnd="@dimen/dp48"
             android:src="@drawable/ic_baseline_edit_24" />
+
+        <ImageButton
+            android:id="@+id/btn_delete_tanggal_libur"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:adjustViewBounds="true"
+            android:background="?android:attr/selectableItemBackground"
+            android:padding="@dimen/half_app_margin"
+            android:src="@drawable/ic_baseline_delete_24" />
 
 </RelativeLayout>

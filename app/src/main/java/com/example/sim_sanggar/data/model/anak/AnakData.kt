@@ -16,7 +16,7 @@ data class AnakListItem (
         @Expose
         var nama: String? = null,
         @Expose
-        var umur: String? = null,
+        var alamat: String? = null,
         @Expose
         var tanggal_lahir: String? = null,
         @Expose

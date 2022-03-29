@@ -1,10 +1,12 @@
 package com.example.sanggar.view.activity.jam_operasional
 
+import android.content.DialogInterface
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.sanggar.R
 import com.example.sanggar.common.Utilities
 import com.example.sanggar.common.clickWithDebounce
+import com.example.sanggar.data.model.common.EmptyResponse
 import com.example.sanggar.data.model.jam_operasional.JamOperasionalListResponse
 import com.example.sanggar.data.model.jam_operasional.JamOperasionalResponse
 import com.example.sanggar.data.model.jam_operasional.TanggalLiburListResponse
@@ -15,6 +17,7 @@ import com.example.sanggar.presenter.jam_operasional.JamOperasionalPresenter
 import com.example.sanggar.presenter.jam_operasional.TanggalLiburContract
 import com.example.sanggar.presenter.jam_operasional.TanggalLiburPresenter
 import com.example.sanggar.view.activity.common.BaseActivity
+import com.example.sanggar.view.activity.common.ButtonDialogListener
 import com.example.sanggar.view.adapter.jam_operasional.JamOperasionalAdapter
 import com.example.sanggar.view.adapter.jam_operasional.TanggalLiburAdapter
 import com.example.sanggar.view.fragment.jam_operasional.JamOperasionalBottomSheetFragment
@@ -61,19 +64,33 @@ class JamOperasionalActivity : BaseActivity(), JamOperasionalContract.View, Tang
 
     }
     private fun initAdapter() {
-        adapter = JamOperasionalAdapter {
-            //open dialog
-            itemEdit -> val bottomSheet = JamOperasionalBottomSheetFragment(itemEdit)
+        adapter = JamOperasionalAdapter({ itemEdit ->
+            val bottomSheet = JamOperasionalBottomSheetFragment(itemEdit)
             bottomSheet.show(supportFragmentManager, "")
-        }
-//        rv_jam_operasional?.addItemDecoration(DividerItemDecoration(this, RecyclerView.VERTICAL))
+        } , {deleteItem->
+            showConfirmationDialog("Konfirmasi", "Apakah anda yakin?", object : ButtonDialogListener {
+                override fun onOkButton(dialog: DialogInterface) {
+                    isLoading(true)
+                    deleteItem.id?.let { presenter.deleteJamOperasional(it) }
+                    dialog.dismiss()
+                }
+            })
+        })
         rv_jam_operasional?.layoutManager = LinearLayoutManager(this)
         rv_jam_operasional?.adapter = adapter
 
-        adapterTanggalLibur = TanggalLiburAdapter {
+        adapterTanggalLibur = TanggalLiburAdapter ({
             itemEdit-> val bottomSheet = TanggalLiburBottomSheetFragment(itemEdit)
             bottomSheet.show(supportFragmentManager, "")
-        }
+        } , {deleteItem->
+            showConfirmationDialog("Konfirmasi", "Apakah anda yakin?", object : ButtonDialogListener {
+                override fun onOkButton(dialog: DialogInterface) {
+                    isLoading(true)
+                    deleteItem.id?.let { presenterTanggalLibur.deleteTanggalLibur(it) }
+                    dialog.dismiss()
+                }
+            })
+        })
 
         rv_tanggal_libur?.layoutManager = LinearLayoutManager(this)
         rv_tanggal_libur?.adapter = adapterTanggalLibur
@@ -117,6 +134,11 @@ class JamOperasionalActivity : BaseActivity(), JamOperasionalContract.View, Tang
         response.data?.let { adapter.setData(it) }
     }
 
+    override fun deleteJamOperasionalResponse(response: EmptyResponse) {
+        isLoading(false)
+        fetchData()
+    }
+
     override fun tanggalLiburResponse(response: TanggalLiburResponse) {
         TODO("Not yet implemented")
     }
@@ -124,6 +146,11 @@ class JamOperasionalActivity : BaseActivity(), JamOperasionalContract.View, Tang
     override fun getTanggalLiburResponse(response: TanggalLiburListResponse) {
         isLoading(false)
         response.data?.let { adapterTanggalLibur.setData(it) }
+    }
+
+    override fun deleteTanggalLiburResponse(response: EmptyResponse) {
+        isLoading(false)
+        fetchData()
     }
 
     override fun showError(title: String, message: String) {

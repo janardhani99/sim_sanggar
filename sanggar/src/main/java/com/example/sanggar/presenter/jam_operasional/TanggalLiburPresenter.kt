@@ -3,6 +3,7 @@ package com.example.sanggar.presenter.jam_operasional
 import com.example.sanggar.common.doSubscribe
 import com.example.sanggar.data.handler.common.ErrorHandler
 import com.example.sanggar.data.handler.jam_operasional.TanggalLiburHandler
+import com.example.sanggar.data.model.common.EmptyResponse
 import com.example.sanggar.data.model.jam_operasional.TanggalLiburListResponse
 import com.example.sanggar.data.model.jam_operasional.TanggalLiburResponse
 import com.example.sanggar.presenter.common.BasePresenter
@@ -38,6 +39,15 @@ class TanggalLiburPresenter(val view: TanggalLiburContract.View): BasePresenter(
                         view.tanggalLiburResponse(t)
                     }
 
+                })
+    }
+
+    override fun deleteTanggalLibur(id: Int) {
+        handler.deleteTanggalLibur(id)
+                .doSubscribe(object : ErrorHandler<EmptyResponse>(this){
+                    override fun onNext(t: EmptyResponse) {
+                        view.deleteTanggalLiburResponse(t)
+                    }
                 })
     }
 

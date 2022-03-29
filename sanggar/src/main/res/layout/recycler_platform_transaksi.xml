@@ -26,12 +26,22 @@
 
                 <TextView
                     android:id="@+id/tv_nama_platform_recycler"
-                    style="@style/TextAppearance.AppCompat.Headline"
+                    style="@style/TextAppearance.AppCompat.Title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
                     android:singleLine="true"
-                    android:text="Nama Platform" />
+                    android:text="Nama Platform"
+                    android:textSize="@dimen/dp22"/>
+
+                <TextView
+                    android:id="@+id/tv_nama_pemilik"
+                    style="@style/TextAppearance.AppCompat.Title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:ellipsize="end"
+                    android:text="Atas Nama" />
 
                 <TextView
                     android:id="@+id/tv_no_rekening_recycler"

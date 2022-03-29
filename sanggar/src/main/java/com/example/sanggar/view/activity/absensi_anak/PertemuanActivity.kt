@@ -1,5 +1,6 @@
 package com.example.sanggar.view.activity.absensi_anak
 
+import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -15,8 +16,10 @@ import com.example.sanggar.data.model.jadwal_sanggar.JadwalSanggarItem
 import com.example.sanggar.presenter.absensi.PertemuanContract
 import com.example.sanggar.presenter.absensi.PertemuanPresenter
 import com.example.sanggar.view.activity.common.BaseActivity
+import com.example.sanggar.view.activity.common.ButtonDialogListener
 import com.example.sanggar.view.adapter.absensi.PertemuanAdapter
 import kotlinx.android.synthetic.main.activity_detail_pertemuan.*
+import kotlinx.android.synthetic.main.activity_jadwal_sanggar.*
 import kotlinx.android.synthetic.main.activity_pertemuan.*
 import kotlinx.android.synthetic.main.fragment_toolbar.*
 
@@ -39,15 +42,26 @@ class PertemuanActivity : BaseActivity(), PertemuanContract.View {
         initListener()
         data_kelas?.let { setView(it) }
 
+        fetchData()
+
     }
 
     private fun initAdapter() {
-        adapter = PertemuanAdapter { itemEdit->
+        adapter = PertemuanAdapter({ itemEdit->
             val intent = Intent(this, ProgressAnakActivity::class.java)
             intent.putExtra("data_pertemuan", itemEdit)
             intent.putExtra("data_kelas", data_kelas)
             startActivity(intent)
-        }
+        }, {deleteItem->
+            showConfirmationDialog("Konfirmasi", "Hapus Pertemuan ini?", object : ButtonDialogListener {
+                override fun onOkButton(dialog: DialogInterface) {
+                    isLoading(true)
+                    deleteItem.id?.let { presenter.deletePertemuan(it) }
+                    dialog.dismiss()
+                    showCustomDialog("Berhasil", "Data Berhasil Dihapus")
+                }
+            })
+        })
 
         rv_pertemuan?.layoutManager = LinearLayoutManager(this)
         rv_pertemuan?.adapter = adapter
@@ -76,15 +90,14 @@ class PertemuanActivity : BaseActivity(), PertemuanContract.View {
 
     private fun isLoading(isLoad: Boolean) {
         if (isLoad) Utilities.showProgress(this)
-        else Utilities.hideProgress()
+        else {
+            Utilities.hideProgress()
+            sr_pertemuan_recycler?.isRefreshing = false
+        }
     }
 
-    override fun onResume() {
-        super.onResume()
-        fetchData()
-    }
     override fun pertemuanResponse(response: PertemuanDataResponse) {
-        TODO("Not yet implemented")
+
     }
 
     override fun getPertemuanResponse(response: PertemuanDataListResponse) {
@@ -93,7 +106,8 @@ class PertemuanActivity : BaseActivity(), PertemuanContract.View {
     }
 
     override fun deletePertemuanResponse(response: EmptyResponse) {
-        TODO("Not yet implemented")
+        isLoading(false)
+        fetchData()
     }
 
     override fun showError(title: String, message: String) {

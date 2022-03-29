@@ -9,6 +9,7 @@ import com.example.sanggar.R
 import com.example.sanggar.common.Preferences
 import com.example.sanggar.common.Utilities
 import com.example.sanggar.common.clickWithDebounce
+import com.example.sanggar.data.model.common.EmptyResponse
 import com.example.sanggar.data.model.jam_operasional.*
 import com.example.sanggar.presenter.DatePickerHelper
 import com.example.sanggar.presenter.jam_operasional.TanggalLiburContract
@@ -130,6 +131,10 @@ class TanggalLiburBottomSheetFragment(val data: TanggalLiburItem? = null) : Bott
     }
 
     override fun getTanggalLiburResponse(response: TanggalLiburListResponse) {
+        TODO("Not yet implemented")
+    }
+
+    override fun deleteTanggalLiburResponse(response: EmptyResponse) {
         TODO("Not yet implemented")
     }
 

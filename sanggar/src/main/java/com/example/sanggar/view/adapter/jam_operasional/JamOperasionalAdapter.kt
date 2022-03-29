@@ -9,8 +9,9 @@ import com.example.sanggar.R
 import com.example.sanggar.common.clickWithDebounce
 import com.example.sanggar.data.model.jam_operasional.JamOperasionalItem
 import kotlinx.android.synthetic.main.recycler_jam_operasional.view.*
+import kotlinx.android.synthetic.main.recycler_kelas.view.*
 
-class JamOperasionalAdapter(val editListener: (JamOperasionalItem) -> Unit) : RecyclerView.Adapter<JamOperasionalAdapter.ViewHolder>() {
+class JamOperasionalAdapter(val editListener: (JamOperasionalItem) -> Unit, val deleteListener: (JamOperasionalItem)-> Unit) : RecyclerView.Adapter<JamOperasionalAdapter.ViewHolder>() {
     var jamOperasionalList = mutableListOf<JamOperasionalItem>()
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view)
@@ -30,8 +31,11 @@ class JamOperasionalAdapter(val editListener: (JamOperasionalItem) -> Unit) : Re
             tv_jam_operasional?.text = "${item.jam_mulai?.let { getTimeFormat(it) }}-${item.jam_selesai?.let { getTimeFormat(it) }}"
             tv_status?.text = item.status
 //                    if(item.status == true) { "Tutup" } else "Buka"
-            btn_edit_jam_sanggar.setOnClickListener {
+            btn_edit_jam_operasional.setOnClickListener {
                 editListener(item)
+            }
+            btn_delete_jam_operasional.setOnClickListener {
+                deleteListener(item)
             }
         }
     }

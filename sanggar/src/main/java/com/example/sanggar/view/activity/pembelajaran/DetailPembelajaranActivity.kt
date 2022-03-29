@@ -25,7 +25,7 @@ class DetailPembelajaranActivity : BaseActivity(), PembelajaranContract.View {
         setContentView(R.layout.activity_detail_pembelajaran)
 
         setToolbar()
-        toolbar_title.setText("Pembelajaran")
+        toolbar_title.setText("Materi Belajar")
         data = intent.getParcelableExtra<PembelajaranData>("data")
         initListener()
         data?.let { setView(it) }

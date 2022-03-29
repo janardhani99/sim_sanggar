@@ -29,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="32dp"
                 android:gravity="center_horizontal"
-                android:text="@string/tambah_jadwal_sanggar"
+                android:text="@string/tambah_kelas"
                 android:textAlignment="center" />
         </com.google.android.material.card.MaterialCardView>
 

@@ -84,12 +84,12 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/umur_anak"
+                    android:text="Alamat"
                     android:layout_marginBottom="6dp"
                     android:layout_marginTop="10dp"/>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/til_umur_anak"
+                    android:id="@+id/til_alamat_anak"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -97,8 +97,7 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/umur_anak"
-                        android:inputType="number"/>
+                        android:hint="Alamat"/>
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
 

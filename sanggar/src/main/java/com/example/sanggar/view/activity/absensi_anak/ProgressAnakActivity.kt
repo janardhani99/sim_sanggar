@@ -68,6 +68,7 @@ class ProgressAnakActivity : BaseActivity(), PertemuanContract.View, DaftarListC
 
         initListener()
         initAdapter()
+        fetchData()
 
 //        status = intent.getStringExtra(STATUS).toString()
 
@@ -107,6 +108,10 @@ class ProgressAnakActivity : BaseActivity(), PertemuanContract.View, DaftarListC
         }
         btn_simpan_pertemuan?.clickWithDebounce {
             editPertemuan()
+        }
+
+        sr_progress_anak_recycler.setOnRefreshListener {
+            fetchData()
         }
     }
 
@@ -155,12 +160,6 @@ class ProgressAnakActivity : BaseActivity(), PertemuanContract.View, DaftarListC
         rv_progress_anak?.adapter = adapter
     }
 
-    override fun onResume() {
-        super.onResume()
-        fetchData()
-    }
-    
-
     private fun fetchData() {
         isLoading(true)
         data_kelas?.id?.let { presenterAnak.getAnakOnKelas(it) }
@@ -174,7 +173,10 @@ class ProgressAnakActivity : BaseActivity(), PertemuanContract.View, DaftarListC
 
     private fun isLoading(isLoad: Boolean) {
         if (isLoad) Utilities.showProgress(this)
-        else Utilities.hideProgress()
+        else {
+            Utilities.hideProgress()
+            sr_progress_anak_recycler.isRefreshing = false
+        }
     }
 
     override fun pertemuanResponse(response: PertemuanDataResponse) {

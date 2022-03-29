@@ -35,7 +35,7 @@ interface PertemuanContract {
         fun getPertemuan(@Query("jadwal_sanggar") jadwal_sanggar: Int): Observable<PertemuanDataListResponse>
 
         @DELETE("pertemuan/{id}")
-        fun deletePertemuan(@Path("value") id: Int): Observable<EmptyResponse>
+        fun deletePertemuan(@Path("id") id: Int): Observable<EmptyResponse>
     }
 
 }

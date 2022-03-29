@@ -27,13 +27,15 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_tanggal_libur"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                style="@style/AppTheme.TextInputLayout">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
+                    android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:hint="yyyy-mm-dd"
-                    android:textSize="17dp"/>
+                    android:textSize="17dp"
+                    android:layout_marginRight="@dimen/dp8"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
@@ -63,7 +65,8 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_keterangan"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                style="@style/AppTheme.TextInputLayout">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
@@ -82,7 +85,7 @@
 
         <Button
             android:id="@+id/btn_batal"
-            style="@style/AppTheme.OutlinedButon"
+            style="@style/AppTheme.UnelevatedButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/batal" />

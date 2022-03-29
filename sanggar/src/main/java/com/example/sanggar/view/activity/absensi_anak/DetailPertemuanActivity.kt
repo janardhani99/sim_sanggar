@@ -43,6 +43,7 @@ class DetailPertemuanActivity : BaseActivity(), PertemuanContract.View {
         datePicker = DatePickerHelper(this)
         initListener()
 //        initAdapter()
+
     }
 
     private fun showDatePickerDialog() {

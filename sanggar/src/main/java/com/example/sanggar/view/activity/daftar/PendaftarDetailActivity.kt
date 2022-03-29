@@ -39,7 +39,7 @@ class PendaftarDetailActivity(): BaseActivity(), DaftarListContract.View {
 
         data?.run {
             til_nama_anak?.editText?.setText(data.anak?.nama)
-            til_umur_anak?.editText?.setText(data.anak?.umur)
+            til_alamat_anak?.editText?.setText(data.anak?.alamat)
             til_telepon?.editText?.setText(data.anak?.telepon)
             til_bayar_via?.editText?.setText(data.transfer_via)
             bukti_pembayaran?.let { iv_bukti_transfer?.loadImage(it) }

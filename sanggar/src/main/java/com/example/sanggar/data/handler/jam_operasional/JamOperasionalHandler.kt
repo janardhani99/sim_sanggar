@@ -1,6 +1,7 @@
 package com.example.sanggar.data.handler.jam_operasional
 
 import com.example.sanggar.data.handler.common.BaseHandler
+import com.example.sanggar.data.model.common.EmptyResponse
 import com.example.sanggar.data.model.jam_operasional.JamOperasionalListResponse
 import com.example.sanggar.data.model.jam_operasional.JamOperasionalResponse
 import com.example.sanggar.presenter.jam_operasional.JamOperasionalContract
@@ -20,5 +21,9 @@ class JamOperasionalHandler: BaseHandler() {
 
     fun editJamOperasional(id: Int, data: HashMap<String, Any?>): Observable<JamOperasionalResponse> {
         return service.editJamOperasional(id, data)
+    }
+
+    fun deleteJamOperasional(id: Int): Observable<EmptyResponse> {
+        return service.deleteJamOperasional(id)
     }
 }

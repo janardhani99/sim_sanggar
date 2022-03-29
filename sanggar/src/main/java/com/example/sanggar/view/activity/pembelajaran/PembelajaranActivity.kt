@@ -32,7 +32,7 @@ class PembelajaranActivity : BaseActivity(), PembelajaranContract.View {
         setContentView(R.layout.activity_pembelajaran)
 
         setToolbar()
-        toolbar_title.setText("Pembelajaran")
+        toolbar_title.setText("Materi Belajar")
 
 //        data = intent.getParcelableExtra<PembelajaranData>("data")
         initListener()
@@ -53,7 +53,7 @@ class PembelajaranActivity : BaseActivity(), PembelajaranContract.View {
             intent.putExtra("data", detailItem)
             startActivity(intent)
         }, {deleteItem ->
-            showConfirmationDialog("Hapus Data", "Hapus Pembelajaran ini?", object : ButtonDialogListener{
+            showConfirmationDialog("Hapus Data", "Apakah anda yakin?", object : ButtonDialogListener{
                 override fun onOkButton(dialog: DialogInterface) {
                     isLoading(true)
                     deleteItem.id?.let { presenter.deletePembelajaran(it) }

@@ -82,13 +82,13 @@ class AnakActivity : BaseActivity(), AnakContract.View {
 
     private fun addOrEditAnak() {
         val nama_anak = til_nama_anak?.editText?.text.toString()
-        val umur = til_umur_anak?.editText?.text.toString()
+        val alamat = til_alamat_anak?.editText?.text.toString()
         val tanggal_lahir = tv_tanggal_lahir?.text.toString()
         val telepon = til_telepon_anak?.editText?.text.toString()
 
         val tambahData = HashMap<String, Any?>()
         tambahData["nama"] = nama_anak
-        tambahData["umur"] = umur
+        tambahData["umur"] = alamat
         tambahData["tanggal_lahir"] = tanggal_lahir
         tambahData["telepon"] = telepon
 
