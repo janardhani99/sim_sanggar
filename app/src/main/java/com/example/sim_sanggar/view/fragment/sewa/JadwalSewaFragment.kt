@@ -37,9 +37,7 @@ class JadwalSewaFragment : Fragment() {
             startActivity(Intent(context, RiwayatSewaActivity::class.java))
         }
 
-        btn_platform_transaksi?.clickWithDebounce {
-            startActivity(Intent(context, PlatformTransaksiActivity::class.java))
-        }
+
 
 //        btn_upload_bukti?.clickWithDebounce {
 //            startActivity(Intent(context, UploadBuktiActivity::class.java))

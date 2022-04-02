@@ -138,7 +138,7 @@
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:layout_weight="2"
-                        android:src="@drawable/icon_jadwal_sanggar" />
+                        android:src="@drawable/icon_kelas" />
 
                         <TextView
                             android:id="@id/tv_jadwal_sanggar"
@@ -206,7 +206,7 @@
                             android:layout_marginStart="@dimen/dp8"
                             android:layout_marginLeft="@dimen/dp8"
                             android:layout_weight="1"
-                            android:text="@string/kegiatan"
+                            android:text="Kegiatan"
                             android:textColor="@color/black"
                             android:textStyle="bold"
                             android:textSize="20dp"
@@ -251,7 +251,7 @@
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:layout_weight="2"
-                        android:src="@drawable/icon_fasilitas" />
+                        android:src="@drawable/icon_fasillitas" />
 
 
                         <TextView
@@ -308,7 +308,7 @@
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:layout_weight="2"
-                        android:src="@drawable/icon_fasilitas" />
+                        android:src="@drawable/icon_materi_belajar" />
 
 
                     <TextView

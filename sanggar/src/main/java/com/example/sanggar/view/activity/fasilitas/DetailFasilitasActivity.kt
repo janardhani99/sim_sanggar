@@ -104,7 +104,7 @@ class DetailFasilitasActivity :  BaseActivity(), FasilitasContract.View  {
             foto?.let { iv_fasilitas_detail?.loadImage(it) }
         }
 
-        btn_simpan_fasilitas.clickWithDebounce {
+        btn_simpan_fasilitas?.clickWithDebounce {
             addOrEditFasilitas()
         }
     }
@@ -140,7 +140,7 @@ class DetailFasilitasActivity :  BaseActivity(), FasilitasContract.View  {
 
     override fun uploadImageResponse() {
         isLoading(false)
-        this.showCustomDialogBack("Data berhasil", "Data berhasil ditambahkan")
+        this.showCustomDialogBack("Berhasil", "Data berhasil ditambahkan")
     }
 
     override fun showError(title: String, message: String) {

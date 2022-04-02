@@ -52,6 +52,7 @@ class JadwalSanggarBottomSheetFragment(val data: JadwalSanggarItem? = null) : Bo
     }
 
     private fun initAdapter() {
+
         val hariAdapter = context?.let { ArrayAdapter<String>(it, R.layout.layout_dropdown_item, resources.getStringArray(R.array.nama_hari)) }
         ac_hari_jadwal?.setAdapter(hariAdapter)
     }

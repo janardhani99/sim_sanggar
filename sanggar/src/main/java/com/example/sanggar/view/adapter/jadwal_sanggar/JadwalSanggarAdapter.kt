@@ -31,7 +31,7 @@ class JadwalSanggarAdapter(val editListener: (JadwalSanggarItem)->Unit, val dele
         val item = jadwalList[position]
         holder.itemView.apply {
             tv_jadwal_sanggar.text = "${item.kategori_latihan}"
-            tv_waktu.text = "${item.hari}, ${item.jam_mulai?.let { getTimeFormat(it) }}-${item.jam_selesai?.let { getTimeFormat(it) }}"
+            tv_waktu.text = "${item.hari}, ${item.jam_mulai?.let { getTimeFormat(it) }} - ${item.jam_selesai?.let { getTimeFormat(it) }}"
             tv_bayar.text = "Rp ${item.biaya}"
             btn_edit_jadwal.setOnClickListener{
                 editListener(item)

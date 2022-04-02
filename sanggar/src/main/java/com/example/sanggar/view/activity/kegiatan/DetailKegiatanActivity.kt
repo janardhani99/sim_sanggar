@@ -145,7 +145,7 @@ class DetailKegiatanActivity : BaseActivity(), KegiatanContract.View {
 
     override fun uploadImageResponse() {
         isLoading(false)
-        this.showCustomDialogBack("Berhasil", "Data berhasil disimpan")
+        this.showCustomDialogBack("Berhasil", "Data berhasil ditambahkan")
     }
 
     override fun showError(title: String, message: String) {

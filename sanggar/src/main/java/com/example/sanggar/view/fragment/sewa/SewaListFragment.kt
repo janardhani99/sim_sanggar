@@ -96,7 +96,7 @@ class SewaListFragment: Fragment(), SewaListContract.View {
         if (isLoad) this.context?.let { Utilities.showProgress(it) }
         else {
             Utilities.hideProgress()
-            sr_list_sewa.isRefreshing = false
+            sr_list_sewa?.isRefreshing = false
         }
     }
 

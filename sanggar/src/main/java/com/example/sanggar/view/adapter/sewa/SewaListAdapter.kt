@@ -44,10 +44,13 @@ class SewaListAdapter(val detailListener: (SewaListItem) -> Unit) : RecyclerView
 //            tv_user_name?.text = item.user_name
             tv_username?.text = item?.user?.username
             tv_tanggal?.text = item?.tanggal
-
+            tv_jam_sewa?.text = "${item?.jam_mulai?.let { getTimeFormat(it) }} - ${item?.jam_selesai?.let { getTimeFormat(it) }}"
 
         }
     }
 
-
+    //ambil sebagian string jam
+    fun getTimeFormat(time: String): String {
+        return time.substring(0,5)
+    }
 }

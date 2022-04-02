@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.sim_sanggar.R
 import com.example.sim_sanggar.common.Utilities
+import com.example.sim_sanggar.common.clickWithDebounce
 import com.example.sim_sanggar.data.model.anak.AnakListItem
 import com.example.sim_sanggar.data.model.sewa.SewaListItem
 import com.example.sim_sanggar.data.model.sewa.SewaListResponse
@@ -12,6 +13,7 @@ import com.example.sim_sanggar.data.model.sewa.SewaResponse
 import com.example.sim_sanggar.presenter.sewa.SewaContract
 import com.example.sim_sanggar.presenter.sewa.SewaPresenter
 import com.example.sim_sanggar.view.activity.common.BaseActivity
+import com.example.sim_sanggar.view.activity.platform_transaksi.PlatformTransaksiActivity
 import com.example.sim_sanggar.view.adapter.sewaadapter.SewaAdapter
 import kotlinx.android.synthetic.main.activity_riwayat_sewa.*
 import kotlinx.android.synthetic.main.fragment_toolbar.*
@@ -30,7 +32,14 @@ class RiwayatSewaActivity :BaseActivity(), SewaContract.View {
         setToolbar()
         toolbar_title?.text = getString(R.string.riwayat_sewa)
 
+        initListener()
         initAdapter()
+    }
+
+    private fun initListener() {
+        btn_platform_transaksi?.clickWithDebounce {
+            startActivity(Intent(this, PlatformTransaksiActivity::class.java))
+        }
     }
 
     private fun initAdapter() {

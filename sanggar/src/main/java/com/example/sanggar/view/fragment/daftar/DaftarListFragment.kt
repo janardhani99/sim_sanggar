@@ -97,7 +97,7 @@ class DaftarListFragment : Fragment(), DaftarListContract.View {
         if (isLoad) this.context?.let { Utilities.showProgress(it) }
         else {
             Utilities.hideProgress()
-            sr_list_daftar.isRefreshing = false
+            sr_list_daftar?.isRefreshing = false
         }
     }
 

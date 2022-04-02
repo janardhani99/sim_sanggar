@@ -12,7 +12,7 @@
         <ImageView
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/icon_jadwal_sanggar"
+            android:src="@drawable/icon_kelas"
             android:layout_toLeftOf="@+id/jadwal"/>
 
         <LinearLayout

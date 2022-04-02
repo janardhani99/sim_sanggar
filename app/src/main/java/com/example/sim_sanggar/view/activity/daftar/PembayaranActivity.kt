@@ -2,6 +2,8 @@ package com.example.sim_sanggar.view.activity.daftar
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.ArrayAdapter
+import com.example.sim_sanggar.GlobalClass.Companion.context
 import com.example.sim_sanggar.R
 import com.example.sim_sanggar.common.Utilities
 import com.example.sim_sanggar.common.clickWithDebounce
@@ -13,6 +15,8 @@ import com.example.sim_sanggar.data.model.common.EmptyResponse
 import com.example.sim_sanggar.data.model.daftar.DaftarListResponse
 import com.example.sim_sanggar.data.model.daftar.DaftarResponse
 import com.example.sim_sanggar.data.model.daftar.PendaftaranAnak
+import com.example.sim_sanggar.data.model.jadwal_sanggar.JadwalSanggarItem
+import com.example.sim_sanggar.data.model.sanggar.SanggarData
 import com.example.sim_sanggar.presenter.anak.AnakContract
 import com.example.sim_sanggar.presenter.daftar.DaftarListContract
 import com.example.sim_sanggar.presenter.daftar.DaftarListPresenter
@@ -35,6 +39,8 @@ class PembayaranActivity : BaseActivity(), DaftarListContract.View, AnakContract
 
     var data: AnakListItem? = null
     var dataPendaftaran : PendaftaranAnak? = null
+    var listKelas: List<JadwalSanggarItem>? = null
+
     val presenter = DaftarListPresenter(this)
     var imageFile: File? = null
     lateinit var adapter: AnakTerdaftarAdapter
@@ -68,6 +74,8 @@ class PembayaranActivity : BaseActivity(), DaftarListContract.View, AnakContract
     }
 
     private fun initAdapter() {
+        val kelasAdapter = listKelas?.let { ArrayAdapter(this, R.layout.layout_dropdown_item, it) }
+        ac_kategori_kelas?.setAdapter(kelasAdapter)
 //        adapter = AnakTerdaftarAdapter { daftarItem-> kirimData(daftarItem) }
     }
 //
