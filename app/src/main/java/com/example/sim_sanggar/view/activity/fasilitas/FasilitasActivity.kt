@@ -32,7 +32,7 @@ class FasilitasActivity : BaseActivity(), FasilitasContract.View {
         data = intent.getParcelableExtra<FasilitasListItem>("data")
 
         setToolbar()
-        toolbar_title?.text = getString(R.string.fasilitas)
+//        toolbar_title?.text = getString(R.string.fasilitas)
 
 //        initListener()
         iniAdapter()

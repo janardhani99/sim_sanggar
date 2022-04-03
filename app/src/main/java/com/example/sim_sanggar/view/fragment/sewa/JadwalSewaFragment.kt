@@ -29,13 +29,13 @@ class JadwalSewaFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        btn_sewa?.clickWithDebounce {
-            startActivity(Intent(context, SewaActivity::class.java))
-        }
-
-        btn_riwayat_sewa?.clickWithDebounce {
+        cv_sewa?.clickWithDebounce {
             startActivity(Intent(context, RiwayatSewaActivity::class.java))
         }
+
+//        btn_riwayat_sewa?.clickWithDebounce {
+//            startActivity(Intent(context, RiwayatSewaActivity::class.java))
+//        }
 
 
 

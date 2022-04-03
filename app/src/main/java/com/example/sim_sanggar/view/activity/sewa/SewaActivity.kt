@@ -47,7 +47,7 @@ class SewaActivity : BaseActivity(),SewaContract.View {
         setContentView(R.layout.activity_sewa)
 
         setToolbar()
-        toolbar_title?.text = getString(R.string.sewa)
+//        toolbar_title?.text = getString(R.string.sewa)
 
         datePicker = DatePickerHelper(this)
 

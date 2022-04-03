@@ -29,7 +29,7 @@ class JadwalSanggarActivity : BaseActivity(), JadwalSanggarContract.View {
         setContentView(R.layout.activity_jadwal_sanggar)
         //init toolbar
         setToolbar()
-        toolbar_title?.text = getString(R.string.kelas)
+//        toolbar_title?.text = getString(R.string.kelas)
 
         initListener()
         initAdapter()

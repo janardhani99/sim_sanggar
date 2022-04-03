@@ -1,9 +1,11 @@
 package com.example.sim_sanggar.view.activity.anak
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.sim_sanggar.R
 import com.example.sim_sanggar.common.Utilities
+import com.example.sim_sanggar.common.clickWithDebounce
 import com.example.sim_sanggar.data.model.anak.AnakListItem
 import com.example.sim_sanggar.data.model.anak.AnakListResponse
 import com.example.sim_sanggar.data.model.anak.AnakResponse
@@ -23,45 +25,51 @@ import kotlinx.android.synthetic.main.recycler_anak_terdaftar.*
 
 class AnakTerdaftarActivity :BaseActivity(), AnakContract.View, DaftarListContract.View {
     var data : AnakListItem? = null
-    var dataDaftar : PendaftaranAnak? = null
+//    var dataDaftar : PendaftaranAnak? = null
     private var presenter = AnakPresenter(this)
-    private var presenterDaftar = DaftarListPresenter(this)
+//    private var presenterDaftar = DaftarListPresenter(this)
     lateinit var adapter: AnakTerdaftarAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.fragment_daftar_anak)
+        setContentView(R.layout.activity_anak_terdaftar)
 
         data = intent.getParcelableExtra("data")
 
         setToolbar()
-        toolbar_title?.text = getString(R.string.riwayat_daftar_anak)
+//        toolbar_title?.text = getString(R.string.riwayat_daftar_anak)
 
+        initListener()
         initAdapter()
     }
 
+    private fun initListener() {
+        cv_tambah_data_anak?.clickWithDebounce {
+            startActivity(Intent(this, AnakActivity::class.java))
+        }
+    }
     private fun initAdapter() {
-
-//        adapter = AnakTerdaftarAdapter ({ detailItem->
-//            showCustomDialog("Klik", "Data di klik")
-//        }, {daftarItem -> addPendaftaran(daftarItem)})
+        adapter = AnakTerdaftarAdapter {detailItem ->
+            val intent = Intent(this, PembayaranActivity::class.java)
+            intent.putExtra("data", detailItem)
+            startActivity(intent)}
         rv_anak_terdaftar?.layoutManager = LinearLayoutManager(this)
         rv_anak_terdaftar?.adapter = adapter
     }
 
-    private fun addPendaftaran(daftarItem: AnakListItem) {
-
-        val anak_id = daftarItem.id
-
-        val tambahData = HashMap<String, Any?>()
-        tambahData["anak_id"] = anak_id
-
-        isLoading(true)
-        presenterDaftar.addListDaftar(tambahData)
-
-        btn_daftarkan.isClickable = false
-
-    }
+//    private fun addPendaftaran(daftarItem: AnakListItem) {
+//
+//        val anak_id = daftarItem.id
+//
+//        val tambahData = HashMap<String, Any?>()
+//        tambahData["anak_id"] = anak_id
+//
+//        isLoading(true)
+//        presenterDaftar.addListDaftar(tambahData)
+//
+//        btn_daftarkan.isClickable = false
+//
+//    }
     private fun fetchData() {
         isLoading(true)
         presenter.getAnak()

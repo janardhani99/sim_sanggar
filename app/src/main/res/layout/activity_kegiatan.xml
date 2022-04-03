@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".view.activity.kegiatan.KegiatanActivity">
+    tools:context=".view.activity.kegiatan.KegiatanActivity"
+    android:background="@drawable/bg_list_data">
 
     <include layout="@layout/fragment_toolbar" />
 
@@ -14,6 +15,16 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Kegiatan Sanggar"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="24dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="@dimen/dp16"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_kegiatan"

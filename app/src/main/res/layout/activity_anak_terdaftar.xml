@@ -10,21 +10,66 @@
 
     <include layout="@layout/fragment_toolbar" />
 
-    <LinearLayout
-        android:layout_margin="@dimen/dp8"
-        android:orientation="vertical"
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cv_tambah_data_anak"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardBackgroundColor="@color/white"
+        android:outlineSpotShadowColor="@color/black"
+        app:cardElevation="1dp"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/dp5">
+
+        <LinearLayout
+            android:id="@+id/tambah_data_anak"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:layout_margin="18dp">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/daftar"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Tambah Data Anak"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:layout_marginLeft="5dp"/>
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_anak_terdaftar"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/recycler_anak_terdaftar"/>
+            android:layout_marginTop="30dp">
 
-    </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Data Anak Tersimpan"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:layout_margin="@dimen/dp16"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_anak_terdaftar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/recycler_anak_terdaftar"/>
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>

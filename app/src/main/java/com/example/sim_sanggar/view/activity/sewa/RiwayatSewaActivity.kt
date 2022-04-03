@@ -37,8 +37,12 @@ class RiwayatSewaActivity :BaseActivity(), SewaContract.View {
     }
 
     private fun initListener() {
-        btn_platform_transaksi?.clickWithDebounce {
+        cv_platform_transaksi?.clickWithDebounce {
             startActivity(Intent(this, PlatformTransaksiActivity::class.java))
+        }
+
+        cv_tambah_data_sewa?.clickWithDebounce {
+            startActivity(Intent(this, SewaActivity::class.java))
         }
     }
 

@@ -1,13 +1,11 @@
-package com.example.sim_sanggar.view.activity.daftar
+package com.example.sim_sanggar.view.activity.anak
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
-import com.example.sim_sanggar.GlobalClass.Companion.context
 import com.example.sim_sanggar.R
 import com.example.sim_sanggar.common.Utilities
 import com.example.sim_sanggar.common.clickWithDebounce
-import com.example.sim_sanggar.common.loadImage
 import com.example.sim_sanggar.data.model.anak.AnakListItem
 import com.example.sim_sanggar.data.model.anak.AnakListResponse
 import com.example.sim_sanggar.data.model.anak.AnakResponse
@@ -16,7 +14,6 @@ import com.example.sim_sanggar.data.model.daftar.DaftarListResponse
 import com.example.sim_sanggar.data.model.daftar.DaftarResponse
 import com.example.sim_sanggar.data.model.daftar.PendaftaranAnak
 import com.example.sim_sanggar.data.model.jadwal_sanggar.JadwalSanggarItem
-import com.example.sim_sanggar.data.model.sanggar.SanggarData
 import com.example.sim_sanggar.presenter.anak.AnakContract
 import com.example.sim_sanggar.presenter.daftar.DaftarListContract
 import com.example.sim_sanggar.presenter.daftar.DaftarListPresenter
@@ -26,10 +23,8 @@ import com.theartofdev.edmodo.cropper.CropImage
 import com.theartofdev.edmodo.cropper.CropImageView
 import kotlinx.android.synthetic.main.activity_bayar_pendaftaran.*
 import kotlinx.android.synthetic.main.activity_upload_bukti.btn_image_bukti_pembayaran
-import kotlinx.android.synthetic.main.activity_upload_bukti.iv_upload_bukti
 import kotlinx.android.synthetic.main.activity_upload_bukti.til_transfer_via
 import kotlinx.android.synthetic.main.fragment_toolbar.*
-import kotlinx.android.synthetic.main.layout_dropdown_item.view.*
 import okhttp3.MediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -51,7 +46,7 @@ class PembayaranActivity : BaseActivity(), DaftarListContract.View, AnakContract
         setContentView(R.layout.activity_bayar_pendaftaran)
 
         setToolbar()
-        toolbar_title?.text = "Daftarkan Anak"
+//        toolbar_title?.text = "Daftarkan Anak"
 
         data = intent.getParcelableExtra<AnakListItem>("data")
 //        adapter = AnakTerdaftarAdapter

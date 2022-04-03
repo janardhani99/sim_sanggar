@@ -163,7 +163,7 @@
                             android:layout_marginLeft="@dimen/dp8"
                             android:layout_marginTop="4dp"
                             android:layout_weight="1"
-                            android:text="Lihat kelas yang tersedia"
+                            android:text="Lihat kelas yang tersedia beserta jadwal pelaksanannya"
                             android:textSize="14dp"
                             android:layout_toRightOf="@+id/img_jadwal_sanggar"
                             android:layout_below="@+id/tv_jadwal_sanggar"/>

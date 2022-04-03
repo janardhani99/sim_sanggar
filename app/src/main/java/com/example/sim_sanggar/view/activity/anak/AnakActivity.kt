@@ -39,7 +39,7 @@ class AnakActivity : BaseActivity(), AnakContract.View {
         setContentView(R.layout.activity_anak)
 
         setToolbar()
-        toolbar_title?.text = "Pendaftaran Anak"
+//        toolbar_title?.text = "Pendaftaran Anak"
         initListener()
         datePicker = DatePickerHelper(this)
 

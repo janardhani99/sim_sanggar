@@ -14,7 +14,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SIM_Sanggar">
-        <activity android:name=".view.activity.jam_operasional.JamOperasionalActivity"></activity>
+        <activity
+            android:name=".view.activity.jam_operasional.JamOperasionalActivity">
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".view.activity.jam_operasional.TanggalLiburActivity">
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".view.activity.sewa.UploadBuktiActivity"
             android:screenOrientation="portrait"></activity>
@@ -22,7 +27,10 @@
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:theme="@style/Base.Theme.AppCompat" />
         <activity
-            android:name=".view.activity.daftar.PembayaranActivity"
+            android:name=".view.activity.anak.PembayaranActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.anak.AnakTerdaftarActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.anak.AnakActivity"

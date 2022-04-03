@@ -16,36 +16,33 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:weightSum="3"
-            android:gravity="center">
+            android:gravity="center"
+            android:padding="@dimen/dp10">
 
             <ImageView
                 android:id="@+id/iv_kegiatan_recycler"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"/>
+                android:layout_margin="10dp"/>
 
             <TextView
                 android:id="@+id/tv_judul_kegiatan_recycler"
                 style="@style/TextAppearance.AppCompat.Title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
                 android:layout_marginTop="15dp"
                 android:ellipsize="end"
                 android:padding="15dp"
                 android:singleLine="true"
-                android:text="Title"
-                android:background="@color/transparent_text"/>
+                android:text="Judul"
+                android:textSize="@dimen/dp22"
+                android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/tv_deskripsi_kegiatan_recycler"
                 style="@style/TextAppearance.AppCompat.Title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="10dp"
                 android:ellipsize="end"
                 android:paddingLeft="15dp"
                 android:paddingRight="15dp"
@@ -54,7 +51,6 @@
                 android:textSize="15dp"
                 android:lines="3"
                 android:maxLines="3"
-                android:background="@color/transparent_text"
                 android:layout_below="@+id/tv_judul_kegiatan_recycler"/>
 
         </LinearLayout>

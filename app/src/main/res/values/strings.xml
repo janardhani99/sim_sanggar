@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SIM Sanggar</string>
+    <string name="app_name">Siswa</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
@@ -38,9 +38,9 @@
     <string name="lihat_list_anak">Lihat Riwayat Pendaftaran Anak</string>
     <string name="riwayat_daftar_anak">Riwayat Pendaftaran Anak</string>
     <string name="riwayat_sewa">Riwayat Sewa Studio</string>
-    <string name="teks_sewa">Booking tempat latihan atau studio sanggarmu</string>
+    <string name="teks_sewa">Sewa tempat latihan atau studio sanggarmu</string>
     <string name="sewa">Sewa Studio</string>
-    <string name="tanggal_sewa">Tanggal Sewa</string>
+    <string name="tanggal_sewa">Pilih Tanggal Sewa</string>
     <string name="data_tanggal">yyyy-mm-dd</string>
     <string name="jam_mulai">Jam Mulai</string>
     <string name="jam_selesai">Jam Selesai</string>
