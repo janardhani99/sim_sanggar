@@ -17,22 +17,13 @@
             android:layout_width="match_parent"
             android:layout_height="50dp">
 
-            <ImageView
-                android:id="@+id/logo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/foto"
-                android:padding="5px">
-
-            </ImageView>
-
             <TextView
                 android:id="@+id/tv_sanggar_name"
                 android:layout_toRightOf="@+id/logo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
-                android:text="Citranala Studio"
+                android:text="Penyewaan Sanggar"
                 android:textSize="19dp">
 
             </TextView>

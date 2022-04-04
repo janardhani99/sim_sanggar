@@ -1,7 +1,6 @@
 package com.example.sanggar.view.activity.jam_operasional
 
 import android.content.DialogInterface
-import android.content.Intent
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.sanggar.R
@@ -24,15 +23,16 @@ import com.example.sanggar.view.adapter.jam_operasional.TanggalLiburAdapter
 import com.example.sanggar.view.fragment.jam_operasional.JamOperasionalBottomSheetFragment
 import com.example.sanggar.view.fragment.jam_operasional.TanggalLiburBottomSheetFragment
 import kotlinx.android.synthetic.main.activity_jam_operasional.*
+import kotlinx.android.synthetic.main.activity_tanggal_libur.*
 import kotlinx.android.synthetic.main.fragment_tanggal_libur_bottom_sheet.*
 import kotlinx.android.synthetic.main.fragment_toolbar.*
 import kotlinx.android.synthetic.main.recycler_tanggal_libur.*
 import java.util.*
 
-class JamOperasionalActivity : BaseActivity(), JamOperasionalContract.View{
-    private lateinit var adapter: JamOperasionalAdapter
+class TanggalLiburActivity : BaseActivity(), TanggalLiburContract.View {
+    private lateinit var adapterTanggalLibur : TanggalLiburAdapter
 
-    private var presenter = JamOperasionalPresenter(this)
+    private var presenterTanggalLibur = TanggalLiburPresenter(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,49 +50,36 @@ class JamOperasionalActivity : BaseActivity(), JamOperasionalContract.View{
 
     private fun initListener() {
 
-        cv_jam_operasional?.clickWithDebounce {
-            val bottomSheet = JamOperasionalBottomSheetFragment()
+        cv_tambah_tanggal_libur?.clickWithDebounce {
+            val bottomSheet = TanggalLiburBottomSheetFragment()
             bottomSheet.show(supportFragmentManager, "")
         }
 
-        cv_tanggal_libur?.clickWithDebounce {
-            startActivity(Intent(this, TanggalLiburActivity::class.java))
-        }
 
     }
     private fun initAdapter() {
-        adapter = JamOperasionalAdapter({ itemEdit ->
-            val bottomSheet = JamOperasionalBottomSheetFragment(itemEdit)
+
+        adapterTanggalLibur = TanggalLiburAdapter ({
+            itemEdit-> val bottomSheet = TanggalLiburBottomSheetFragment(itemEdit)
             bottomSheet.show(supportFragmentManager, "")
         } , {deleteItem->
             showConfirmationDialog("Konfirmasi", "Apakah anda yakin?", object : ButtonDialogListener {
                 override fun onOkButton(dialog: DialogInterface) {
                     isLoading(true)
-                    deleteItem.id?.let { presenter.deleteJamOperasional(it) }
+                    deleteItem.id?.let { presenterTanggalLibur.deleteTanggalLibur(it) }
                     dialog.dismiss()
                 }
             })
         })
-        rv_jam_operasional?.layoutManager = LinearLayoutManager(this)
-        rv_jam_operasional?.adapter = adapter
-    }
 
-    //temporary data
-//    private fun getDefaultData(): MutableList<JamOperasionalItem> {
-//        val list = mutableListOf<JamOperasionalItem>()
-//        list.add(JamOperasionalItem("Senin", "00:00", "23:59", true))
-//        list.add(JamOperasionalItem("Selasa", "00:00", "23:59", true))
-//        list.add(JamOperasionalItem("Rabu", "00:00", "23:59", true))
-//        list.add(JamOperasionalItem("Kamis", "00:00", "23:59", true))
-//        list.add(JamOperasionalItem("Jumat", "00:00", "23:59", true))
-//        list.add(JamOperasionalItem("Sabtu", "00:00", "23:59", true))
-//        list.add(JamOperasionalItem("Minggu", "00:00", "23:59", true))
-//        return list
-//    }
+        rv_tanggal_libur?.layoutManager = LinearLayoutManager(this)
+        rv_tanggal_libur?.adapter = adapterTanggalLibur
+//        adapter.setData(getDefaultData())
+    }
 
     fun fetchData() {
         isLoading(true)
-        presenter.getJamOperasional()
+        presenterTanggalLibur.getTanggalLibur()
     }
 
     private fun isLoading(isload: Boolean){
@@ -103,17 +90,17 @@ class JamOperasionalActivity : BaseActivity(), JamOperasionalContract.View{
         }
     }
 
-    override fun jamOperasionalResponse(response: JamOperasionalResponse) {
+
+    override fun tanggalLiburResponse(response: TanggalLiburResponse) {
         TODO("Not yet implemented")
-
     }
 
-    override fun getJamOperasionalResponse(response: JamOperasionalListResponse) {
+    override fun getTanggalLiburResponse(response: TanggalLiburListResponse) {
         isLoading(false)
-        response.data?.let { adapter.setData(it) }
+        response.data?.let { adapterTanggalLibur.setData(it) }
     }
 
-    override fun deleteJamOperasionalResponse(response: EmptyResponse) {
+    override fun deleteTanggalLiburResponse(response: EmptyResponse) {
         isLoading(false)
         fetchData()
     }

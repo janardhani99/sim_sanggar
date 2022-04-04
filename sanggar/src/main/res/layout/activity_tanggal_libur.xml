@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    tools:context=".view.activity.platform_transaksi.PlatformTransaksiActivity">
+    tools:context=".view.activity.jam_operasional.TanggalLiburActivity">
 
     <include layout="@layout/fragment_toolbar" />
 
+
     <LinearLayout
-        android:layout_margin="@dimen/dp8"
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp16"
+        android:orientation="vertical">
+
 
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cv_tambah_platform"
+            android:id="@+id/cv_tambah_tanggal_libur"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:clickable="true"
@@ -41,22 +43,34 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="Tambah Platform"
+                    android:text="Tambah Tanggal Libur"
                     android:textAlignment="center"
                     android:gravity="center"
-                    android:layout_marginLeft="5dp"/>
+                    android:layout_marginLeft="5dp"
+                    android:textSize="@dimen/dp22"/>
             </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_platform_transaksi"
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/sr_tanggal_libur"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/recycler_platform_transaksi"/>
+            android:layout_height="match_parent">
+            <ScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="250dp"
+                android:fadeScrollbars="false">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_tanggal_libur"
+                    android:orientation="vertical"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:itemCount="7"
+                    tools:listitem="@layout/recycler_tanggal_libur" />
 
+
+
+            </ScrollView></androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
     </LinearLayout>
-
 </LinearLayout>

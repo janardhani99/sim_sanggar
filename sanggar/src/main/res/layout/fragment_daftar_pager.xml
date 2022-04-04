@@ -18,16 +18,7 @@
             android:layout_height="50dp"
             android:layout_marginTop="20dp">
 
-            <ImageView
-                android:id="@+id/logo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/foto"
-                android:padding="5px">
-
-            </ImageView>
-
-<!--            <com.google.android.material.textfield.TextInputLayout-->
+            <!--            <com.google.android.material.textfield.TextInputLayout-->
 <!--                android:id="@+id/til_nama_sanggar"-->
 <!--                android:layout_width="match_parent"-->
 <!--                android:layout_height="wrap_content"-->
@@ -44,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:padding="10dp"
                 android:layout_toRightOf="@+id/logo"
-                android:text="Citranala Studio"
+                android:text="Pendaftaran Anak"
                 android:textSize="19dp">
 
             </TextView>

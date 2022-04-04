@@ -9,14 +9,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-                <TextView
-                    android:id="@+id/tv_tanggal_libur"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_centerVertical="true"
-                    android:text="2022-03-03" />
 
                 <TextView
                     android:id="@+id/tv_keterangan"
@@ -26,6 +18,15 @@
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
                     android:text="Hari Raya Nyepi" />
+
+                <TextView
+                    android:id="@+id/tv_tanggal_libur"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="2022-03-03" />
 
         </LinearLayout>
 

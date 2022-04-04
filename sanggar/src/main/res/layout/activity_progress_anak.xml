@@ -119,7 +119,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="List Anak"
+        android:text="List Data Anak"
         android:textSize="@dimen/dp24"
         android:textStyle="bold"
         android:layout_gravity="center"/>

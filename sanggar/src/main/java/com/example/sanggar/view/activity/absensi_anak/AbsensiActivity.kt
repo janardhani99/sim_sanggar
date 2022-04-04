@@ -33,7 +33,7 @@ class AbsensiActivity : BaseActivity(), JadwalSanggarContract.View {
         setContentView(R.layout.activity_absensi)
         //init toolbar
         setToolbar()
-        toolbar_title?.text = "Absensi Anak"
+//        toolbar_title?.text = "Absensi Anak"
 
 //        data = intent.getParcelableExtra("data")
 

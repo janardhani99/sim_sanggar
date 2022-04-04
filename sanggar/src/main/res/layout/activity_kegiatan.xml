@@ -17,19 +17,36 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_tambah_kegiatan"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/dp8"
             android:clickable="true"
-            android:focusable="true">
+            android:focusable="true"
+            app:cardBackgroundColor="@color/white"
+            android:outlineSpotShadowColor="@color/black"
+            app:cardElevation="1dp"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/dp5">
 
-            <TextView
+            <LinearLayout
+                android:id="@+id/daftar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="32dp"
-                android:gravity="center_horizontal"
-                android:text="@string/tambah_kegiatan"
-                android:textAlignment="center" />
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:layout_margin="18dp">
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/daftar"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Tambah Kegiatan"
+                    android:textAlignment="center"
+                    android:gravity="center"
+                    android:layout_marginLeft="5dp"/>
+            </LinearLayout>
+
         </com.google.android.material.card.MaterialCardView>
 
         <androidx.recyclerview.widget.RecyclerView

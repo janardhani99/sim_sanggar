@@ -35,7 +35,7 @@ class PertemuanActivity : BaseActivity(), PertemuanContract.View {
         setContentView(R.layout.activity_pertemuan)
 
         setToolbar()
-        toolbar_title?.text = "Pertemuan"
+//        toolbar_title?.text = "Pertemuan"
         data_kelas = intent.getParcelableExtra<JadwalSanggarItem>("data_kelas")
 
         initAdapter()
