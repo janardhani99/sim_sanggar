@@ -26,10 +26,6 @@ import com.example.sanggar.view.adapter.absensi.ProgressAnakAdapter
 import com.example.sanggar.view.adapter.anakterdaftar.AnakTerdaftarAdapter
 import com.example.sanggar.view.fragment.daftar.DaftarListFragment
 import com.example.sim_sanggar.presenter.anak.AnakPresenter
-import kotlinx.android.synthetic.main.activity_detail_pertemuan.btn_pilih_tanggal
-import kotlinx.android.synthetic.main.activity_detail_pertemuan.btn_simpan_pertemuan
-import kotlinx.android.synthetic.main.activity_detail_pertemuan.til_pertemuan_ke
-import kotlinx.android.synthetic.main.activity_detail_pertemuan.til_tanggal_sewa
 import kotlinx.android.synthetic.main.activity_progress_anak.*
 import kotlinx.android.synthetic.main.fragment_toolbar.*
 import java.util.*
@@ -68,7 +64,7 @@ class ProgressAnakActivity : BaseActivity(), PertemuanContract.View, DaftarListC
 
         initListener()
         initAdapter()
-        fetchData()
+//        fetchData()
 
 //        status = intent.getStringExtra(STATUS).toString()
 
@@ -110,7 +106,7 @@ class ProgressAnakActivity : BaseActivity(), PertemuanContract.View, DaftarListC
             editPertemuan()
         }
 
-        sr_progress_anak_recycler.setOnRefreshListener {
+        sr_progress_anak_recycler?.setOnRefreshListener {
             fetchData()
         }
     }
@@ -171,6 +167,11 @@ class ProgressAnakActivity : BaseActivity(), PertemuanContract.View, DaftarListC
 
     }
 
+    override fun onResume() {
+        super.onResume()
+        fetchData()
+    }
+
     private fun isLoading(isLoad: Boolean) {
         if (isLoad) Utilities.showProgress(this)
         else {
@@ -189,7 +190,8 @@ class ProgressAnakActivity : BaseActivity(), PertemuanContract.View, DaftarListC
     }
 
     override fun deletePertemuanResponse(response: EmptyResponse) {
-        TODO("Not yet implemented")
+        isLoading(false)
+        fetchData()
     }
 
 

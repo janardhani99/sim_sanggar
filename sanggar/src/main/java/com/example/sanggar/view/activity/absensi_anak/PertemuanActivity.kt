@@ -35,14 +35,13 @@ class PertemuanActivity : BaseActivity(), PertemuanContract.View {
         setContentView(R.layout.activity_pertemuan)
 
         setToolbar()
-//        toolbar_title?.text = "Pertemuan"
+        toolbar_title?.text = "Pertemuan"
         data_kelas = intent.getParcelableExtra<JadwalSanggarItem>("data_kelas")
 
         initAdapter()
         initListener()
         data_kelas?.let { setView(it) }
 
-        fetchData()
 
     }
 
@@ -86,6 +85,11 @@ class PertemuanActivity : BaseActivity(), PertemuanContract.View {
     private fun fetchData() {
         isLoading(true)
         data_kelas?.id?.let { presenter.getPertemuan(it) }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        fetchData()
     }
 
     private fun isLoading(isLoad: Boolean) {

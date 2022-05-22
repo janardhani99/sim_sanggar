@@ -35,6 +35,17 @@ class DaftarListPresenter(val view: DaftarListContract.View): BasePresenter(view
                 })
     }
 
+    override fun getBiayaPendaftaran(biaya_pendaftaran: String) {
+        biaya_pendaftaran.let {
+            handler.getBiayaPendaftaran(it)
+                    .doSubscribe(object : ErrorHandler<DaftarListResponse>(this){
+                        override fun onNext(t: DaftarListResponse) {
+                            view.getDaftarListResponse(t)
+                        }
+                    })
+        }
+    }
+
     override fun deleteListDaftar(id: Int) {
         handler.deleteListDaftar(id)
                 .doSubscribe(object: ErrorHandler<EmptyResponse>(this){

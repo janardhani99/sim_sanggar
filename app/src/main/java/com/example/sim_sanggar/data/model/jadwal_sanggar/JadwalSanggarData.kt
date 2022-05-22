@@ -30,5 +30,8 @@ class JadwalSanggarItem (
         var jam_mulai: String? = null,
 
         @Expose
-        var jam_selesai: String? = null
+        var jam_selesai: String? = null,
+
+        @Expose
+        var biaya: String? = null
 ):Parcelable

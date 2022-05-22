@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/dp32"
-            android:text="@string/jam_operasional_sangggar"
+            android:text="Tambah Jam Operasional"
             android:textAlignment="center" />
 
         <TextView
@@ -137,7 +137,7 @@
 
         <Button
             android:id="@+id/btn_batal"
-            style="@style/AppTheme.OutlinedButon"
+            style="@style/AppTheme.UnelevatedButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/batal" />

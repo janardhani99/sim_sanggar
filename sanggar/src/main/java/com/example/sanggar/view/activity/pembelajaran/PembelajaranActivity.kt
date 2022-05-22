@@ -32,7 +32,7 @@ class PembelajaranActivity : BaseActivity(), PembelajaranContract.View {
         setContentView(R.layout.activity_pembelajaran)
 
         setToolbar()
-//        toolbar_title.setText("Materi Belajar")
+        toolbar_title.setText("Materi Belajar")
 
 //        data = intent.getParcelableExtra<PembelajaranData>("data")
         initListener()

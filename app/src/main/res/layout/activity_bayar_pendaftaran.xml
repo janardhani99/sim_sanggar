@@ -124,8 +124,9 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/til_kategori_kelas"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <!--                    style="@style/AppTheme.TextInputAutoComplete"-->
+                    android:layout_height="wrap_content"
+                    style="@style/AppTheme.TextInputAutoComplete">
+
 
 <!--                    <com.google.android.material.textfield.TextInputEditText-->
 <!--                        android:layout_width="match_parent"-->

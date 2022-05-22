@@ -51,12 +51,14 @@ class AnakActivity : BaseActivity(), AnakContract.View {
         val m = cal.get(Calendar.MONTH)
         val y = cal.get(Calendar.YEAR)
 
-//        val minDate = Calendar.getInstance()
 //        minDate.set(Calendar.HOUR_OF_DAY, 0)
 //        minDate.set(Calendar.MINUTE, 0)
 //        minDate.set(Calendar.SECOND, 0)
 //        datePicker.setMinDate(minDate.timeInMillis)
 
+//        val default = Calendar.getInstance()
+//        default.set(Calendar.YEAR, 2000)
+//        datePicker.
         val maxDate = Calendar.getInstance()
         maxDate.add(Calendar.DAY_OF_MONTH, 30)
         datePicker.setMaxDate(maxDate.timeInMillis)
@@ -66,7 +68,7 @@ class AnakActivity : BaseActivity(), AnakContract.View {
                 val dayStr = if(dayOfMonth<10) "0${dayOfMonth}" else "${dayOfMonth}"
                 val mon = month + 1
                 val monthStr = if (mon<10) "0${mon}" else "${mon}"
-                tv_tanggal_lahir.text = "${year}-${monthStr}-${dayStr}"
+                tv_tanggal_lahir.editText?.setText("${year}-${monthStr}-${dayStr}")
             }
         })
     }
@@ -83,12 +85,12 @@ class AnakActivity : BaseActivity(), AnakContract.View {
     private fun addOrEditAnak() {
         val nama_anak = til_nama_anak?.editText?.text.toString()
         val alamat = til_alamat_anak?.editText?.text.toString()
-        val tanggal_lahir = tv_tanggal_lahir?.text.toString()
+        val tanggal_lahir = tv_tanggal_lahir?.editText?.text.toString()
         val telepon = til_telepon_anak?.editText?.text.toString()
 
         val tambahData = HashMap<String, Any?>()
         tambahData["nama"] = nama_anak
-        tambahData["umur"] = alamat
+        tambahData["alamat"] = alamat
         tambahData["tanggal_lahir"] = tanggal_lahir
         tambahData["telepon"] = telepon
 

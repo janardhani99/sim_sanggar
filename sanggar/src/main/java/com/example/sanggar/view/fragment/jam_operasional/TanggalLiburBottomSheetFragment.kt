@@ -140,6 +140,7 @@ class TanggalLiburBottomSheetFragment(val data: TanggalLiburItem? = null) : Bott
 
     override fun showError(title: String, message: String) {
         baseActivity.showErrorAlert(title, message)
+        isLoadingProcess(false)
     }
 
 }

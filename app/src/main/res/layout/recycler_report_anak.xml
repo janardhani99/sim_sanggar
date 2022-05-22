@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cv_recycler_report_anak"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_pertemuan_ke"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pertemuan Ke : "
+                android:textSize="20dp"
+                android:layout_marginBottom="@dimen/dp5"/>
+
+            <TextView
+                android:id="@+id/tv_tanggal_pertemuan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tanggal : "
+                android:textSize="20dp"
+                android:layout_marginBottom="@dimen/dp5"/>
+
+            <TextView
+                android:id="@+id/tv_kehadiran"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Kehadiran : "
+                android:textSize="20dp"
+                android:layout_marginBottom="@dimen/dp5"/>
+
+            <TextView
+                android:id="@+id/tv_catatan_progress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Catatan Progress : "
+                android:textSize="20dp"
+                android:layout_marginBottom="@dimen/dp5"/>
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+</LinearLayout>

@@ -87,5 +87,6 @@ class DetailPembelajaranActivity : BaseActivity(), PembelajaranContract.View {
 
     override fun showError(title: String, message: String) {
         showErrorAlert(title, message)
+        isLoading(false)
     }
 }

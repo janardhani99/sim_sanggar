@@ -52,16 +52,19 @@
             android:name=".view.activity.kegiatan.DetailKegiatanActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".view.activity.kegiatan.KegiatanActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:theme="@style/Base.Theme.AppCompat" />
         <activity
             android:name=".view.activity.jam_operasional.JamOperasionalActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".view.activity.jadwal_sanggar.JadwalSanggarActivity"
+            android:name=".view.activity.jam_operasional.TanggalLiburActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".view.activity.kegiatan.KegiatanActivity"
+            android:name=".view.activity.jadwal_sanggar.JadwalSanggarActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.sewa.SewaDetailActivity"

@@ -17,7 +17,6 @@ import com.example.sanggar.view.activity.common.BaseActivity
 import com.theartofdev.edmodo.cropper.CropImage
 import com.theartofdev.edmodo.cropper.CropImageView
 import kotlinx.android.synthetic.main.activity_detail_fasilitas.*
-import kotlinx.android.synthetic.main.activity_detail_kegiatan.*
 import kotlinx.android.synthetic.main.fragment_toolbar.*
 import okhttp3.MediaType
 import okhttp3.MultipartBody
@@ -114,7 +113,7 @@ class DetailFasilitasActivity :  BaseActivity(), FasilitasContract.View  {
             imageFile?.let { uploadImage(response.data?.id,it) }
         } else {
             isLoading(false)
-            this.showCustomDialogBack("Data Berhasil", "Data berhasil diubah")
+            this.showCustomDialogBack("Berhasil", "Data berhasil diubah")
         }
     }
 
@@ -126,8 +125,7 @@ class DetailFasilitasActivity :  BaseActivity(), FasilitasContract.View  {
                 it.name,
                 requestBody
         )
-        id?.let { presenter.addImage(it, part) }
-
+        id?.let { presenter.addImage(it,part) }
     }
 
     override fun getFasilitasResponse(response: FasilitasListResponse) {
@@ -145,5 +143,6 @@ class DetailFasilitasActivity :  BaseActivity(), FasilitasContract.View  {
 
     override fun showError(title: String, message: String) {
         this.showErrorAlert(title, message)
+        isLoading(false)
     }
 }

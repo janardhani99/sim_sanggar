@@ -96,6 +96,7 @@ class DetailKegiatanActivity : BaseActivity(), KegiatanContract.View {
         tambahData["judul"] = judul
         tambahData["deskripsi"] = deskripsi
 //        tambahData["foto"] = foto
+
         isLoading(true)
 
         if(data == null) {
@@ -150,6 +151,7 @@ class DetailKegiatanActivity : BaseActivity(), KegiatanContract.View {
 
     override fun showError(title: String, message: String) {
         this.showErrorAlert(title, message)
+        isLoading(false)
     }
 }
 

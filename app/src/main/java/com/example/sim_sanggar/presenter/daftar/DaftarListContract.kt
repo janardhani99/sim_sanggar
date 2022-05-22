@@ -4,6 +4,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.sim_sanggar.data.model.common.EmptyResponse
 import com.example.sim_sanggar.data.model.daftar.DaftarListResponse
 import com.example.sim_sanggar.data.model.daftar.DaftarResponse
+import com.example.sim_sanggar.data.model.jadwal_sanggar.JadwalSanggarListResponse
 import com.example.sim_sanggar.data.model.sewa.SewaResponse
 import com.example.sim_sanggar.presenter.common.BaseContract
 import retrofit2.http.*
@@ -18,6 +19,7 @@ interface DaftarListContract {
     interface View: BaseContract.View {
         fun daftarListResponse(response: DaftarResponse)
         fun getDaftarListResponse(response: DaftarListResponse)
+        fun getBiayaPendaftaran(response: DaftarListResponse)
         fun deleteDaftarListResponse(response: EmptyResponse)
         fun uploadImageResponse()
 //        abstract fun LinearLayoutManager(daftarListFragment: DaftarListFragment): LinearLayoutManager
@@ -26,6 +28,7 @@ interface DaftarListContract {
     interface Presenter {
         fun addListDaftar(data: HashMap<String, Any?>)
         fun getListDaftar()
+        fun getBiayaPendaftaran(biaya_pendaftaran: String)
         fun deleteListDaftar(id: Int)
         fun addImage(id: Int, part: MultipartBody.Part)
         fun uploadBuktiPembayaran( image: File, tf_via: String) {}
@@ -38,6 +41,9 @@ interface DaftarListContract {
 
         @GET("pendaftaran-siswa")
         fun getListDaftar(): Observable<DaftarListResponse>
+
+        @GET("pendaftaran/biaya-pendaftaran")
+        fun getBiayaPendaftaran(@Query("biaya_pendaftaran") biaya_pendaftaran: String):Observable<DaftarListResponse>
 
         @DELETE("pendaftaran-siswa/{id}")
         fun deleteListDaftar(@Path("id")id: Int): Observable<EmptyResponse>

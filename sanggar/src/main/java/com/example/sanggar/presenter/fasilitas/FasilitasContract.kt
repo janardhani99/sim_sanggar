@@ -3,6 +3,8 @@ package com.example.sanggar.presenter.fasilitas
 import com.example.sanggar.data.model.common.EmptyResponse
 import com.example.sanggar.data.model.fasilitas.FasilitasListResponse
 import com.example.sanggar.data.model.fasilitas.FasilitasResponse
+import com.example.sanggar.data.model.kegiatan.KegiatanListResponse
+import com.example.sanggar.data.model.kegiatan.KegiatanResponse
 import com.example.sanggar.presenter.common.BaseContract
 import io.reactivex.Observable
 import okhttp3.MultipartBody
@@ -21,7 +23,7 @@ interface FasilitasContract {
         fun addFasilitas(data: HashMap<String, Any?>)
         fun getFasilitas()
         fun deleteFasilitas(id: Int)
-        fun editFasilitas(id: Int, data: HashMap<String, Any?>)
+        fun editFasilitas(id:  Int, data: HashMap<String, Any?>)
         fun addImage(id: Int, part: MultipartBody.Part)
     }
 
@@ -34,14 +36,15 @@ interface FasilitasContract {
         fun getFasilitas(): Observable<FasilitasListResponse>
 
         @DELETE("fasilitas/{id}")
-        fun deleteFasilitas(@Path("id")id: Int): Observable<EmptyResponse>
+        fun deleteFasilitas(@Path("id") id: Int): Observable<EmptyResponse>
 
         @FormUrlEncoded
         @PATCH("fasilitas/{id}")
         fun editFasilitas(@Path("id")id: Int, @FieldMap data: HashMap<String, Any?>): Observable<FasilitasResponse>
 
         @Multipart
-        @POST("fasilitas/{id}/update-image")
+        @POST("fasilitas/{id}/update-foto")
         fun addImage(@Path("id") Id: Int, @Part part: MultipartBody.Part): Observable<FasilitasResponse>
+
     }
 }

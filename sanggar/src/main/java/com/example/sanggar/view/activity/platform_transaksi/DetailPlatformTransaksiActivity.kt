@@ -100,5 +100,6 @@ class DetailPlatformTransaksiActivity : BaseActivity(), PlatformTransaksiContrac
 
     override fun showError(title: String, message: String) {
         this.showErrorAlert(title, message)
+        isLoading(false)
     }
 }

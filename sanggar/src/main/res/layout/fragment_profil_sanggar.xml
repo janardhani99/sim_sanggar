@@ -5,119 +5,118 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".view.fragment.sanggar.ProfilFragment"
-    android:background="@drawable/bg_profil"
     android:orientation="vertical">
 
     <!-- TODO: Update blank fragment layout -->
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_gravity="center_horizontal">
-        <LinearLayout
-            android:layout_width="357dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:orientation="horizontal">
-            <ImageView
-                android:id="@+id/profil_sanggar"
-                android:layout_width="113dp"
-                android:layout_height="113dp"
-                android:layout_marginLeft="120dp"
-                android:layout_marginTop="60dp"
-                android:background="@drawable/foto">
-            </ImageView>
-
-
-        </LinearLayout>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_profile_sanggar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/dp16"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/recycler_profile_sanggar"/>
-
-
-
+<!--    <LinearLayout-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:orientation="vertical"-->
+<!--        android:layout_gravity="center_horizontal">-->
 <!--        <LinearLayout-->
-<!--            android:layout_width="360dp"-->
+<!--            android:layout_width="357dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:orientation="horizontal">-->
+<!--            <ImageView-->
+<!--                android:id="@+id/profil_sanggar"-->
+<!--                android:layout_width="113dp"-->
+<!--                android:layout_height="113dp"-->
+<!--                android:layout_marginLeft="120dp"-->
+<!--                android:layout_marginTop="60dp"-->
+<!--                android:background="@drawable/foto">-->
+<!--            </ImageView>-->
+
+
+<!--        </LinearLayout>-->
+
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:id="@+id/rv_profile_sanggar"-->
+<!--            android:layout_width="match_parent"-->
 <!--            android:layout_height="wrap_content"-->
 <!--            android:orientation="vertical"-->
-<!--            android:layout_marginLeft="15dp"-->
-<!--            android:layout_marginTop="20dp">-->
-<!--            <TextView-->
-<!--                android:id="@+id/tv_nama_sanggar"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_margin="15dp"-->
-<!--                android:hint="@string/nama_sanggar"-->
-<!--                android:textSize="24dp"-->
-<!--                style="@style/TextAppearance.AppCompat.Title">-->
-<!--            </TextView>-->
+<!--            android:layout_gravity="center_horizontal"-->
+<!--            android:layout_marginTop="@dimen/dp16"-->
+<!--            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
+<!--            tools:listitem="@layout/recycler_profile_sanggar"/>-->
 
-<!--            <TextView-->
-<!--                android:id="@+id/tv_alamat_sanggar"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:hint="@string/alamat"-->
-<!--                android:textSize="24dp"-->
-<!--                android:layout_margin="15dp"-->
-<!--                style="@style/TextAppearance.AppCompat.Title">-->
-<!--            </TextView>-->
 
-<!--            <TextView-->
-<!--                android:id="@+id/tv_no_telepon"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:hint="@string/nomor_telepon"-->
-<!--                android:textSize="24dp"-->
-<!--                android:layout_margin="15dp"-->
-<!--                style="@style/TextAppearance.AppCompat.Title">-->
-<!--            </TextView>-->
 
-<!--            <TextView-->
-<!--                android:id="@+id/tv_bank"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:hint="@string/bank"-->
-<!--                android:textSize="24dp"-->
-<!--                android:layout_margin="15dp"-->
-<!--                style="@style/TextAppearance.AppCompat.Title">-->
-<!--            </TextView>-->
+<!--&lt;!&ndash;        <LinearLayout&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_width="360dp"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:orientation="vertical"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_marginLeft="15dp"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_marginTop="20dp">&ndash;&gt;-->
+<!--&lt;!&ndash;            <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;                android:id="@+id/tv_nama_sanggar"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_margin="15dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:hint="@string/nama_sanggar"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textSize="24dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                style="@style/TextAppearance.AppCompat.Title">&ndash;&gt;-->
+<!--&lt;!&ndash;            </TextView>&ndash;&gt;-->
 
-<!--            <TextView-->
-<!--                android:id="@+id/tv_no_rekening"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:hint="@string/no_rekening"-->
-<!--                android:textSize="24dp"-->
-<!--                android:layout_margin="15dp"-->
-<!--                style="@style/TextAppearance.AppCompat.Title">-->
-<!--            </TextView>-->
+<!--&lt;!&ndash;            <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;                android:id="@+id/tv_alamat_sanggar"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:hint="@string/alamat"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textSize="24dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_margin="15dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                style="@style/TextAppearance.AppCompat.Title">&ndash;&gt;-->
+<!--&lt;!&ndash;            </TextView>&ndash;&gt;-->
 
-<!--            <TextView-->
-<!--                android:id="@+id/tv_harga_pendafataran"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:hint="@string/harga_pendaftaran"-->
-<!--                android:textSize="24dp"-->
-<!--                android:layout_margin="15dp"-->
-<!--                style="@style/TextAppearance.AppCompat.Title">-->
-<!--            </TextView>-->
+<!--&lt;!&ndash;            <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;                android:id="@+id/tv_no_telepon"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:hint="@string/nomor_telepon"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textSize="24dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_margin="15dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                style="@style/TextAppearance.AppCompat.Title">&ndash;&gt;-->
+<!--&lt;!&ndash;            </TextView>&ndash;&gt;-->
 
-<!--            <TextView-->
-<!--                android:id="@+id/tv_harga_sewa"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:hint="@string/harga_sewa"-->
-<!--                android:textSize="24dp"-->
-<!--                android:layout_margin="15dp"-->
-<!--                style="@style/TextAppearance.AppCompat.Title">-->
-<!--            </TextView>-->
-<!--        </LinearLayout>-->
-    </LinearLayout>
+<!--&lt;!&ndash;            <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;                android:id="@+id/tv_bank"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:hint="@string/bank"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textSize="24dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_margin="15dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                style="@style/TextAppearance.AppCompat.Title">&ndash;&gt;-->
+<!--&lt;!&ndash;            </TextView>&ndash;&gt;-->
+
+<!--&lt;!&ndash;            <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;                android:id="@+id/tv_no_rekening"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:hint="@string/no_rekening"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textSize="24dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_margin="15dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                style="@style/TextAppearance.AppCompat.Title">&ndash;&gt;-->
+<!--&lt;!&ndash;            </TextView>&ndash;&gt;-->
+
+<!--&lt;!&ndash;            <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;                android:id="@+id/tv_harga_pendafataran"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:hint="@string/harga_pendaftaran"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textSize="24dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_margin="15dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                style="@style/TextAppearance.AppCompat.Title">&ndash;&gt;-->
+<!--&lt;!&ndash;            </TextView>&ndash;&gt;-->
+
+<!--&lt;!&ndash;            <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;                android:id="@+id/tv_harga_sewa"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:hint="@string/harga_sewa"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textSize="24dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_margin="15dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                style="@style/TextAppearance.AppCompat.Title">&ndash;&gt;-->
+<!--&lt;!&ndash;            </TextView>&ndash;&gt;-->
+<!--&lt;!&ndash;        </LinearLayout>&ndash;&gt;-->
+<!--    </LinearLayout>-->
 </FrameLayout>

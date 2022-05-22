@@ -22,6 +22,10 @@ class DaftarListHandler: BaseHandler() {
         return service.getListDaftar()
     }
 
+    fun getBiayaPendaftaran(biayaPendaftaran: String): Observable<DaftarListResponse> {
+        return service.getBiayaPendaftaran(biayaPendaftaran)
+    }
+
     fun deleteListDaftar(id: Int): Observable<EmptyResponse> {
         return service.deleteListDaftar(id)
     }

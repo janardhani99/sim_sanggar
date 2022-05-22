@@ -33,7 +33,7 @@ import kotlinx.android.synthetic.main.fragment_toolbar.*
 import java.util.*
 import kotlin.collections.HashMap
 
-class SewaActivity : BaseActivity(),SewaContract.View {
+class SewaActivity : BaseActivity(), SewaContract.View {
 
     var data: SewaListItem? = null
     val presenter = SewaPresenter(this)

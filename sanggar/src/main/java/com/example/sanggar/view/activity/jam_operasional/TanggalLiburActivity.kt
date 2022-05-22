@@ -36,11 +36,11 @@ class TanggalLiburActivity : BaseActivity(), TanggalLiburContract.View {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_jam_operasional)
+        setContentView(R.layout.activity_tanggal_libur)
 
         //set toolbar
         setToolbar()
-//        toolbar_title?.text = getString(R.string.jam_operasional)
+        toolbar_title?.text = "Tanggal Libur"
         initAdapter()
         initListener()
         fetchData()

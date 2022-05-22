@@ -33,7 +33,7 @@ class PlatformTransaksiActivity : BaseActivity(), PlatformTransaksiContract.View
         data = intent.getParcelableExtra<PlatformTransaksiListItem>("data")
 
         setToolbar()
-//        toolbar_title?.text = getString(R.string.platform_transaksi)
+        toolbar_title?.text = getString(R.string.platform_transaksi)
 
         initListener()
         initAdapter()

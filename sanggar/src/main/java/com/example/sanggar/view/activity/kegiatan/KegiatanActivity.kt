@@ -32,7 +32,7 @@ class KegiatanActivity : BaseActivity(), KegiatanContract.View {
         data = intent.getParcelableExtra<KegiatanListItem>("data")
 
         setToolbar()
-//        toolbar_title?.text = getString(R.string.kegiatan)
+        toolbar_title?.text = getString(R.string.kegiatan)
 
         initListener()
         initAdapter()

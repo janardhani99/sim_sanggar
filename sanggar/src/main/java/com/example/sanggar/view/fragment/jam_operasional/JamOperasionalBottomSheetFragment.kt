@@ -184,6 +184,7 @@ class JamOperasionalBottomSheetFragment(val data: JamOperasionalItem? = null) : 
 
     override fun showError(title: String, message: String) {
         baseActivity.showErrorAlert(title, message)
+        isLoadingProcess(false)
     }
 
 }

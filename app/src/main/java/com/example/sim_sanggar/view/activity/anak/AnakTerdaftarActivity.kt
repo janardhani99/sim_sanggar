@@ -18,6 +18,7 @@ import com.example.sim_sanggar.presenter.anak.AnakPresenter
 import com.example.sim_sanggar.presenter.daftar.DaftarListContract
 import com.example.sim_sanggar.presenter.daftar.DaftarListPresenter
 import com.example.sim_sanggar.view.activity.common.BaseActivity
+import com.example.sim_sanggar.view.activity.platform_transaksi.PlatformTransaksiActivity
 import com.example.sim_sanggar.view.adapter.anakterdaftar.AnakTerdaftarAdapter
 import kotlinx.android.synthetic.main.activity_anak_terdaftar.*
 import kotlinx.android.synthetic.main.fragment_toolbar.*
@@ -46,6 +47,10 @@ class AnakTerdaftarActivity :BaseActivity(), AnakContract.View, DaftarListContra
     private fun initListener() {
         cv_tambah_data_anak?.clickWithDebounce {
             startActivity(Intent(this, AnakActivity::class.java))
+        }
+
+        cv_platform_transaksi?.clickWithDebounce {
+            startActivity(Intent(this, PlatformTransaksiActivity::class.java))
         }
     }
     private fun initAdapter() {

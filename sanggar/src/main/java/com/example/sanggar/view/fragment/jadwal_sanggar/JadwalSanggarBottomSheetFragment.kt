@@ -168,6 +168,7 @@ class JadwalSanggarBottomSheetFragment(val data: JadwalSanggarItem? = null) : Bo
 
 //        showErrorAlert(title, message)
         baseActivity.showErrorAlert(title, message)
+        isLoadingProcess(false)
     }
 
     fun isLoadingProcess(isLoad: Boolean) {

@@ -40,7 +40,7 @@ class JamOperasionalActivity : BaseActivity(), JamOperasionalContract.View{
 
         //set toolbar
         setToolbar()
-//        toolbar_title?.text = getString(R.string.jam_operasional)
+        toolbar_title?.text = getString(R.string.jam_operasional)
         initAdapter()
         initListener()
         fetchData()

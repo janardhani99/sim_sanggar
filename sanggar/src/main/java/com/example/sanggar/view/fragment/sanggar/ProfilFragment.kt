@@ -25,9 +25,9 @@ import kotlinx.android.synthetic.main.recycler_profile_sanggar.*
 
 class ProfilFragment(): Fragment(), ProfilSanggarContract.View {
 
-    var data : SanggarData? = null
-    private var presenter = ProfilSanggarPresenter(this)
-    lateinit var adapter: ProfilSanggarAdapter
+//    var data : SanggarData? = null
+//    private var presenter = ProfilSanggarPresenter(this)
+//    lateinit var adapter: ProfilSanggarAdapter
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -40,70 +40,70 @@ class ProfilFragment(): Fragment(), ProfilSanggarContract.View {
         super.onViewCreated(view, savedInstanceState)
 
 //        data = getActivity()?.intent?.getParcelableExtra<SanggarData>("data")
-        initAdapter()
-        initListener()
-        data?.let { setView(it) }
+//        initAdapter()
+//        initListener()
+//        data?.let { setView(it) }
     }
 
-    private fun initListener() {
-        btn_edit_profil?.clickWithDebounce {
-            val intent = Intent(context, EditProfilActivity::class.java)
-            startActivity(intent)
-        }
-
-    }
-
-    private fun initAdapter() {
-        adapter = ProfilSanggarAdapter {
-            detailItem -> val intent = (Intent(context, EditProfilActivity::class.java ))
-            intent.putExtra("data", detailItem)
-            startActivity(intent)
-        }
-        rv_profile_sanggar?.layoutManager = LinearLayoutManager(activity)
-        rv_profile_sanggar?.adapter = adapter
-    }
-
-    private fun isLoading(isLoad: Boolean) {
-        if (isLoad) this.context?.let { Utilities.showProgress(it) }
-        else Utilities.hideProgress()
-    }
-
-    private fun setView(data: SanggarData) {
-
-        data?.run {
-            tv_nama_sanggar?.text = data.nama_sanggar
-//            tv_alamat_sanggar?.text = data.alamat
-//            tv_no_telepon?.text = data.telepon
-//            tv_bank?.text = data.bank
-//            tv_no_rekening?.text = data.nomor_rekening
+//    private fun initListener() {
+//        btn_edit_profil?.clickWithDebounce {
+//            val intent = Intent(context, EditProfilActivity::class.java)
+//            startActivity(intent)
+//        }
 //
-////            tv_harga_pendafataran.setText(data.harga_pendaftaran_siswa)
-////            tv_harga_sewa.setText(data.harga_penyewaan_siswa)
-        }
-
-//        var data = SanggarData()
-//        tv_nama_sanggar?.setText(data?.nama_sanggar)
-//        tv_alamat_sanggar?.setText(data?.alamat)
-//        tv_no_telepon?.setText(data?.telepon)
-//        tv_bank?.setText(data?.bank)
-//        tv_no_rekening?.setText(data?.nomor_rekening)
-//        tv_harga_pendafataran?.setText(data?.harga_pendaftaran_siswa?.let { Integer.toString(it) })
-//        tv_harga_sewa?.setText(data?.harga_penyewaan_siswa?.let { Integer.toString(it) })
-
-    }
-
+//    }
+//
+//    private fun initAdapter() {
+//        adapter = ProfilSanggarAdapter {
+//            detailItem -> val intent = (Intent(context, EditProfilActivity::class.java ))
+//            intent.putExtra("data", detailItem)
+//            startActivity(intent)
+//        }
+//        rv_profile_sanggar?.layoutManager = LinearLayoutManager(activity)
+//        rv_profile_sanggar?.adapter = adapter
+//    }
+//
+//    private fun isLoading(isLoad: Boolean) {
+//        if (isLoad) this.context?.let { Utilities.showProgress(it) }
+//        else Utilities.hideProgress()
+//    }
+//
+//    private fun setView(data: SanggarData) {
+//
+//        data?.run {
+//            tv_nama_sanggar?.text = data.nama_sanggar
+////            tv_alamat_sanggar?.text = data.alamat
+////            tv_no_telepon?.text = data.telepon
+////            tv_bank?.text = data.bank
+////            tv_no_rekening?.text = data.nomor_rekening
+////
+//////            tv_harga_pendafataran.setText(data.harga_pendaftaran_siswa)
+//////            tv_harga_sewa.setText(data.harga_penyewaan_siswa)
+//        }
+//
+////        var data = SanggarData()
+////        tv_nama_sanggar?.setText(data?.nama_sanggar)
+////        tv_alamat_sanggar?.setText(data?.alamat)
+////        tv_no_telepon?.setText(data?.telepon)
+////        tv_bank?.setText(data?.bank)
+////        tv_no_rekening?.setText(data?.nomor_rekening)
+////        tv_harga_pendafataran?.setText(data?.harga_pendaftaran_siswa?.let { Integer.toString(it) })
+////        tv_harga_sewa?.setText(data?.harga_penyewaan_siswa?.let { Integer.toString(it) })
+//
+//    }
+//
     override fun profilSanggarResponse(response: ProfilSanggarResponse) {
         TODO("Not yet implemented")
     }
 
     override fun getProfilSanggarResponse(response: ProfilSanggarListResponse) {
-        isLoading(false)
-        response.data?.let { adapter.setData(it) }
+//        isLoading(false)
+//        response.data?.let { adapter.setData(it) }
 
     }
 
     override fun showError(title: String, message: String) {
         TODO("Not yet implemented")
     }
-
+//
 }
