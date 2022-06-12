@@ -114,6 +114,10 @@ class AnakTerdaftarActivity :BaseActivity(), AnakContract.View, DaftarListContra
 
     }
 
+    override fun getBiayaPendaftaran(response: DaftarListResponse) {
+        TODO("Not yet implemented")
+    }
+
     override fun deleteDaftarListResponse(response: EmptyResponse) {
         TODO("Not yet implemented")
     }

@@ -11,6 +11,7 @@ import com.example.sim_sanggar.common.clickWithDebounce
 import com.example.sim_sanggar.view.activity.anak.AnakActivity
 import com.example.sim_sanggar.view.activity.anak.AnakTerdaftarActivity
 import com.example.sim_sanggar.view.activity.anak.PembayaranActivity
+import com.example.sim_sanggar.view.activity.report_anak.ReportAnakActivity
 import kotlinx.android.synthetic.main.fragment_pendaftaran.*
 
 class AnakFragment : Fragment() {
@@ -34,9 +35,9 @@ class AnakFragment : Fragment() {
             startActivity(Intent(context, AnakTerdaftarActivity::class.java))
         }
 
-//        cv_bayar?.clickWithDebounce {
-//            startActivity(Intent(context, AnakTerdaftarActivity::class.java))
-//        }
+        cv_report_anak?.clickWithDebounce {
+            startActivity(Intent(context, ReportAnakActivity::class.java))
+        }
 
     }
 

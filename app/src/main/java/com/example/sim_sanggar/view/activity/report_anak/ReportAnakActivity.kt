@@ -23,7 +23,7 @@ import com.example.sim_sanggar.presenter.report_anak.PertemuanContract
 import com.example.sim_sanggar.presenter.report_anak.ReportAnakContract
 import com.example.sim_sanggar.view.activity.common.BaseActivity
 
-class ReportAnakActivity : BaseActivity(), JadwalSanggarContract.View, PertemuanContract.View {
+class ReportAnakActivity : BaseActivity(), AnakContract.View, JadwalSanggarContract.View, PertemuanContract.View {
 
     var listKelas : List<JadwalSanggarItem>? = null
     var presenterKelas = JadwalSanggarPresenter(this)
@@ -57,6 +57,14 @@ class ReportAnakActivity : BaseActivity(), JadwalSanggarContract.View, Pertemuan
     }
 
     override fun deleteJadwalResponse(response: EmptyResponse) {
+        TODO("Not yet implemented")
+    }
+
+    override fun anakResponse(response: AnakResponse) {
+        TODO("Not yet implemented")
+    }
+
+    override fun getAnakResponse(response: AnakListResponse) {
         TODO("Not yet implemented")
     }
 

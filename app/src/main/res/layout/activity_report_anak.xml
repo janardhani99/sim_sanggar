@@ -35,6 +35,25 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="Nama Anak"
+                android:textSize="20dp"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/AppTheme.TextInputAutoComplete">
+
+                <AutoCompleteTextView
+                    android:id="@+id/ac_pilih_pertemuan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/AppTheme.TextInputAutoComplete"
+                    android:layout_marginTop="@dimen/dp5"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:text="Pilih Kelas"
                 android:textSize="20dp"/>
 
@@ -54,21 +73,14 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Pilih Pertemuan"
+                android:text="Pertemuan Ke "
                 android:textSize="20dp"/>
 
-            <com.google.android.material.textfield.TextInputLayout
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/til_pertemuan_ke"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/AppTheme.TextInputAutoComplete">
-
-                <AutoCompleteTextView
-                    android:id="@+id/ac_pilih_pertemuan"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    style="@style/AppTheme.TextInputAutoComplete"
-                    android:layout_marginTop="@dimen/dp5"/>
-            </com.google.android.material.textfield.TextInputLayout>
+                android:inputType="number"/>
 
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
