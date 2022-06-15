@@ -81,6 +81,12 @@ class PembayaranActivity() : BaseActivity(), DaftarListContract.View, AnakContra
         }
     }
 
+
+    fun AutoCompleteTextView.setArrayAdapter(list: List<String?>) {
+        val adapter = ArrayAdapter(GlobalClass.context, R.layout.layout_dropdown_item, list)
+        this.setAdapter(adapter)
+    }
+
     private fun initAdapter() {
 //        val kelasAdapter = listKelas?.let { ArrayAdapter(this, R.layout.layout_dropdown_item, it) }
 //        val kopiList = arrayListOf("cappuccino", "latte", "flat white")
@@ -108,15 +114,6 @@ class PembayaranActivity() : BaseActivity(), DaftarListContract.View, AnakContra
     }
 //        ac_kategori_kelas?.setAdapter(kelasAdapter)
 //        adapter = AnakTerdaftarAdapter { daftarItem-> kirimData(daftarItem) }
-
-
-
-    fun AutoCompleteTextView.setArrayAdapter(list: List<String?>) {
-        val adapter = ArrayAdapter(GlobalClass.context, R.layout.layout_dropdown_item, list)
-        this.setAdapter(adapter)
-    }
-
-
 
     private fun setView(data: AnakListItem) {
         data.run {

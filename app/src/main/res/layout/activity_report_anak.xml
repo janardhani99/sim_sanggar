@@ -44,7 +44,7 @@
                 style="@style/AppTheme.TextInputAutoComplete">
 
                 <AutoCompleteTextView
-                    android:id="@+id/ac_pilih_pertemuan"
+                    android:id="@+id/ac_pilih_anak"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     style="@style/AppTheme.TextInputAutoComplete"

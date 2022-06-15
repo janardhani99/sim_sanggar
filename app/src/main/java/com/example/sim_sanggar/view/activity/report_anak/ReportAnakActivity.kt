@@ -2,7 +2,11 @@ package com.example.sim_sanggar.view.activity.report_anak
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
+import com.example.sim_sanggar.GlobalClass
 import com.example.sim_sanggar.R
+import com.example.sim_sanggar.data.model.anak.AnakListItem
 import com.example.sim_sanggar.data.model.anak.AnakListResponse
 import com.example.sim_sanggar.data.model.anak.AnakResponse
 import com.example.sim_sanggar.data.model.common.EmptyResponse
@@ -16,14 +20,19 @@ import com.example.sim_sanggar.data.model.report_anak.PertemuanDataResponse
 import com.example.sim_sanggar.data.model.report_anak.ReportAnakListResponse
 import com.example.sim_sanggar.data.model.report_anak.ReportAnakResponse
 import com.example.sim_sanggar.presenter.anak.AnakContract
+import com.example.sim_sanggar.presenter.anak.AnakPresenter
 import com.example.sim_sanggar.presenter.daftar.DaftarListContract
 import com.example.sim_sanggar.presenter.jadwal_sanggar.JadwalSanggarContract
 import com.example.sim_sanggar.presenter.jadwal_sanggar.JadwalSanggarPresenter
 import com.example.sim_sanggar.presenter.report_anak.PertemuanContract
 import com.example.sim_sanggar.presenter.report_anak.ReportAnakContract
 import com.example.sim_sanggar.view.activity.common.BaseActivity
+import kotlinx.android.synthetic.main.activity_report_anak.*
 
 class ReportAnakActivity : BaseActivity(), AnakContract.View, JadwalSanggarContract.View, PertemuanContract.View {
+
+    var listAnak : List<AnakListItem>? = null
+    private var presenterAnak = AnakPresenter(this)
 
     var listKelas : List<JadwalSanggarItem>? = null
     var presenterKelas = JadwalSanggarPresenter(this)
@@ -34,7 +43,36 @@ class ReportAnakActivity : BaseActivity(), AnakContract.View, JadwalSanggarContr
 
         setToolbar()
 
+        presenterAnak.getAnak()
+        presenterKelas.getJadwal()
+
+
+        initAdapter()
     }
+
+
+    fun AutoCompleteTextView.setArrayAdapter(list: List<String?>) {
+        val adapter = ArrayAdapter(GlobalClass.context, R.layout.layout_dropdown_item, list)
+        this.setAdapter(adapter)
+    }
+
+    private fun initAdapter() {
+        val nama_anak = listAnak?.map { it.nama }
+        val kategori_latihan = listKelas?.map { it.kategori_latihan }
+
+        ac_pilih_anak?.run {
+            if (nama_anak != null) {
+                setArrayAdapter(nama_anak)
+            }
+        }
+
+        ac_pilih_kelas?.run {
+            if (kategori_latihan != null) {
+                setArrayAdapter(kategori_latihan)
+            }
+        }
+    }
+
 
     override fun pertemuanResponse(response: PertemuanDataResponse) {
         TODO("Not yet implemented")
@@ -53,7 +91,8 @@ class ReportAnakActivity : BaseActivity(), AnakContract.View, JadwalSanggarContr
     }
 
     override fun getJadwalSanggarResponse(response: JadwalSanggarListResponse) {
-        TODO("Not yet implemented")
+        listKelas =  response.data
+        initAdapter()
     }
 
     override fun deleteJadwalResponse(response: EmptyResponse) {
@@ -65,7 +104,8 @@ class ReportAnakActivity : BaseActivity(), AnakContract.View, JadwalSanggarContr
     }
 
     override fun getAnakResponse(response: AnakListResponse) {
-        TODO("Not yet implemented")
+        listAnak = response.data
+        initAdapter()
     }
 
     override fun showError(title: String, message: String) {
