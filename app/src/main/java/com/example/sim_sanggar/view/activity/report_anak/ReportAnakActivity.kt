@@ -6,6 +6,7 @@ import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import com.example.sim_sanggar.GlobalClass
 import com.example.sim_sanggar.R
+import com.example.sim_sanggar.common.clickWithDebounce
 import com.example.sim_sanggar.data.model.anak.AnakListItem
 import com.example.sim_sanggar.data.model.anak.AnakListResponse
 import com.example.sim_sanggar.data.model.anak.AnakResponse
@@ -48,6 +49,7 @@ class ReportAnakActivity : BaseActivity(), AnakContract.View, JadwalSanggarContr
 
 
         initAdapter()
+        initListener()
     }
 
 
@@ -73,6 +75,19 @@ class ReportAnakActivity : BaseActivity(), AnakContract.View, JadwalSanggarContr
         }
     }
 
+    private fun initListener() {
+        cv_cari_report?.clickWithDebounce {
+            val selectedAnak = listAnak?.find { it.nama == ac_pilih_anak.text.toString() }?.id
+            val selectedKelas = listKelas?.find { it.kategori_latihan == ac_pilih_kelas.text.toString() }?.id
+            val pertemuan = til_pertemuan_ke.editText?.text.toString()
+
+            cariReport(selectedAnak, selectedKelas, pertemuan)
+        }
+    }
+
+    fun cariReport(anak: Int?, kelas: Int?, pertemuan: String?) {
+
+    }
 
     override fun pertemuanResponse(response: PertemuanDataResponse) {
         TODO("Not yet implemented")

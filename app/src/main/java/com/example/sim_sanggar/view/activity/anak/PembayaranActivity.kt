@@ -145,7 +145,7 @@ class PembayaranActivity() : BaseActivity(), DaftarListContract.View, AnakContra
         tambahData["transfer_via"] = transfer_via
         tambahData["anak_id"] = anak_id
         tambahData["jadwal_sanggar_id"] = selectedKelasId
-        tambahData["kategori_kelas"] = kategori_kelas
+//        tambahData["kategori_kelas"] = kategori_kelas
 
         isLoading(true)
 //        val isValid = imageFile != null && data?.id != null
