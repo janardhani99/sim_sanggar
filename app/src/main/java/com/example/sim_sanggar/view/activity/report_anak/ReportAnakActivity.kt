@@ -16,10 +16,7 @@ import com.example.sim_sanggar.data.model.daftar.DaftarResponse
 import com.example.sim_sanggar.data.model.jadwal_sanggar.JadwalSanggarItem
 import com.example.sim_sanggar.data.model.jadwal_sanggar.JadwalSanggarListResponse
 import com.example.sim_sanggar.data.model.jadwal_sanggar.JadwalSanggarResponse
-import com.example.sim_sanggar.data.model.report_anak.PertemuanDataListResponse
-import com.example.sim_sanggar.data.model.report_anak.PertemuanDataResponse
-import com.example.sim_sanggar.data.model.report_anak.ReportAnakListResponse
-import com.example.sim_sanggar.data.model.report_anak.ReportAnakResponse
+import com.example.sim_sanggar.data.model.report_anak.*
 import com.example.sim_sanggar.presenter.anak.AnakContract
 import com.example.sim_sanggar.presenter.anak.AnakPresenter
 import com.example.sim_sanggar.presenter.daftar.DaftarListContract
@@ -27,16 +24,20 @@ import com.example.sim_sanggar.presenter.jadwal_sanggar.JadwalSanggarContract
 import com.example.sim_sanggar.presenter.jadwal_sanggar.JadwalSanggarPresenter
 import com.example.sim_sanggar.presenter.report_anak.PertemuanContract
 import com.example.sim_sanggar.presenter.report_anak.ReportAnakContract
+import com.example.sim_sanggar.presenter.report_anak.ReportAnakPresenter
 import com.example.sim_sanggar.view.activity.common.BaseActivity
 import kotlinx.android.synthetic.main.activity_report_anak.*
 
-class ReportAnakActivity : BaseActivity(), AnakContract.View, JadwalSanggarContract.View, PertemuanContract.View {
+class ReportAnakActivity : BaseActivity(), AnakContract.View, JadwalSanggarContract.View, PertemuanContract.View, ReportAnakContract.View {
 
     var listAnak : List<AnakListItem>? = null
     private var presenterAnak = AnakPresenter(this)
 
     var listKelas : List<JadwalSanggarItem>? = null
     var presenterKelas = JadwalSanggarPresenter(this)
+
+    var listReport : List<ReportAnakData>? = null
+    var presenterReportAnak = ReportAnakPresenter(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,7 +47,6 @@ class ReportAnakActivity : BaseActivity(), AnakContract.View, JadwalSanggarContr
 
         presenterAnak.getAnak()
         presenterKelas.getJadwal()
-
 
         initAdapter()
         initListener()
@@ -81,12 +81,14 @@ class ReportAnakActivity : BaseActivity(), AnakContract.View, JadwalSanggarContr
             val selectedKelas = listKelas?.find { it.kategori_latihan == ac_pilih_kelas.text.toString() }?.id
             val pertemuan = til_pertemuan_ke.editText?.text.toString()
 
-            cariReport(selectedAnak, selectedKelas, pertemuan)
+            if (selectedAnak != null) {
+                showCustomDialog("Yes", "yesyes")
+                presenterReportAnak.loadDataSearch(selectedAnak)
+            }
+            else {
+                showCustomDialog("No", "nonono")
+            }
         }
-    }
-
-    fun cariReport(anak: Int?, kelas: Int?, pertemuan: String?) {
-
     }
 
     override fun pertemuanResponse(response: PertemuanDataResponse) {
@@ -121,6 +123,23 @@ class ReportAnakActivity : BaseActivity(), AnakContract.View, JadwalSanggarContr
     override fun getAnakResponse(response: AnakListResponse) {
         listAnak = response.data
         initAdapter()
+    }
+
+    override fun progressAnakResponse(response: ReportAnakResponse) {
+        TODO("Not yet implemented")
+    }
+
+    override fun getProgressAnakResponse(response: ReportAnakListResponse) {
+        TODO("Not yet implemented")
+    }
+
+    override fun getDetailProgress(response: ReportAnakResponse) {
+        TODO("Not yet implemented")
+    }
+
+    override fun loadDataSearch(response: ReportAnakListResponse) {
+        listReport = response.data
+        initListener()
     }
 
     override fun showError(title: String, message: String) {

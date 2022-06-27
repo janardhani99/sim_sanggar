@@ -13,6 +13,7 @@ interface ReportAnakContract {
         fun progressAnakResponse(response: ReportAnakResponse)
         fun getProgressAnakResponse(response: ReportAnakListResponse)
         fun getDetailProgress(response: ReportAnakResponse)
+        fun loadDataSearch(response: ReportAnakListResponse)
     }
 
     interface Presenter {
@@ -20,6 +21,7 @@ interface ReportAnakContract {
         fun editProgressAnak(id: Int, data: HashMap<String, Any?>)
         fun getProgressAnak()
         fun getDetailProgress(data: HashMap<String, Any?>)
+        fun loadDataSearch(anak: Int)
     }
 
     interface Handler {
@@ -36,6 +38,9 @@ interface ReportAnakContract {
 
         @GET("detailprogress")
         fun getDetailProgress(@QueryMap map:HashMap<String, Any?>):Observable<ReportAnakResponse>
+
+        @GET("progressanak/{anak}")
+        fun loadDataSearch(@Path("anak") key: Int):Observable<ReportAnakListResponse>
 
     }
 }
