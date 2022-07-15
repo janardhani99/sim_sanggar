@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import com.example.sim_sanggar.view.activity.common.BaseActivity
 import com.example.sim_sanggar.view.fragment.anak.AnakFragment
 import com.example.sim_sanggar.view.fragment.beranda.BerandaFragment
+import com.example.sim_sanggar.view.fragment.daftar.DaftarFragment
 import com.example.sim_sanggar.view.fragment.profil.ProfilFragment
 import com.example.sim_sanggar.view.fragment.sewa.JadwalSewaFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -21,7 +22,7 @@ class MainTabActivity: BaseActivity() {
             }
 
             R.id.menu_daftar -> {
-                if (!isDisplaying(AnakFragment())) replaceFragment(AnakFragment())
+                if (!isDisplaying(DaftarFragment())) replaceFragment(DaftarFragment())
                 return@OnNavigationItemSelectedListener true
             }
 

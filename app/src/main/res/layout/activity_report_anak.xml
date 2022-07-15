@@ -90,11 +90,12 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cv_cari_report"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <Button
+                    android:id="@+id/cv_cari_report"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Cari"/>

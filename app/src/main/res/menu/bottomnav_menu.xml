@@ -9,7 +9,7 @@
     <item
         android:enabled="true"
         android:id="@+id/menu_daftar"
-        android:title="Anak"
+        android:title="Daftar"
         android:icon="@drawable/menudaftar"/>
 
     <item
