@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".view.activity.sewa.UploadBuktiActivity">
+    tools:context=".view.activity.anak.PembayaranActivity">
 
     <include
         android:id="@+id/tl_upload_bukti"

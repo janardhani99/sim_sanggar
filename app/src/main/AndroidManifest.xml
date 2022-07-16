@@ -14,7 +14,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SIM_Sanggar">
-        <activity android:name=".view.activity.report_anak.ReportAnakActivity"></activity>
+        <activity android:name=".view.activity.daftar.PlatformTransaksiActivity"></activity>
+        <activity android:name=".view.activity.daftar.UploadBuktiDaftarActivity" />
+        <activity android:name=".view.activity.daftar.FormDaftarKelasActivity" />
+        <activity android:name=".view.activity.report_anak.ReportAnakActivity" />
         <activity android:name=".view.activity.jam_operasional.JamOperasionalActivity">
             android:screenOrientation="portrait">
         </activity>

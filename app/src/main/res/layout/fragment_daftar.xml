@@ -23,7 +23,7 @@
             android:layout_marginBottom="@dimen/dp16"/>
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_jadwal_sanggar"
+                android:id="@+id/rv_daftar_kelas"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 tools:listitem="@layout/recycler_daftar_kelas"
