@@ -28,6 +28,7 @@ class DaftarKelasAdapter(val detailListener: (JadwalSanggarItem)-> Unit): Recycl
         holder.itemView.apply {
             tv_jadwal_sanggar.text = item.kategori_latihan
             tv_waktu.text = "${item.hari}, ${item.jam_mulai?.let { getTimeFormat(it) }}-${item.jam_selesai?.let { getTimeFormat(it) }}"
+            tv_biaya.text = item.biaya
 
             btn_daftar_kelas.setOnClickListener {
                 detailListener(item)
