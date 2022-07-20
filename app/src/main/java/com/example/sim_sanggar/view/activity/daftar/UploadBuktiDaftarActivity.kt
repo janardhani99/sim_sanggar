@@ -51,13 +51,9 @@ class UploadBuktiDaftarActivity : BaseActivity(), DaftarListContract.View {
 
     private fun kirimData() {
 
-        val kelasId = data_daftar?.jadwal_sanggar_id?.id
-        val anakId = data_daftar?.anak_id?.id
         val transfer_via = til_transfer_via?.editText?.text.toString()
 
         val tambahData = HashMap<String, Any?>()
-        tambahData["jadwal_sanggar_id"] = kelasId
-        tambahData["anak_id"] = anakId
         tambahData["transfer_via"] = transfer_via
 
         isLoading(true)
@@ -71,7 +67,6 @@ class UploadBuktiDaftarActivity : BaseActivity(), DaftarListContract.View {
         }
 
         btn_kirim_data?.clickWithDebounce {
-//            data?.let { it1 -> kirimData(it1) }
             kirimData()
         }
 
@@ -105,7 +100,7 @@ class UploadBuktiDaftarActivity : BaseActivity(), DaftarListContract.View {
             imageFile?.let { uploadImage(response.data?.id,it) }
         } else {
             isLoading(false)
-            this.showCustomDialogBack("Data berhasil", "Data berhasil dikirim")
+            this.showCustomDialogBack("Berhasil", "Pendaftaran Berhasil")
         }
 
     }
@@ -124,7 +119,8 @@ class UploadBuktiDaftarActivity : BaseActivity(), DaftarListContract.View {
     }
 
     override fun uploadImageResponse() {
-        TODO("Not yet implemented")
+        isLoading(false)
+        this.showCustomDialogBack("Data berhasil", "Data berhasil dikirim")
     }
 
     override fun showError(title: String, message: String) {

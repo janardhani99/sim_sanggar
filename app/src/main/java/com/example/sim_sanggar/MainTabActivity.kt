@@ -17,22 +17,26 @@ class MainTabActivity: BaseActivity() {
     private val navigationListener = BottomNavigationView.OnNavigationItemSelectedListener {
         when (it.itemId) {
             R.id.menu_beranda -> {
-                if (!isDisplaying(BerandaFragment())) replaceFragment(BerandaFragment())
+                if (!isDisplaying(BerandaFragment()))
+                    replaceFragment(BerandaFragment())
                 return@OnNavigationItemSelectedListener true
             }
 
             R.id.menu_daftar -> {
-                if (!isDisplaying(DaftarFragment())) replaceFragment(DaftarFragment())
+                if (!isDisplaying(DaftarFragment()))
+                    replaceFragment(DaftarFragment())
                 return@OnNavigationItemSelectedListener true
             }
 
             R.id.menu_sewa -> {
-                if (!isDisplaying(JadwalSewaFragment())) replaceFragment(JadwalSewaFragment())
+                if (!isDisplaying(JadwalSewaFragment()))
+                    replaceFragment(JadwalSewaFragment())
                 return@OnNavigationItemSelectedListener true
             }
 
             R.id.menu_profil -> {
-                if (!isDisplaying(ProfilFragment())) replaceFragment(ProfilFragment())
+                if (!isDisplaying(ProfilFragment()))
+                    replaceFragment(ProfilFragment())
                 return@OnNavigationItemSelectedListener true
             }
         }

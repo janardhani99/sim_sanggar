@@ -29,12 +29,13 @@ import kotlinx.android.synthetic.main.activity_form_daftar_kelas.*
 import kotlinx.android.synthetic.main.activity_form_daftar_kelas.til_kategori_kelas
 import kotlinx.android.synthetic.main.activity_form_daftar_kelas.til_total_bayar
 
-class FormDaftarKelasActivity : BaseActivity(), AnakContract.View, JadwalSanggarContract.View{
+class FormDaftarKelasActivity : BaseActivity(), AnakContract.View, JadwalSanggarContract.View, DaftarListContract.View{
 
     var data_anak: List<AnakListItem>? = null
     var data_kelas: JadwalSanggarItem? = null
     var data_daftar : PendaftaranAnak? = null
     private var presenterAnak = AnakPresenter(this)
+    private var presenterDaftar = DaftarListPresenter(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,13 +52,11 @@ class FormDaftarKelasActivity : BaseActivity(), AnakContract.View, JadwalSanggar
 
     private fun initListener() {
         btn_lanjutkan?.clickWithDebounce {
-            data_daftar?.jadwal_sanggar_id = data_kelas
-
-            var selectedAnak  = data_anak?.find{it.nama == ac_nama_anak?.text.toString()}
-            data_daftar?.anak_id = selectedAnak
+            simpanData()
 
             val intent = Intent(this, PlatformTransaksiActivity::class.java)
             intent.putExtra("data_daftar", data_daftar )
+//            intent.putExtra("data_kelas", data_kelas)
             startActivity(intent)
         }
     }
@@ -75,7 +74,13 @@ class FormDaftarKelasActivity : BaseActivity(), AnakContract.View, JadwalSanggar
                 setArrayAdapter(nama_anak)
             }
 
+//            data_anak?.find{it.nama == ac_nama_anak?.text.toString()}?.id?.let { til_anak_id.editText?.setText(it).toString() }
+
         }
+
+
+//        data_daftar?.jadwal_sanggar_id = data_kelas
+
 
     }
 
@@ -87,6 +92,24 @@ class FormDaftarKelasActivity : BaseActivity(), AnakContract.View, JadwalSanggar
 
     }
 
+    private fun simpanData() {
+        val selectedAnak  = data_anak?.find{it.nama == ac_nama_anak?.text.toString()}?.id
+        val kelasId = data_kelas?.id
+
+        val tambahData = HashMap<String, Any?>()
+        tambahData["anak_id"] = selectedAnak
+        tambahData["jadwal_sanggar_id"] = kelasId
+
+        isLoading(true)
+        presenterDaftar.addListDaftar(tambahData)
+
+    }
+
+    private fun isLoading(isLoad: Boolean) {
+        if (isLoad) Utilities.showProgress(this)
+        else Utilities.hideProgress()
+    }
+
     override fun anakResponse(response: AnakResponse) {
         TODO("Not yet implemented")
     }
@@ -94,6 +117,7 @@ class FormDaftarKelasActivity : BaseActivity(), AnakContract.View, JadwalSanggar
     override fun getAnakResponse(response: AnakListResponse) {
         data_anak = response.data
         initAdapter()
+        initListener()
     }
 
     override fun jadwalSanggarResponse(response: JadwalSanggarResponse) {
@@ -105,6 +129,27 @@ class FormDaftarKelasActivity : BaseActivity(), AnakContract.View, JadwalSanggar
     }
 
     override fun deleteJadwalResponse(response: EmptyResponse) {
+        TODO("Not yet implemented")
+    }
+
+    override fun daftarListResponse(response: DaftarResponse) {
+        isLoading(false)
+        this.showCustomDialogBack("Berhasil", "Lanjutkan pembayaran")
+    }
+
+    override fun getDaftarListResponse(response: DaftarListResponse) {
+        TODO("Not yet implemented")
+    }
+
+    override fun getBiayaPendaftaran(response: DaftarListResponse) {
+        TODO("Not yet implemented")
+    }
+
+    override fun deleteDaftarListResponse(response: EmptyResponse) {
+        TODO("Not yet implemented")
+    }
+
+    override fun uploadImageResponse() {
         TODO("Not yet implemented")
     }
 

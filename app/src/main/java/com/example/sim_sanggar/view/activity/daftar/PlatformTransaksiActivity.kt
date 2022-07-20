@@ -11,13 +11,13 @@ import com.example.sim_sanggar.R
 import com.example.sim_sanggar.common.Utilities
 import com.example.sim_sanggar.common.clickWithDebounce
 import com.example.sim_sanggar.data.model.daftar.PendaftaranAnak
+import com.example.sim_sanggar.data.model.jadwal_sanggar.JadwalSanggarItem
 import com.example.sim_sanggar.data.model.platform_transaksi.PlatformTransaksiListItem
 import com.example.sim_sanggar.data.model.platform_transaksi.PlatformTransaksiListResponse
 import com.example.sim_sanggar.presenter.platform_transaksi.PlatformTransaksiContract
 import com.example.sim_sanggar.presenter.platform_transaksi.PlatformTransaksiPresenter
 import com.example.sim_sanggar.view.activity.common.BaseActivity
 import com.example.sim_sanggar.view.adapter.platform_transaksi.PlatformTransaksiAdapter
-import kotlinx.android.synthetic.main.activity_platform_transaksi.*
 import kotlinx.android.synthetic.main.activity_platform_transaksi.rv_platform_transaksi
 import kotlinx.android.synthetic.main.activity_platform_transaksi2.*
 import kotlinx.android.synthetic.main.fragment_toolbar.*
@@ -25,7 +25,6 @@ import kotlinx.android.synthetic.main.recycler_platform_transaksi.*
 
 class PlatformTransaksiActivity : BaseActivity(), PlatformTransaksiContract.View {
 
-    var data: PlatformTransaksiListItem? = null
     var data_daftar: PendaftaranAnak? = null
     private var presenter = PlatformTransaksiPresenter(this)
     lateinit var adapter: PlatformTransaksiAdapter
@@ -34,7 +33,6 @@ class PlatformTransaksiActivity : BaseActivity(), PlatformTransaksiContract.View
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_platform_transaksi2)
 
-        data = intent.getParcelableExtra("data")
         data_daftar = intent.getParcelableExtra<PendaftaranAnak>("data_daftar")
 
         setToolbar()
@@ -42,12 +40,15 @@ class PlatformTransaksiActivity : BaseActivity(), PlatformTransaksiContract.View
 
         initAdapter()
         initListener()
+//        data_daftar?.let { setView(it) }
     }
 
     private fun initListener() {
         btn_copy_nomor?.clickWithDebounce {
             copyToClipboard()
+            this.showCustomDialog("Berhasil", "Nomor berhasil disalin!")
         }
+
 
         btn_sudah_bayar?.clickWithDebounce {
             val intent = Intent(this, UploadBuktiDaftarActivity::class.java)
@@ -62,6 +63,14 @@ class PlatformTransaksiActivity : BaseActivity(), PlatformTransaksiContract.View
         rv_platform_transaksi?.adapter = adapter
     }
 
+//    private fun setView(data: PendaftaranAnak) {
+//        data.run {
+//            data.anak_id?.id?.let { til_anak_id?.editText?.setText(it).toString() }
+//            data.jadwal_sanggar_id?.id?.let { til_kelas_id?.editText?.setText(it).toString() }
+//        }
+
+
+//    }
     fun fetchData() {
         isLoading(true)
         presenter.getPlatformTransaksi()
@@ -75,7 +84,7 @@ class PlatformTransaksiActivity : BaseActivity(), PlatformTransaksiContract.View
         clipboardManager.setPrimaryClip(clipData)
 
 //        Toast.makeText(this, "Nomor berhasil disalin!", Toast.LENGTH_LONG).show()
-        this.showCustomDialog("Berhasil", "Nomor berhasil disalin!")
+
     }
 
     private fun isLoading(isLoad: Boolean) {
