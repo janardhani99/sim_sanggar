@@ -64,13 +64,13 @@ class DaftarListPresenter(val view: DaftarListContract.View): BasePresenter(view
                 })
     }
 
-    override fun uploadBuktiPembayaran(image: File, tf_via: String) {
-        super.uploadBuktiPembayaran(image, tf_via)
+    override fun uploadBuktiPembayaran(id: Int, image: File, tf_via: String, status: String) {
+        super.uploadBuktiPembayaran(id, image, tf_via, status)
         val imagePart = image.createImageMultipart()
-        val map = hashMapOf<String, RequestBody>(
-                "transfer_via" to tf_via.createPartFromString()
-        )
-        handler.uploadBuktiPembayaran(imagePart, map)
+        val map = hashMapOf<String, RequestBody>()
+        map.put("transfer_via", tf_via.createPartFromString())
+        map.put("status", status.createPartFromString())
+        handler.uploadBuktiPembayaran(id, imagePart, map)
                 .doSubscribe(object : ErrorHandler<DaftarResponse>(this) {
                     override fun onNext(t: DaftarResponse) {
                         view.daftarListResponse(t)

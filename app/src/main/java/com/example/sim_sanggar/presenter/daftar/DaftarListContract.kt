@@ -31,7 +31,7 @@ interface DaftarListContract {
         fun getBiayaPendaftaran(biaya_pendaftaran: String)
         fun deleteListDaftar(id: Int)
         fun addImage(id: Int, part: MultipartBody.Part)
-        fun uploadBuktiPembayaran( image: File, tf_via: String) {}
+        fun uploadBuktiPembayaran(id: Int, image: File, tf_via: String, status: String) {}
     }
 
     interface Handler {
@@ -55,7 +55,7 @@ interface DaftarListContract {
         @Multipart
         @POST("pendaftaran-siswa/{id}/update-image")
         fun uploadBuktiPembayaran(
-//                @Path("id") Id: Int,
+                @Path("id") Id: Int,
                 @Part imageData: MultipartBody.Part,
                 @PartMap map: HashMap<String, RequestBody>
         ): Observable<DaftarResponse>

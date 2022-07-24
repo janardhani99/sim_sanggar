@@ -6,10 +6,12 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.sim_sanggar.R
 import com.example.sim_sanggar.common.Utilities
 import com.example.sim_sanggar.common.clickWithDebounce
+import com.example.sim_sanggar.data.model.anak.AnakListItem
 import com.example.sim_sanggar.data.model.daftar.PendaftaranAnak
 import com.example.sim_sanggar.data.model.jadwal_sanggar.JadwalSanggarItem
 import com.example.sim_sanggar.data.model.platform_transaksi.PlatformTransaksiListItem
@@ -22,10 +24,14 @@ import kotlinx.android.synthetic.main.activity_platform_transaksi.rv_platform_tr
 import kotlinx.android.synthetic.main.activity_platform_transaksi2.*
 import kotlinx.android.synthetic.main.fragment_toolbar.*
 import kotlinx.android.synthetic.main.recycler_platform_transaksi.*
+import kotlin.math.log
 
 class PlatformTransaksiActivity : BaseActivity(), PlatformTransaksiContract.View {
 
     var data_daftar: PendaftaranAnak? = null
+    var data_kelas: JadwalSanggarItem? = null
+    var selectedAnak : AnakListItem? = null
+
     private var presenter = PlatformTransaksiPresenter(this)
     lateinit var adapter: PlatformTransaksiAdapter
 
@@ -33,10 +39,12 @@ class PlatformTransaksiActivity : BaseActivity(), PlatformTransaksiContract.View
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_platform_transaksi2)
 
-        data_daftar = intent.getParcelableExtra<PendaftaranAnak>("data_daftar")
+//        data_daftar = intent.getParcelableExtra<PendaftaranAnak>("data_daftar")
+        data_kelas = intent.getParcelableExtra<JadwalSanggarItem>("data_kelas")
+        selectedAnak = intent.getParcelableExtra("selected_anak")
+        selectedAnak?.nama.toString().let { Log.i("namaAnak", it) }
 
         setToolbar()
-        toolbar_title?.text = getString(R.string.platform_transaksi)
 
         initAdapter()
         initListener()
@@ -52,7 +60,8 @@ class PlatformTransaksiActivity : BaseActivity(), PlatformTransaksiContract.View
 
         btn_sudah_bayar?.clickWithDebounce {
             val intent = Intent(this, UploadBuktiDaftarActivity::class.java)
-            intent.putExtra("data_daftar", data_daftar)
+            intent.putExtra("data_kelas", data_kelas)
+            intent.putExtra("selected_anak", selectedAnak)
             startActivity(intent)
         }
     }

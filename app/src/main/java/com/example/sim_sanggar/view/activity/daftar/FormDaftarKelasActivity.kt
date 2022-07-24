@@ -2,6 +2,7 @@ package com.example.sim_sanggar.view.activity.daftar
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import com.example.sim_sanggar.GlobalClass
@@ -24,22 +25,23 @@ import com.example.sim_sanggar.presenter.daftar.DaftarListContract
 import com.example.sim_sanggar.presenter.daftar.DaftarListPresenter
 import com.example.sim_sanggar.presenter.jadwal_sanggar.JadwalSanggarContract
 import com.example.sim_sanggar.view.activity.common.BaseActivity
-import kotlinx.android.synthetic.main.activity_bayar_pendaftaran.*
 import kotlinx.android.synthetic.main.activity_form_daftar_kelas.*
-import kotlinx.android.synthetic.main.activity_form_daftar_kelas.til_kategori_kelas
-import kotlinx.android.synthetic.main.activity_form_daftar_kelas.til_total_bayar
 
 class FormDaftarKelasActivity : BaseActivity(), AnakContract.View, JadwalSanggarContract.View, DaftarListContract.View{
 
     var data_anak: List<AnakListItem>? = null
     var data_kelas: JadwalSanggarItem? = null
     var data_daftar : PendaftaranAnak? = null
+
+    var selectedAnak : AnakListItem? = null
     private var presenterAnak = AnakPresenter(this)
     private var presenterDaftar = DaftarListPresenter(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_form_daftar_kelas)
+
+        setToolbar()
 
         data_kelas = intent.getParcelableExtra<JadwalSanggarItem>("data_kelas")
         data_kelas?.let { setView(it) }
@@ -52,11 +54,12 @@ class FormDaftarKelasActivity : BaseActivity(), AnakContract.View, JadwalSanggar
 
     private fun initListener() {
         btn_lanjutkan?.clickWithDebounce {
-            simpanData()
+            selectedAnak = data_anak?.find{it.nama == ac_nama_anak?.text.toString()}
+            selectedAnak?.nama.toString().let { Log.i("namaAnak", it) }
 
             val intent = Intent(this, PlatformTransaksiActivity::class.java)
-            intent.putExtra("data_daftar", data_daftar )
-//            intent.putExtra("data_kelas", data_kelas)
+            intent.putExtra("data_kelas", data_kelas)
+            intent.putExtra("selected_anak", selectedAnak)
             startActivity(intent)
         }
     }
@@ -74,7 +77,6 @@ class FormDaftarKelasActivity : BaseActivity(), AnakContract.View, JadwalSanggar
                 setArrayAdapter(nama_anak)
             }
 
-//            data_anak?.find{it.nama == ac_nama_anak?.text.toString()}?.id?.let { til_anak_id.editText?.setText(it).toString() }
 
         }
 
@@ -92,19 +94,28 @@ class FormDaftarKelasActivity : BaseActivity(), AnakContract.View, JadwalSanggar
 
     }
 
-    private fun simpanData() {
-        val selectedAnak  = data_anak?.find{it.nama == ac_nama_anak?.text.toString()}?.id
-        val kelasId = data_kelas?.id
+//    private fun simpanData() {
+//        val selectedAnak  = data_anak?.find{it.nama == ac_nama_anak?.text.toString()}
+//        val kelasId = data_kelas
+//
+//        data_daftar?.anak_id = selectedAnak
+//        data_daftar?.jadwal_sanggar_id = kelasId
 
-        val tambahData = HashMap<String, Any?>()
-        tambahData["anak_id"] = selectedAnak
-        tambahData["jadwal_sanggar_id"] = kelasId
 
-        isLoading(true)
-        presenterDaftar.addListDaftar(tambahData)
+//        val tambahData = HashMap<String, Any?>()
+//        tambahData["anak_id"] = selectedAnak
+//        tambahData["jadwal_sanggar_id"] = kelasId
+//
+//        isLoading(true)
+//        presenterDaftar.addListDaftar(tambahData)
+
+//    }
+//
+
+    override fun onResume() {
+        super.onResume()
 
     }
-
     private fun isLoading(isLoad: Boolean) {
         if (isLoad) Utilities.showProgress(this)
         else Utilities.hideProgress()
@@ -117,7 +128,6 @@ class FormDaftarKelasActivity : BaseActivity(), AnakContract.View, JadwalSanggar
     override fun getAnakResponse(response: AnakListResponse) {
         data_anak = response.data
         initAdapter()
-        initListener()
     }
 
     override fun jadwalSanggarResponse(response: JadwalSanggarResponse) {
@@ -133,8 +143,11 @@ class FormDaftarKelasActivity : BaseActivity(), AnakContract.View, JadwalSanggar
     }
 
     override fun daftarListResponse(response: DaftarResponse) {
-        isLoading(false)
-        this.showCustomDialogBack("Berhasil", "Lanjutkan pembayaran")
+//        isLoading(false)
+//        this.showCustomDialogNext("Berhasil", "Lanjutkan pembayaran",
+//                Intent(this, PlatformTransaksiActivity::class.java).putExtra("data_daftar", data_daftar))
+//        this.showCustomDialogBack("Berhasil", "Lanjutkan Pembayaran")
+
     }
 
     override fun getDaftarListResponse(response: DaftarListResponse) {

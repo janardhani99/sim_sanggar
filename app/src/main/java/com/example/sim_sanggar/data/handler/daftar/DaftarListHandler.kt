@@ -31,11 +31,11 @@ class DaftarListHandler: BaseHandler() {
     }
 
     fun uploadBuktiPembayaran(
-//            id: Int,
+            id: Int,
             imagePart: MultipartBody.Part,
             mapPart: HashMap<String, RequestBody>
     ): Observable<DaftarResponse> {
-        return service.uploadBuktiPembayaran(imagePart, mapPart)
+        return service.uploadBuktiPembayaran(id, imagePart, mapPart)
     }
 
     fun addImage(id: Int, part: MultipartBody.Part): Observable<DaftarResponse> {

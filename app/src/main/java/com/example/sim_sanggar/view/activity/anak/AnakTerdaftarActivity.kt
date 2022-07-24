@@ -49,9 +49,9 @@ class AnakTerdaftarActivity :BaseActivity(), AnakContract.View, DaftarListContra
             startActivity(Intent(this, AnakActivity::class.java))
         }
 
-        cv_platform_transaksi?.clickWithDebounce {
-            startActivity(Intent(this, PlatformTransaksiActivity::class.java))
-        }
+//        cv_platform_transaksi?.clickWithDebounce {
+//            startActivity(Intent(this, PlatformTransaksiActivity::class.java))
+//        }
     }
     private fun initAdapter() {
         adapter = AnakTerdaftarAdapter {detailItem ->

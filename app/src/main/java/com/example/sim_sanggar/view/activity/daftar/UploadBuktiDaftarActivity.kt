@@ -6,13 +6,17 @@ import android.os.Bundle
 import com.example.sim_sanggar.R
 import com.example.sim_sanggar.common.Utilities
 import com.example.sim_sanggar.common.clickWithDebounce
+import com.example.sim_sanggar.data.model.anak.AnakListItem
 import com.example.sim_sanggar.data.model.common.EmptyResponse
 import com.example.sim_sanggar.data.model.daftar.DaftarListResponse
 import com.example.sim_sanggar.data.model.daftar.DaftarResponse
 import com.example.sim_sanggar.data.model.daftar.PendaftaranAnak
+import com.example.sim_sanggar.data.model.jadwal_sanggar.JadwalSanggarItem
 import com.example.sim_sanggar.presenter.daftar.DaftarListContract
 import com.example.sim_sanggar.presenter.daftar.DaftarListPresenter
 import com.example.sim_sanggar.view.activity.common.BaseActivity
+import com.example.sim_sanggar.view.fragment.beranda.BerandaFragment
+import com.example.sim_sanggar.view.fragment.daftar.DaftarFragment
 import com.theartofdev.edmodo.cropper.CropImage
 import com.theartofdev.edmodo.cropper.CropImageView
 import kotlinx.android.synthetic.main.activity_upload_bukti_daftar.*
@@ -24,6 +28,8 @@ import java.io.File
 class UploadBuktiDaftarActivity : BaseActivity(), DaftarListContract.View {
 
     var data_daftar : PendaftaranAnak? = null
+    var data_kelas: JadwalSanggarItem? = null
+    var selectedAnak : AnakListItem? = null
     var imageFile: File? = null
     val presenter = DaftarListPresenter(this)
 
@@ -31,7 +37,11 @@ class UploadBuktiDaftarActivity : BaseActivity(), DaftarListContract.View {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_upload_bukti_daftar)
 
-        data_daftar = intent.getParcelableExtra<PendaftaranAnak>("data_daftar")
+        setToolbar()
+
+//        data_daftar = intent.getParcelableExtra<PendaftaranAnak>("data_daftar")
+        data_kelas = intent.getParcelableExtra<JadwalSanggarItem>("data_kelas")
+        selectedAnak = intent.getParcelableExtra<AnakListItem>("selected_anak")
 
         initListener()
     }
@@ -54,10 +64,17 @@ class UploadBuktiDaftarActivity : BaseActivity(), DaftarListContract.View {
         val transfer_via = til_transfer_via?.editText?.text.toString()
 
         val tambahData = HashMap<String, Any?>()
+        tambahData["jadwal_sanggar_id"] = data_kelas?.id
+        tambahData["anak_id"] = selectedAnak?.id
         tambahData["transfer_via"] = transfer_via
+        tambahData["status"] = "1"
 
         isLoading(true)
-        presenter.addListDaftar(tambahData)
+
+        if (imageFile != null) {
+//            presenter.uploadBuktiPembayaran(data?.id!!, imageFile!!, transfer_via, status)
+            presenter.addListDaftar(tambahData)
+        }
 
     }
 
@@ -100,7 +117,7 @@ class UploadBuktiDaftarActivity : BaseActivity(), DaftarListContract.View {
             imageFile?.let { uploadImage(response.data?.id,it) }
         } else {
             isLoading(false)
-            this.showCustomDialogBack("Berhasil", "Pendaftaran Berhasil")
+            this.showCustomDialogNext("Berhasil", "Pendaftaran Berhasil", Intent(this, DaftarKelasActivity::class.java))
         }
 
     }
@@ -120,7 +137,7 @@ class UploadBuktiDaftarActivity : BaseActivity(), DaftarListContract.View {
 
     override fun uploadImageResponse() {
         isLoading(false)
-        this.showCustomDialogBack("Data berhasil", "Data berhasil dikirim")
+        this.showCustomDialogNext("Berhasil", "Pendaftaran Berhasil", Intent(this, DaftarKelasActivity::class.java))
     }
 
     override fun showError(title: String, message: String) {

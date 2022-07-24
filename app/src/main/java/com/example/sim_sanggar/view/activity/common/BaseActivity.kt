@@ -1,13 +1,21 @@
 package com.example.sim_sanggar.view.activity.common
 
+import android.annotation.SuppressLint
 import android.content.DialogInterface
+import android.content.Intent
 import android.view.MenuItem
+import android.widget.FrameLayout
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import com.example.sim_sanggar.R
+import com.example.sim_sanggar.common.Constants
+import com.example.sim_sanggar.view.fragment.beranda.BerandaFragment
 import kotlinx.android.synthetic.main.fragment_toolbar.*
 import org.jetbrains.anko.alert
 import org.jetbrains.anko.noButton
+import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.yesButton
 
 open class BaseActivity : AppCompatActivity() {
@@ -50,6 +58,24 @@ open class BaseActivity : AppCompatActivity() {
                 it.dismiss()
             }
         } .show()
+    }
+
+
+    fun showCustomDialogNext(mTitle: String, message: String, intent: Intent) {
+        alert(message) {
+            title = mTitle
+            yesButton {
+
+                it.dismiss()
+                startActivity(intent)
+//                val t: FragmentTransaction = supportFragmentManager.beginTransaction()
+//                t.add(R.id.container, BerandaFragment()).commit()
+
+            }
+
+        } .show()
+
+
     }
 
     fun showCustomDialogBack(mTitle: String, message: String) {

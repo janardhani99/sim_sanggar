@@ -1,34 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".view.fragment.daftar.DaftarFragment">
+    tools:context=".view.fragment.daftar.DaftarFragment"
+    android:orientation="vertical">
 
-    <LinearLayout
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="@dimen/dp8"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:text="Daftarkan Anak atau Rekan mu ke Sanggar ini"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="24dp"
+        android:layout_margin="@dimen/dp32"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Pilih Kelas"
-            android:gravity="center"
-            android:textStyle="bold"
-            android:textSize="24dp"
-            android:layout_marginTop="@dimen/dp16"
-            android:layout_marginBottom="@dimen/dp16"/>
+    <Button
+        android:id="@+id/btn_daftar_kelas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Daftar Sekarang"
+        android:layout_marginLeft="@dimen/dp16"
+        android:layout_marginRight="@dimen/dp16"
+        />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_daftar_kelas"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:listitem="@layout/recycler_daftar_kelas"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                android:orientation="vertical"/>
-    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Belum menambahkan Data Anak?"
+        android:gravity="center"
+        android:textStyle="italic"
+        android:textSize="22dp"
+        android:layout_marginTop="@dimen/dp32"/>
 
-</ScrollView>
+    <Button
+        android:id="@+id/btn_kelola_data_anak"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Kelola Data Anak"
+        android:layout_marginTop="@dimen/dp16"
+        android:layout_gravity="center_horizontal"/>
+</LinearLayout>

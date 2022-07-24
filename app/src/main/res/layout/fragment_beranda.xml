@@ -8,6 +8,7 @@
     android:background="@drawable/bg"
     android:orientation="vertical">
     <LinearLayout
+        android:id="@+id/fragment_beranda"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:orientation="vertical">
