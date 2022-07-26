@@ -18,6 +18,7 @@ interface AnakContract {
     interface Presenter {
         fun addAnak(data: HashMap<String, Any?>)
         fun getAnak()
+        fun editAnak(id: Int, data: HashMap<String, Any?>)
     }
 
     interface Handler {
@@ -27,5 +28,9 @@ interface AnakContract {
 
         @GET("anak")
         fun getAnak(): Observable<AnakListResponse>
+
+        @FormUrlEncoded
+        @PATCH("anak/{id}")
+        fun editAnak(@Path("id")id: Int, @FieldMap data: HashMap<String, Any?>):Observable<AnakResponse>
     }
 }

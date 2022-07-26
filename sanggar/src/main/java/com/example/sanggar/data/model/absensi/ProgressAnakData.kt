@@ -18,7 +18,7 @@ class ProgressAnakData (
         var id: Int? = null,
 
         @Expose
-        var pembayaran: String? = null,
+        var bayar_harian: String? = null,
 
         @Expose
         var kehadiran: String? = null,

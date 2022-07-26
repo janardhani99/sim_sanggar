@@ -28,4 +28,13 @@ class AnakPresenter(val view: AnakContract.View): BasePresenter(view), AnakContr
                     }
                 })
     }
+
+    override fun editAnak(id: Int, data: HashMap<String, Any?>) {
+        handler.editAnak(id, data)
+                .doSubscribe(object: ErrorHandler<AnakResponse>(this){
+                    override fun onNext(t: AnakResponse) {
+                        view.anakResponse(t)
+                    }
+                })
+    }
 }

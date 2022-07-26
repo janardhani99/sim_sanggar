@@ -12,19 +12,14 @@ import com.example.sim_sanggar.data.model.anak.AnakResponse
 import com.example.sim_sanggar.data.model.common.EmptyResponse
 import com.example.sim_sanggar.data.model.daftar.DaftarListResponse
 import com.example.sim_sanggar.data.model.daftar.DaftarResponse
-import com.example.sim_sanggar.data.model.daftar.PendaftaranAnak
 import com.example.sim_sanggar.presenter.anak.AnakContract
 import com.example.sim_sanggar.presenter.anak.AnakPresenter
 import com.example.sim_sanggar.presenter.daftar.DaftarListContract
-import com.example.sim_sanggar.presenter.daftar.DaftarListPresenter
 import com.example.sim_sanggar.view.activity.common.BaseActivity
-import com.example.sim_sanggar.view.activity.platform_transaksi.PlatformTransaksiActivity
 import com.example.sim_sanggar.view.adapter.anakterdaftar.AnakTerdaftarAdapter
 import kotlinx.android.synthetic.main.activity_anak_terdaftar.*
-import kotlinx.android.synthetic.main.fragment_toolbar.*
-import kotlinx.android.synthetic.main.recycler_anak_terdaftar.*
 
-class AnakTerdaftarActivity :BaseActivity(), AnakContract.View, DaftarListContract.View {
+class AnakTerdaftarActivity :BaseActivity(), AnakContract.View {
     var data : AnakListItem? = null
 //    var dataDaftar : PendaftaranAnak? = null
     private var presenter = AnakPresenter(this)
@@ -55,8 +50,8 @@ class AnakTerdaftarActivity :BaseActivity(), AnakContract.View, DaftarListContra
     }
     private fun initAdapter() {
         adapter = AnakTerdaftarAdapter {detailItem ->
-            val intent = Intent(this, PembayaranActivity::class.java)
-            intent.putExtra("data", detailItem)
+            val intent = Intent(this, AnakActivity::class.java)
+            intent.putExtra("data_anak", detailItem)
             startActivity(intent)}
         rv_anak_terdaftar?.layoutManager = LinearLayoutManager(this)
         rv_anak_terdaftar?.adapter = adapter
@@ -104,25 +99,4 @@ class AnakTerdaftarActivity :BaseActivity(), AnakContract.View, DaftarListContra
 
     }
 
-    override fun daftarListResponse(response: DaftarResponse) {
-        isLoading(false)
-        this.showCustomDialogBack("Daftar", "Anak sudah didaftarkan")
-    }
-
-
-    override fun getDaftarListResponse(response: DaftarListResponse) {
-
-    }
-
-    override fun getBiayaPendaftaran(response: DaftarListResponse) {
-        TODO("Not yet implemented")
-    }
-
-    override fun deleteDaftarListResponse(response: EmptyResponse) {
-        TODO("Not yet implemented")
-    }
-
-    override fun uploadImageResponse() {
-        TODO("Not yet implemented")
-    }
 }

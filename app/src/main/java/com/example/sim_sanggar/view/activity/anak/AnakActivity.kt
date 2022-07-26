@@ -5,27 +5,16 @@ import android.os.Bundle
 import android.widget.Toast
 import com.example.sim_sanggar.R
 import com.example.sim_sanggar.common.Utilities
-import com.example.sim_sanggar.common.Validations
 import com.example.sim_sanggar.common.clickWithDebounce
 import com.example.sim_sanggar.data.model.anak.AnakListItem
 import com.example.sim_sanggar.data.model.anak.AnakListResponse
 import com.example.sim_sanggar.data.model.anak.AnakResponse
-import com.example.sim_sanggar.data.model.common.EmptyResponse
-import com.example.sim_sanggar.data.model.daftar.DaftarListResponse
-import com.example.sim_sanggar.data.model.daftar.DaftarResponse
-import com.example.sim_sanggar.data.model.daftar.PendaftaranAnak
 import com.example.sim_sanggar.presenter.DatePickerHelper
 import com.example.sim_sanggar.presenter.anak.AnakContract
 import com.example.sim_sanggar.presenter.anak.AnakPresenter
-import com.example.sim_sanggar.presenter.daftar.DaftarListContract
-import com.example.sim_sanggar.presenter.daftar.DaftarListPresenter
 import com.example.sim_sanggar.view.activity.common.BaseActivity
 import kotlinx.android.synthetic.main.activity_anak.*
-import kotlinx.android.synthetic.main.activity_anak.btn_pilih_tanggal
-import kotlinx.android.synthetic.main.activity_sewa.*
-import kotlinx.android.synthetic.main.fragment_toolbar.*
 import java.util.*
-import javax.xml.validation.Validator
 import kotlin.collections.HashMap
 
 class AnakActivity : BaseActivity(), AnakContract.View {
@@ -40,6 +29,10 @@ class AnakActivity : BaseActivity(), AnakContract.View {
 
         setToolbar()
 //        toolbar_title?.text = "Pendaftaran Anak"
+
+        data = intent.getParcelableExtra("data_anak")
+        data?.let { setView(it) }
+
         initListener()
         datePicker = DatePickerHelper(this)
 
@@ -99,7 +92,18 @@ class AnakActivity : BaseActivity(), AnakContract.View {
         if (data == null) {
             presenter.addAnak(tambahData)
         } else {
-            Toast.makeText(this, "edit data", Toast.LENGTH_SHORT).show()
+//            Toast.makeText(this, "edit data", Toast.LENGTH_SHORT).show()
+            data?.id?.let { presenter.editAnak(it, tambahData) }
+        }
+
+    }
+
+    private fun setView(data: AnakListItem) {
+        data.run {
+            til_nama_anak?.editText?.setText(data.nama)
+            til_alamat_anak?.editText?.setText(data.alamat)
+            tv_tanggal_lahir?.editText?.setText(data.tanggal_lahir)
+            til_telepon_anak?.editText?.setText(data.telepon)
         }
     }
 

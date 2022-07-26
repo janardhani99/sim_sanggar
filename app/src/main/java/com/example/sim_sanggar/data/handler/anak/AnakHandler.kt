@@ -17,4 +17,8 @@ class AnakHandler: BaseHandler() {
     fun getAnak(): Observable<AnakListResponse> {
         return service.getAnak()
     }
+
+    fun editAnak(id: Int, data: HashMap<String, Any?>): Observable<AnakResponse> {
+        return service.editAnak(id, data)
+    }
 }

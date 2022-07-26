@@ -14,4 +14,9 @@
         <item>Hadir</item>
         <item>Tidak Hadir</item>
     </string-array>
+
+    <string-array name="bayarHarian">
+        <item>Sudah Bayar</item>
+        <item>Belum Bayar</item>
+    </string-array>
 </resources>

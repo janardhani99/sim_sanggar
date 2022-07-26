@@ -53,22 +53,6 @@
                         android:layout_height="wrap_content"
                         android:hint="Cash atau Transfer (Bank, Ovo, dll)" />
                 </com.google.android.material.textfield.TextInputLayout>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Anak ID"
-                    android:textSize="20dp"
-                    android:layout_marginTop="@dimen/dp12"/>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/til_anak_id"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-                </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"

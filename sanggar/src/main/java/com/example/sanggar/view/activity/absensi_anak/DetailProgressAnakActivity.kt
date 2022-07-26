@@ -64,7 +64,10 @@ class DetailProgressAnakActivity() : BaseActivity(), ProgressAnakContract.View {
 
     private fun initAdapter() {
         val kehadiranAdapter = ArrayAdapter<String>(context, R.layout.layout_dropdown_item, resources.getStringArray(R.array.kehadiran))
+        val bayarAdapter = ArrayAdapter<String>(context, R.layout.layout_dropdown_item, resources.getStringArray(R.array.bayarHarian))
+
         ac_kehadiran?.setAdapter(kehadiranAdapter)
+        ac_bayar_harian?.setAdapter(bayarAdapter)
     }
 
     private fun initView(data: ProgressAnakData) {
@@ -72,6 +75,7 @@ class DetailProgressAnakActivity() : BaseActivity(), ProgressAnakContract.View {
 //            til_nama_anak?.editText?.setText(data_anak?.anak?.nama)
             ac_kehadiran?.setText(data.kehadiran, false)
             til_catatan_progress?.editText?.setText(data.catatan_progress)
+            ac_bayar_harian?.setText(data.bayar_harian, false)
         }
 
         btn_simpan_progress?.clickWithDebounce {
@@ -85,6 +89,7 @@ class DetailProgressAnakActivity() : BaseActivity(), ProgressAnakContract.View {
 //        val nama_anak = til_nama_anak.editText?.text.toString()
         val kehadiran = til_kehadiran.editText?.text.toString()
         val catatan_progress = til_catatan_progress.editText?.text.toString()
+        val bayar_harian = til_bayar_harian.editText?.text.toString()
 
         val tambahData = HashMap<String, Any?>()
 
@@ -93,6 +98,7 @@ class DetailProgressAnakActivity() : BaseActivity(), ProgressAnakContract.View {
         tambahData["pertemuan_id"] = pertemuan_id
         tambahData["kehadiran"] = kehadiran.toLowerCase()
         tambahData["catatan_progress"] = catatan_progress
+        tambahData["bayar_harian"] = bayar_harian
 
         isLoading(true)
         if (idEdit == false) {
