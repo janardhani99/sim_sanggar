@@ -1,6 +1,5 @@
 package com.example.sim_sanggar.data.model.sanggar
 
-import com.example.sim_sanggar.data.model.anak.AnakListItem
 import com.example.sim_sanggar.data.model.common.BaseResultData
 import com.google.gson.annotations.Expose
 

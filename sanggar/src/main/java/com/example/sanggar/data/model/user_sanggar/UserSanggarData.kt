@@ -18,6 +18,9 @@ data class UserSanggarItem(
         var username: String? = null,
 
         @Expose
+        var email : String? = null,
+
+        @Expose
         var role: String? = null
 
 ): Parcelable

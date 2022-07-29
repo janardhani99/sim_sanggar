@@ -1,11 +1,7 @@
 package com.example.sim_sanggar.view.activity.daftar
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.sim_sanggar.R
 import com.example.sim_sanggar.common.Utilities
@@ -18,7 +14,6 @@ import com.example.sim_sanggar.presenter.jadwal_sanggar.JadwalSanggarPresenter
 import com.example.sim_sanggar.view.activity.common.BaseActivity
 import com.example.sim_sanggar.view.adapter.daftar.DaftarKelasAdapter
 import kotlinx.android.synthetic.main.activity_daftar_kelas.*
-import kotlinx.android.synthetic.main.fragment_daftar.*
 
 class DaftarKelasActivity : BaseActivity(), JadwalSanggarContract.View {
 
@@ -55,6 +50,7 @@ class DaftarKelasActivity : BaseActivity(), JadwalSanggarContract.View {
     }
 
     private fun fetchData() {
+        isLoading(true)
         kelasPresenter.getJadwal()
     }
 

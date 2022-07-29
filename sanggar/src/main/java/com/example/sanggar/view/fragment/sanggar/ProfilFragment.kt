@@ -7,7 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.sanggar.GlobalClass
 import com.example.sanggar.R
+import com.example.sanggar.common.Preferences
 import com.example.sanggar.common.Utilities
 import com.example.sanggar.common.clickWithDebounce
 import com.example.sanggar.data.model.sanggar.ProfilSanggarListResponse
@@ -15,6 +17,7 @@ import com.example.sanggar.data.model.sanggar.ProfilSanggarResponse
 import com.example.sanggar.data.model.sanggar.SanggarData
 import com.example.sanggar.presenter.sanggar.ProfilSanggarContract
 import com.example.sanggar.presenter.sanggar.ProfilSanggarPresenter
+import com.example.sanggar.view.activity.auth.LoginActivity
 import com.example.sanggar.view.activity.kegiatan.DetailKegiatanActivity
 import com.example.sanggar.view.activity.sanggar.EditProfilActivity
 import com.example.sanggar.view.adapter.sanggar.ProfilSanggarAdapter
@@ -29,7 +32,7 @@ class ProfilFragment(): Fragment(), ProfilSanggarContract.View {
 //    private var presenter = ProfilSanggarPresenter(this)
 //    lateinit var adapter: ProfilSanggarAdapter
 
-
+    var preferences = Preferences(GlobalClass.context)
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
@@ -41,17 +44,23 @@ class ProfilFragment(): Fragment(), ProfilSanggarContract.View {
 
 //        data = getActivity()?.intent?.getParcelableExtra<SanggarData>("data")
 //        initAdapter()
-//        initListener()
+        initListener()
 //        data?.let { setView(it) }
     }
 
-//    private fun initListener() {
-//        btn_edit_profil?.clickWithDebounce {
-//            val intent = Intent(context, EditProfilActivity::class.java)
-//            startActivity(intent)
-//        }
-//
-//    }
+    private fun initListener() {
+        btn_edit?.clickWithDebounce {
+            val intent = Intent(context, EditProfilActivity::class.java)
+            startActivity(intent)
+        }
+
+        btn_logout?.clickWithDebounce {
+            preferences.userLoggedOut()
+            activity?.finishAffinity()
+            startActivity(Intent(context, LoginActivity::class.java))
+        }
+
+    }
 //
 //    private fun initAdapter() {
 //        adapter = ProfilSanggarAdapter {

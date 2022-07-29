@@ -14,6 +14,12 @@
 
     <item
         android:enabled="true"
+        android:id="@+id/menu_anak"
+        android:title="Anak"
+        android:icon="@drawable/menudaftar"/>
+
+    <item
+        android:enabled="true"
         android:id="@+id/menu_sewa"
         android:title="Sewa"
         android:icon="@drawable/menusewa"/>

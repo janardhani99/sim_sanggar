@@ -30,42 +30,32 @@
         android:orientation="vertical"
         android:padding="40dp"
         android:layout_marginTop="10dp">
-        <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/edit_nama"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:hint="Nama"
-            android:inputType="textPersonName"
-            android:textSize="20dp"
-            tools:ignore="MissingClass">
-        </com.rengwuxian.materialedittext.MaterialEditText>
 
-        <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/input_email"
-            android:layout_height="wrap_content"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:hint="Email"
-            android:inputType="textPersonName"
-            android:textSize="20dp">
-        </com.rengwuxian.materialedittext.MaterialEditText>
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="20dp">
 
-        <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/edit_alamat"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:hint="Alamat"
-            android:inputType="text"
-            android:textSize="20dp">
-        </com.rengwuxian.materialedittext.MaterialEditText>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nama Pengguna"
+                android:layout_marginBottom="6dp"/>
 
-        <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/edit_password"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:hint="Password"
-            android:inputType="number"
-            android:textSize="20dp">
-        </com.rengwuxian.materialedittext.MaterialEditText>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_nama_user"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint=" "/>
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
 
         <Button
             android:layout_width="200dp"
@@ -73,8 +63,8 @@
             android:background="@drawable/btn_submit"
             android:layout_gravity="center"
             android:layout_marginTop="100dp"
-            android:text="SIMPAN"
-            android:textSize="25dp">
+            android:text="Simpan"
+            android:textSize="20dp">
 
         </Button>
 

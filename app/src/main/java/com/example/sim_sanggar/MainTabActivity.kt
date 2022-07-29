@@ -28,6 +28,12 @@ class MainTabActivity: BaseActivity() {
                 return@OnNavigationItemSelectedListener true
             }
 
+            R.id.menu_anak -> {
+                if (!isDisplaying(AnakFragment()))
+                    replaceFragment(AnakFragment())
+                return@OnNavigationItemSelectedListener true
+            }
+
             R.id.menu_sewa -> {
                 if (!isDisplaying(JadwalSewaFragment()))
                     replaceFragment(JadwalSewaFragment())

@@ -10,7 +10,7 @@ import com.example.sim_sanggar.R
 import com.example.sim_sanggar.common.clickWithDebounce
 import com.example.sim_sanggar.view.activity.anak.AnakTerdaftarActivity
 import com.example.sim_sanggar.view.activity.report_anak.ReportAnakActivity
-import kotlinx.android.synthetic.main.fragment_pendaftaran.*
+import kotlinx.android.synthetic.main.fragment_anak.*
 
 class AnakFragment : Fragment() {
 
@@ -22,7 +22,7 @@ class AnakFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_pendaftaran, container, false)
+        return inflater.inflate(R.layout.fragment_anak, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

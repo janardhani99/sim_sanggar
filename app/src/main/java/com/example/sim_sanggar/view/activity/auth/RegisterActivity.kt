@@ -1,10 +1,8 @@
 package com.example.sim_sanggar.view.activity.auth
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
-import androidx.lifecycle.Transformations.map
 import com.example.sim_sanggar.GlobalClass
 import com.example.sim_sanggar.MainTabActivity
 import com.example.sim_sanggar.R
@@ -16,9 +14,6 @@ import com.example.sim_sanggar.data.model.sanggar.SanggarData
 import com.example.sim_sanggar.presenter.auth.AuthContract
 import com.example.sim_sanggar.presenter.auth.AuthPresenter
 import com.example.sim_sanggar.view.activity.common.BaseActivity
-import com.example.sim_sanggar.view.adapter.anakterdaftar.AnakTerdaftarAdapter
-import com.example.sim_sanggar.view.adapter.sanggar.SanggarAdapter
-import kotlinx.android.synthetic.main.activity_login.*
 
 import kotlinx.android.synthetic.main.activity_register.*
 

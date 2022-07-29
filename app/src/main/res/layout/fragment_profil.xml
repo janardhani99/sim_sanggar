@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".view.fragment.profil.ProfilFragment">
 
 <!--    <ScrollView-->
@@ -144,14 +146,36 @@
 <!--                    </TextView>-->
 <!--                </LinearLayout>-->
 <!--            </LinearLayout>-->
-<!--            <com.google.android.material.card.MaterialCardView-->
-<!--                android:id="@+id/cv_button_action"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_alignParentBottom="true"-->
-<!--                android:background="@color/background">-->
-<!--                &lt;!&ndash;            app:cardCornerRadius="@dimen/dp0"&ndash;&gt;-->
-<!--                &lt;!&ndash;            app:cardElevation="@dimen/dp24"&ndash;&gt;-->
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cv_button_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/background"
+        app:cardCornerRadius="@dimen/dp0"
+        app:cardElevation="@dimen/dp24">
+
+
+        <Button
+            android:id="@+id/btn_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp16"
+            android:text="Edit Profil" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cv_button_action"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:background="@color/background"
+                app:cardCornerRadius="@dimen/dp0"
+                app:cardElevation="@dimen/dp24">
+
 
                 <Button
                     android:id="@+id/btn_logout"
@@ -160,11 +184,11 @@
                     android:layout_margin="@dimen/dp16"
                     android:text="logout" />
 
-<!--            </com.google.android.material.card.MaterialCardView>-->
+            </com.google.android.material.card.MaterialCardView>
 <!--        </LinearLayout>-->
 <!--    </ScrollView>-->
 
 
 
 
-</FrameLayout>
+</LinearLayout>

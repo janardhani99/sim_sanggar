@@ -5,7 +5,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sim_sanggar.R
-import com.example.sim_sanggar.data.model.anak.AnakListItem
 import com.example.sim_sanggar.data.model.sanggar.SanggarData
 import kotlinx.android.synthetic.main.layout_dropdown_item.view.*
 

@@ -100,6 +100,7 @@ class AnakActivity : BaseActivity(), AnakContract.View {
 
     private fun setView(data: AnakListItem) {
         data.run {
+            tv_judul?.text = "Kelola Data Anak"
             til_nama_anak?.editText?.setText(data.nama)
             til_alamat_anak?.editText?.setText(data.alamat)
             tv_tanggal_lahir?.editText?.setText(data.tanggal_lahir)

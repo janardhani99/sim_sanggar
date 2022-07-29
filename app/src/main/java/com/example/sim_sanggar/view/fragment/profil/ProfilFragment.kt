@@ -26,15 +26,15 @@ class ProfilFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        btn_edit.clickWithDebounce {
-//            startActivity(Intent(context, EditProfilActivity::class.java))
-//        }
-//
-//        btn_logout?.clickWithDebounce {
-//            preferences.userLoggedOut()
-//            activity?.finishAffinity()
-//            startActivity(Intent(context, LoginActivity::class.java))
-//        }
+        btn_edit?.clickWithDebounce {
+            startActivity(Intent(context, EditProfilActivity::class.java))
+        }
+
+        btn_logout?.clickWithDebounce {
+            preferences.userLoggedOut()
+            activity?.finishAffinity()
+            startActivity(Intent(context, LoginActivity::class.java))
+        }
     }
 
 }

@@ -29,6 +29,7 @@ import com.example.sim_sanggar.presenter.report_anak.PertemuanContract
 import com.example.sim_sanggar.presenter.report_anak.ReportAnakContract
 import com.example.sim_sanggar.presenter.report_anak.ReportAnakPresenter
 import com.example.sim_sanggar.view.activity.common.BaseActivity
+import com.example.sim_sanggar.view.adapter.report_anak.ReportAnakAdapter
 import kotlinx.android.synthetic.main.activity_report_anak.*
 
 class ReportAnakActivity : BaseActivity(), DaftarListContract.View, AnakContract.View, JadwalSanggarContract.View, PertemuanContract.View, ReportAnakContract.View {
@@ -45,14 +46,16 @@ class ReportAnakActivity : BaseActivity(), DaftarListContract.View, AnakContract
     var listReport : List<ReportAnakData>? = null
     var presenterReportAnak = ReportAnakPresenter(this)
 
+    lateinit var adapter : ReportAnakAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_report_anak)
 
         setToolbar()
 
-        presenterAnakTerdaftar.getListDaftar()
-//        presenterAnak.getAnak()
+//        presenterAnakTerdaftar.getListDaftar()
+        presenterAnak.getAnak()
 //        presenterKelas.getJadwal()
 
         initAdapter()
@@ -95,12 +98,14 @@ class ReportAnakActivity : BaseActivity(), DaftarListContract.View, AnakContract
             if (selectedAnak != null) {
                 Log.i("Yes", "adaaa")
                 presenterReportAnak.loadDataSearch(selectedAnak)
-            }
-            else {
-                Log.i("No", "gaadaa")
-            }
+//                adapter = ReportAnakAdapter { detailItem ->
+                    
 
-            Log.i("Skip", "hmmmmm")
+            }
+//            else {
+                Log.i("No", "gaadaa")
+//            }
+
         }
     }
 

@@ -34,7 +34,7 @@
     <string name="telepon_anak">Nomor Telepon</string>
     <string name="daftar_sekarang">Daftar Sekarang</string>
     <string name="daftar">Pendaftaran Anak</string>
-    <string name="daftar_anak">Daftarkan Anak atau Rekanmu menjadi siswa sanggar ini </string>
+    <string name="menu_anak">Tambahkan, Edit, atau lihat Data Anak serta hasil belajar Anak </string>
     <string name="lihat_list_anak">Lihat Riwayat Pendaftaran Anak</string>
     <string name="riwayat_daftar_anak">Riwayat Pendaftaran Anak</string>
     <string name="riwayat_sewa">Riwayat Sewa Studio</string>
