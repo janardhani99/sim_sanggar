@@ -24,7 +24,7 @@ import java.io.File
 
 class UploadBuktiActivity : BaseActivity(), SewaContract.View {
 
-    var data: SewaListItem? = null
+    var data_sewa: SewaListItem? = null
     val presenter = SewaPresenter(this)
     var imageFile: File? = null
     lateinit var adapter: SewaAdapter
@@ -35,8 +35,8 @@ class UploadBuktiActivity : BaseActivity(), SewaContract.View {
 
         setToolbar()
         toolbar_title?.text = getString(R.string.sewa)
-        data = intent.getParcelableExtra<SewaListItem>("data")
-        data?.let { setView(it) }
+        data_sewa = intent.getParcelableExtra<SewaListItem>("data_sewa")
+        data_sewa?.let { setView(it) }
         initListener()
 //        initAdapter()
     }
@@ -103,7 +103,7 @@ class UploadBuktiActivity : BaseActivity(), SewaContract.View {
         }
 
         btn_upload_foto?.clickWithDebounce {
-            uploadBukti(data)
+            uploadBukti(data_sewa)
         }
     }
 

@@ -6,7 +6,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.sim_sanggar.R
 import com.example.sim_sanggar.common.Utilities
 import com.example.sim_sanggar.common.clickWithDebounce
-import com.example.sim_sanggar.data.model.anak.AnakListItem
 import com.example.sim_sanggar.data.model.sewa.SewaListItem
 import com.example.sim_sanggar.data.model.sewa.SewaListResponse
 import com.example.sim_sanggar.data.model.sewa.SewaResponse
@@ -32,27 +31,15 @@ class RiwayatSewaActivity :BaseActivity(), SewaContract.View {
         setToolbar()
         toolbar_title?.text = getString(R.string.riwayat_sewa)
 
-        initListener()
+
         initAdapter()
     }
 
-    private fun initListener() {
-        cv_platform_transaksi?.clickWithDebounce {
-            startActivity(Intent(this, PlatformTransaksiActivity::class.java))
-        }
-
-        cv_tambah_data_sewa?.clickWithDebounce {
-            startActivity(Intent(this, SewaActivity::class.java))
-        }
-    }
 
     private fun initAdapter() {
 
-        adapter = SewaAdapter {
-            detailItem -> val intent = Intent(this, UploadBuktiActivity::class.java)
-            intent.putExtra("data", detailItem)
-            startActivity(intent)
-        }
+        adapter = SewaAdapter()
+
         rv_riwayat_sewa?.layoutManager = LinearLayoutManager(this)
         rv_riwayat_sewa?.adapter = adapter
     }

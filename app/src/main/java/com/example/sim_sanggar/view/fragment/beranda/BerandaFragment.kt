@@ -6,16 +6,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.sim_sanggar.GlobalClass
 //import androidx.cardview.widget.CardView
 import com.example.sim_sanggar.R
-import com.example.sim_sanggar.common.Preferences
 import com.example.sim_sanggar.common.clickWithDebounce
 import com.example.sim_sanggar.view.activity.fasilitas.FasilitasActivity
 import com.example.sim_sanggar.view.activity.jadwal_sanggar.JadwalSanggarActivity
 import com.example.sim_sanggar.view.activity.jam_operasional.JamOperasionalActivity
 import kotlinx.android.synthetic.main.fragment_beranda.*
-import com.example.sim_sanggar.view.activity.sewa.SewaActivity
 import com.example.sim_sanggar.view.activity.kegiatan.KegiatanActivity
 import com.example.sim_sanggar.view.activity.pembelajaran.PembelajaranActivity
 

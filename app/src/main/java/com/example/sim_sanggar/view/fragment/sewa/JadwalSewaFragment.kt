@@ -7,13 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.sim_sanggar.R
-import com.example.sim_sanggar.view.activity.sewa.UploadBuktiActivity
 import com.example.sim_sanggar.common.clickWithDebounce
-import com.example.sim_sanggar.view.activity.platform_transaksi.PlatformTransaksiActivity
 import com.example.sim_sanggar.view.activity.sewa.RiwayatSewaActivity
-import com.example.sim_sanggar.view.activity.sewa.SewaActivity
 import kotlinx.android.synthetic.main.fragment_jadwal_sewa.*
-import kotlinx.android.synthetic.main.fragment_toolbar.*
 
 
 class JadwalSewaFragment : Fragment() {
