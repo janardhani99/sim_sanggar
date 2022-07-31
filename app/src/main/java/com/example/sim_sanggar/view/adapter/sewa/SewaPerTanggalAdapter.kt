@@ -1,19 +1,12 @@
-package com.example.sim_sanggar.view.adapter.sewaadapter
+package com.example.sim_sanggar.view.adapter.sewapertanggaladapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sim_sanggar.R
-import com.example.sim_sanggar.common.clickWithDebounce
-import com.example.sim_sanggar.data.model.anak.AnakListItem
-import com.example.sim_sanggar.data.model.daftar.PendaftaranAnak
 import com.example.sim_sanggar.data.model.sewa.SewaListItem
-import kotlinx.android.synthetic.main.activity_sewa.view.*
-import kotlinx.android.synthetic.main.activity_sewa.view.tv_tanggal_sewa
-import kotlinx.android.synthetic.main.recycler_anak_terdaftar.view.*
 import kotlinx.android.synthetic.main.recycler_booked_tanggal.view.*
-import kotlinx.android.synthetic.main.recycler_riwayat_sewa.view.*
 
 class SewaPerTanggalAdapter(): RecyclerView.Adapter<SewaPerTanggalAdapter.ViewHolder>() {
 

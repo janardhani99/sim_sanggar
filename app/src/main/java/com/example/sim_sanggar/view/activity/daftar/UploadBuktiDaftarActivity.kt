@@ -140,6 +140,10 @@ class UploadBuktiDaftarActivity : BaseActivity(), DaftarListContract.View {
         this.showCustomDialogNext("Berhasil", "Pendaftaran Berhasil", Intent(this, DaftarKelasActivity::class.java))
     }
 
+    override fun getAnakOnKelasResponse(response: DaftarListResponse) {
+        TODO("Not yet implemented")
+    }
+
     override fun showError(title: String, message: String) {
         this.showErrorAlert(title, message)
     }

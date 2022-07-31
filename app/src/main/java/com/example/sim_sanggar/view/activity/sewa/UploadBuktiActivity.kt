@@ -12,6 +12,7 @@ import com.example.sim_sanggar.data.model.sewa.SewaResponse
 import com.example.sim_sanggar.presenter.sewa.SewaContract
 import com.example.sim_sanggar.presenter.sewa.SewaPresenter
 import com.example.sim_sanggar.view.activity.common.BaseActivity
+import com.example.sim_sanggar.view.activity.daftar.DaftarKelasActivity
 import com.example.sim_sanggar.view.adapter.sewaadapter.SewaAdapter
 import com.theartofdev.edmodo.cropper.CropImage
 import com.theartofdev.edmodo.cropper.CropImageView
@@ -136,7 +137,7 @@ class UploadBuktiActivity : BaseActivity(), SewaContract.View {
 //            imageFile?.let { uploadImage(data?.id,it) }
 //        } else {
         isLoading(false)
-        this.showCustomDialogBack("Berhasil", "Data berhasil ditambahkan")
+        this.showCustomDialogNext("Berhasil", "Pendaftaran Berhasil", Intent(this, SewaActivity::class.java))
 //        }
     }
 
@@ -150,8 +151,7 @@ class UploadBuktiActivity : BaseActivity(), SewaContract.View {
 
     override fun uploadImageResponse() {
         isLoading(false)
-        this.showCustomDialogBack("Berhasil", "Data berhasil ditambahkan")
-//        startActivity()
+        this.showCustomDialogNext("Berhasil", "Pendaftaran Berhasil", Intent(this, SewaActivity::class.java))
     }
 
     override fun showError(title: String, message: String) {

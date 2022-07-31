@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.sim_sanggar.R
 import com.example.sim_sanggar.common.Utilities
+import com.example.sim_sanggar.common.clickWithDebounce
 import com.example.sim_sanggar.data.model.sewa.SewaListItem
 import com.example.sim_sanggar.data.model.sewa.SewaListResponse
 import com.example.sim_sanggar.data.model.sewa.SewaResponse
@@ -11,10 +12,10 @@ import com.example.sim_sanggar.presenter.DatePickerHelper
 import com.example.sim_sanggar.presenter.sewa.SewaContract
 import com.example.sim_sanggar.presenter.sewa.SewaPresenter
 import com.example.sim_sanggar.view.activity.common.BaseActivity
-import com.example.sim_sanggar.view.adapter.sewaadapter.SewaPerTanggalAdapter
+import com.example.sim_sanggar.view.adapter.sewapertanggaladapter.SewaPerTanggalAdapter
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
-import kotlinx.android.synthetic.main.activity_sewa.*
+import kotlinx.android.synthetic.main.activity_tambah_sewa.*
 import java.util.*
 import kotlin.collections.HashMap
 

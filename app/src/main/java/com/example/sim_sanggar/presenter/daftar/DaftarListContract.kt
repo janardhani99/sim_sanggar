@@ -22,6 +22,7 @@ interface DaftarListContract {
         fun getBiayaPendaftaran(response: DaftarListResponse)
         fun deleteDaftarListResponse(response: EmptyResponse)
         fun uploadImageResponse()
+        fun getAnakOnKelasResponse(response: DaftarListResponse)
 //        abstract fun LinearLayoutManager(daftarListFragment: DaftarListFragment): LinearLayoutManager
     }
 
@@ -32,6 +33,8 @@ interface DaftarListContract {
         fun deleteListDaftar(id: Int)
         fun addImage(id: Int, part: MultipartBody.Part)
         fun uploadBuktiPembayaran(id: Int, image: File, tf_via: String, status: String) {}
+//        fun getListDaftarDiUser()
+fun getAnakOnKelas(jadwal_sanggar: Int)
     }
 
     interface Handler {
@@ -59,5 +62,11 @@ interface DaftarListContract {
                 @Part imageData: MultipartBody.Part,
                 @PartMap map: HashMap<String, RequestBody>
         ): Observable<DaftarResponse>
+
+//        @GET("anakterdaftardiuser")
+//        fun getListDaftarDiUser(): Observable<DaftarListResponse>
+
+        @GET("anakonkelas")
+        fun getAnakOnKelas(@Query("jadwal_sanggar") jadwal_sanggar: Int): Observable<DaftarListResponse>
     }
 }

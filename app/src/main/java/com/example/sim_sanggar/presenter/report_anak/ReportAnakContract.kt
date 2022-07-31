@@ -39,7 +39,7 @@ interface ReportAnakContract {
         @GET("detailprogress")
         fun getDetailProgress(@QueryMap map:HashMap<String, Any?>):Observable<ReportAnakResponse>
 
-        @GET("progressperanak/{anak}")
+        @GET("progressperanak")
         fun loadDataSearch(@Path("anak") anak: Int):Observable<ReportAnakListResponse>
 
     }

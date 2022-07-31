@@ -77,4 +77,23 @@ class DaftarListPresenter(val view: DaftarListContract.View): BasePresenter(view
                     }
                 })
     }
+
+    override fun getAnakOnKelas(jadwal_sanggar: Int) {
+        jadwal_sanggar?.let {
+            handler.getAnakOnKelas(it)
+                    .doSubscribe(object: ErrorHandler<DaftarListResponse>(this){
+                        override fun onNext(t: DaftarListResponse) {
+                            view.getAnakOnKelasResponse(t)
+                        }
+                    })
+        }
+    }
+//    override fun getListDaftarDiUser() {
+//        handler.getListDaftarDiUser()
+//                .doSubscribe(object: ErrorHandler<DaftarListResponse>(this){
+//                    override fun onNext(t: DaftarListResponse) {
+//                        view.getDaftarListResponse(t)
+//                    }
+//                })
+//    }
 }

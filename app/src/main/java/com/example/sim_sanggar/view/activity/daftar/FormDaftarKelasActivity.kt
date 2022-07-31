@@ -166,6 +166,10 @@ class FormDaftarKelasActivity : BaseActivity(), AnakContract.View, JadwalSanggar
         TODO("Not yet implemented")
     }
 
+    override fun getAnakOnKelasResponse(response: DaftarListResponse) {
+        TODO("Not yet implemented")
+    }
+
     override fun showError(title: String, message: String) {
         this.showErrorAlert(title, message)
     }

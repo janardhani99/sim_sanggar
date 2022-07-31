@@ -93,4 +93,13 @@ class SewaPresenter(val view: SewaContract.View) : BasePresenter(view), SewaCont
                     }
                 })
     }
+
+    override fun getSewaStatus1(status: String) {
+        handler.getSewaStatus1(status)
+                .doSubscribe(object: ErrorHandler<SewaListResponse>(this){
+                    override fun onNext(t: SewaListResponse) {
+                        view.getSewaResponse(t)
+                    }
+                })
+    }
 }

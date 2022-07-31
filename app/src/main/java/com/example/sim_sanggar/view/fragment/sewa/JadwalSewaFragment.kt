@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import com.example.sim_sanggar.R
 import com.example.sim_sanggar.common.clickWithDebounce
 import com.example.sim_sanggar.view.activity.sewa.RiwayatSewaActivity
+import com.example.sim_sanggar.view.activity.sewa.SewaActivity
 import kotlinx.android.synthetic.main.fragment_jadwal_sewa.*
 
 
@@ -26,7 +27,7 @@ class JadwalSewaFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         cv_sewa?.clickWithDebounce {
-            startActivity(Intent(context, RiwayatSewaActivity::class.java))
+            startActivity(Intent(context, SewaActivity::class.java))
         }
 
 //        btn_riwayat_sewa?.clickWithDebounce {

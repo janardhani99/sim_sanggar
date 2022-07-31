@@ -25,6 +25,7 @@ interface SewaContract {
         fun uploadBukti(id: Int, data: HashMap<String, Any?>)
         fun addImage(id: Int, part: MultipartBody.Part)
         fun uploadBuktiPembayaran(id: Int, image: File, tf_via: String, status: String) {}
+        fun getSewaStatus1(status: String)
     }
 
     interface Handler {
@@ -57,6 +58,8 @@ interface SewaContract {
             @PartMap map: HashMap<String, RequestBody>
         ): Observable<SewaResponse>
 
+        @GET("penyewaanstatus1")
+        fun getSewaStatus1(@Query("status") status: String): Observable<SewaListResponse>
 
     }
 

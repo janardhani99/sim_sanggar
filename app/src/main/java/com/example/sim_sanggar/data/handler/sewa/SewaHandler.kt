@@ -39,4 +39,8 @@ class SewaHandler : BaseHandler() {
     fun getTanggalTersewa(tanggal: String): Observable<SewaListResponse> {
         return service.getTanggalTersewa(tanggal)
     }
+
+    fun getSewaStatus1(status: String): Observable<SewaListResponse> {
+        return service.getSewaStatus1(status)
+    }
 }

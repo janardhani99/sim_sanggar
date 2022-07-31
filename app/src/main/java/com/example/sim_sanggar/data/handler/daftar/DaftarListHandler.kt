@@ -41,4 +41,11 @@ class DaftarListHandler: BaseHandler() {
     fun addImage(id: Int, part: MultipartBody.Part): Observable<DaftarResponse> {
         return service.addImage(id, part)
     }
+
+    fun getAnakOnKelas(jadwalSanggar: Int): Observable<DaftarListResponse> {
+        return service.getAnakOnKelas(jadwalSanggar)
+    }
+//    fun getListDaftarDiUser(): Observable<DaftarListResponse> {
+//        return service.getListDaftarDiUser()
+//    }
 }

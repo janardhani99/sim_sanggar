@@ -26,7 +26,7 @@ class ReportAnakHandler: BaseHandler() {
         return service.getDetailProgress(data)
     }
 
-    fun loadDataSearch(data: Int): Observable<ReportAnakListResponse> {
-        return service.loadDataSearch(data)
+    fun loadDataSearch(anak: Int): Observable<ReportAnakListResponse> {
+        return service.loadDataSearch(anak)
     }
 }

@@ -9,7 +9,7 @@ import com.example.sim_sanggar.common.clickWithDebounce
 import com.example.sim_sanggar.data.model.report_anak.ReportAnakData
 import kotlinx.android.synthetic.main.recycler_report_anak.view.*
 
-class ReportAnakAdapter(val detailListener: (ReportAnakData)-> Unit): RecyclerView.Adapter<ReportAnakAdapter.ViewHolder>() {
+class ReportAnakAdapter(): RecyclerView.Adapter<ReportAnakAdapter.ViewHolder>() {
 
     var progressAnakList = mutableListOf<ReportAnakData>()
 
@@ -28,9 +28,9 @@ class ReportAnakAdapter(val detailListener: (ReportAnakData)-> Unit): RecyclerVi
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = progressAnakList[position]
         holder.itemView.apply {
-            cv_recycler_report_anak.clickWithDebounce {
-                detailListener(item)
-            }
+//            cv_recycler_report_anak.clickWithDebounce {
+//                detailListener(item)
+//            }
             tv_pertemuan_ke?.text = item.pertemuan?.pertemuan_ke
             tv_tanggal_pertemuan?.text = item.pertemuan?.tanggal
             tv_kehadiran?.text = item.kehadiran

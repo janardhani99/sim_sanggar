@@ -12,11 +12,11 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal">
+        android:gravity="fill_horizontal">
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cv_tambah_data_sewa"
-            android:layout_width="wrap_content"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:clickable="true"
             android:focusable="true"
@@ -41,6 +41,39 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:text="Buat Sewa"
+                    android:textAlignment="center"
+                    android:gravity="center"
+                    android:layout_marginLeft="5dp"/>
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_riwayat_sewa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardBackgroundColor="@color/white"
+            android:outlineSpotShadowColor="@color/black"
+            app:cardElevation="1dp"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/dp5">
+
+            <LinearLayout
+                android:id="@+id/riwayat_sewa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:layout_margin="18dp">
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/icon_absensi"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Riwayat Sewa"
                     android:textAlignment="center"
                     android:gravity="center"
                     android:layout_marginLeft="5dp"/>
