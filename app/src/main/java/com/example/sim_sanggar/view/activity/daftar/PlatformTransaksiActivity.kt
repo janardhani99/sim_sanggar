@@ -72,14 +72,6 @@ class PlatformTransaksiActivity : BaseActivity(), PlatformTransaksiContract.View
         rv_platform_transaksi?.adapter = adapter
     }
 
-//    private fun setView(data: PendaftaranAnak) {
-//        data.run {
-//            data.anak_id?.id?.let { til_anak_id?.editText?.setText(it).toString() }
-//            data.jadwal_sanggar_id?.id?.let { til_kelas_id?.editText?.setText(it).toString() }
-//        }
-
-
-//    }
     fun fetchData() {
         isLoading(true)
         presenter.getPlatformTransaksi()

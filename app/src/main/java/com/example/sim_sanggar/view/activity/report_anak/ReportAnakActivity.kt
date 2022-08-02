@@ -47,10 +47,11 @@ class ReportAnakActivity : BaseActivity(), DaftarListContract.View, AnakContract
     var listKelas : List<JadwalSanggarItem>? = null
 //    lateinit var kategori_kelas: List<String?>
     var presenterKelas = JadwalSanggarPresenter(this)
-
+    var selectedKelas: Int? = null
     var listReport : List<ReportAnakData>? = null
     var presenterReportAnak = ReportAnakPresenter(this)
     var selectedAnak: Int? = null
+
     lateinit var adapter : ReportAnakAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -64,9 +65,8 @@ class ReportAnakActivity : BaseActivity(), DaftarListContract.View, AnakContract
 //        presenterAnak.getAnak()
         presenterKelas.getJadwal()
 
-        initAdapter()
         initListener()
-        initAdapterAnak()
+        initAdapter()
     }
 
 
@@ -85,6 +85,11 @@ class ReportAnakActivity : BaseActivity(), DaftarListContract.View, AnakContract
         ac_pilih_anak?.run {
             if (kategori_kelas != null) {
                 setArrayAdapter(kategori_kelas)
+//                isLoading(true)
+                selectedKelas = listKelas?.find { it.kategori_latihan == ac_pilih_anak.text.toString() }?.id
+
+                selectedKelas?.let { presenterAnakTerdaftar.getAnakOnKelas(it)}
+
 
             }
 //            if (anak_terdaftar != null) {
@@ -120,11 +125,12 @@ class ReportAnakActivity : BaseActivity(), DaftarListContract.View, AnakContract
     private fun initListener() {
         cv_cari_report?.clickWithDebounce {
 //            selectedAnak = listAnakTerdaftar?.find { it.anak_id?.nama == ac_pilih_anak.text.toString() }?.id
-            val selectedKelas = listKelas?.find { it.kategori_latihan == ac_pilih_kelas.text.toString() }?.id
-//            val pertemuan = til_pertemuan_ke.editText?.text.toString()
+
+
 
             if (selectedKelas != null) {
                 Log.i("Yes", selectedAnak.toString())
+                Log.i("adakah", selectedKelas.toString())
 //                val contoh = 21
 //                presenterReportAnak.loadDataSearch(contoh)
 //                initAdapter()
@@ -140,17 +146,14 @@ class ReportAnakActivity : BaseActivity(), DaftarListContract.View, AnakContract
     }
 
     private fun fetchData() {
-        isLoading(true)
-        val selectedKelas = listKelas?.find { it.kategori_latihan == ac_pilih_kelas.text.toString() }?.id
-        selectedKelas?.let { presenterAnakTerdaftar.getAnakOnKelas(it)}
+
+
     }
 
     override fun onResume() {
         super.onResume()
         initAdapter()
-        isLoading(false)
-        fetchData()
-        initAdapterAnak()
+
     }
 
     private fun isLoading(isLoad: Boolean) {
@@ -179,8 +182,9 @@ class ReportAnakActivity : BaseActivity(), DaftarListContract.View, AnakContract
     override fun getJadwalSanggarResponse(response: JadwalSanggarListResponse) {
         listKelas =  response.data
         initAdapter()
-        isLoading(false)
-        fetchData()
+        initListener()
+
+
     }
 
     override fun deleteJadwalResponse(response: EmptyResponse) {
@@ -236,6 +240,7 @@ class ReportAnakActivity : BaseActivity(), DaftarListContract.View, AnakContract
     }
 
     override fun getAnakOnKelasResponse(response: DaftarListResponse) {
+        isLoading(false)
         initAdapterAnak()
     }
 
