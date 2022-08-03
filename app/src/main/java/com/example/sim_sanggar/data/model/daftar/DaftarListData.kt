@@ -27,13 +27,13 @@ data class PendaftaranAnak (
         var status: String? = null,
 
         @Expose
-        var anak_id: AnakListItem? = null,
+        var anak: AnakListItem? = null,
 
 //        @Expose
 //        var sanggar_id: Int? = null,
 
         @Expose
-        var jadwal_sanggar_id: JadwalSanggarItem? = null
+        var jadwal_sanggar: JadwalSanggarItem? = null
 ):Parcelable
 
 

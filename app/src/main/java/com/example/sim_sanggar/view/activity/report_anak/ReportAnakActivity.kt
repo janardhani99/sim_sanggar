@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import androidx.lifecycle.Transformations.map
@@ -34,25 +35,30 @@ import com.example.sim_sanggar.presenter.report_anak.ReportAnakContract
 import com.example.sim_sanggar.presenter.report_anak.ReportAnakPresenter
 import com.example.sim_sanggar.view.activity.common.BaseActivity
 import com.example.sim_sanggar.view.adapter.report_anak.ReportAnakAdapter
+import com.google.gson.GsonBuilder
 import kotlinx.android.synthetic.main.activity_report_anak.*
 
 class ReportAnakActivity : BaseActivity(), DaftarListContract.View, AnakContract.View, JadwalSanggarContract.View, PertemuanContract.View, ReportAnakContract.View {
 
-    var listAnakTerdaftar : List<PendaftaranAnak>? = null
+    var listAnakTerdaftar: List<PendaftaranAnak>? = null
+
+    //    var listAnakTerdaftar = mutableListOf<PendaftaranAnak>()
     private var presenterAnakTerdaftar = DaftarListPresenter(this)
 
-    var listAnak : List<AnakListItem>? = null
+    var listAnak: List<AnakListItem>? = null
     private var presenterAnak = AnakPresenter(this)
 
-    var listKelas : List<JadwalSanggarItem>? = null
+        var listKelas : List<JadwalSanggarItem>? = null
 //    lateinit var kategori_kelas: List<String?>
+//    var listKelas: JadwalSanggarItem? = null
+
     var presenterKelas = JadwalSanggarPresenter(this)
     var selectedKelas: Int? = null
-    var listReport : List<ReportAnakData>? = null
+    var listReport: List<ReportAnakData>? = null
     var presenterReportAnak = ReportAnakPresenter(this)
     var selectedAnak: Int? = null
 
-    lateinit var adapter : ReportAnakAdapter
+    lateinit var adapter: ReportAnakAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,8 +66,9 @@ class ReportAnakActivity : BaseActivity(), DaftarListContract.View, AnakContract
 
         setToolbar()
 
+//        listKelas = intent.getParcelableExtra<JadwalSanggarItem>("data_kelas")
 
-        presenterAnakTerdaftar.getListDaftar()
+//        presenterAnakTerdaftar.getListDaftar()
 //        presenterAnak.getAnak()
         presenterKelas.getJadwal()
 
@@ -75,85 +82,72 @@ class ReportAnakActivity : BaseActivity(), DaftarListContract.View, AnakContract
         this.setAdapter(adapter)
     }
 
+
     private fun initAdapter() {
-//        val nama_anak = listAnak?.map { it.nama }
-//        val anak_terdaftar = listAnakTerdaftar?.map { it.anak_id }
-
         val kategori_kelas = listKelas?.map { it.kategori_latihan }
-//        Log.i("adapter anak", nama_anak.toString())
 
-        ac_pilih_anak?.run {
+        ac_pilih_kelas?.run {
             if (kategori_kelas != null) {
                 setArrayAdapter(kategori_kelas)
-//                isLoading(true)
-                selectedKelas = listKelas?.find { it.kategori_latihan == ac_pilih_anak.text.toString() }?.id
-
-                selectedKelas?.let { presenterAnakTerdaftar.getAnakOnKelas(it)}
-
 
             }
-//            if (anak_terdaftar != null) {
-//            anak_terdaftar?.let { setArrayAdapter(it) }
-//            }
         }
 
-//        ac_pilih_kelas?.run {
-//            if (kategori_latihan != null) {
-//                setArrayAdapter(kategori_latihan)
-//            }
-//        }
-//
 //        adapter = ReportAnakAdapter()
 //
 //        rv_report_anak?.layoutManager = LinearLayoutManager(this)
 //        rv_report_anak?.adapter = adapter
     }
-//
+
+    fun clicked(view: View) {
+
+        Log.i("adakah", selectedKelas.toString())
+        selectedKelas?.let { presenterAnakTerdaftar.getAnakOnKelas(it) }
+
+    }
+
+    private fun fetchData() {
+        selectedKelas = listKelas?.find { it.kategori_latihan == ac_pilih_kelas.text.toString() }?.id
+        isLoading(true)
+        selectedKelas?.let { presenterAnakTerdaftar.getAnakOnKelas(it) }
+    }
+
     private fun initAdapterAnak() {
-        val nama_anak = listAnakTerdaftar?.map { it.anak_id?.nama }
-        Log.i("manaa", nama_anak.toString())
-
-        ac_pilih_kelas?.run {
-            if (nama_anak != null) {
-                setArrayAdapter(nama_anak)
-
-            }
+//        WLog(listAnakTerdaftar)
+//        val notNullAnak = data?.filter { it.anak != null }
+//        WLog(notNullAnak)
+//        val nama_anak = notNullAnak?.map { it.anak?.nama ?: "Jena" }
+        val nama_anak = listAnakTerdaftar?.map { it.anak?.nama }
+        ac_pilih_anak?.run {
+//            Log.i("manaa", nama_anak.toString())
+//            if (nama_anak != null) {
+            setArrayAdapter(nama_anak)
+//            }
 
         }
     }
+
+//    fun WLog (any: Any?){
+//        val gsonPretty = GsonBuilder().setPrettyPrinting().create()
+//        val pretty = gsonPretty.toJson(any)
+//        Log.d("WIDI", pretty)
+//    }
 
     private fun initListener() {
         cv_cari_report?.clickWithDebounce {
 //            selectedAnak = listAnakTerdaftar?.find { it.anak_id?.nama == ac_pilih_anak.text.toString() }?.id
+//            if (selectedKelas != null) {
+//            val nama_anak = listAnakTerdaftar?.map { it.transfer_via }
+//            Log.i("manaa", nama_anak.toString())
 
-
-
-            if (selectedKelas != null) {
-                Log.i("Yes", selectedAnak.toString())
-                Log.i("adakah", selectedKelas.toString())
-//                val contoh = 21
-//                presenterReportAnak.loadDataSearch(contoh)
-//                initAdapter()
-//                adapter = ReportAnakAdapter { detailItem ->
-                    
-
-            }
-            else {
-                Log.i("No", "gaadaa")
-            }
 
         }
     }
 
-    private fun fetchData() {
-
-
-    }
 
     override fun onResume() {
         super.onResume()
-        initAdapter()
-
+        fetchData()
     }
 
     private fun isLoading(isLoad: Boolean) {
@@ -180,10 +174,9 @@ class ReportAnakActivity : BaseActivity(), DaftarListContract.View, AnakContract
     }
 
     override fun getJadwalSanggarResponse(response: JadwalSanggarListResponse) {
+        isLoading(false)
         listKelas =  response.data
         initAdapter()
-        initListener()
-
 
     }
 
@@ -223,8 +216,7 @@ class ReportAnakActivity : BaseActivity(), DaftarListContract.View, AnakContract
     }
 
     override fun getDaftarListResponse(response: DaftarListResponse) {
-        listAnakTerdaftar = response.data
-        initAdapter()
+
     }
 
     override fun getBiayaPendaftaran(response: DaftarListResponse) {
@@ -241,7 +233,11 @@ class ReportAnakActivity : BaseActivity(), DaftarListContract.View, AnakContract
 
     override fun getAnakOnKelasResponse(response: DaftarListResponse) {
         isLoading(false)
+//        WLog(response)
+        listAnakTerdaftar = response.data
+
         initAdapterAnak()
+//        initListener()
     }
 
     override fun showError(title: String, message: String) {

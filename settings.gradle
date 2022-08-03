@@ -1,5 +1,5 @@
+include ':admin'
 include ':sanggar'
-include ':sanggar2'
 include ':sanggar'
 include ':app'
 rootProject.name = "SIM_Sanggar"

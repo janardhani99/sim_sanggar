@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import com.example.sim_sanggar.R
 import com.example.sim_sanggar.common.clickWithDebounce
 import com.example.sim_sanggar.view.activity.anak.AnakTerdaftarActivity
+import com.example.sim_sanggar.view.activity.report_anak.ReportActivity
 import com.example.sim_sanggar.view.activity.report_anak.ReportAnakActivity
 import kotlinx.android.synthetic.main.fragment_anak.*
 
@@ -34,7 +35,7 @@ class AnakFragment : Fragment() {
         }
 
         cv_report_anak?.clickWithDebounce {
-            startActivity(Intent(context, ReportAnakActivity::class.java))
+            startActivity(Intent(context, ReportActivity::class.java))
         }
 
     }

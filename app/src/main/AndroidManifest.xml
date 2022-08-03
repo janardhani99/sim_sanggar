@@ -36,6 +36,9 @@
             android:name=".view.activity.report_anak.ReportAnakActivity"
             android:screenOrientation="portrait"/>
         <activity
+            android:name=".view.activity.report_anak.ReportActivity"
+            android:screenOrientation="portrait"/>
+        <activity
             android:name=".view.activity.jam_operasional.JamOperasionalActivity"
             android:screenOrientation="portrait"/>
         <activity android:name=".view.activity.jam_operasional.TanggalLiburActivity"
