@@ -5,12 +5,14 @@ import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.sim_sanggar.R
 import com.example.sim_sanggar.common.Utilities
+import com.example.sim_sanggar.common.clickWithDebounce
 import com.example.sim_sanggar.data.model.common.EmptyResponse
 import com.example.sim_sanggar.data.model.jadwal_sanggar.JadwalSanggarItem
 import com.example.sim_sanggar.data.model.jadwal_sanggar.JadwalSanggarListResponse
 import com.example.sim_sanggar.data.model.jadwal_sanggar.JadwalSanggarResponse
 import com.example.sim_sanggar.presenter.jadwal_sanggar.JadwalSanggarContract
 import com.example.sim_sanggar.presenter.jadwal_sanggar.JadwalSanggarPresenter
+import com.example.sim_sanggar.view.activity.anak.AnakTerdaftarActivity
 import com.example.sim_sanggar.view.activity.common.BaseActivity
 import com.example.sim_sanggar.view.adapter.daftar.DaftarKelasAdapter
 import kotlinx.android.synthetic.main.activity_daftar_kelas.*
@@ -28,6 +30,11 @@ class DaftarKelasActivity : BaseActivity(), JadwalSanggarContract.View {
         setToolbar()
 
         initAdapter()
+
+
+        btn_kelola_data_anak?.clickWithDebounce {
+            startActivity(Intent(this, AnakTerdaftarActivity::class.java))
+        }
     }
 
     private fun initAdapter() {

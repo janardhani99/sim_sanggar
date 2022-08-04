@@ -7,12 +7,14 @@ import android.util.Log
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
+import android.widget.Toast
 import androidx.lifecycle.Transformations.map
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.sim_sanggar.GlobalClass
 import com.example.sim_sanggar.R
 import com.example.sim_sanggar.common.Utilities
 import com.example.sim_sanggar.common.clickWithDebounce
+import com.example.sim_sanggar.common.onTextChanged
 import com.example.sim_sanggar.data.model.anak.AnakListItem
 import com.example.sim_sanggar.data.model.anak.AnakListResponse
 import com.example.sim_sanggar.data.model.anak.AnakResponse
@@ -38,24 +40,21 @@ import com.example.sim_sanggar.view.adapter.report_anak.ReportAnakAdapter
 import com.google.gson.GsonBuilder
 import kotlinx.android.synthetic.main.activity_report_anak.*
 
-class ReportAnakActivity : BaseActivity(), DaftarListContract.View, AnakContract.View, JadwalSanggarContract.View, PertemuanContract.View, ReportAnakContract.View {
+class ReportAnakActivity : BaseActivity(), DaftarListContract.View, JadwalSanggarContract.View, PertemuanContract.View, ReportAnakContract.View {
 
     var listAnakTerdaftar: List<PendaftaranAnak>? = null
-
-    //    var listAnakTerdaftar = mutableListOf<PendaftaranAnak>()
     private var presenterAnakTerdaftar = DaftarListPresenter(this)
-
-    var listAnak: List<AnakListItem>? = null
-    private var presenterAnak = AnakPresenter(this)
 
         var listKelas : List<JadwalSanggarItem>? = null
 //    lateinit var kategori_kelas: List<String?>
 //    var listKelas: JadwalSanggarItem? = null
 
     var presenterKelas = JadwalSanggarPresenter(this)
-    var selectedKelas: Int? = null
-    var listReport: List<ReportAnakData>? = null
+
+//    var listReport: List<ReportAnakData>? = null
     var presenterReportAnak = ReportAnakPresenter(this)
+
+    var selectedKelas: Int? = null
     var selectedAnak: Int? = null
 
     lateinit var adapter: ReportAnakAdapter
@@ -73,7 +72,8 @@ class ReportAnakActivity : BaseActivity(), DaftarListContract.View, AnakContract
         presenterKelas.getJadwal()
 
         initListener()
-        initAdapter()
+        initAdapterKelas()
+        initAdapterReport()
     }
 
 
@@ -83,7 +83,7 @@ class ReportAnakActivity : BaseActivity(), DaftarListContract.View, AnakContract
     }
 
 
-    private fun initAdapter() {
+    private fun initAdapterKelas() {
         val kategori_kelas = listKelas?.map { it.kategori_latihan }
 
         ac_pilih_kelas?.run {
@@ -91,40 +91,54 @@ class ReportAnakActivity : BaseActivity(), DaftarListContract.View, AnakContract
                 setArrayAdapter(kategori_kelas)
 
             }
+
+            onTextChanged {
+                selectedKelas = listKelas?.find { it.kategori_latihan == ac_pilih_kelas.text.toString() }?.id
+                Log.i("adakah", selectedKelas.toString())
+                selectedKelas?.let { presenterAnakTerdaftar.getAnakOnKelas(it) }
+            }
         }
 
-//        adapter = ReportAnakAdapter()
-//
-//        rv_report_anak?.layoutManager = LinearLayoutManager(this)
-//        rv_report_anak?.adapter = adapter
     }
 
     fun clicked(view: View) {
 
-        Log.i("adakah", selectedKelas.toString())
-        selectedKelas?.let { presenterAnakTerdaftar.getAnakOnKelas(it) }
+
 
     }
 
-    private fun fetchData() {
-        selectedKelas = listKelas?.find { it.kategori_latihan == ac_pilih_kelas.text.toString() }?.id
-        isLoading(true)
-        selectedKelas?.let { presenterAnakTerdaftar.getAnakOnKelas(it) }
-    }
+//    private fun fetchData() {
+//    initAdapter()
+//    }
 
     private fun initAdapterAnak() {
 //        WLog(listAnakTerdaftar)
 //        val notNullAnak = data?.filter { it.anak != null }
 //        WLog(notNullAnak)
 //        val nama_anak = notNullAnak?.map { it.anak?.nama ?: "Jena" }
+
         val nama_anak = listAnakTerdaftar?.map { it.anak?.nama }
         ac_pilih_anak?.run {
 //            Log.i("manaa", nama_anak.toString())
-//            if (nama_anak != null) {
+            if (nama_anak != null) {
             setArrayAdapter(nama_anak)
-//            }
+            } else {
+                toast("Belum ada Data Anak di Kelas ini")
+            }
+
+            onTextChanged {
+                selectedAnak = listAnakTerdaftar?.find { it.anak?.nama == ac_pilih_anak.text.toString() }?.id
+                Log.d("anaknya mana", selectedAnak.toString())
+                initListener()
+            }
 
         }
+    }
+
+    private fun initAdapterReport() {
+        adapter = ReportAnakAdapter()
+        rv_report_anak?.layoutManager = LinearLayoutManager(this)
+        rv_report_anak?.adapter = adapter
     }
 
 //    fun WLog (any: Any?){
@@ -135,20 +149,17 @@ class ReportAnakActivity : BaseActivity(), DaftarListContract.View, AnakContract
 
     private fun initListener() {
         cv_cari_report?.clickWithDebounce {
-//            selectedAnak = listAnakTerdaftar?.find { it.anak_id?.nama == ac_pilih_anak.text.toString() }?.id
-//            if (selectedKelas != null) {
-//            val nama_anak = listAnakTerdaftar?.map { it.transfer_via }
-//            Log.i("manaa", nama_anak.toString())
-
+            Log.d("anaknya mana", selectedAnak.toString())
+            isLoading(true)
+            selectedAnak?.let { it1 -> presenterReportAnak.loadDataSearch(it1) }
 
         }
     }
-
-
     override fun onResume() {
         super.onResume()
-        fetchData()
+        initAdapterKelas()
     }
+
 
     private fun isLoading(isLoad: Boolean) {
         if (isLoad) Utilities.showProgress(this)
@@ -176,7 +187,7 @@ class ReportAnakActivity : BaseActivity(), DaftarListContract.View, AnakContract
     override fun getJadwalSanggarResponse(response: JadwalSanggarListResponse) {
         isLoading(false)
         listKelas =  response.data
-        initAdapter()
+        initAdapterKelas()
 
     }
 
@@ -184,14 +195,6 @@ class ReportAnakActivity : BaseActivity(), DaftarListContract.View, AnakContract
         TODO("Not yet implemented")
     }
 
-    override fun anakResponse(response: AnakResponse) {
-        TODO("Not yet implemented")
-    }
-
-    override fun getAnakResponse(response: AnakListResponse) {
-//        listAnak = response.data
-//        initAdapter()
-    }
 
     override fun progressAnakResponse(response: ReportAnakResponse) {
         TODO("Not yet implemented")
@@ -206,9 +209,11 @@ class ReportAnakActivity : BaseActivity(), DaftarListContract.View, AnakContract
     }
 
     override fun loadDataSearch(response: ReportAnakListResponse) {
-        listReport = response.data
-        initListener()
-
+//        listReport = response.data
+//        initListener()
+        isLoading(false)
+        Log.i("dapet", response.data.toString())
+        response.data?.let { adapter.setData(it) }
     }
 
     override fun daftarListResponse(response: DaftarResponse) {
@@ -235,9 +240,8 @@ class ReportAnakActivity : BaseActivity(), DaftarListContract.View, AnakContract
         isLoading(false)
 //        WLog(response)
         listAnakTerdaftar = response.data
-
         initAdapterAnak()
-//        initListener()
+
     }
 
     override fun showError(title: String, message: String) {

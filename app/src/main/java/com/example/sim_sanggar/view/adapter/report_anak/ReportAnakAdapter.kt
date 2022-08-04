@@ -31,11 +31,10 @@ class ReportAnakAdapter(): RecyclerView.Adapter<ReportAnakAdapter.ViewHolder>() 
 //            cv_recycler_report_anak.clickWithDebounce {
 //                detailListener(item)
 //            }
-            tv_pertemuan_ke?.text = item.pertemuan?.pertemuan_ke
-            tv_tanggal_pertemuan?.text = item.pertemuan?.tanggal
-            tv_kehadiran?.text = item.kehadiran
-            tv_catatan_progress?.text = item.catatan_progress
-
+            tv_pertemuan_ke?.text = "Pertemuan ke: ${item.pertemuan?.pertemuan_ke}"
+            tv_tanggal_pertemuan?.text = "Tanggal: ${item.pertemuan?.tanggal}"
+            tv_kehadiran?.text = "Presensi: ${item.kehadiran}"
+            tv_catatan_progress?.text = "Catatan: ${item.catatan_progress}"
         }
     }
 

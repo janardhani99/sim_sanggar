@@ -25,12 +25,56 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="Belum menambahkan Data Anak?"
+                android:gravity="center"
+                android:textStyle="italic"
+                android:textSize="18dp"
+                android:layout_marginTop="@dimen/dp32"/>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/btn_kelola_data_anak"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="@color/white"
+                android:outlineSpotShadowColor="@color/black"
+                app:cardElevation="1dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/dp16">
+
+                <LinearLayout
+                    android:id="@+id/daftar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+                    android:layout_margin="10dp">
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/daftar"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Kelola Data Anak"
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        android:layout_marginLeft="5dp"
+                        android:textSize="18dp"/>
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:text="Pilih Kelas"
                 android:gravity="center"
                 android:textStyle="bold"
                 android:textSize="24dp"
-                android:layout_marginTop="@dimen/dp16"
-                android:layout_marginBottom="@dimen/dp16"/>
+                android:layout_marginTop="@dimen/dp22"
+                android:layout_marginBottom="@dimen/dp16" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_daftar_kelas"
@@ -38,7 +82,8 @@
                 android:layout_height="match_parent"
                 tools:listitem="@layout/recycler_daftar_kelas"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                android:orientation="vertical"/>
+                android:orientation="vertical"
+                android:layout_marginBottom="@dimen/dp32"/>
         </LinearLayout>
     </ScrollView>
 

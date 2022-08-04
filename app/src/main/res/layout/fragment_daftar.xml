@@ -16,29 +16,18 @@
         android:textSize="24dp"
         android:layout_margin="@dimen/dp32"/>
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="313dp"
+        android:src="@drawable/ilustrasi_daftar" />
+
     <Button
         android:id="@+id/btn_daftar_kelas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Daftar Sekarang"
         android:layout_marginLeft="@dimen/dp16"
-        android:layout_marginRight="@dimen/dp16"
-        />
+        android:layout_marginRight="@dimen/dp16"/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Belum menambahkan Data Anak?"
-        android:gravity="center"
-        android:textStyle="italic"
-        android:textSize="22dp"
-        android:layout_marginTop="@dimen/dp32"/>
 
-    <Button
-        android:id="@+id/btn_kelola_data_anak"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Kelola Data Anak"
-        android:layout_marginTop="@dimen/dp16"
-        android:layout_gravity="center_horizontal"/>
 </LinearLayout>

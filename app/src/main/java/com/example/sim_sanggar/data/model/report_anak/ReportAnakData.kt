@@ -13,7 +13,7 @@ data class ReportAnakResponse(@Expose var data: ReportAnakData? = null): BaseRes
 data class ReportAnakListResponse(@Expose var data: List<ReportAnakData>? = null): BaseResultData()
 
 @Parcelize
-class ReportAnakData (
+data class ReportAnakData (
         @Expose
         var id: Int? = null,
 

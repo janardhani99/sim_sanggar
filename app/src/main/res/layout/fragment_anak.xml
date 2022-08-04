@@ -70,7 +70,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="313dp"
-            android:src="@drawable/ilustrasi_daftar" />
+            android:src="@drawable/ilustrasi_anak" />
 
 
 

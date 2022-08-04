@@ -51,7 +51,7 @@ class ReportAnakPresenter(val view: ReportAnakContract.View):BasePresenter(view)
         handler.loadDataSearch(anak)
                 .doSubscribe(object : ErrorHandler<ReportAnakListResponse>(this){
                     override fun onNext(t: ReportAnakListResponse) {
-                        view.getProgressAnakResponse(t)
+                        view.loadDataSearch(t)
                     }
                 })
     }

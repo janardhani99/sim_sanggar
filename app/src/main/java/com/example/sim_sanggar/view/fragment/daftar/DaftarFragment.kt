@@ -45,9 +45,6 @@ class DaftarFragment : Fragment(){
             startActivity(Intent(context, DaftarKelasActivity::class.java))
         }
 
-        btn_kelola_data_anak?.clickWithDebounce {
-            startActivity(Intent(context, AnakTerdaftarActivity::class.java))
-        }
     }
 
 }

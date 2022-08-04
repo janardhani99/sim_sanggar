@@ -35,7 +35,7 @@ class AnakFragment : Fragment() {
         }
 
         cv_report_anak?.clickWithDebounce {
-            startActivity(Intent(context, ReportActivity::class.java))
+            startActivity(Intent(context, ReportAnakActivity::class.java))
         }
 
     }
