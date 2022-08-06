@@ -83,7 +83,7 @@
             android:name=".view.activity.auth.RegisterActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".MainTabActivity"
+            android:name=".com.example.admin.MainTabActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".view.activity.auth.LoginActivity">
             <intent-filter>

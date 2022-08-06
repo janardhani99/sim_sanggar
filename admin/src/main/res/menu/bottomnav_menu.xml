@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:enabled="true"
+        android:id="@+id/menu_beranda"
+        android:title="Beranda"
+        android:icon="@drawable/menuberanda"/>
+    <item
+        android:enabled="true"
+        android:id="@+id/menu_user"
+        android:title="Kelola User"
+        android:icon="@drawable/menudaftar"/>
+
+    <item
+        android:enabled="true"
+        android:id="@+id/menu_profil"
+        android:title="Profile"
+        android:icon="@drawable/menudaftar"/>
+
+
+</menu>

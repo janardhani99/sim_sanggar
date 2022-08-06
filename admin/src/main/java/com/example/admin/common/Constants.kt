@@ -23,7 +23,6 @@ object Constants {
     }
 
     object Url {
-        const val baseUrl =  "https://sim-sanggar.astungkarasarjana.com/api/admin/"
-//        const val baseUrl = "https://9cca-180-249-184-66.ngrok.io/api/customer/"
+        const val baseUrl =  "https://sim-sanggar.astungkarasarjana.com/api/superadmin/"
     }
 }

@@ -106,10 +106,6 @@ class DaftarListFragment : Fragment(), DaftarListContract.View {
 //        presenter.getListDaftar()
 //    }
 
-//    override fun onResume() {
-//        super.onResume()
-//
-//    }
     override fun daftarListResponse(response: DaftarResponse) {
         TODO("Not yet implemented")
     }
