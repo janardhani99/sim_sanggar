@@ -6,13 +6,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".view.fragment.UserFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_user"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/sr_list_user"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/recycler_list_user"/>
+        android:layout_height="match_parent">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_user"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/recycler_list_user"/>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
 
 
 </FrameLayout>

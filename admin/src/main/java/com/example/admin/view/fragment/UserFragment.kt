@@ -1,6 +1,6 @@
 package com.example.admin.view.fragment
 
-import android.content.Intent
+
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -22,18 +22,26 @@ class UserFragment : Fragment(), UserContract.View {
     var data_user : UserData? = null
     lateinit var adapter: UserAdapter
     private var presenter = UserPresenter(this)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        initAdapter()
-        presenter.getUser()
 
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        initAdapter()
+        initListener()
+    }
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_user, container, false)
+
     }
 
     private fun initAdapter() {
@@ -44,9 +52,21 @@ class UserFragment : Fragment(), UserContract.View {
         }, {deleteItem ->
 
             })
-        rv_user?.layoutManager = LinearLayoutManager(context)
+        rv_user?.layoutManager = LinearLayoutManager(this.activity)
         rv_user?.adapter = adapter
     }
+
+    private fun initListener() {
+        sr_list_user?.setOnRefreshListener {
+            fetchData()
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        fetchData()
+    }
+
 
     fun fetchData() {
         isLoading(true)
@@ -55,7 +75,10 @@ class UserFragment : Fragment(), UserContract.View {
 
     private fun isLoading(isLoad: Boolean) {
         if(isLoad) context?.let { Utilities.showProgress(it) }
-        else Utilities.hideProgress()
+        else {
+            Utilities.hideProgress()
+            sr_list_user.isRefreshing = false
+        }
     }
     override fun userResponse(response: UserResponse) {
         TODO("Not yet implemented")
@@ -67,7 +90,7 @@ class UserFragment : Fragment(), UserContract.View {
     }
 
     override fun showError(title: String, message: String) {
-        this.showError(title, message)
+        showError(title, message)
     }
 
 

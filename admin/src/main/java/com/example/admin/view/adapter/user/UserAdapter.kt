@@ -8,9 +8,9 @@ import com.example.admin.R
 import com.example.admin.data.model.user.UserData
 import kotlinx.android.synthetic.main.recycler_list_user.view.*
 
-class UserAdapter( val editListener: (com.example.admin.data.model.user.UserData)-> Unit, val deleteListener: (com.example.admin.data.model.user.UserData)-> Unit): RecyclerView.Adapter<UserAdapter.ViewHolder>() {
+class UserAdapter( val editListener: (UserData)-> Unit, val deleteListener: (UserData)-> Unit): RecyclerView.Adapter<UserAdapter.ViewHolder>() {
 
-    var userList = mutableListOf<com.example.admin.data.model.user.UserData>()
+    var userList = mutableListOf<UserData>()
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

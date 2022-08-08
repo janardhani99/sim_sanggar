@@ -12,12 +12,12 @@ import com.example.admin.data.model.auth.AuthResponse
 import com.example.admin.presenter.auth.AuthContract
 import com.example.admin.presenter.auth.AuthPresenter
 import com.example.admin.view.activity.common.BaseActivity
-import com.example.admin.view.fragment.BerandaFragment
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : BaseActivity(), AuthContract.View {
     val presenter =  AuthPresenter(this)
     val preferences = Preferences(GlobalClass.context)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
