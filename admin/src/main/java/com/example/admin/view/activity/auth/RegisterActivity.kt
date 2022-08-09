@@ -2,9 +2,7 @@ package com.example.admin.view.activity.auth
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.ArrayAdapter
 import com.example.admin.GlobalClass
-import com.example.admin.MainTabActivity
 import com.example.admin.R
 import com.example.admin.common.Preferences
 import com.example.admin.common.Utilities
@@ -12,6 +10,7 @@ import com.example.admin.common.clickWithDebounce
 import com.example.admin.data.model.auth.AuthResponse
 import com.example.admin.presenter.auth.AuthContract
 import com.example.admin.presenter.auth.AuthPresenter
+import com.example.admin.view.activity.MainActivity
 import com.example.admin.view.activity.common.BaseActivity
 
 import kotlinx.android.synthetic.main.activity_register.*
@@ -61,7 +60,7 @@ class RegisterActivity: BaseActivity(), AuthContract.View {
             userLoggedIn = true
         }
         finishAffinity()
-        startActivity(Intent(this, MainTabActivity::class.java))
+        startActivity(Intent(this, MainActivity::class.java))
     }
 
     override fun showError(title: String, message: String) {

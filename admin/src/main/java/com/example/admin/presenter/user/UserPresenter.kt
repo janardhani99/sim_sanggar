@@ -3,6 +3,7 @@ package com.example.admin.presenter.user
 import com.example.admin.common.doSubscribe
 import com.example.admin.data.handler.common.ErrorHandler
 import com.example.admin.data.handler.user.UserHandler
+import com.example.admin.data.model.common.EmptyResponse
 import com.example.admin.data.model.user.UserListResponse
 import com.example.admin.data.model.user.UserResponse
 import com.example.admin.presenter.common.BasePresenter
@@ -34,6 +35,15 @@ class UserPresenter(val view: UserContract.View): BasePresenter(view), UserContr
                 .doSubscribe(object: ErrorHandler<UserResponse>(this){
                     override fun onNext(t: UserResponse) {
                         view.userResponse(t)
+                    }
+                })
+    }
+
+    override fun deleteUser(id: Int) {
+        handler.deleteUser(id)
+                .doSubscribe(object: ErrorHandler<EmptyResponse>(this) {
+                    override fun onNext(t: EmptyResponse) {
+                        view.deleteUserResponse(t)
                     }
                 })
     }

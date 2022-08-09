@@ -1,6 +1,7 @@
 package com.example.admin.data.handler.user
 
 import com.example.admin.data.handler.common.BaseHandler
+import com.example.admin.data.model.common.EmptyResponse
 import com.example.admin.data.model.user.UserListResponse
 import com.example.admin.data.model.user.UserResponse
 import com.example.admin.presenter.user.UserContract
@@ -20,5 +21,9 @@ class UserHandler: BaseHandler() {
 
     fun editUser(id: Int, data: HashMap<String, Any?>): Observable<UserResponse> {
         return service.editUser(id, data)
+    }
+
+    fun deleteUser(id: Int): Observable<EmptyResponse> {
+        return service.deleteUser(id)
     }
 }

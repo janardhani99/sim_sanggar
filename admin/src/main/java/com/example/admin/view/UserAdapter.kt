@@ -1,4 +1,4 @@
-package com.example.admin.view.adapter.user
+package com.example.admin.view
 
 import android.view.LayoutInflater
 import android.view.View
@@ -31,7 +31,7 @@ class UserAdapter( val editListener: (UserData)-> Unit, val deleteListener: (Use
                 editListener(item)
             }
             btn_delete_user.setOnClickListener {
-                deleteItem(position)
+                deleteListener(item)
             }
         }
     }
@@ -41,9 +41,4 @@ class UserAdapter( val editListener: (UserData)-> Unit, val deleteListener: (Use
         notifyDataSetChanged()
     }
 
-    fun deleteItem(position: Int) {
-        userList.removeAt(position);
-        notifyItemRemoved(position)
-        notifyItemRangeChanged(position, userList.size)
-    }
 }
