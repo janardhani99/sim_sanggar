@@ -1,13 +1,13 @@
-package com.example.sanggar.data.model.sanggar
+package com.example.admin.data.model.user
 
 import android.os.Parcelable
-import com.example.sanggar.data.model.common.BaseResultData
+import com.example.admin.data.model.common.BaseResultData
 import com.google.gson.annotations.Expose
 import kotlinx.android.parcel.Parcelize
 
-data class ProfilSanggarResponse(@Expose var data: SanggarData? = null): BaseResultData()
+data class SanggarResponse(@Expose var data: SanggarData? = null): BaseResultData()
 
-data class ProfilSanggarListResponse(@Expose var data: List<SanggarData>? = null): BaseResultData()
+data class SanggarListResponse(@Expose var data: List<SanggarData>? = null): BaseResultData()
 
 @Parcelize
 data class SanggarData (
@@ -31,8 +31,5 @@ data class SanggarData (
     var harga_pendaftaran_siswa : String? = null,
     @Expose
     var harga_penyewaan_perjam : String? = null
-//    @Expose
-//    var jam_operasional : String? = null
-//    @Expose
-//    var jadwal_sanggar : String? = null
+
 ):Parcelable

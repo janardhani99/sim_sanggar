@@ -17,7 +17,7 @@ interface UserContract {
 
     interface Presenter {
         fun addUser(data: HashMap<String, Any?>)
-        fun getUser()
+        fun getUser(role: String)
         fun editUser(id: Int, data: HashMap<String, Any?>)
         fun deleteUser(id: Int)
     }
@@ -28,7 +28,7 @@ interface UserContract {
         fun addUser(@FieldMap data: HashMap<String, Any?>): Observable<UserResponse>
 
         @GET("user")
-        fun getUser(): Observable<UserListResponse>
+        fun getUser(@Query("role") role: String): Observable<UserListResponse>
 
         @FormUrlEncoded
         @PATCH("user/{id}")

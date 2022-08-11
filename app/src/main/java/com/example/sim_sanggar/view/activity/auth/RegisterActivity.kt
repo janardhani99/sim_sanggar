@@ -3,6 +3,7 @@ package com.example.sim_sanggar.view.activity.auth
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
 import com.example.sim_sanggar.GlobalClass
 import com.example.sim_sanggar.MainTabActivity
 import com.example.sim_sanggar.R
@@ -11,23 +12,32 @@ import com.example.sim_sanggar.common.Utilities
 import com.example.sim_sanggar.common.clickWithDebounce
 import com.example.sim_sanggar.data.model.auth.AuthResponse
 import com.example.sim_sanggar.data.model.sanggar.SanggarData
+import com.example.sim_sanggar.data.model.sanggar.SanggarListResponse
 import com.example.sim_sanggar.presenter.auth.AuthContract
 import com.example.sim_sanggar.presenter.auth.AuthPresenter
+import com.example.sim_sanggar.presenter.sanggar.SanggarContract
+import com.example.sim_sanggar.presenter.sanggar.SanggarPresenter
 import com.example.sim_sanggar.view.activity.common.BaseActivity
+import kotlinx.android.synthetic.main.activity_form_daftar_kelas.*
 
 import kotlinx.android.synthetic.main.activity_register.*
 
-class RegisterActivity: BaseActivity(), AuthContract.View {
+class RegisterActivity: BaseActivity(), AuthContract.View, SanggarContract.View {
 
     val presenter = AuthPresenter(this)
     val preferences = Preferences(GlobalClass.context)
-    val namaSanggar : MutableList<SanggarData>? = null
+//    val namaSanggar : MutableList<SanggarData>? = null
+    var data_sanggar : List<SanggarData>? = null
+    val presenterSanggar = SanggarPresenter(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
+
+        presenterSanggar.getSanggar()
         initListener()
-//        initAdapter()
+        initAdapter()
+
     }
 
     private fun initListener() {
@@ -42,24 +52,36 @@ class RegisterActivity: BaseActivity(), AuthContract.View {
         }
     }
 
-    private fun initAdapter() {
+    fun AutoCompleteTextView.setArrayAdapter(list: List<String?>) {
+        val adapter = ArrayAdapter(GlobalClass.context, R.layout.layout_dropdown_item, list)
+        this.setAdapter(adapter)
+    }
 
-        val namaSanggarAdapter = namaSanggar?.let { ArrayAdapter<SanggarData>(this, R.layout.layout_dropdown_item, it) }
-        ac_nama_sanggar?.setAdapter(namaSanggarAdapter)
+    private fun initAdapter() {
+        val nama_sanggar = data_sanggar?.map { it.nama}
+
+        ac_nama_sanggar?.run {
+            if (nama_sanggar != null) {
+                setArrayAdapter(nama_sanggar)
+            }
+
+
+        }
+
     }
 
 
     private fun registerProcess() {
         val email = til_email_user_register?.editText?.text.toString()
         val password = til_password_user_register?.editText?.text.toString()
-        val nama_sanggar = til_sanggar_user_register?.editText?.text.toString()
+        val selectedSanggar = data_sanggar?.find{it.nama == ac_nama_sanggar?.text.toString()}
         val username = til_username_user_register?.editText?.text.toString()
         val nomor_telepon = til_telepon_user_register?.editText?.text.toString()
 
         val registerData = HashMap<String, Any?>()
         registerData["email"] = email
         registerData["password"] = password
-        registerData["sanggar_id"] = nama_sanggar
+        registerData["sanggar_id"] = selectedSanggar
         registerData["username"] = username
         registerData["telepon"] = nomor_telepon
         isLoadingProcess(true)
@@ -75,6 +97,11 @@ class RegisterActivity: BaseActivity(), AuthContract.View {
         }
         finishAffinity()
         startActivity(Intent(this, MainTabActivity::class.java))
+    }
+
+    override fun getSanggarResponse(response: SanggarListResponse) {
+        data_sanggar = response.data
+        initAdapter()
     }
 
     override fun showError(title: String, message: String) {

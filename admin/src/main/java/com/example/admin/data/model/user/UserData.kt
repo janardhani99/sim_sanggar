@@ -16,8 +16,10 @@ data class UserData (
         @Expose
         var username: String? = null,
         @Expose
-        var email: String? = null
-//        @Expose
-//        var sanggar : SanggarData? = null
+        var email: String? = null,
+        @Expose
+        var telepon: String? = null,
+        @Expose
+        var sanggar : SanggarData? = null
 
 ): Parcelable

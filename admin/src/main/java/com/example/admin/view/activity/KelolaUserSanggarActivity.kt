@@ -2,6 +2,7 @@ package com.example.admin.view.activity
 
 import android.content.DialogInterface
 import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,36 +14,37 @@ import com.example.admin.data.model.user.UserListResponse
 import com.example.admin.data.model.user.UserResponse
 import com.example.admin.presenter.user.UserContract
 import com.example.admin.presenter.user.UserPresenter
-import com.example.admin.view.activity.common.BaseActivity
 import com.example.admin.view.UserAdapter
+import com.example.admin.view.UserSanggarAdapter
+import com.example.admin.view.activity.common.BaseActivity
 import com.example.admin.view.activity.common.ButtonDialogListener
 import kotlinx.android.synthetic.main.activity_kelola_user.*
 
-class KelolaUserActivity : BaseActivity(), UserContract.View {
+class KelolaUserSanggarActivity : BaseActivity(), UserContract.View {
 
-    var data_user : UserData? = null
-    lateinit var adapter: UserAdapter
+
+    lateinit var adapter: UserSanggarAdapter
     private var presenter = UserPresenter(this)
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_kelola_user)
-
+        setContentView(R.layout.activity_kelola_user_sanggar)
         setToolbar()
         initAdapter()
         initListener()
     }
 
     private fun initAdapter() {
-        adapter = UserAdapter({ editItem ->
-            val intent = Intent(this, DetailUserActivity::class.java)
+        adapter = UserSanggarAdapter({ editItem ->
+            val intent = Intent(this, DetailUserSanggarActivity::class.java)
             intent.putExtra("data_user", editItem)
             startActivity(intent)
         }, { deleteItem ->
             showConfirmationDialog("Konfirmasi", "Apakah anda yakin?", object : ButtonDialogListener {
                 override fun onOkButton(dialog: DialogInterface) {
                     isLoading(true)
-                    Log.i("hapusid", deleteItem.id.toString())
+//                    Log.i("hapusid", deleteItem.id.toString())
                     deleteItem.id?.let { presenter.deleteUser(it) }
                     dialog.dismiss()
                     showCustomDialog("Berhasil", "Data berhasil dihapus")
@@ -68,7 +70,7 @@ class KelolaUserActivity : BaseActivity(), UserContract.View {
 
     fun fetchData() {
         isLoading(true)
-        presenter.getUser("0")
+        presenter.getUser("1")
     }
 
     private fun isLoading(isLoad: Boolean) {

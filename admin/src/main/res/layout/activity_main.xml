@@ -69,7 +69,7 @@
                 android:text="Welcome"
                 android:layout_marginTop="50dp"
                 android:gravity="center"
-                android:textSize="45dp">
+                android:textSize="40dp">
 
             </TextView>
             <com.google.android.material.card.MaterialCardView
@@ -98,7 +98,7 @@
                         android:src="@drawable/icon_user" />
 
                     <TextView
-                        android:id="@+id/tv_jam_operasional"
+                        android:id="@+id/tv_user"
                         style="@style/TextAppearance.MaterialComponents.Headline5"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -121,8 +121,81 @@
                         android:text="Cek atau Update data Siswa maupun sanggar "
                         android:textSize="14dp"
                         android:layout_toRightOf="@+id/img_user"
-                        android:layout_below="@+id/tv_jam_operasional"/>
+                        android:layout_below="@+id/tv_user"/>
                 </RelativeLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cv_kelola_user_sanggar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginLeft="30dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="@color/white"
+                android:outlineSpotShadowColor="@color/black"
+                app:cardElevation="1dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp16"
+                    android:weightSum="2">
+
+                    <ImageView
+                        android:id="@+id/img_user_sanggar"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/icon_user" />
+
+                    <TextView
+                        android:id="@+id/tv_user_sanggar"
+                        style="@style/TextAppearance.MaterialComponents.Headline5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp8"
+                        android:layout_marginLeft="@dimen/dp8"
+                        android:layout_weight="1"
+                        android:text="Kelola Sanggar"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:textSize="20dp"
+                        android:layout_toRightOf="@+id/img_user_sanggar"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp8"
+                        android:layout_marginLeft="@dimen/dp8"
+                        android:layout_marginTop="4dp"
+                        android:layout_weight="1"
+                        android:text="Cek atau Update data Siswa maupun sanggar "
+                        android:textSize="14dp"
+                        android:layout_toRightOf="@+id/img_user_sanggar"
+                        android:layout_below="@+id/tv_user_sanggar"/>
+                </RelativeLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cv_button_action"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:background="@color/background"
+                app:cardCornerRadius="@dimen/dp0"
+                app:cardElevation="@dimen/dp24">
+
+
+                <Button
+                    android:id="@+id/btn_logout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp16"
+                    android:text="logout" />
 
             </com.google.android.material.card.MaterialCardView>
         </LinearLayout>

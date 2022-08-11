@@ -15,8 +15,8 @@ class UserHandler: BaseHandler() {
         return service.addUser(data)
     }
 
-    fun getUser(): Observable<UserListResponse> {
-        return service.getUser()
+    fun getUser(role: String): Observable<UserListResponse> {
+        return service.getUser(role)
     }
 
     fun editUser(id: Int, data: HashMap<String, Any?>): Observable<UserResponse> {

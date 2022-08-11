@@ -21,8 +21,8 @@ class UserPresenter(val view: UserContract.View): BasePresenter(view), UserContr
                 })
     }
 
-    override fun getUser(){
-        handler.getUser()
+    override fun getUser(role: String){
+        handler.getUser(role)
                 .doSubscribe(object : ErrorHandler<UserListResponse>(this){
                     override fun onNext(t: UserListResponse) {
                         view.getUserResponse(t)

@@ -27,7 +27,7 @@ class JamOperasionalAdapter(val editListener: (JamOperasionalItem) -> Unit, val 
 //        val hariOperasional = "${item.hari}"
 //        val jamOperasional = "${item.jamMulai} - ${item.jamSelesai}"
         holder.itemView.apply {
-            tv_hari_operasional?.text = "${item.hari}"
+            tv_hari_operasional?.text = item.hari
             tv_jam_operasional?.text = "${item.jam_mulai?.let { getTimeFormat(it) }}-${item.jam_selesai?.let { getTimeFormat(it) }}"
             tv_status?.text = item.status
 //                    if(item.status == true) { "Tutup" } else "Buka"
