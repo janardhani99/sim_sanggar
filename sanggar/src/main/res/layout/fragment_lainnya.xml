@@ -52,12 +52,21 @@
                 android:src="@drawable/foto"/>
 
             <Button
+                android:id="@+id/btn_edit_profil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Edit Profil"
+                android:layout_below="@+id/txt_sanggar_user"
+                android:layout_marginStart="70dp"/>
+
+            <Button
                 android:id="@+id/btn_logout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Logout"
                 android:layout_toRightOf="@+id/txt_sanggar_user"
-                android:layout_marginStart="70dp"/>
+                android:layout_marginStart="70dp"
+                android:backgroundTint="@color/red"/>
 
         </RelativeLayout>
 
@@ -290,46 +299,46 @@
                 </com.google.android.material.card.MaterialCardView>
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="2"
-                android:layout_margin="30dp">
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="horizontal"-->
+<!--                android:weightSum="2"-->
+<!--                android:layout_margin="30dp">-->
 
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/cv_absensi"
-                    android:layout_width="160dp"
-                    android:layout_height="wrap_content"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:outlineSpotShadowColor="@color/black"
-                    app:cardBackgroundColor="@color/white"
-                    app:cardElevation="1dp">
+<!--                <com.google.android.material.card.MaterialCardView-->
+<!--                    android:id="@+id/cv_absensi"-->
+<!--                    android:layout_width="160dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:clickable="true"-->
+<!--                    android:focusable="true"-->
+<!--                    android:outlineSpotShadowColor="@color/black"-->
+<!--                    app:cardBackgroundColor="@color/white"-->
+<!--                    app:cardElevation="1dp">-->
 
-                    <ImageView
-                        android:id="@+id/img_absensi"
-                        android:layout_width="101dp"
-                        android:layout_height="100dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/icon_absensi" />
+<!--                    <ImageView-->
+<!--                        android:id="@+id/img_absensi"-->
+<!--                        android:layout_width="101dp"-->
+<!--                        android:layout_height="100dp"-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:src="@drawable/icon_absensi" />-->
 
-                    <TextView
-                        android:id="@+id/tv_absensi"
-                        style="@style/TextAppearance.MaterialComponents.Headline5"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="140dp"
-                        android:layout_weight="1"
-                        android:text="Absensi"
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textSize="20dp"
-                        android:textStyle="bold" />
+<!--                    <TextView-->
+<!--                        android:id="@+id/tv_absensi"-->
+<!--                        style="@style/TextAppearance.MaterialComponents.Headline5"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="140dp"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:text="Absensi"-->
+<!--                        android:textAlignment="center"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:textSize="20dp"-->
+<!--                        android:textStyle="bold" />-->
 
-                </com.google.android.material.card.MaterialCardView>
+<!--                </com.google.android.material.card.MaterialCardView>-->
 
-            </LinearLayout>
+<!--            </LinearLayout>-->
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

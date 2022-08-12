@@ -51,7 +51,7 @@ class DaftarFragment() : Fragment(), ProfilSanggarContract.View {
 
     private fun setView(data: SanggarData) {
         data?.run {
-            tv_nama_sanggar?.text = data.nama_sanggar
+            tv_nama_sanggar?.text = data.nama
 //            til_nama_sanggar?.editText?.setText(data.telepon)
         }
 

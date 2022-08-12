@@ -91,7 +91,7 @@
             android:name=".view.activity.sanggar.EditProfilActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".com.example.admin.MainTabActivity"
+            android:name=".MainTabActivity"
             android:configChanges="orientation|screenSize"
             android:screenOrientation="portrait" />
     </application>

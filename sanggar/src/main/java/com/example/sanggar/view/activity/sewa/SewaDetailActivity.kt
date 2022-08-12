@@ -3,8 +3,7 @@ package com.example.sanggar.view.activity.sewa
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.view.View.GONE
-import android.view.View.VISIBLE
+import android.view.View.*
 import com.example.sanggar.R
 import com.example.sanggar.common.Utilities
 import com.example.sanggar.common.clickWithDebounce
@@ -27,41 +26,21 @@ class SewaDetailActivity(): BaseActivity(), SewaListContract.View {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sewa_detail)
         setToolbar()
-        toolbar_title?.text = "Detail Penyewaan"
 
         data = intent.getParcelableExtra<SewaListItem>("data")
         data?.let { initView(it) }
 //        data?.let { initListener() }
 //        initView(data)
+
+        initListener()
     }
 
 
-//    private fun initListener() {
+    private fun initListener() {
 //        Validations.removeError(til_tanggal_sewa, til_jam_mulai, til_jam_selesai)
-//        btn_verifikasi_sewa.clickWithDebounce {
-//
-//                verifikasiSewa(data)
-//
-//        }
-//
-//        btn_batalkan.clickWithDebounce {
-//
-//                batalkanSewa(data)
-//
-//        }
-//    }
-
-    private fun initView(data: SewaListItem) {
-
-        data?.run {
-            til_tanggal_sewa?.editText?.setText(data.tanggal)
-            til_jam_mulai?.editText?.setText(data.jam_mulai?.substring(0,5))
-            til_jam_selesai?.editText?.setText(data.jam_selesai?.substring(0,5))
-        }
-
         btn_verifikasi_sewa?.clickWithDebounce {
 //            if (data != null) {
-                verifikasiSewa()
+            verifikasiSewa()
 //            }
         }
 
@@ -71,21 +50,62 @@ class SewaDetailActivity(): BaseActivity(), SewaListContract.View {
 
         btn_batalkan?.clickWithDebounce {
 //            if (data != null) {
-                batalkanSewa()
+            batalkanSewa()
 //            }
         }
 //
-//        if (data.status == "3") {
-//            btn_bukti_bayar.visibility = VISIBLE
-//        } else {
-//            btn_bukti_bayar.visibility = GONE
-//        }
+        if (data?.status == "Menunggu Verifikasi" ) {
+            btn_verifikasi_sewa.visibility = VISIBLE
+            btn_batalkan.visibility = VISIBLE
+
+            btn_bukti_bayar.visibility = INVISIBLE
+            btn_selesai.visibility = INVISIBLE
+        }
+        else if (data?.status == "Menunggu Pembayaran") {
+            btn_selesai.visibility = VISIBLE
+            btn_batalkan.visibility = VISIBLE
+
+            btn_bukti_bayar.visibility = INVISIBLE
+            btn_verifikasi_sewa.visibility = INVISIBLE
+
+        } else if (data?.status == "Terdaftar") {
+            btn_bukti_bayar.visibility = VISIBLE
+            btn_batalkan.visibility = VISIBLE
+            btn_batalkan.setText("Batalkan")
+
+            btn_verifikasi_sewa.visibility = INVISIBLE
+
+        } else if (data?.status == "Dibatalkan"){
+            btn_verifikasi_sewa.visibility = VISIBLE
+            btn_verifikasi_sewa.setText("Pulihkan")
+
+            btn_bukti_bayar.visibility = INVISIBLE
+            btn_selesai.visibility = INVISIBLE
+            btn_batalkan.visibility = INVISIBLE
+
+        } else {
+            btn_verifikasi_sewa.visibility = INVISIBLE
+            btn_bukti_bayar.visibility = INVISIBLE
+            btn_selesai.visibility = INVISIBLE
+            btn_batalkan.visibility = INVISIBLE
+        }
 
         btn_bukti_bayar?.clickWithDebounce {
             val intent = Intent(this, BuktiBayarActivity::class.java)
             intent.putExtra("data", data)
             startActivity(intent)
         }
+    }
+
+    private fun initView(data: SewaListItem) {
+
+        data?.run {
+            til_tanggal_sewa?.editText?.setText(data.tanggal)
+            til_jam_mulai?.editText?.setText(data.jam_mulai?.substring(0,5))
+            til_jam_selesai?.editText?.setText(data.jam_selesai?.substring(0,5))
+        }
+
+        initListener()
     }
 
     private fun ubahData(data: SewaListItem?) {

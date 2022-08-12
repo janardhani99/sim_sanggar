@@ -9,10 +9,10 @@ import com.example.sanggar.view.fragment.sewa.SewaListFragment
 class SewaPagerAdapter(fm: FragmentManager):
         FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
     val title = listOf<String>(
-            "Menunggu Verifikasi",
+            "Baru",
             "Menunggu Pembayaran",
-            "Selesai",
-            "Batal"
+            "Sudah Bayar",
+            "Ditolak"
     )
 
     val status = listOf("0", "1", "2", "3")

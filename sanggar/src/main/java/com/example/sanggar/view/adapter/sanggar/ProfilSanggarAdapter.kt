@@ -32,7 +32,7 @@ class ProfilSanggarAdapter(val detailListener: (SanggarData)-> Unit): RecyclerVi
                 detailListener(item)
             }
 
-            tv_nama_sanggar?.text = item.nama_sanggar
+            tv_nama_sanggar?.text = item.nama
         }
     }
     fun setData(data: List<SanggarData>) {

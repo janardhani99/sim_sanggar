@@ -14,13 +14,13 @@
         android:icon="@drawable/menusewa"/>
     <item
         android:enabled="true"
-        android:id="@+id/menu_profil"
-        android:title="Profil"
+        android:id="@+id/menu_absensi"
+        android:title="Absensi"
         android:icon="@drawable/menuprofil"/>
     <item
         android:enabled="true"
         android:id="@+id/menu_lainnya"
-        android:title="Lainnya"
+        android:title="Kelola Sanggar"
         android:icon="@drawable/menuberanda"/>
 
 

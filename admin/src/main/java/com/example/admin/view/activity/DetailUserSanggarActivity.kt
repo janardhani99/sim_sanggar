@@ -27,6 +27,7 @@ class DetailUserSanggarActivity : BaseActivity(), UserContract.View {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_user_sanggar)
 
+        setToolbar()
         data_user = intent.getParcelableExtra("data_user")
 
         data_user?.let { setView(it) }

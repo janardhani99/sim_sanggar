@@ -55,10 +55,6 @@ class LainnyaFragment : Fragment() {
             startActivity(Intent(context, PembelajaranActivity::class.java))
         }
 
-        cv_absensi?.clickWithDebounce {
-            startActivity(Intent(context, AbsensiActivity::class.java))
-        }
-
         btn_logout?.clickWithDebounce {
             preferences.userLoggedOut()
             activity?.finishAffinity()

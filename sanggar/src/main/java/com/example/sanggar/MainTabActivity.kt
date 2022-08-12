@@ -5,6 +5,7 @@ import android.os.Handler
 import androidx.fragment.app.Fragment
 import com.example.sanggar.data.model.sanggar.SanggarData
 import com.example.sanggar.view.activity.common.BaseActivity
+import com.example.sanggar.view.fragment.absensi.AbsensiFragment
 import com.example.sanggar.view.fragment.daftar.DaftarFragment
 import com.example.sanggar.view.fragment.lainnya.LainnyaFragment
 import com.example.sanggar.view.fragment.sanggar.ProfilFragment
@@ -25,8 +26,8 @@ class MainTabActivity : BaseActivity() {
                 return@OnNavigationItemSelectedListener true
             }
 
-            R.id.menu_profil -> {
-                if (!isDisplaying(ProfilFragment())) replaceFragment(ProfilFragment())
+            R.id.menu_absensi -> {
+                if (!isDisplaying(AbsensiFragment())) replaceFragment(AbsensiFragment())
                 return@OnNavigationItemSelectedListener true
             }
 
