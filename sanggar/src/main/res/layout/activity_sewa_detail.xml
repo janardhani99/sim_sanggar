@@ -151,7 +151,7 @@
                     android:id="@+id/btn_verifikasi_sewa"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="86p"
+                    android:layout_margin="8dp"
                     android:text="Terima"/>
 
             </com.google.android.material.card.MaterialCardView>

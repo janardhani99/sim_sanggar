@@ -12,7 +12,7 @@
     <string name="error_cannot_be_empty">%1$s cannot be empty</string>
     <string name="error_input_must_more_than">must be at least %1$d character</string>
     <string name="error_cannot_be_zero">%1$s cannot be 0 if product available</string>
-    <string name="kelas">Kelas</string>
+    <string name="kelas">Tambah Data Kelas</string>
     <string name="tambah_kelas">+ Tambah Kelas</string>
     <string name="jam_operasional">Jam Operasional</string>
     <string name="jam_mulai">Jam Mulai</string>
@@ -44,6 +44,5 @@
     <string name="platform_transaksi">Platform Transaksi</string>
 
     <string name="id_pendaftaran">ID: %s</string>
-
 
 </resources>

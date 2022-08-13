@@ -37,7 +37,7 @@ class DetailProgressAnakActivity() : BaseActivity(), ProgressAnakContract.View {
         setContentView(R.layout.activity_detail_progress)
 
         setToolbar()
-        toolbar_title.text = "Progress Anak"
+//        toolbar_title.text = "Progress Anak"
 
 //        data_anak = intent.getParcelableExtra<PendaftaranAnak>("data_anak")
 //        data_pertemuan = intent.getParcelableExtra<PertemuanData>("data_pertemuan")
@@ -72,7 +72,7 @@ class DetailProgressAnakActivity() : BaseActivity(), ProgressAnakContract.View {
 
     private fun initView(data: ProgressAnakData) {
         data.run {
-//            til_nama_anak?.editText?.setText(data_anak?.anak?.nama)
+            tv_nama_anak?.setText(data.anak?.anak?.nama)
             ac_kehadiran?.setText(data.kehadiran, false)
             til_catatan_progress?.editText?.setText(data.catatan_progress)
             ac_bayar_harian?.setText(data.bayar_harian, false)

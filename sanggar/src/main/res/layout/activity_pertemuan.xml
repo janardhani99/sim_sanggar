@@ -9,64 +9,93 @@
 
     <include layout="@layout/fragment_toolbar"/>
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cv_tambah_pertemuan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        android:focusable="true"
-        app:cardBackgroundColor="@color/white"
-        android:outlineSpotShadowColor="@color/black"
-        app:cardElevation="1dp"
-        android:layout_gravity="center"
-        android:layout_margin="@dimen/dp5">
-
-        <LinearLayout
-            android:id="@+id/daftar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:gravity="center"
-            android:layout_margin="18dp">
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/daftar"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="Tambah Pertemuan"
-                android:textAlignment="center"
-                android:gravity="center"
-                android:layout_marginLeft="5dp"/>
-        </LinearLayout>
-
-    </com.google.android.material.card.MaterialCardView>
-
-    <LinearLayout
-        android:id="@+id/id_jadwal_sanggar"
+    <TextView
+        android:id="@+id/tv_kelas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_margin="10dp">
+        android:text="Nama Kelas"
+        android:textAlignment="center"
+        android:textSize="@dimen/dp24"
+        android:textStyle="bold"
+        android:layout_margin="@dimen/dp22"/>
+<!--    <LinearLayout-->
+<!--        android:id="@+id/id_jadwal_sanggar"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="vertical"-->
+<!--        android:layout_margin="10dp">-->
 
-<!--        <TextView-->
+
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            android:id="@+id/til_anak"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content">-->
+
+<!--            <com.google.android.material.textfield.TextInputEditText-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:hint="Tari Modern"-->
+<!--                android:enabled="false"/>-->
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
+<!--    </LinearLayout>-->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tv_pertemuan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="List Pertemuan"
+            android:textSize="@dimen/dp22"
+            android:textStyle="bold"
+            android:padding="@dimen/dp16"
+            android:layout_marginStart="@dimen/dp22"/>
+
+        <ImageView
+            android:id="@+id/tambah_pertemuan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_add_circle_24"
+            android:layout_toEndOf="@+id/tv_pertemuan"
+            android:layout_marginTop="@dimen/dp12"
+            android:layout_marginStart="170dp"/>
+
+<!--        <com.google.android.material.card.MaterialCardView-->
+<!--            android:id="@+id/cv_tambah_pertemuan"-->
 <!--            android:layout_width="wrap_content"-->
 <!--            android:layout_height="wrap_content"-->
-<!--            android:text="Nama Kelas" />-->
+<!--            android:clickable="true"-->
+<!--            android:focusable="true"-->
+<!--            app:cardBackgroundColor="@color/white"-->
+<!--            android:outlineSpotShadowColor="@color/black"-->
+<!--            app:cardElevation="1dp"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_margin="@dimen/dp5">-->
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/til_anak"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+<!--            <LinearLayout-->
+<!--                android:id="@+id/daftar"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_centerVertical="true"-->
+<!--                android:gravity="center"-->
+<!--                android:layout_margin="18dp">-->
+<!--                <ImageView-->
+<!--                    android:layout_width="30dp"-->
+<!--                    android:layout_height="30dp"-->
+<!--                    android:src="@drawable/daftar"/>-->
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:text="Tambah Pertemuan"-->
+<!--                    android:textAlignment="center"-->
+<!--                    android:gravity="center"-->
+<!--                    android:layout_marginLeft="5dp"/>-->
+<!--            </LinearLayout>-->
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Tari Modern"
-                android:enabled="false"/>
-        </com.google.android.material.textfield.TextInputLayout>
-    </LinearLayout>
+<!--        </com.google.android.material.card.MaterialCardView>-->
+    </RelativeLayout>
+
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/sr_pertemuan_recycler"

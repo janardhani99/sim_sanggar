@@ -26,8 +26,9 @@
         android:layout_height="wrap_content"
         android:text="Klik tombol Copy untuk menyalin nomor rekening yang diinginkan"
         android:gravity="center"
-        android:textSize="20dp"
-        android:layout_marginBottom="16dp"/>
+        android:textSize="16dp"
+        android:layout_marginBottom="16dp"
+        android:textColor="@color/color_grey_primary"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -50,7 +51,8 @@
             android:layout_height="wrap_content"
             android:text="Upload Bukti"
             android:layout_toRightOf="@+id/txt_sudah_bayar"
-            android:layout_marginLeft="100dp"/>
+            android:layout_marginLeft="100dp"
+            android:backgroundTint="@color/teal_700"/>
     </RelativeLayout>
 
     <ScrollView

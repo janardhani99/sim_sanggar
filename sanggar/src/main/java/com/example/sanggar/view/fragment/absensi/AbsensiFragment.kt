@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.sanggar.R
 import com.example.sanggar.common.Utilities
+import com.example.sanggar.common.clickWithDebounce
 import com.example.sanggar.data.model.common.EmptyResponse
 import com.example.sanggar.data.model.jadwal_sanggar.JadwalSanggarListResponse
 import com.example.sanggar.data.model.jadwal_sanggar.JadwalSanggarResponse
@@ -17,6 +18,9 @@ import com.example.sanggar.presenter.jadwal_sanggar.JadwalSanggarPresenter
 import com.example.sanggar.view.activity.absensi_anak.PertemuanActivity
 import com.example.sanggar.view.adapter.absensi.AbsensiAdapter
 import kotlinx.android.synthetic.main.activity_absensi.*
+import kotlinx.android.synthetic.main.activity_absensi.rv_kelas
+import kotlinx.android.synthetic.main.activity_absensi.sr_kelas_recycler
+import kotlinx.android.synthetic.main.fragment_absensi.*
 
 class AbsensiFragment : Fragment(), JadwalSanggarContract.View {
 
@@ -57,6 +61,9 @@ class AbsensiFragment : Fragment(), JadwalSanggarContract.View {
 
         sr_kelas_recycler?.setOnRefreshListener {
             fetchData()
+        }
+        tambah_pertemuan?.clickWithDebounce {
+            startActivity(Intent(context, PertemuanActivity::class.java))
         }
     }
 

@@ -11,6 +11,26 @@
         android:id="@+id/tl_progress_anak_detail"
         layout="@layout/fragment_toolbar" />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Catat Progress "
+        android:textAlignment="center"
+        android:textSize="@dimen/dp24"
+        android:layout_margin="@dimen/dp22"/>
+
+    <TextView
+        android:id="@+id/tv_nama_anak"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Anak"
+        android:textAlignment="center"
+        android:textSize="@dimen/dp24"
+        android:textStyle="bold"
+        android:layout_marginLeft="@dimen/dp22"
+        android:layout_marginRight="@dimen/dp22"/>
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

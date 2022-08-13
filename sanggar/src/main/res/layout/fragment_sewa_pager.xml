@@ -24,7 +24,8 @@
                 android:layout_height="wrap_content"
                 android:padding="10dp"
                 android:text="Penyewaan Sanggar"
-                android:textSize="19dp">
+                android:textSize="@dimen/dp22"
+                android:textStyle="bold">
 
             </TextView>
         </RelativeLayout>

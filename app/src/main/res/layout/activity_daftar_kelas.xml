@@ -22,49 +22,56 @@
             android:layout_marginRight="@dimen/dp8"
             android:orientation="vertical">
 
-            <TextView
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Belum menambahkan Data Anak?"
-                android:gravity="center"
-                android:textStyle="italic"
-                android:textSize="18dp"
-                android:layout_marginTop="@dimen/dp32"/>
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/tv_kalimat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Belum menambahkan Data Anak?"
+                    android:gravity="center_vertical"
+                    android:textStyle="italic"
+                    android:textSize="18dp"
+                    android:layout_marginTop="@dimen/dp16"
+                    android:layout_marginLeft="10dp"/>
 
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/btn_kelola_data_anak"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-                android:focusable="true"
-                app:cardBackgroundColor="@color/white"
-                android:outlineSpotShadowColor="@color/black"
-                app:cardElevation="1dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="@dimen/dp16">
-
-                <LinearLayout
-                    android:id="@+id/daftar"
-                    android:layout_width="match_parent"
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/btn_kelola_data_anak"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:gravity="center"
-                    android:layout_margin="10dp">
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:src="@drawable/daftar"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:text="Kelola Data Anak"
-                        android:textAlignment="center"
-                        android:gravity="center"
-                        android:layout_marginLeft="5dp"
-                        android:textSize="18dp"/>
-                </LinearLayout>
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:cardBackgroundColor="@color/white"
+                    android:outlineSpotShadowColor="@color/black"
+                    app:cardElevation="1dp"
+                    android:layout_gravity="center"
+                    android:layout_toRightOf="@id/tv_kalimat"
+                    android:layout_marginStart="5dp">
 
-            </com.google.android.material.card.MaterialCardView>
+                    <LinearLayout
+                        android:id="@+id/daftar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:gravity="center"
+                        android:layout_margin="10dp">
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/daftar"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="Tambah"
+                            android:gravity="center"/>
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </RelativeLayout>
+
 
             <TextView
                 android:layout_width="match_parent"

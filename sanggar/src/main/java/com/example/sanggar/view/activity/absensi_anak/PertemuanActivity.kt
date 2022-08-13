@@ -35,7 +35,6 @@ class PertemuanActivity : BaseActivity(), PertemuanContract.View {
         setContentView(R.layout.activity_pertemuan)
 
         setToolbar()
-        toolbar_title?.text = "Pertemuan"
         data_kelas = intent.getParcelableExtra<JadwalSanggarItem>("data_kelas")
 
         initAdapter()
@@ -71,7 +70,7 @@ class PertemuanActivity : BaseActivity(), PertemuanContract.View {
             fetchData()
         }
 
-        cv_tambah_pertemuan?.clickWithDebounce {
+        tambah_pertemuan?.clickWithDebounce {
             var intent = Intent(this, DetailPertemuanActivity::class.java)
             intent.putExtra("data_kelas", data_kelas)
             startActivity(intent)
@@ -79,7 +78,7 @@ class PertemuanActivity : BaseActivity(), PertemuanContract.View {
     }
     private fun setView(data: JadwalSanggarItem?) {
 //        data?.id?.let { til_kelas.editText?.setText(it) }
-        til_anak.editText?.setText(data?.kategori_latihan)
+        tv_kelas.setText(data?.kategori_latihan)
     }
 
     private fun fetchData() {

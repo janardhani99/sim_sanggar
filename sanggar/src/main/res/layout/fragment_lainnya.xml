@@ -8,7 +8,7 @@
     android:background="@drawable/bg"
     android:orientation="vertical">
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginRight="10dp"
             android:layout_marginTop="35dp">
 
             <TextView
@@ -57,7 +57,8 @@
                 android:layout_height="wrap_content"
                 android:text="Edit Profil"
                 android:layout_below="@+id/txt_sanggar_user"
-                android:layout_marginStart="70dp"/>
+                android:layout_marginStart="70dp"
+                android:backgroundTint="@color/teal_700"/>
 
             <Button
                 android:id="@+id/btn_logout"
@@ -65,7 +66,7 @@
                 android:layout_height="wrap_content"
                 android:text="Logout"
                 android:layout_toRightOf="@+id/txt_sanggar_user"
-                android:layout_marginStart="70dp"
+                android:layout_marginStart="100dp"
                 android:backgroundTint="@color/red"/>
 
         </RelativeLayout>

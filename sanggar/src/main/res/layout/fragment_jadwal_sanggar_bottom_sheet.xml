@@ -44,7 +44,8 @@
             android:layout_height="wrap_content"
             android:text="@string/hari"
             android:textSize="20dp"
-            android:layout_marginBottom="7dp"/>
+            android:layout_marginBottom="7dp"
+            android:layout_marginTop="0dp"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/til_hari_jadwal"
@@ -102,7 +103,8 @@
                     android:layout_height="wrap_content"
                     android:text="@string/jam_mulai"
                     android:textSize="20dp"
-                    android:layout_marginBottom="7dp"/>
+                    android:layout_marginBottom="7dp"
+                    android:layout_marginTop="10dp"/>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/til_jam_mulai"
@@ -134,7 +136,8 @@
                     android:layout_height="wrap_content"
                     android:text="@string/jam_selesai"
                     android:textSize="20dp"
-                    android:layout_marginBottom="7dp"/>
+                    android:layout_marginBottom="7dp"
+                    android:layout_marginTop="10dp"/>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/til_jam_selesai"
@@ -160,7 +163,8 @@
             android:layout_height="wrap_content"
             android:text="Biaya Pendaftaran"
             android:textSize="20dp"
-            android:layout_marginBottom="7dp"/>
+            android:layout_marginBottom="7dp"
+            android:layout_marginTop="10dp"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/til_biaya"
@@ -187,7 +191,8 @@
             style="@style/AppTheme.UnelevatedButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/batal" />
+            android:text="@string/batal"
+            android:backgroundTint="@color/color_grey_primary"/>
     </LinearLayout>
 
 </FrameLayout>

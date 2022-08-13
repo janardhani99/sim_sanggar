@@ -16,11 +16,15 @@ import com.example.sanggar.presenter.jadwal_sanggar.JadwalSanggarContract
 import com.example.sanggar.presenter.jadwal_sanggar.JadwalSanggarPresenter
 import com.example.sanggar.view.activity.common.BaseActivity
 import com.example.sanggar.view.activity.common.ButtonDialogListener
+import com.example.sanggar.view.activity.jadwal_sanggar.JadwalSanggarActivity
 import com.example.sanggar.view.adapter.absensi.AbsensiAdapter
 import com.example.sanggar.view.adapter.jadwal_sanggar.JadwalSanggarAdapter
 import com.example.sanggar.view.fragment.jadwal_sanggar.JadwalSanggarBottomSheetFragment
 import kotlinx.android.synthetic.main.activity_absensi.*
+import kotlinx.android.synthetic.main.activity_absensi.rv_kelas
+import kotlinx.android.synthetic.main.activity_absensi.sr_kelas_recycler
 import kotlinx.android.synthetic.main.activity_jadwal_sanggar.*
+import kotlinx.android.synthetic.main.fragment_absensi.*
 import kotlinx.android.synthetic.main.fragment_toolbar.*
 
 class AbsensiActivity : BaseActivity(), JadwalSanggarContract.View {
@@ -54,6 +58,10 @@ class AbsensiActivity : BaseActivity(), JadwalSanggarContract.View {
 
         sr_kelas_recycler?.setOnRefreshListener {
             fetchData()
+        }
+
+        tambah_pertemuan?.clickWithDebounce {
+            startActivity(Intent(this, JadwalSanggarActivity::class.java))
         }
     }
 

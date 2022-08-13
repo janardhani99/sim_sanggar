@@ -53,7 +53,7 @@ class ProgressAnakActivity : BaseActivity(), PertemuanContract.View, DaftarListC
         setContentView(R.layout.activity_progress_anak)
 
         setToolbar()
-        toolbar_title.text = "Edit Pertemuan"
+//        toolbar_title.text = "Edit Pertemuan"
 
 //        data_anak = intent.getParcelableExtra<PendaftaranAnak>("data_anak")
         data_pertemuan = intent.getParcelableExtra<PertemuanData>("data_pertemuan")

@@ -26,7 +26,8 @@
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:singleLine="true"
-                android:text="Title" />
+                android:text="Title"
+                android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/tv_deskripsi_pembelajaran"

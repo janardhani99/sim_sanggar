@@ -11,140 +11,129 @@
         android:id="@+id/tl_pertemuan_detail"
         layout="@layout/fragment_toolbar" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/cv_button_action"
-        android:layout_below="@id/tl_pertemuan_detail"
-        android:layout_margin="@dimen/dp24"
-        android:orientation="vertical">
-
-<!--        <LinearLayout-->
-<!--            android:id="@+id/id_jadwal_sanggar"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:orientation="vertical">-->
-
-<!--            <TextView-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="ID Kelas" />-->
-
-<!--            <com.google.android.material.textfield.TextInputLayout-->
-<!--                android:id="@+id/til_kelas"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content">-->
-
-<!--                <com.google.android.material.textfield.TextInputEditText-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:hint="ID : 1"/>-->
-<!--            </com.google.android.material.textfield.TextInputLayout>-->
-<!--        </LinearLayout>-->
+<!--    <ScrollView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content">-->
 
         <LinearLayout
-            android:id="@+id/title_section"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Pertemuan ke" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_pertemuan_ke"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_above="@id/cv_button_action"
+                android:layout_below="@id/tl_pertemuan_detail"
+                android:padding="20dp"
+                android:orientation="vertical"
+                android:background="@color/color_grey_secondary">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Contoh : 1"/>
-            </com.google.android.material.textfield.TextInputLayout>
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tanggal"
-            android:layout_marginBottom="6dp"/>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical">
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_tanggal_sewa"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <com.google.android.material.textfield.TextInputEditText
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="yyyy-mm-dd"
-                    android:textSize="17dp"/>
-            </com.google.android.material.textfield.TextInputLayout>
-<!--            <TextView-->
-<!--                android:id="@+id/tv_tanggal_lahir"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="yyyy-mm-dd"-->
-<!--                android:textSize="17dp"-->
-<!--                android:layout_marginRight="30dp"-->
-<!--                android:layout_marginBottom="10dp"/>-->
+                    android:text="Edit Data Pertemuan"
+                    android:textSize="@dimen/dp22"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="@dimen/dp12"/>
 
-            <ImageView
-                android:id="@+id/btn_pilih_tanggal"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/icon_kelas"
-                android:layout_marginLeft="@dimen/dp5"/>
+
+                <LinearLayout
+                    android:id="@+id/title_section"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pertemuan ke" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/til_pertemuan_ke"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Contoh : 1"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tanggal"
+                    android:layout_marginBottom="6dp"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/til_tanggal_sewa"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="yyyy-mm-dd"
+                            android:textSize="17dp"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <ImageView
+                        android:id="@+id/btn_pilih_tanggal"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/icon_kelas"
+                        android:layout_marginLeft="@dimen/dp5"/>
+
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btn_simpan_pertemuan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp16"
+                    android:text="@string/simpan"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" Data anak pada kelas ini"
+                    android:textSize="@dimen/dp22"
+                    android:textStyle="bold"
+                    android:layout_marginTop="@dimen/dp16"
+                    android:layout_marginLeft="@dimen/dp12"/>
+
+                <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                    android:id="@+id/sr_progress_anak_recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_progress_anak"
+                        android:orientation="vertical"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        tools:itemCount="7"
+                        tools:listitem="@layout/recycler_progress_anak" />
+
+                </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+            </LinearLayout>
         </LinearLayout>
 
-    </LinearLayout>
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cv_button_action"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@color/background"
-        app:cardCornerRadius="@dimen/dp0"
-        app:cardElevation="0dp">
-
-        <Button
-            android:id="@+id/btn_simpan_pertemuan"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/dp16"
-            android:text="@string/simpan" />
-
-    </com.google.android.material.card.MaterialCardView>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="List Data Anak"
-        android:textSize="@dimen/dp24"
-        android:textStyle="bold"
-        android:layout_gravity="center"/>
-
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/sr_progress_anak_recycler"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_progress_anak"
-            android:orientation="vertical"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:itemCount="7"
-            tools:listitem="@layout/recycler_progress_anak" />
-
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+<!--    </ScrollView>-->
 
 </LinearLayout>

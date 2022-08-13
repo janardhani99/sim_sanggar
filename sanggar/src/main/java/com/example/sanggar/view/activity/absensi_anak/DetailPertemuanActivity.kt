@@ -37,7 +37,7 @@ class DetailPertemuanActivity : BaseActivity(), PertemuanContract.View {
         setContentView(R.layout.activity_detail_pertemuan)
 
         setToolbar()
-        toolbar_title.text = "Tambah Pertemuan"
+//        toolbar_title.text = "Tambah Pertemuan"
 
         data_kelas = intent.getParcelableExtra<JadwalSanggarItem>("data_kelas")
         datePicker = DatePickerHelper(this)

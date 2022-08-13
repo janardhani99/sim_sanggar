@@ -33,8 +33,9 @@
                 android:id="@+id/btn_detail_progress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Detail"
-                android:layout_marginTop="@dimen/dp16"/>
+                android:text="Catat Progress"
+                android:layout_marginTop="@dimen/dp16"
+                android:backgroundTint="@color/teal_700"/>
 
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>

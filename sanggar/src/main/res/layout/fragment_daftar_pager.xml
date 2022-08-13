@@ -36,7 +36,8 @@
                 android:padding="10dp"
                 android:layout_toRightOf="@+id/logo"
                 android:text="Pendaftaran Anak"
-                android:textSize="19dp">
+                android:textSize="@dimen/dp22"
+                android:textStyle="bold">
 
             </TextView>
         </RelativeLayout>

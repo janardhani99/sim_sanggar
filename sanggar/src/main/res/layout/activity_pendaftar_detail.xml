@@ -24,7 +24,8 @@
                 android:id="@+id/title_section"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_marginTop="8dp">
 
                 <TextView
                     android:id="@+id/tv_nama_anak"
@@ -47,7 +48,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_marginTop="8dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -69,7 +71,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_marginTop="8dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -91,7 +94,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_marginTop="8dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -113,7 +117,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_marginTop="8dp">
 
                 <TextView
                     android:layout_width="wrap_content"

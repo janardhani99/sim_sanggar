@@ -38,41 +38,13 @@
             android:src="@drawable/ilustrasi_sewa" />
 
 
-        <com.google.android.material.card.MaterialCardView
+        <Button
             android:id="@+id/cv_sewa"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:clickable="true"
-            android:focusable="true"
-            app:cardBackgroundColor="@color/white"
-            android:outlineSpotShadowColor="@color/black"
-            app:cardElevation="1dp"
-            android:layout_gravity="center"
-            android:layout_margin="@dimen/dp5">
-
-            <LinearLayout
-                android:id="@+id/sewa"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:gravity="center"
-                android:layout_margin="18dp">
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:src="@drawable/daftar"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="Mulai Penyewaan"
-                    android:textAlignment="center"
-                    android:gravity="center"
-                    android:layout_marginLeft="5dp"
-                    android:textSize="@dimen/dp22"/>
-            </LinearLayout>
-
-        </com.google.android.material.card.MaterialCardView>
-
+            android:text="Sewa Sekarang"
+            android:layout_marginLeft="@dimen/dp16"
+            android:layout_marginRight="@dimen/dp16"/>
     </LinearLayout>
 
 </FrameLayout>

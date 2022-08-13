@@ -40,7 +40,7 @@ class TanggalLiburActivity : BaseActivity(), TanggalLiburContract.View {
 
         //set toolbar
         setToolbar()
-        toolbar_title?.text = "Tanggal Libur"
+//        toolbar_title?.text = "Tanggal Libur"
         initAdapter()
         initListener()
         fetchData()
