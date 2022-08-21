@@ -29,11 +29,11 @@
                     android:id="@+id/tv_kalimat"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="Belum menambahkan Data Anak?"
+                    android:text="Belum menambahkan Data Anak? "
                     android:gravity="center_vertical"
                     android:textStyle="italic"
                     android:textSize="18dp"
-                    android:layout_marginTop="@dimen/dp16"
+                    android:layout_marginTop="10dp"
                     android:layout_marginLeft="10dp"/>
 
                 <com.google.android.material.card.MaterialCardView
@@ -47,7 +47,7 @@
                     app:cardElevation="1dp"
                     android:layout_gravity="center"
                     android:layout_toRightOf="@id/tv_kalimat"
-                    android:layout_marginStart="5dp">
+                    android:layout_marginStart="22dp">
 
                     <LinearLayout
                         android:id="@+id/daftar"
@@ -57,8 +57,8 @@
                         android:gravity="center"
                         android:layout_margin="10dp">
                         <ImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
                             android:src="@drawable/daftar"/>
 
                         <TextView

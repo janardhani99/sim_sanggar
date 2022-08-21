@@ -30,6 +30,7 @@ class SewaPerTanggalAdapter(): RecyclerView.Adapter<SewaPerTanggalAdapter.ViewHo
 
             tv_jam_sewa.text = "${item.jam_mulai?.let { getTimeFormat(it) }}--${item.jam_selesai?.let { getTimeFormat(it) }}"
         }
+
     }
 
     fun setData(data: List<SewaListItem>) {

@@ -32,7 +32,7 @@
     <string name="harga_pendaftaran">Biaya Pendaftaran</string>
     <string name="harga_sewa">Biaya Sewa Perjam</string>
     <string name="fasilitas">Fasilitas Studio</string>
-    <string name="judul_fasilitas">Judul</string>
+    <string name="judul_fasilitas">Nama Fasilitas</string>
     <string name="deskripsi_fasilitas">Deskripsi</string>
     <string name="tambah_fasilitas"> + Tambah Fasilitas Studio</string>
     <string name="forbidden">Forbidden</string>

@@ -16,6 +16,7 @@ import com.example.sim_sanggar.presenter.kegiatan.KegiatanPresenter
 import com.example.sim_sanggar.view.activity.common.BaseActivity
 import com.example.sim_sanggar.view.activity.common.ButtonDialogListener
 import com.example.sim_sanggar.view.adapter.kegiatan.KegiatanAdapter
+import kotlinx.android.synthetic.main.activity_jadwal_sanggar.*
 import kotlinx.android.synthetic.main.activity_kegiatan.*
 import kotlinx.android.synthetic.main.fragment_toolbar.*
 
@@ -46,6 +47,10 @@ class KegiatanActivity : BaseActivity(), KegiatanContract.View {
 //            startActivity(intent)
 //        }
 
+        sr_kegiatan_sanggar.setOnRefreshListener {
+            fetchData()
+        }
+
     }
 
     private fun initAdapter() {
@@ -63,6 +68,7 @@ class KegiatanActivity : BaseActivity(), KegiatanContract.View {
         if (isLoad) Utilities.showProgress(this)
         else {
             Utilities.hideProgress()
+            sr_kegiatan_sanggar?.isRefreshing = false
         }
     }
 

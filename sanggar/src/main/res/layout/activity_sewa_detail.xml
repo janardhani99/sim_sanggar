@@ -19,6 +19,30 @@
         android:layout_below="@+id/tl_sewa_detail">
 
         <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_studio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Studio"
+                android:textSize="24dp"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_studio"
+                style="@style/AppTheme.TextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/title_section"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -72,7 +96,7 @@
                     android:layout_height="wrap_content">
 
                     <com.google.android.material.textfield.TextInputEditText
-
+                        android:id="@+id/et_jam_mulai_sewa"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:focusable="false"
@@ -104,6 +128,7 @@
                     android:layout_height="wrap_content">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_jam_selesai_sewa"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:focusable="false"
@@ -113,6 +138,59 @@
                         android:layout_marginBottom="7dp"/>
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_total_bayar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total Bayar"
+                android:textSize="24dp"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_total_bayar"
+                    style="@style/AppTheme.TextInputLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <ImageView
+                    android:id="@+id/iv_kali"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_baseline_close_24"
+                    android:layout_toRightOf="@+id/til_total_bayar"
+                    android:layout_margin="15dp"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_total_jam"
+                    style="@style/AppTheme.TextInputLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/iv_kali">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </RelativeLayout>
+
+
         </LinearLayout>
 
 

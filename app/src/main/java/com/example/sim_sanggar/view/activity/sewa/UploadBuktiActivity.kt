@@ -75,6 +75,7 @@ class UploadBuktiActivity : BaseActivity(), SewaContract.View {
         val transfer_via = til_transfer_via?.editText?.text.toString()
         val status = "2"
         val isValid = imageFile != null && data?.id != null
+        isLoading(true)
         if (isValid) {
             presenter.uploadBuktiPembayaran(data?.id!!, imageFile!!, transfer_via, status)
         }
@@ -137,7 +138,7 @@ class UploadBuktiActivity : BaseActivity(), SewaContract.View {
 //            imageFile?.let { uploadImage(data?.id,it) }
 //        } else {
         isLoading(false)
-        this.showCustomDialogNext("Berhasil", "Pendaftaran Berhasil", Intent(this, SewaActivity::class.java))
+        this.showCustomDialogNext("Berhasil", "Studio sudah di Booking", Intent(this, SewaActivity::class.java))
 //        }
     }
 
@@ -151,7 +152,7 @@ class UploadBuktiActivity : BaseActivity(), SewaContract.View {
 
     override fun uploadImageResponse() {
         isLoading(false)
-        this.showCustomDialogNext("Berhasil", "Pendaftaran Berhasil", Intent(this, SewaActivity::class.java))
+        this.showCustomDialogNext("Berhasil", "Studio sudah di Booking", Intent(this, SewaActivity::class.java))
     }
 
     override fun showError(title: String, message: String) {

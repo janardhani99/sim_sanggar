@@ -6,11 +6,6 @@
         android:id="@+id/menu_beranda"
         android:title="Beranda"
         android:icon="@drawable/menuberanda"/>
-    <item
-        android:enabled="true"
-        android:id="@+id/menu_daftar"
-        android:title="Daftar"
-        android:icon="@drawable/menudaftar"/>
 
     <item
         android:enabled="true"
@@ -20,13 +15,19 @@
 
     <item
         android:enabled="true"
+        android:id="@+id/menu_daftar"
+        android:title="Daftar"
+        android:icon="@drawable/menudaftar"/>
+
+    <item
+        android:enabled="true"
         android:id="@+id/menu_sewa"
         android:title="Sewa"
         android:icon="@drawable/menusewa"/>
-    <item
-        android:enabled="true"
-        android:id="@+id/menu_profil"
-        android:title="Profil"
-        android:icon="@drawable/menuprofil"/>
+<!--    <item-->
+<!--        android:enabled="true"-->
+<!--        android:id="@+id/menu_profil"-->
+<!--        android:title="Profil"-->
+<!--        android:icon="@drawable/menuprofil"/>-->
 
 </menu>

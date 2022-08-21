@@ -3,6 +3,7 @@ package com.example.sim_sanggar.data.handler.anak
 import com.example.sim_sanggar.data.handler.common.BaseHandler
 import com.example.sim_sanggar.data.model.anak.AnakListResponse
 import com.example.sim_sanggar.data.model.anak.AnakResponse
+import com.example.sim_sanggar.data.model.common.EmptyResponse
 import com.example.sim_sanggar.presenter.anak.AnakContract
 import io.reactivex.Observable
 
@@ -20,5 +21,9 @@ class AnakHandler: BaseHandler() {
 
     fun editAnak(id: Int, data: HashMap<String, Any?>): Observable<AnakResponse> {
         return service.editAnak(id, data)
+    }
+
+    fun deleteAnak(id: Int): Observable<EmptyResponse>{
+        return service.deleteAnak(id)
     }
 }

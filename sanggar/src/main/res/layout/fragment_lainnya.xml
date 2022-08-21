@@ -21,43 +21,34 @@
 
             <TextView
                 android:id="@+id/txt_namauser"
-                android:layout_width="wrap_content"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:text="Sandrayati"
+                android:text="Ubud Art Studio"
                 android:textColor="#000000"
                 android:textSize="24dp"
                 android:textStyle="bold"
-                android:layout_toRightOf="@+id/img"
                 android:fontFamily="sans-serif"/>
 
-            <TextView
-                android:id="@+id/txt_sanggar_user"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Citranala Art Studio"
-                android:textColor="#CF5900"
-                android:textSize="12dp"
-                android:layout_below="@+id/txt_namauser"
-                android:layout_marginLeft="80dp"
-                android:layout_marginTop="6dp"
-                android:fontFamily="sans-serif"/>
+<!--            <TextView-->
+<!--                android:id="@+id/txt_sanggar_user"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Citranala Art Studio"-->
+<!--                android:textColor="#CF5900"-->
+<!--                android:textSize="12dp"-->
+<!--                android:layout_below="@+id/txt_namauser"-->
+<!--                android:layout_marginLeft="80dp"-->
+<!--                android:layout_marginTop="6dp"-->
+<!--                android:fontFamily="sans-serif"/>-->
 
-            <ImageView
-                android:id="@+id/img"
-                android:layout_width="65dp"
-                android:layout_height="65dp"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="5dp"
-                android:src="@drawable/foto"/>
+
 
             <Button
                 android:id="@+id/btn_edit_profil"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Edit Profil"
-                android:layout_below="@+id/txt_sanggar_user"
-                android:layout_marginStart="70dp"
+                android:text="Profil"
+                android:layout_below="@+id/txt_namauser"
                 android:backgroundTint="@color/teal_700"/>
 
             <Button
@@ -65,8 +56,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Logout"
-                android:layout_toRightOf="@+id/txt_sanggar_user"
-                android:layout_marginStart="100dp"
+                android:layout_toRightOf="@+id/txt_namauser"
                 android:backgroundTint="@color/red"/>
 
         </RelativeLayout>
@@ -143,6 +133,80 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Kelas"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:textSize="20dp"
+                        android:layout_marginTop="140dp"
+                        android:textAlignment="center"/>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:layout_margin="30dp">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cv_studio_sanggar"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:outlineSpotShadowColor="@color/black"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardElevation="1dp">
+
+                    <ImageView
+                        android:id="@+id/img_studio_sanggar"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/icon_fasillitas" />
+
+                    <TextView
+                        android:id="@+id/tv_studio_sanggar"
+                        style="@style/TextAppearance.MaterialComponents.Headline5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="140dp"
+                        android:layout_weight="1"
+                        android:text="Studio"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cv_penyewaan"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:cardBackgroundColor="@color/white"
+                    android:outlineSpotShadowColor="@color/black"
+                    app:cardElevation="1dp">
+
+                    <ImageView
+                        android:id="@+id/img_penyewaan"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:src="@drawable/icon_fasillitas"
+                        android:layout_gravity="center"/>
+
+                    <TextView
+                        android:id="@+id/tv_penyewaan"
+                        style="@style/TextAppearance.MaterialComponents.Headline5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Penyewaan"
                         android:textColor="@color/black"
                         android:textStyle="bold"
                         android:textSize="20dp"

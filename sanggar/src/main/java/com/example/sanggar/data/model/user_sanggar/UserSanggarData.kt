@@ -2,6 +2,7 @@ package com.example.sanggar.data.model.user_sanggar
 
 import android.os.Parcelable
 import com.example.sanggar.data.model.common.BaseResultData
+import com.example.sanggar.data.model.sanggar.SanggarData
 import com.google.gson.annotations.Expose
 import kotlinx.android.parcel.Parcelize
 
@@ -21,6 +22,12 @@ data class UserSanggarItem(
         var email : String? = null,
 
         @Expose
-        var role: String? = null
+        var role: String? = null,
+
+        @Expose
+        var telepon: String? = null,
+
+        @Expose
+        var sanggar : SanggarData? = null
 
 ): Parcelable

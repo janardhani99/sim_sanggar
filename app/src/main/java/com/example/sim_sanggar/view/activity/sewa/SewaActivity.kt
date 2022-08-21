@@ -13,9 +13,7 @@ import com.example.sim_sanggar.presenter.sewa.SewaContract
 import com.example.sim_sanggar.presenter.sewa.SewaPresenter
 import com.example.sim_sanggar.view.activity.common.BaseActivity
 import com.example.sim_sanggar.view.adapter.sewa.PlatformTransaksiActivity
-import com.example.sim_sanggar.view.adapter.sewaadapter.SewaAdapter
 import com.example.sim_sanggar.view.adapter.sewabelumbayaradapter.SewaBelumBayarAdapter
-import kotlinx.android.synthetic.main.activity_riwayat_sewa.*
 import kotlinx.android.synthetic.main.activity_sewa.*
 import kotlinx.android.synthetic.main.activity_sewa.rv_riwayat_sewa
 
@@ -80,6 +78,12 @@ class SewaActivity : BaseActivity(), SewaContract.View {
     override fun getSewaResponse(response: SewaListResponse) {
         isLoading(false)
         response.data?.let { adapter.setData(it) }
+        if (adapter.itemCount !== 0) {
+            tv_belum_ada.text = ""
+        } else {
+            tv_belum_ada.text = "Tidak ada Sewa yang harus di bayar"
+        }
+
     }
 
     override fun getTanggalSewaResponse(response: SewaListResponse) {

@@ -60,7 +60,7 @@ class AbsensiActivity : BaseActivity(), JadwalSanggarContract.View {
             fetchData()
         }
 
-        tambah_pertemuan?.clickWithDebounce {
+        tambah_kelas?.clickWithDebounce {
             startActivity(Intent(this, JadwalSanggarActivity::class.java))
         }
     }

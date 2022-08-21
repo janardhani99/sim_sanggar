@@ -40,9 +40,9 @@ class JamOperasionalActivity : BaseActivity(), JamOperasionalContract.View {
 
     private fun initListener() {
 
-//        sr_jam_operasional?.setOnRefreshListener {
-//            fetchData()
-//        }
+        sr_jam_operasional?.setOnRefreshListener {
+            fetchData()
+        }
 
         cv_tanggal_libur?.setOnClickListener{
             startActivity(Intent(this, TanggalLiburActivity::class.java) )
@@ -76,7 +76,7 @@ class JamOperasionalActivity : BaseActivity(), JamOperasionalContract.View {
         if (isload) Utilities.showProgress(this)
         else {
             Utilities.hideProgress()
-//            sr_jam_operasional?.isRefreshing = false
+            sr_jam_operasional?.isRefreshing = false
         }
     }
     override fun getJamOperasionalResponse(response: JamOperasionalResponse) {

@@ -10,7 +10,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Absensi anak \n Berdasarkan Kelas"
+        android:text="Presensi anak \n Berdasarkan Kelas"
         android:textSize="@dimen/dp24"
         android:textAlignment="center"
         android:layout_margin="@dimen/dp22"
@@ -30,7 +30,7 @@
             android:layout_marginLeft="@dimen/dp12"/>
 
         <ImageView
-            android:id="@+id/tambah_pertemuan"
+            android:id="@+id/tambah_kelas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_baseline_add_circle_24"

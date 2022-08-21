@@ -36,9 +36,9 @@ class SewaPresenter(val view: SewaContract.View) : BasePresenter(view), SewaCont
             })
     }
 
-    override fun getTanggalTersewa(tanggal: String) {
+    override fun getTanggalTersewa(tanggal: String, studio: Int) {
         tanggal.let {
-            handler.getTanggalTersewa(it)
+            handler.getTanggalTersewa(tanggal, studio)
                 .doSubscribe(object : ErrorHandler<SewaListResponse>(this){
                     override fun onNext(t: SewaListResponse) {
                         view.getSewaResponse(t)

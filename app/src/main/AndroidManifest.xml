@@ -14,35 +14,37 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SIM_Sanggar">
+        <activity android:name=".view.activity.studio.StudioActivity"></activity>
         <activity
             android:name=".view.activity.sewa.SewaActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".view.adapter.sewa.PlatformTransaksiActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.daftar.DaftarKelasActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.daftar.PlatformTransaksiActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.daftar.UploadBuktiDaftarActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.daftar.FormDaftarKelasActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.report_anak.ReportAnakActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.report_anak.ReportActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.jam_operasional.JamOperasionalActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".view.activity.jam_operasional.TanggalLiburActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.jam_operasional.TanggalLiburActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.sewa.UploadBuktiActivity"
             android:screenOrientation="portrait" />

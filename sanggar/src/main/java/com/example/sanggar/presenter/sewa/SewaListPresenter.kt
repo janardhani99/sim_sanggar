@@ -46,4 +46,15 @@ class SewaListPresenter(val view: SewaListContract.View): BasePresenter(view), S
                     }
                 })
     }
+
+    override fun getTanggalTersewa(tanggal: String) {
+        tanggal.let {
+            handler.getTanggalTersewa(it)
+                    .doSubscribe(object : ErrorHandler<SewaListResponse>(this){
+                        override fun onNext(t: SewaListResponse) {
+                            view.getSewaListResponse(t)
+                        }
+                    })
+        }
+    }
 }

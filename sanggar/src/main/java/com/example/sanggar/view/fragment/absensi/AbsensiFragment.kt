@@ -16,6 +16,7 @@ import com.example.sanggar.data.model.jadwal_sanggar.JadwalSanggarResponse
 import com.example.sanggar.presenter.jadwal_sanggar.JadwalSanggarContract
 import com.example.sanggar.presenter.jadwal_sanggar.JadwalSanggarPresenter
 import com.example.sanggar.view.activity.absensi_anak.PertemuanActivity
+import com.example.sanggar.view.activity.jadwal_sanggar.JadwalSanggarActivity
 import com.example.sanggar.view.adapter.absensi.AbsensiAdapter
 import kotlinx.android.synthetic.main.activity_absensi.*
 import kotlinx.android.synthetic.main.activity_absensi.rv_kelas
@@ -34,8 +35,6 @@ class AbsensiFragment : Fragment(), JadwalSanggarContract.View {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-
 
         initListener()
         initAdapter()
@@ -62,8 +61,8 @@ class AbsensiFragment : Fragment(), JadwalSanggarContract.View {
         sr_kelas_recycler?.setOnRefreshListener {
             fetchData()
         }
-        tambah_pertemuan?.clickWithDebounce {
-            startActivity(Intent(context, PertemuanActivity::class.java))
+        tambah_kelas?.clickWithDebounce {
+            startActivity(Intent(context, JadwalSanggarActivity::class.java))
         }
     }
 

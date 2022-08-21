@@ -36,8 +36,8 @@ class SewaHandler : BaseHandler() {
         return service.addImage(id, part)
     }
 
-    fun getTanggalTersewa(tanggal: String): Observable<SewaListResponse> {
-        return service.getTanggalTersewa(tanggal)
+    fun getTanggalTersewa(tanggal: String, studio: Int): Observable<SewaListResponse> {
+        return service.getTanggalTersewa(tanggal, studio)
     }
 
     fun getSewaStatus1(status: String): Observable<SewaListResponse> {

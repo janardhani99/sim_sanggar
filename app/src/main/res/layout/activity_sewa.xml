@@ -92,12 +92,27 @@
         android:textStyle="bold"
         android:textAlignment="center"/>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_riwayat_sewa"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/recycler_sewa_belum_bayar"/>
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_belum_ada"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tidak ada Sewa yang harus di bayar"
+            android:textAlignment="center"
+            android:layout_margin="5dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_riwayat_sewa"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/recycler_sewa_belum_bayar"/>
+
+    </LinearLayout>
 
 </LinearLayout>

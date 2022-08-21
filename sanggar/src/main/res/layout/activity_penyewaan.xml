@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.activity.sewa.PenyewaanActivity"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/tl_penyewaan"
+        layout="@layout/fragment_toolbar" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Data Penyewaan"
+        android:textSize="@dimen/dp22"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:layout_marginTop="@dimen/dp16"/>
+
+    <CalendarView
+        android:id="@+id/calendar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:minDate="01/08/2022"/>
+
+    <TextView
+        android:id="@+id/tv_belum_ada"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Belum Ada Data Sewa"
+        android:layout_margin="10dp"
+        android:textAlignment="center"
+        android:textSize="20dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_booked_tanggal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/recycler_booked_tanggal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:orientation="vertical"
+        android:layout_margin="10dp"/>
+</LinearLayout>

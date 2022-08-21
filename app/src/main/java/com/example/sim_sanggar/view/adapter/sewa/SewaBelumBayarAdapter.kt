@@ -8,6 +8,7 @@ import com.example.sim_sanggar.R
 import com.example.sim_sanggar.common.clickWithDebounce
 import com.example.sim_sanggar.data.model.sewa.SewaListItem
 import kotlinx.android.synthetic.main.recycler_riwayat_sewa.view.*
+import kotlinx.android.synthetic.main.recycler_riwayat_sewa.view.tv_jam_sewa
 import kotlinx.android.synthetic.main.recycler_riwayat_sewa.view.tv_tanggal_sewa
 import kotlinx.android.synthetic.main.recycler_sewa_belum_bayar.view.*
 
@@ -31,7 +32,8 @@ class SewaBelumBayarAdapter(val sewaListener: (SewaListItem)-> Unit): RecyclerVi
         holder.itemView.apply {
 //            tv_nama_penyewa.text = "Oleh ${item.user_id}"
 
-            tv_tanggal_sewa.text = "${item.jam_mulai?.let { getTimeFormat(it) }}--${item.jam_selesai?.let { getTimeFormat(it) }}"
+            tv_tanggal_sewa.text = "Tanggal : ${item.tanggal}"
+            tv_jam_sewa.text = "${item.jam_mulai?.let { getTimeFormat(it) }} - ${item.jam_selesai?.let { getTimeFormat(it) }}"
             btn_upload?.clickWithDebounce {
                 sewaListener(item)
             }

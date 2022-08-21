@@ -29,7 +29,7 @@
             android:src="@drawable/ic_baseline_add_circle_24"
             android:layout_toEndOf="@+id/tv_pertemuan"
             android:layout_marginTop="@dimen/dp12"
-            android:layout_marginStart="70dp"/>
+            android:layout_marginStart="60dp"/>
 
         <ImageView
             android:id="@+id/cv_tanggal_libur"

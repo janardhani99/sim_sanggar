@@ -1,32 +1,49 @@
 package com.example.sim_sanggar.view.activity.sewa
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.sim_sanggar.GlobalClass
 import com.example.sim_sanggar.R
 import com.example.sim_sanggar.common.Utilities
 import com.example.sim_sanggar.common.clickWithDebounce
+import com.example.sim_sanggar.common.onTextChanged
 import com.example.sim_sanggar.data.model.sewa.SewaListItem
 import com.example.sim_sanggar.data.model.sewa.SewaListResponse
 import com.example.sim_sanggar.data.model.sewa.SewaResponse
+import com.example.sim_sanggar.data.model.studio.StudioData
+import com.example.sim_sanggar.data.model.studio.StudioListResponse
 import com.example.sim_sanggar.presenter.DatePickerHelper
 import com.example.sim_sanggar.presenter.sewa.SewaContract
 import com.example.sim_sanggar.presenter.sewa.SewaPresenter
+import com.example.sim_sanggar.presenter.studio.StudioContract
+import com.example.sim_sanggar.presenter.studio.StudioPresenter
 import com.example.sim_sanggar.view.activity.common.BaseActivity
+import com.example.sim_sanggar.view.activity.studio.StudioActivity
 import com.example.sim_sanggar.view.adapter.sewapertanggaladapter.SewaPerTanggalAdapter
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
+import kotlinx.android.synthetic.main.activity_report_anak.*
 import kotlinx.android.synthetic.main.activity_tambah_sewa.*
+import kotlinx.android.synthetic.main.layout_dropdown_item.view.*
 import java.util.*
 import kotlin.collections.HashMap
 
-class TambahSewaActivity : BaseActivity(), SewaContract.View {
+class TambahSewaActivity : BaseActivity(), SewaContract.View, StudioContract.View {
 
     var data: SewaListItem? = null
+    var listSudio: List<StudioData>? = null
+
     val presenter = SewaPresenter(this)
+    val presenterStudio = StudioPresenter(this)
 
     lateinit var datePicker: DatePickerHelper
-//    lateinit var adapter: SewaAdapter
     lateinit var adapter: SewaPerTanggalAdapter
+
+    var selectedStudio: Int? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,10 +53,12 @@ class TambahSewaActivity : BaseActivity(), SewaContract.View {
 //        toolbar_title?.text = getString(R.string.sewa)
 
         datePicker = DatePickerHelper(this)
+        presenterStudio.getStudio()
 
         initListener()
         initView(data)
         initAdapterTersewa()
+        initAdapterStudio()
     }
 
     private fun showDatePickerDialog() {
@@ -68,17 +87,18 @@ class TambahSewaActivity : BaseActivity(), SewaContract.View {
 
                 var tanggalTerpilih = tv_tanggal_sewa.text.toString()
                 isLoading(true)
-                presenter.getTanggalTersewa(tanggalTerpilih)
+                selectedStudio?.let { presenter.getTanggalTersewa(tanggalTerpilih, it) }
+                Log.i("selectedStudio", selectedStudio.toString())
             }
 
 
         })
     }
 
-//    private fun initAdapter() {
-//        val metodePembayaranAdapter = context?.let { ArrayAdapter<String>(it, R.layout.layout_dropdown_item, resources.getStringArray(R.array.metode_pembayaran))}
-//        ac_metode_pembayaran?.setAdapter(metodePembayaranAdapter)
-//    }
+    fun AutoCompleteTextView.setArrayAdapter(list: List<String?>?) {
+        val adapter = list?.let { ArrayAdapter(GlobalClass.context, R.layout.layout_dropdown_item, it) }
+        this.setAdapter(adapter)
+    }
 
     private fun initView(data: SewaListItem?) {
         data?.run {
@@ -135,6 +155,31 @@ class TambahSewaActivity : BaseActivity(), SewaContract.View {
         btn_pilih_tanggal?.setOnClickListener {
             showDatePickerDialog()
         }
+
+        btn_lihat_studio?.clickWithDebounce {
+            startActivity(Intent(this, StudioActivity::class.java))
+        }
+
+    }
+
+    private fun initAdapterStudio() {
+        val studio = listSudio?.map { it.nama_studio }
+
+        ac_pilih_studio?.run {
+            if (studio != null) {
+                setArrayAdapter(studio)
+
+            }
+
+            onTextChanged {
+                selectedStudio = listSudio?.find { it.nama_studio == ac_pilih_studio.text.toString() }?.id
+                initListener()
+
+                til_biaya_perjam.editText?.setText(listSudio?.find { it.nama_studio == ac_pilih_studio.text.toString() }?.harga)
+            }
+
+        }
+
     }
 
     private fun initAdapterTersewa() {
@@ -144,6 +189,8 @@ class TambahSewaActivity : BaseActivity(), SewaContract.View {
         adapter = SewaPerTanggalAdapter()
         rv_booked_tanggal?.layoutManager = LinearLayoutManager(this)
         rv_booked_tanggal?.adapter = adapter
+
+
     }
 
     private fun addSewa() {
@@ -153,6 +200,7 @@ class TambahSewaActivity : BaseActivity(), SewaContract.View {
 //        val metode_pembayaran = til_metode_pembayaran?.editText?.text.toString()
 
         val tambahData = HashMap<String, Any?>()
+        tambahData["studio_id"] = selectedStudio
         tambahData["tanggal"] = tanggal_sewa
         tambahData["jam_mulai"] = jam_mulai
         tambahData["jam_selesai"] = jam_selesai
@@ -178,6 +226,7 @@ class TambahSewaActivity : BaseActivity(), SewaContract.View {
     override fun onResume() {
         super.onResume()
 //        fetchData()
+        initAdapterStudio()
         initAdapterTersewa()
     }
 
@@ -194,6 +243,13 @@ class TambahSewaActivity : BaseActivity(), SewaContract.View {
     override fun getSewaResponse(response: SewaListResponse) {
         isLoading(false)
         response.data?.let { adapter.setData(it)}
+        if (adapter.itemCount !== 0) {
+            tv_belum_ada.text = "Jam Sudah Tersewa"
+        } else {
+            tv_belum_ada.text = "Belum Ada Sewa"
+        }
+
+        Log.i("tersewa", adapter.itemCount.toString())
     }
 
     override fun getTanggalSewaResponse(response: SewaListResponse) {
@@ -205,7 +261,14 @@ class TambahSewaActivity : BaseActivity(), SewaContract.View {
         TODO("Not yet implemented")
     }
 
+    override fun getStudioResponse(response: StudioListResponse) {
+        isLoading(false)
+        listSudio = response.data
+        initAdapterStudio()
+    }
+
     override fun showError(title: String, message: String) {
         showErrorAlert(title, message)
+        isLoading(false)
     }
 }

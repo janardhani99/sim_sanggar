@@ -16,6 +16,7 @@ import com.example.sanggar.presenter.jam_operasional.TanggalLiburContract
 import com.example.sanggar.presenter.jam_operasional.TanggalLiburPresenter
 import com.example.sanggar.view.activity.common.BaseActivity
 import com.example.sanggar.view.activity.jam_operasional.JamOperasionalActivity
+import com.example.sanggar.view.activity.jam_operasional.TanggalLiburActivity
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.android.synthetic.main.fragment_jam_operasional_bottom_sheet.btn_batal
 import kotlinx.android.synthetic.main.fragment_tanggal_libur_bottom_sheet.*
@@ -126,7 +127,7 @@ class TanggalLiburBottomSheetFragment(val data: TanggalLiburItem? = null) : Bott
         isLoadingProcess(false)
         baseActivity.showCustomDialog("Data Berhasil", "Data berhasil ditambahkan")
 
-        (activity as JamOperasionalActivity?)?.fetchData()
+        (activity as TanggalLiburActivity?)?.fetchData()
 
     }
 

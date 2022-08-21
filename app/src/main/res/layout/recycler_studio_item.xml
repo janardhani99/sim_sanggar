@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cv_studio_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp8"
+        android:clickable="true"
+        android:focusable="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="3"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="@dimen/dp10">
+
+            <ImageView
+                android:id="@+id/iv_studio_recycler"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp5" />
+
+            <TextView
+                android:id="@+id/tv_nama_studio_recycler"
+                style="@style/TextAppearance.AppCompat.Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:padding="5dp"
+                android:singleLine="true"
+                android:text="Nama"
+                android:textSize="20dp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/tv_harga_perjam_recycler"
+                style="@style/TextAppearance.AppCompat.Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:padding="5dp"
+                android:singleLine="true"
+                android:text="Harga Perjam"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/tv_ukuran_studio_recycler"
+                style="@style/TextAppearance.AppCompat.Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:padding="5dp"
+                android:singleLine="true"
+                android:text="Ukuran"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/tv_deskripsi_studio_recycler"
+                style="@style/TextAppearance.AppCompat.Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:padding="5dp"
+                android:text="Deskripsi"
+                android:textSize="20dp"
+                android:lines="3"
+                android:maxLines="3"
+                android:layout_below="@+id/tv_judul_fasilitas_recycler"/>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</LinearLayout>

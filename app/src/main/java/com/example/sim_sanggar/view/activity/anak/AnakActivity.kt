@@ -9,6 +9,7 @@ import com.example.sim_sanggar.common.clickWithDebounce
 import com.example.sim_sanggar.data.model.anak.AnakListItem
 import com.example.sim_sanggar.data.model.anak.AnakListResponse
 import com.example.sim_sanggar.data.model.anak.AnakResponse
+import com.example.sim_sanggar.data.model.common.EmptyResponse
 import com.example.sim_sanggar.presenter.DatePickerHelper
 import com.example.sim_sanggar.presenter.anak.AnakContract
 import com.example.sim_sanggar.presenter.anak.AnakPresenter
@@ -105,6 +106,7 @@ class AnakActivity : BaseActivity(), AnakContract.View {
             til_alamat_anak?.editText?.setText(data.alamat)
             tv_tanggal_lahir?.editText?.setText(data.tanggal_lahir)
             til_telepon_anak?.editText?.setText(data.telepon)
+            btn_daftar?.setText("Simpan")
         }
     }
 
@@ -120,6 +122,10 @@ class AnakActivity : BaseActivity(), AnakContract.View {
     }
 
     override fun getAnakResponse(response: AnakListResponse) {
+        TODO("Not yet implemented")
+    }
+
+    override fun deleteAnakResponde(response: EmptyResponse) {
         TODO("Not yet implemented")
     }
 

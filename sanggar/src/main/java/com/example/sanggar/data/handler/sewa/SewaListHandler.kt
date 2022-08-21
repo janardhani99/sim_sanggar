@@ -26,4 +26,8 @@ class SewaListHandler : BaseHandler(){
     fun deleteListSewa(id: Int): Observable<EmptyResponse> {
         return service.deleteListSewa(id)
     }
+
+    fun getTanggalTersewa(tanggal: String): Observable<SewaListResponse> {
+        return service.getTanggalTersewa(tanggal)
+    }
 }

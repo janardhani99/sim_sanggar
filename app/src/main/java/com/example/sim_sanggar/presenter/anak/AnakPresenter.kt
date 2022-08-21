@@ -5,6 +5,7 @@ import com.example.sim_sanggar.data.handler.anak.AnakHandler
 import com.example.sim_sanggar.data.handler.common.ErrorHandler
 import com.example.sim_sanggar.data.model.anak.AnakListResponse
 import com.example.sim_sanggar.data.model.anak.AnakResponse
+import com.example.sim_sanggar.data.model.common.EmptyResponse
 import com.example.sim_sanggar.presenter.common.BasePresenter
 
 
@@ -34,6 +35,15 @@ class AnakPresenter(val view: AnakContract.View): BasePresenter(view), AnakContr
                 .doSubscribe(object: ErrorHandler<AnakResponse>(this){
                     override fun onNext(t: AnakResponse) {
                         view.anakResponse(t)
+                    }
+                })
+    }
+
+    override fun deleteAnak(id: Int) {
+        handler.deleteAnak(id)
+                .doSubscribe(object : ErrorHandler<EmptyResponse>(this){
+                    override fun onNext(t: EmptyResponse) {
+                        view.deleteAnakResponde(t)
                     }
                 })
     }

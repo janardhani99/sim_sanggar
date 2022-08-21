@@ -67,7 +67,7 @@ class UploadBuktiDaftarActivity : BaseActivity(), DaftarListContract.View {
         tambahData["jadwal_sanggar_id"] = data_kelas?.id
         tambahData["anak_id"] = selectedAnak?.id
         tambahData["transfer_via"] = transfer_via
-        tambahData["status"] = "1"
+        tambahData["status"] = "0"
 
         isLoading(true)
 

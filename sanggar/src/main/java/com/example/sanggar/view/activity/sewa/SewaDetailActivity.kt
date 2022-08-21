@@ -2,7 +2,7 @@ package com.example.sanggar.view.activity.sewa
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
+import android.util.Log
 import android.view.View.*
 import com.example.sanggar.R
 import com.example.sanggar.common.Utilities
@@ -14,8 +14,10 @@ import com.example.sanggar.data.model.sewa.SewaResponse
 import com.example.sanggar.presenter.sewa.SewaListContract
 import com.example.sanggar.presenter.sewa.SewaListPresenter
 import com.example.sanggar.view.activity.common.BaseActivity
+import com.google.android.material.timepicker.MaterialTimePicker
+import com.google.android.material.timepicker.TimeFormat
 import kotlinx.android.synthetic.main.activity_sewa_detail.*
-import kotlinx.android.synthetic.main.fragment_toolbar.*
+import kotlin.time.times
 
 class SewaDetailActivity(): BaseActivity(), SewaListContract.View {
 
@@ -98,35 +100,65 @@ class SewaDetailActivity(): BaseActivity(), SewaListContract.View {
     }
 
     private fun initView(data: SewaListItem) {
+        initListener()
 
         data?.run {
+            til_studio?.editText?.setText(data.studio_id?.nama_studio)
             til_tanggal_sewa?.editText?.setText(data.tanggal)
-            til_jam_mulai?.editText?.setText(data.jam_mulai?.substring(0,5))
-            til_jam_selesai?.editText?.setText(data.jam_selesai?.substring(0,5))
+
+            et_jam_mulai_sewa?.setText(data.jam_mulai?.substring(0,5))
+            et_jam_selesai_sewa?.setText(data.jam_selesai?.substring(0,5))
+
+            val jamMulai = data.jam_mulai?.substring(0,2)?.toInt()
+            val jamSelesai= data.jam_selesai?.substring(0,2)?.toInt()
+
+            val difference = jamSelesai?.minus(jamMulai!!)
+            val harga = data.studio_id?.harga?.toInt()
+
+            val total_bayar = harga?.let { difference?.times(it) }
+            til_total_bayar?.editText?.setText(total_bayar.toString())
         }
 
-        initListener()
+        val jamMulai = data?.jam_mulai?.split(":")?.get(0)?.toInt() ?: 0
+        val menitMulai = data?.jam_mulai?.split(":")?.get(1)?.toInt() ?: 0
+        val jamSelesai = data?.jam_selesai?.split(":")?.get(0)?.toInt() ?: 0
+        val menitSelesai = data?.jam_selesai?.split(":")?.get(1)?.toInt() ?: 0
+
+
+        et_jam_mulai_sewa?.setOnClickListener {
+            val jamMulaiPicker = MaterialTimePicker.Builder()
+                    .setInputMode(MaterialTimePicker.INPUT_MODE_KEYBOARD)
+                    .setTimeFormat(TimeFormat.CLOCK_24H)
+                    .setHour(jamMulai?: 0).setMinute(menitMulai ?: 0).build()
+
+            jamMulaiPicker.addOnPositiveButtonClickListener {
+                val value = "${getTimeStringFormat(jamMulaiPicker.hour.toString())}:${
+                getTimeStringFormat(jamMulaiPicker.minute.toString())}"
+                et_jam_mulai_sewa?.setText(value)
+            }
+            jamMulaiPicker.show(supportFragmentManager, "")
+        }
+
+        et_jam_selesai_sewa?.setOnClickListener {
+            val jamSelesaiPicker = MaterialTimePicker.Builder()
+                    .setInputMode(MaterialTimePicker.INPUT_MODE_KEYBOARD)
+                    .setTimeFormat(TimeFormat.CLOCK_24H)
+                    .setHour(jamSelesai?: 0).setMinute(menitSelesai ?: 0).build()
+
+            jamSelesaiPicker.addOnPositiveButtonClickListener {
+                val value = "${getTimeStringFormat(jamSelesaiPicker.hour.toString())}:${
+                getTimeStringFormat(jamSelesaiPicker.minute.toString())}"
+                et_jam_selesai_sewa?.setText(value)
+            }
+            jamSelesaiPicker.show(supportFragmentManager, "")
+        }
     }
 
-    private fun ubahData(data: SewaListItem?) {
-//        val status = data?.status
-        val tanggal = til_tanggal_sewa?.editText?.text.toString()
-        val jam_mulai = til_jam_mulai?.editText?.text.toString()
-        val jam_selesai = til_jam_selesai?.editText?.text.toString()
-
-        val tambahData = HashMap<String, Any?>()
-        tambahData["tanggal"] = tanggal
-        tambahData["jam_mulai"] = jam_mulai
-        tambahData["jam_selesai"] = jam_selesai
-//        tambahData["status"] = "1"
-        isLoading(true)
-
-//        if (data?.id != null) {
-//            presenter.editStatusSewa(data?.id, tambahData)
-//        }
-
+    private fun getTimeStringFormat(time: String): String {
+        var waktu = time
+        if (time.length == 1) waktu ="0$time"
+        return waktu
     }
-
 
     private fun verifikasiSewa() {
 
@@ -174,9 +206,6 @@ class SewaDetailActivity(): BaseActivity(), SewaListContract.View {
 
     override fun sewaListResponse(response: SewaResponse) {
 
-//        isLoading(false)
-//        this.showCustomDialogBack("Berhasil", "Status Berhasil diubah")
-//        Toast.makeText(activity, "Berhasil!", Toast.LENGTH_SHORT).show()
 
     }
 

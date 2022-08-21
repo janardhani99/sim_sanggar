@@ -53,7 +53,7 @@ class DetailPertemuanActivity : BaseActivity(), PertemuanContract.View {
         val y = cal.get(Calendar.YEAR)
 
         val minDate = Calendar.getInstance()
-        minDate.set(Calendar.YEAR, 2022)
+        minDate.set(Calendar.YEAR, 1999)
         minDate.set(Calendar.HOUR_OF_DAY, 8)
         minDate.set(Calendar.MINUTE, 0)
         minDate.set(Calendar.SECOND, 0)

@@ -130,6 +130,10 @@ class FormDaftarKelasActivity : BaseActivity(), AnakContract.View, JadwalSanggar
         initAdapter()
     }
 
+    override fun deleteAnakResponde(response: EmptyResponse) {
+        TODO("Not yet implemented")
+    }
+
     override fun jadwalSanggarResponse(response: JadwalSanggarResponse) {
         TODO("Not yet implemented")
     }

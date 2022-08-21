@@ -16,29 +16,38 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SIM_Sanggar">
         <activity
-            android:name=".view.activity.absensi_anak.DetailPertemuanActivity"
+            android:name=".view.activity.sewa.PenyewaanActivity"
             android:screenOrientation="portrait"/>
+        <activity
+            android:name=".view.activity.studio.StudioActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".view.activity.studio.DetailStudioActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".view.activity.absensi_anak.DetailPertemuanActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.absensi_anak.DetailProgressAnakActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.absensi_anak.ProgressAnakActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.absensi_anak.PertemuanActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.absensi_anak.AbsensiActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.pembelajaran.DetailPembelajaranActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.pembelajaran.PembelajaranActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.platform_transaksi.DetailPlatformTransaksiActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.platform_transaksi.PlatformTransaksiActivity"
             android:screenOrientation="portrait" />

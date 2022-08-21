@@ -15,26 +15,27 @@
         android:padding="10dp">
 
         <ImageView
-            android:src="@drawable/foto"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:src="@drawable/new_logo"
+            android:layout_width="200dp"
+            android:layout_height="120dp"
             android:layout_gravity="center">
 
             <!--            android:src="@drawable/icon_daftar"-->
         </ImageView>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:fontFamily="sans-serif-medium"
-            android:text="Login Page"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="30dp"></TextView>
+
     </LinearLayout>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Login"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="30dp"/>
     <ScrollView
         android:padding="@dimen/dp16"
         android:layout_width="match_parent"
@@ -44,6 +45,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             >
+
 
             <TextView
                 android:layout_width="wrap_content"

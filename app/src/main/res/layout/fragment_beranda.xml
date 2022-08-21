@@ -35,7 +35,7 @@
                 android:id="@+id/txt_sanggar_user"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Citranala Art Studio"
+                android:text="Ubud Art Studio"
                 android:textColor="#CF5900"
                 android:textSize="12dp"
                 android:layout_below="@+id/txt_namauser"
@@ -51,6 +51,16 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="5dp"
                 android:src="@drawable/foto"/>
+
+            <ImageView
+                android:id="@+id/btn_detail_profil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_arrow_forward_ios_24"
+                android:layout_toRightOf="@+id/txt_namauser"
+                android:layout_marginTop="6dp"
+                android:layout_marginLeft="10dp"/>
+
         </RelativeLayout>
 
 
@@ -168,6 +178,63 @@
                             android:textSize="14dp"
                             android:layout_toRightOf="@+id/img_jadwal_sanggar"
                             android:layout_below="@+id/tv_jadwal_sanggar"/>
+
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cv_studio_sanggar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginLeft="30dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="@color/white"
+                android:outlineSpotShadowColor="@color/black"
+                app:cardElevation="1dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp16"
+                    android:weightSum="2">
+
+                    <ImageView
+                        android:id="@+id/img_studio_sanggar"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_weight="2"
+                        android:src="@drawable/icon_kelas" />
+
+                    <TextView
+                        android:id="@id/tv_studio_sanggar"
+                        style="@style/TextAppearance.MaterialComponents.Headline5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/dp8"
+                        android:layout_marginLeft="@dimen/dp8"
+                        android:layout_weight="1"
+                        android:text="Studio"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:textSize="20dp"
+                        android:layout_toRightOf="@+id/img_studio_sanggar"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/dp8"
+                        android:layout_marginLeft="@dimen/dp8"
+                        android:layout_marginTop="4dp"
+                        android:layout_weight="1"
+                        android:text="Lihat studio yang tersedia untuk latihan"
+                        android:textSize="14dp"
+                        android:layout_toRightOf="@+id/img_studio_sanggar"
+                        android:layout_below="@+id/tv_studio_sanggar"/>
 
                 </RelativeLayout>
             </com.google.android.material.card.MaterialCardView>

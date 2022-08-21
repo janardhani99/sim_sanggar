@@ -52,4 +52,5 @@
     <string name="kegiatan">Kegiatan Sanggar</string>
     <string name="jam_operasional">Jam Operasional</string>
     <string name="platform_transaksi">Platform Transaksi</string>
+    <string name="lihat_studio"><u>Lihat Studio</u></string>
 </resources>

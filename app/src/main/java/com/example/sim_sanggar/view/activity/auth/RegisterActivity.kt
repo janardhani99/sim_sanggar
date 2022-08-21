@@ -74,7 +74,7 @@ class RegisterActivity: BaseActivity(), AuthContract.View, SanggarContract.View 
     private fun registerProcess() {
         val email = til_email_user_register?.editText?.text.toString()
         val password = til_password_user_register?.editText?.text.toString()
-        val selectedSanggar = data_sanggar?.find{it.nama == ac_nama_sanggar?.text.toString()}
+        val selectedSanggar = data_sanggar?.find{it.nama == ac_nama_sanggar?.text.toString()}?.id
         val username = til_username_user_register?.editText?.text.toString()
         val nomor_telepon = til_telepon_user_register?.editText?.text.toString()
 

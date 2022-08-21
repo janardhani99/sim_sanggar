@@ -72,7 +72,7 @@ class PendaftarDetailActivity(): BaseActivity(), DaftarListContract.View {
         val transfer_via = data?.transfer_via
         val tambahData = HashMap<String, Any?>()
         tambahData["transfer_via"] = transfer_via
-        tambahData["status"] = "3"
+        tambahData["status"] = "2"
         isLoading(true)
         data?.id?.let { presenter.editStatusDaftar(it, tambahData) }
         this.showCustomDialogBack("Message", "Berhasil dibatalkan")

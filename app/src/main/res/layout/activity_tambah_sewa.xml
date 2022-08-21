@@ -18,6 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -46,6 +47,14 @@
                     android:textSize="25dp"/>
             </LinearLayout>
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Isilah kolom berikut secara berurutan"
+                android:textSize="@dimen/dp16"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="@dimen/dp16"/>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -53,11 +62,77 @@
                 android:padding="45dp"
                 android:background="@drawable/bg_form">
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="6dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pilih Studio"
+                        android:textSize="18dp"
+                        android:textStyle="bold"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/lihat_studio"
+                        android:layout_marginLeft="140dp"
+                        android:layout_marginRight="3dp"
+                        android:textSize="12dp"/>
+                    <ImageView
+                        android:id="@+id/btn_lihat_studio"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:src="@drawable/ic_baseline_arrow_forward_ios_24"
+                        android:background="@color/colorPrimary"/>
+
+                </LinearLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/AppTheme.TextInputAutoComplete">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/ac_pilih_studio"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/AppTheme.TextInputAutoComplete"
+                        android:layout_marginTop="@dimen/dp5"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Biaya Sewa Perjam"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="@dimen/dp16"
+                    android:layout_marginBottom="6dp"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_biaya_perjam"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:hint=""
+                        android:enabled="false"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/tanggal_sewa"
-                    android:layout_marginBottom="6dp"/>
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginTop="@dimen/dp16"
+                    android:textSize="18dp"
+                    android:textStyle="bold"/>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -89,20 +164,36 @@
                         android:id="@+id/tv_booked_tanggal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="List Jam yang Sudah Tersewa"
-                        android:textSize="20dp"
+                        android:text="List Jam yang Sudah Tersewa:"
+                        android:textSize="18dp"
                         android:textStyle="bold"
                         android:layout_marginRight="30dp"
                         android:layout_marginBottom="10dp"
                         android:layout_marginTop="@dimen/dp16"/>
 
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/rv_booked_tanggal"
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        tools:listitem="@layout/recycler_booked_tanggal"
-                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                        android:orientation="vertical"/>
+                        android:layout_height="wrap_content"
+                        android:background="@color/transparent_text"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_belum_ada"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textAlignment="center"
+                            android:layout_margin="5dp"/>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_booked_tanggal"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            tools:listitem="@layout/recycler_booked_tanggal"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            android:orientation="vertical" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -110,7 +201,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Masukkan Jam Mulai dan Selesai diluar Jam di atas!"
-                    android:textSize="20dp"
+                    android:textSize="18dp"
                     android:textStyle="bold"
                     android:layout_marginRight="30dp"
                     android:layout_marginBottom="10dp"
@@ -173,6 +264,7 @@
                                 android:layout_marginBottom="7dp"/>
                         </com.google.android.material.textfield.TextInputLayout>
                     </LinearLayout>
+
                 </LinearLayout>
 
                 <com.google.android.material.card.MaterialCardView

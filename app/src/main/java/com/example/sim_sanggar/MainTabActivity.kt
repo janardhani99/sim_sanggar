@@ -39,12 +39,6 @@ class MainTabActivity: BaseActivity() {
                     replaceFragment(JadwalSewaFragment())
                 return@OnNavigationItemSelectedListener true
             }
-
-            R.id.menu_profil -> {
-                if (!isDisplaying(ProfilFragment()))
-                    replaceFragment(ProfilFragment())
-                return@OnNavigationItemSelectedListener true
-            }
         }
         false
     }

@@ -17,6 +17,7 @@ import com.example.sim_sanggar.view.activity.common.BaseActivity
 import com.example.sim_sanggar.view.activity.common.ButtonDialogListener
 import com.example.sim_sanggar.view.adapter.fasilitas.FasilitasAdapter
 import kotlinx.android.synthetic.main.activity_fasilitas.*
+import kotlinx.android.synthetic.main.activity_jadwal_sanggar.*
 import kotlinx.android.synthetic.main.fragment_toolbar.*
 
 class FasilitasActivity : BaseActivity(), FasilitasContract.View {
@@ -34,7 +35,7 @@ class FasilitasActivity : BaseActivity(), FasilitasContract.View {
         setToolbar()
 //        toolbar_title?.text = getString(R.string.fasilitas)
 
-//        initListener()
+        initListener()
         iniAdapter()
     }
 
@@ -57,6 +58,12 @@ class FasilitasActivity : BaseActivity(), FasilitasContract.View {
 
     }
 
+    fun initListener() {
+        sr_fasilitas_sanggar?.setOnRefreshListener {
+            fetchData()
+        }
+    }
+
     fun fetchData() {
         isLoading(true)
         presenter.getFasilitas()
@@ -64,7 +71,10 @@ class FasilitasActivity : BaseActivity(), FasilitasContract.View {
 
     private fun isLoading(isLoad: Boolean) {
         if(isLoad) Utilities.showProgress(this)
-        else Utilities.hideProgress()
+        else {
+            Utilities.hideProgress()
+            sr_jadwal_sanggar?.isRefreshing = false
+        }
     }
 
     override fun onResume() {

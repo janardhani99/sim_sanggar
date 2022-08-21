@@ -10,7 +10,7 @@ import com.example.sim_sanggar.data.model.anak.AnakListItem
 import com.example.sim_sanggar.data.model.daftar.PendaftaranAnak
 import kotlinx.android.synthetic.main.recycler_anak_terdaftar.view.*
 
-class AnakTerdaftarAdapter( val daftarListener: (AnakListItem)-> Unit): RecyclerView.Adapter<AnakTerdaftarAdapter.ViewHolder>() {
+class AnakTerdaftarAdapter( val daftarListener: (AnakListItem)-> Unit, val deleteItem: (AnakListItem)->Unit): RecyclerView.Adapter<AnakTerdaftarAdapter.ViewHolder>() {
 
     var anakTerdaftarList = mutableListOf<AnakListItem>()
     var pendaftaranAnak : List<PendaftaranAnak>? = null
@@ -35,8 +35,12 @@ class AnakTerdaftarAdapter( val daftarListener: (AnakListItem)-> Unit): Recycler
 //            }
             tv_nama_anak_recycler?.text = item.nama
 //            tv_umur_anak_recycler?.text = "Umur: ${item.umur}"
-            btn_daftarkan.setOnClickListener {
+            btn_detail.setOnClickListener {
                 daftarListener(item)
+            }
+            cv_anak_terdaftar_recycler?.setOnLongClickListener {
+                deleteItem(item)
+                return@setOnLongClickListener true
             }
         }
     }

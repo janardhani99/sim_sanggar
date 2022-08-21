@@ -37,15 +37,15 @@
                         android:singleLine="true"
                         android:text="Tanggal Sewa"
                         android:textColor="@color/black"/>
-<!--                    <TextView-->
-<!--                        android:id="@+id/tv_jam_sewa"-->
-<!--                        style="@style/TextAppearance.AppCompat.Title"-->
-<!--                        android:layout_width="200dp"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:ellipsize="end"-->
-<!--                        android:singleLine="true"-->
-<!--                        android:text="Jam mulai - selesai"-->
-<!--                        android:textColor="@color/black"/>-->
+                    <TextView
+                        android:id="@+id/tv_jam_sewa"
+                        style="@style/TextAppearance.AppCompat.Title"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        android:text="Jam mulai - selesai"
+                        android:textColor="@color/black"/>
 
                 </LinearLayout>
 
@@ -53,7 +53,8 @@
                     android:id="@+id/btn_upload"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Upload Bukti"/>
+                    android:text="Upload Bukti"
+                    android:layout_marginLeft="10dp"/>
             </LinearLayout>
 
         </LinearLayout>

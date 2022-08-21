@@ -101,16 +101,6 @@ class ReportAnakActivity : BaseActivity(), DaftarListContract.View, JadwalSangga
 
     }
 
-    fun clicked(view: View) {
-
-
-
-    }
-
-//    private fun fetchData() {
-//    initAdapter()
-//    }
-
     private fun initAdapterAnak() {
 //        WLog(listAnakTerdaftar)
 //        val notNullAnak = data?.filter { it.anak != null }

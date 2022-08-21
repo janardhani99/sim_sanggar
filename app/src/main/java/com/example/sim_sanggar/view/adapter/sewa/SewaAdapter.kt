@@ -29,9 +29,9 @@ class SewaAdapter(): RecyclerView.Adapter<SewaAdapter.ViewHolder>() {
         holder.itemView.apply {
 //            tv_nama_penyewa.text = "Oleh ${item.user_id}"
 
-            tv_jam_sewa.text = "${item.jam_mulai?.let { getTimeFormat(it) }}--${item.jam_selesai?.let { getTimeFormat(it) }}"
-            tv_tanggal_sewa.text = item.tanggal
-            tv_status_sewa.text = item.status
+            tv_jam_sewa.text = "Jam : ${item.jam_mulai?.let { getTimeFormat(it) }}--${item.jam_selesai?.let { getTimeFormat(it) }}"
+            tv_tanggal_sewa.text = "Tanggal: ${item.tanggal}"
+            tv_status_sewa.text = "Status: ${item.status}"
         }
     }
 

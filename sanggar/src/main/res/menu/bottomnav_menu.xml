@@ -15,7 +15,7 @@
     <item
         android:enabled="true"
         android:id="@+id/menu_absensi"
-        android:title="Absensi"
+        android:title="Presensi"
         android:icon="@drawable/menuprofil"/>
     <item
         android:enabled="true"

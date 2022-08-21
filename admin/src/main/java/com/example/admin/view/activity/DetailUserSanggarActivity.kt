@@ -12,11 +12,6 @@ import com.example.admin.data.model.user.UserResponse
 import com.example.admin.presenter.user.UserContract
 import com.example.admin.presenter.user.UserPresenter
 import com.example.admin.view.activity.common.BaseActivity
-import kotlinx.android.synthetic.main.activity_detail_user.*
-import kotlinx.android.synthetic.main.activity_detail_user.btn_simpan
-import kotlinx.android.synthetic.main.activity_detail_user.til_email
-import kotlinx.android.synthetic.main.activity_detail_user.til_nama_sanggar
-import kotlinx.android.synthetic.main.activity_detail_user.til_telepon
 import kotlinx.android.synthetic.main.activity_detail_user_sanggar.*
 
 class DetailUserSanggarActivity : BaseActivity(), UserContract.View {
@@ -37,14 +32,14 @@ class DetailUserSanggarActivity : BaseActivity(), UserContract.View {
         data.run {
             til_nama_sanggar.editText?.setText(data.sanggar?.nama)
             til_alamat.editText?.setText(data.sanggar?.alamat)
-            til_telepon.editText?.setText(data.telepon)
+            til_telepon_sanggar.editText?.setText(data.telepon)
             til_email.editText?.setText((data.email))
         }
     }
 
     private fun editUser() {
         val nama_sanggar = til_nama_sanggar.editText?.text.toString()
-        val telepon= til_telepon.editText?.text.toString()
+        val telepon= til_telepon_sanggar.editText?.text.toString()
         val email = til_email.editText?.text.toString()
         val alamat = til_alamat.editText?.text.toString()
 

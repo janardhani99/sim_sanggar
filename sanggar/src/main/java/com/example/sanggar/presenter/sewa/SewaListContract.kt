@@ -20,6 +20,8 @@ interface SewaListContract {
         fun getListSewa(status: String)
         fun editStatusSewa(id: Int, data: HashMap<String, Any?>)
         fun deleteListSewa(id: Int)
+
+        fun getTanggalTersewa(tanggal: String)
     }
 
     interface Handler {
@@ -36,5 +38,8 @@ interface SewaListContract {
 
         @DELETE("penyewaan-sanggar/{id}")
         fun deleteListSewa(@Path("id")id: Int): Observable<EmptyResponse>
+
+        @GET("penyewaan/tanggal")
+        fun getTanggalTersewa(@Query ("date") tanggal: String): Observable<SewaListResponse>
     }
 }

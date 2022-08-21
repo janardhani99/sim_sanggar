@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".view.activity.studio.StudioActivity">
+
+    <include layout="@layout/fragment_toolbar" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tv_list_studio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="List Studio"
+            android:textSize="@dimen/dp22"
+            android:textStyle="bold"
+            android:padding="@dimen/dp12"
+            android:layout_marginStart="6dp"/>
+
+        <ImageView
+            android:id="@+id/cv_tambah_studio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_add_circle_24"
+            android:layout_toEndOf="@+id/tv_list_studio"
+            android:layout_marginTop="@dimen/dp12"
+            android:layout_marginStart="220dp"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_margin="@dimen/dp8"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_studio"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/recycler_studio_item"/>
+
+    </LinearLayout>
+
+</LinearLayout>
