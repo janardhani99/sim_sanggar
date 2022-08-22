@@ -206,7 +206,7 @@
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:layout_weight="2"
-                        android:src="@drawable/icon_kelas" />
+                        android:src="@drawable/icon_studio" />
 
                     <TextView
                         android:id="@id/tv_studio_sanggar"

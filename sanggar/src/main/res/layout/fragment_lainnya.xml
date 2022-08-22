@@ -165,7 +165,7 @@
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/icon_fasillitas" />
+                        android:src="@drawable/icon_studio" />
 
                     <TextView
                         android:id="@+id/tv_studio_sanggar"
@@ -197,7 +197,7 @@
                         android:id="@+id/img_penyewaan"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
-                        android:src="@drawable/icon_fasillitas"
+                        android:src="@drawable/icon_sewa"
                         android:layout_gravity="center"/>
 
                     <TextView

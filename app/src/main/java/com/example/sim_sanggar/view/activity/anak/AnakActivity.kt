@@ -45,10 +45,13 @@ class AnakActivity : BaseActivity(), AnakContract.View {
         val m = cal.get(Calendar.MONTH)
         val y = cal.get(Calendar.YEAR)
 
-//        minDate.set(Calendar.HOUR_OF_DAY, 0)
-//        minDate.set(Calendar.MINUTE, 0)
-//        minDate.set(Calendar.SECOND, 0)
-//        datePicker.setMinDate(minDate.timeInMillis)
+        val minDate = Calendar.getInstance()
+        minDate.set(Calendar.HOUR_OF_DAY, 0)
+        minDate.set(Calendar.MINUTE, 0)
+        minDate.set(Calendar.SECOND, 0)
+        minDate.set(Calendar.YEAR, 1980)
+        minDate.set(Calendar.MONTH, 0)
+        datePicker.setMinDate(minDate.timeInMillis)
 
 //        val default = Calendar.getInstance()
 //        default.set(Calendar.YEAR, 2000)

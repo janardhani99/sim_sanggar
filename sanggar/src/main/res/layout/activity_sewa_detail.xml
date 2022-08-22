@@ -153,46 +153,18 @@
                 android:text="Total Bayar"
                 android:textSize="24dp"/>
 
-            <RelativeLayout
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_total_bayar"
+                style="@style/AppTheme.TextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/til_total_bayar"
-                    style="@style/AppTheme.TextInputLayout"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="250dp"
-                        android:layout_height="wrap_content" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <ImageView
-                    android:id="@+id/iv_kali"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_baseline_close_24"
-                    android:layout_toRightOf="@+id/til_total_bayar"
-                    android:layout_margin="15dp"/>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/til_total_jam"
-                    style="@style/AppTheme.TextInputLayout"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@+id/iv_kali">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="50dp"
-                        android:layout_height="wrap_content" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-            </RelativeLayout>
-
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
 
         </LinearLayout>
-
 
         <LinearLayout
             android:layout_width="match_parent"

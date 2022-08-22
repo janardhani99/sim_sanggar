@@ -39,7 +39,7 @@ class DetailProgressAnakActivity() : BaseActivity(), ProgressAnakContract.View {
         setToolbar()
 //        toolbar_title.text = "Progress Anak"
 
-//        data_anak = intent.getParcelableExtra<PendaftaranAnak>("data_anak")
+        data_anak = intent.getParcelableExtra<PendaftaranAnak>("data_anak")
 //        data_pertemuan = intent.getParcelableExtra<PertemuanData>("data_pertemuan")
 //        data_progress = intent.getParcelableExtra<ProgressAnakData>("data_progress")
 //        data_progress?.let { initView(it)}
@@ -72,7 +72,7 @@ class DetailProgressAnakActivity() : BaseActivity(), ProgressAnakContract.View {
 
     private fun initView(data: ProgressAnakData) {
         data.run {
-            tv_nama_anak?.setText(data.anak?.anak?.nama)
+            tv_nama_anak?.setText(data_anak?.anak?.nama)
             ac_kehadiran?.setText(data.kehadiran, false)
             til_catatan_progress?.editText?.setText(data.catatan_progress)
             ac_bayar_harian?.setText(data.bayar_harian, false)

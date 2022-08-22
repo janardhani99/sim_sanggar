@@ -54,7 +54,9 @@ class PlatformTransaksiActivity : BaseActivity(), PlatformTransaksiContract.View
     private fun initListener() {
         btn_copy_nomor?.clickWithDebounce {
             copyToClipboard()
+            isLoading(false)
             this.showCustomDialog("Berhasil", "Nomor berhasil disalin!")
+
         }
 
 
@@ -82,6 +84,7 @@ class PlatformTransaksiActivity : BaseActivity(), PlatformTransaksiContract.View
 
         val clipboardManager = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
         val clipData = ClipData.newPlainText("text", textToCopy)
+        isLoading(true)
         clipboardManager.setPrimaryClip(clipData)
 
 //        Toast.makeText(this, "Nomor berhasil disalin!", Toast.LENGTH_LONG).show()

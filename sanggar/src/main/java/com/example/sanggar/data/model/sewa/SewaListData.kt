@@ -31,6 +31,9 @@ data class SewaListItem(
         var jam_selesai: String? = null,
 
         @Expose
+        var total_bayar: String? = null,
+
+        @Expose
         var status: String? = null,
 
         @Expose

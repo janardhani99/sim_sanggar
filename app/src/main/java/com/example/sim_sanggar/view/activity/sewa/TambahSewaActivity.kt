@@ -102,9 +102,9 @@ class TambahSewaActivity : BaseActivity(), SewaContract.View, StudioContract.Vie
 
     private fun initView(data: SewaListItem?) {
         data?.run {
-//            ac_metode_pembayaran?.setText(data.metodePembayaran, false)
             et_jam_mulai_sewa?.setText(data.jam_mulai?.substring(0,5))
             et_jam_selesai_sewa?.setText(data.jam_selesai?.substring(0,5))
+
         }
 
         val jamMulai = data?.jam_mulai?.split(":")?.get(0)?.toInt() ?: 0
@@ -147,17 +147,40 @@ class TambahSewaActivity : BaseActivity(), SewaContract.View, StudioContract.Vie
         return waktu
     }
 
+    fun hitungJam() {
+//        val jamMulai = data.jam_mulai?.substring(0,2)?.toInt()
+//        val jamSelesai= data.jam_selesai?.substring(0,2)?.toInt()
+
+        val jamMulai = til_jam_mulai_sewa.editText?.text?.substring(0,2)?.toInt()
+        val jamSelesai = til_jam_selesai_sewa.editText?.text?.substring(0,2)?.toInt()
+
+        val difference = jamSelesai?.minus(jamMulai!!)
+        Log.i("pengurangan", difference.toString())
+
+//        val harga = data?.studio_id?.harga?.toInt()
+        val harga = listSudio?.find { it.nama_studio == ac_pilih_studio.text.toString() }?.harga?.toInt()
+
+        val total_bayar = harga?.let { difference?.times(it) }
+        Log.i("total", total_bayar.toString())
+
+        til_total_bayar?.editText?.setText(total_bayar.toString())
+    }
+
     private fun initListener() {
         btn_sewa?.clickWithDebounce {
             addSewa()
         }
 
-        btn_pilih_tanggal?.setOnClickListener {
+        btn_pilih_tanggal?.clickWithDebounce {
             showDatePickerDialog()
         }
 
         btn_lihat_studio?.clickWithDebounce {
             startActivity(Intent(this, StudioActivity::class.java))
+        }
+
+        btn_hitung_total?.clickWithDebounce {
+            hitungJam()
         }
 
     }
@@ -175,7 +198,7 @@ class TambahSewaActivity : BaseActivity(), SewaContract.View, StudioContract.Vie
                 selectedStudio = listSudio?.find { it.nama_studio == ac_pilih_studio.text.toString() }?.id
                 initListener()
 
-                til_biaya_perjam.editText?.setText(listSudio?.find { it.nama_studio == ac_pilih_studio.text.toString() }?.harga)
+//                til_biaya_perjam.editText?.setText(listSudio?.find { it.nama_studio == ac_pilih_studio.text.toString() }?.harga)
             }
 
         }
@@ -226,6 +249,7 @@ class TambahSewaActivity : BaseActivity(), SewaContract.View, StudioContract.Vie
     override fun onResume() {
         super.onResume()
 //        fetchData()
+        initListener()
         initAdapterStudio()
         initAdapterTersewa()
     }

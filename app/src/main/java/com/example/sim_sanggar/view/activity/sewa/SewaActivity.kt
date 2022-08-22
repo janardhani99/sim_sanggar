@@ -43,6 +43,10 @@ class SewaActivity : BaseActivity(), SewaContract.View {
         cv_riwayat_sewa?.clickWithDebounce {
             startActivity(Intent(this, RiwayatSewaActivity::class.java))
         }
+
+        sr_sewa?.setOnRefreshListener {
+            fetchData()
+        }
     }
 
     private fun initAdapter() {
@@ -63,7 +67,10 @@ class SewaActivity : BaseActivity(), SewaContract.View {
 
     private fun isLoading(isLoad: Boolean) {
         if (isLoad) Utilities.showProgress(this)
-        else Utilities.hideProgress()
+        else {
+            Utilities.hideProgress()
+            sr_sewa.isRefreshing = false
+        }
     }
 
     override fun onResume() {

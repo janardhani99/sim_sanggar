@@ -35,7 +35,7 @@ class UploadBuktiActivity : BaseActivity(), SewaContract.View {
         setContentView(R.layout.activity_upload_bukti)
 
         setToolbar()
-        toolbar_title?.text = getString(R.string.sewa)
+//        toolbar_title?.text = getString(R.string.sewa)
         data_sewa = intent.getParcelableExtra<SewaListItem>("data_sewa")
         data_sewa?.let { setView(it) }
         initListener()

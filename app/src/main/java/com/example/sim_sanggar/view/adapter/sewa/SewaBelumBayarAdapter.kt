@@ -30,10 +30,11 @@ class SewaBelumBayarAdapter(val sewaListener: (SewaListItem)-> Unit): RecyclerVi
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = sewaList[position]
         holder.itemView.apply {
-//            tv_nama_penyewa.text = "Oleh ${item.user_id}"
-
+            tv_studio.text = item.studio_id?.nama_studio
             tv_tanggal_sewa.text = "Tanggal : ${item.tanggal}"
             tv_jam_sewa.text = "${item.jam_mulai?.let { getTimeFormat(it) }} - ${item.jam_selesai?.let { getTimeFormat(it) }}"
+            tv_total_bayar.text = item.studio_id?.harga
+
             btn_upload?.clickWithDebounce {
                 sewaListener(item)
             }

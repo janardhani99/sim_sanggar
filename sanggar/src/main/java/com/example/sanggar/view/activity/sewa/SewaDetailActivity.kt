@@ -105,18 +105,19 @@ class SewaDetailActivity(): BaseActivity(), SewaListContract.View {
         data?.run {
             til_studio?.editText?.setText(data.studio_id?.nama_studio)
             til_tanggal_sewa?.editText?.setText(data.tanggal)
+            til_total_bayar?.editText?.setText(data.total_bayar)
 
             et_jam_mulai_sewa?.setText(data.jam_mulai?.substring(0,5))
             et_jam_selesai_sewa?.setText(data.jam_selesai?.substring(0,5))
 
-            val jamMulai = data.jam_mulai?.substring(0,2)?.toInt()
-            val jamSelesai= data.jam_selesai?.substring(0,2)?.toInt()
-
-            val difference = jamSelesai?.minus(jamMulai!!)
-            val harga = data.studio_id?.harga?.toInt()
-
-            val total_bayar = harga?.let { difference?.times(it) }
-            til_total_bayar?.editText?.setText(total_bayar.toString())
+//            val jamMulai = data.jam_mulai?.substring(0,2)?.toInt()
+//            val jamSelesai= data.jam_selesai?.substring(0,2)?.toInt()
+//
+//            val difference = jamSelesai?.minus(jamMulai!!)
+//            val harga = data.studio_id?.harga?.toInt()
+//
+//            val total_bayar = harga?.let { difference?.times(it) }
+//            til_total_bayar?.editText?.setText(total_bayar.toString())
         }
 
         val jamMulai = data?.jam_mulai?.split(":")?.get(0)?.toInt() ?: 0
@@ -170,7 +171,7 @@ class SewaDetailActivity(): BaseActivity(), SewaListContract.View {
         isLoading(true)
         data?.id?.let { presenter.editStatusSewa(it, tambahData) }
         isLoading(false)
-        this.showCustomDialogBack("Message", "Berhasil diverifikasi")
+        this.showCustomDialogBack("Disetujui", "Status: Menunggu Pembayaran")
     }
 
     private fun booked() {

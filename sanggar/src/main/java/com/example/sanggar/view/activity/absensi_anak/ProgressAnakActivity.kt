@@ -145,7 +145,7 @@ class ProgressAnakActivity : BaseActivity(), PertemuanContract.View, DaftarListC
 
         adapter = AnakTerdaftarAdapter { detailItem->
             val intent = Intent(this, DetailProgressAnakActivity::class.java)
-//            intent.putExtra("data_anak", data_anak)
+            intent.putExtra("data_anak", detailItem)
             intent.putExtra("pertemuan_id", data_pertemuan?.id)
 //            intent.putExtra("data_progress", detailItem)
             intent.putExtra("pendaftaran_siswa_id", detailItem.id)
