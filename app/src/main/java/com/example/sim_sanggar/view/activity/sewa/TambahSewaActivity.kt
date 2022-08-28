@@ -26,9 +26,7 @@ import com.example.sim_sanggar.view.activity.studio.StudioActivity
 import com.example.sim_sanggar.view.adapter.sewapertanggaladapter.SewaPerTanggalAdapter
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
-import kotlinx.android.synthetic.main.activity_report_anak.*
 import kotlinx.android.synthetic.main.activity_tambah_sewa.*
-import kotlinx.android.synthetic.main.layout_dropdown_item.view.*
 import java.util.*
 import kotlin.collections.HashMap
 
@@ -87,7 +85,7 @@ class TambahSewaActivity : BaseActivity(), SewaContract.View, StudioContract.Vie
 
                 var tanggalTerpilih = tv_tanggal_sewa.text.toString()
                 isLoading(true)
-                selectedStudio?.let { presenter.getTanggalTersewa(tanggalTerpilih, it) }
+                selectedStudio?.let { presenter.getTanggalTersewa(it, tanggalTerpilih) }
                 Log.i("selectedStudio", selectedStudio.toString())
             }
 
@@ -220,6 +218,7 @@ class TambahSewaActivity : BaseActivity(), SewaContract.View, StudioContract.Vie
         val tanggal_sewa = tv_tanggal_sewa?.text.toString()
         val jam_mulai = til_jam_mulai_sewa?.editText?.text.toString()
         val jam_selesai = til_jam_selesai_sewa?.editText?.text.toString()
+        val total_bayar =  til_total_bayar?.editText?.text.toString()
 //        val metode_pembayaran = til_metode_pembayaran?.editText?.text.toString()
 
         val tambahData = HashMap<String, Any?>()
@@ -227,6 +226,7 @@ class TambahSewaActivity : BaseActivity(), SewaContract.View, StudioContract.Vie
         tambahData["tanggal"] = tanggal_sewa
         tambahData["jam_mulai"] = jam_mulai
         tambahData["jam_selesai"] = jam_selesai
+        tambahData["total_bayar"] = total_bayar
 //        tambahData["metode_pembayaran"] = metode_pembayaran.toLowerCase()
 
         isLoading(true)

@@ -5,6 +5,7 @@ import com.example.admin.data.model.user.UserListResponse
 import com.example.admin.data.model.user.UserResponse
 import com.example.admin.presenter.common.BaseContract
 import io.reactivex.Observable
+import okhttp3.MultipartBody
 import retrofit2.http.*
 
 interface UserContract {
@@ -13,6 +14,8 @@ interface UserContract {
         fun userResponse(response: UserResponse)
         fun getUserResponse(response: UserListResponse)
         fun deleteUserResponse(response: EmptyResponse)
+        fun getProfileResponse(response: UserResponse)
+        fun editProfileResponse(response: UserResponse)
     }
 
     interface Presenter {
@@ -20,6 +23,9 @@ interface UserContract {
         fun getUser(role: String)
         fun editUser(id: Int, data: HashMap<String, Any?>)
         fun deleteUser(id: Int)
+        fun getProfile()
+        fun editProfile( data: HashMap<String, Any?>)
+        fun updateProfilePhot(data: MultipartBody.Part)
     }
 
     interface Handler {
@@ -36,5 +42,16 @@ interface UserContract {
 
         @DELETE("user/{id}")
         fun deleteUser(@Path("id") id: Int):Observable<EmptyResponse>
+
+        @GET("getProfile")
+        fun getProfile(): Observable<UserResponse>
+
+        @FormUrlEncoded
+        @POST("updateProfile")
+        fun editProfile( @FieldMap data: HashMap<String, Any?> ):Observable<UserResponse>
+
+        @Multipart
+        @POST("updateProfilePhoto")
+        fun updateProfilePhoto(@Part part: MultipartBody.Part):Observable<UserResponse>
     }
 }

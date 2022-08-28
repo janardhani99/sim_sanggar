@@ -100,22 +100,22 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="Sanggar"
-                    android:textSize="20dp" />
+                    android:layout_marginTop="@dimen/dp16"
+                    android:text="@string/password_user"
+                    android:textSize="20dp"/>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/til_sanggar"
+                    android:id="@+id/til_password_sanggar"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    app:endIconMode="password_toggle">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:enabled="false"
-                        android:hint="" />
+                        android:hint="@string/password_user"
+                        android:inputType="textPassword"/>
                 </com.google.android.material.textfield.TextInputLayout>
-
 
                 <Button
                     android:id="@+id/btn_simpan_perubahan"

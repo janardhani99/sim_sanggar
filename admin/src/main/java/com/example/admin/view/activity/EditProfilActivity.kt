@@ -1,20 +1,21 @@
-package com.example.sim_sanggar.view.activity.edit_profil
+package com.example.admin.view.activity
 
 import android.content.Intent
 import android.os.Bundle
-import com.example.sim_sanggar.GlobalClass
-import com.example.sim_sanggar.R
-import com.example.sim_sanggar.common.Preferences
-import com.example.sim_sanggar.common.Utilities
-import com.example.sim_sanggar.common.clickWithDebounce
-import com.example.sim_sanggar.common.loadImage
-import com.example.sim_sanggar.data.model.profile.ProfileData
-import com.example.sim_sanggar.data.model.profile.ProfileResponse
-import com.example.sim_sanggar.presenter.profile.ProfileContract
-import com.example.sim_sanggar.presenter.profile.ProfilePresenter
-import com.example.sim_sanggar.view.activity.auth.LoginActivity
-import com.example.sim_sanggar.view.activity.common.BaseActivity
-import com.example.sim_sanggar.view.adapter.profile.ProfileAdapter
+import com.example.admin.GlobalClass
+import com.example.admin.R
+import com.example.admin.common.Preferences
+import com.example.admin.common.Utilities
+import com.example.admin.common.clickWithDebounce
+import com.example.admin.common.loadImage
+import com.example.admin.data.model.common.EmptyResponse
+import com.example.admin.data.model.user.UserData
+import com.example.admin.data.model.user.UserListResponse
+import com.example.admin.data.model.user.UserResponse
+import com.example.admin.presenter.user.UserContract
+import com.example.admin.presenter.user.UserPresenter
+import com.example.admin.view.activity.auth.LoginActivity
+import com.example.admin.view.activity.common.BaseActivity
 import com.theartofdev.edmodo.cropper.CropImage
 import com.theartofdev.edmodo.cropper.CropImageView
 import kotlinx.android.synthetic.main.activity_edit_profil.*
@@ -23,13 +24,12 @@ import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import java.io.File
 
-class EditProfilActivity : BaseActivity(), ProfileContract.View {
+class EditProfilActivity : BaseActivity(), UserContract.View {
 
     var preferences = Preferences(GlobalClass.context)
 
-    var data : ProfileData? = null
-    var presenter = ProfilePresenter(this)
-    lateinit var adapter : ProfileAdapter
+    var data : UserData? = null
+    var presenter = UserPresenter(this)
 
     private var profilePictFile: File? = null
 
@@ -93,12 +93,11 @@ class EditProfilActivity : BaseActivity(), ProfileContract.View {
             }
         }
     }
-    private fun initView(data: ProfileData) {
+    private fun initView(data: com.example.admin.data.model.user.UserData) {
         data.run{
             til_username?.editText?.setText(data.username)
             til_telepon?.editText?.setText(data.telepon)
             til_email?.editText?.setText(data.email)
-            til_sanggar?.editText?.setText(data.sanggar?.nama)
             data.photoUrl?.let { iv_foto_profil?.loadImage(it) }
         }
     }
@@ -137,14 +136,26 @@ class EditProfilActivity : BaseActivity(), ProfileContract.View {
         }
     }
 
-    override fun getProfileResponse(response: ProfileResponse) {
+    override fun userResponse(response: UserResponse) {
+        TODO("Not yet implemented")
+    }
+
+    override fun getUserResponse(response: UserListResponse) {
+        TODO("Not yet implemented")
+    }
+
+    override fun deleteUserResponse(response: EmptyResponse) {
+        TODO("Not yet implemented")
+    }
+
+    override fun getProfileResponse(response: UserResponse) {
         isLoading(false)
         data = response.data
         data?.let { initView(it) }
 
     }
 
-    override fun editProfileResponse(response: ProfileResponse) {
+    override fun editProfileResponse(response: UserResponse) {
         isLoading(false)
         this.showCustomDialogBack("Berhasil", "Profil berhasil diubah")
     }

@@ -7,6 +7,7 @@ import com.example.sim_sanggar.data.handler.common.ErrorHandler
 import com.example.sim_sanggar.data.handler.sewa.SewaHandler
 import com.example.sim_sanggar.data.model.sewa.SewaListResponse
 import com.example.sim_sanggar.data.model.sewa.SewaResponse
+import com.example.sim_sanggar.data.model.studio.StudioData
 import com.example.sim_sanggar.presenter.common.BasePresenter
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -36,15 +37,14 @@ class SewaPresenter(val view: SewaContract.View) : BasePresenter(view), SewaCont
             })
     }
 
-    override fun getTanggalTersewa(tanggal: String, studio: Int) {
-        tanggal.let {
-            handler.getTanggalTersewa(tanggal, studio)
-                .doSubscribe(object : ErrorHandler<SewaListResponse>(this){
-                    override fun onNext(t: SewaListResponse) {
-                        view.getSewaResponse(t)
-                    }
-                })
-        }
+    override fun getTanggalTersewa(studio: Int, tanggal: String) {
+        handler.getTanggalTersewa(studio, tanggal)
+            .doSubscribe(object : ErrorHandler<SewaListResponse>(this){
+                override fun onNext(t: SewaListResponse) {
+                    view.getSewaResponse(t)
+                }
+            })
+
     }
 
     override fun uploadBukti(id: Int, data: HashMap<String, Any?>) {

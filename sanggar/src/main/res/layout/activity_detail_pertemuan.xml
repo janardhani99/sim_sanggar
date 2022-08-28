@@ -78,7 +78,7 @@
                 android:id="@+id/btn_pilih_tanggal"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@drawable/icon_kelas"/>
+                android:src="@drawable/icon_sewa"/>
 
         </LinearLayout>
 

@@ -9,22 +9,30 @@ import androidx.fragment.app.Fragment
 import com.example.sanggar.GlobalClass
 import com.example.sanggar.R
 import com.example.sanggar.common.Preferences
+import com.example.sanggar.common.Utilities
 import com.example.sanggar.common.clickWithDebounce
-import com.example.sanggar.data.model.user_sanggar.UserSanggarItem
-import com.example.sanggar.view.activity.absensi_anak.AbsensiActivity
-import com.example.sanggar.view.activity.auth.LoginActivity
+import com.example.sanggar.common.loadImage
+import com.example.sanggar.data.model.profile.ProfileData
+import com.example.sanggar.data.model.profile.ProfileResponse
+import com.example.sanggar.presenter.profile.ProfileContract
+import com.example.sanggar.presenter.profile.ProfilePresenter
+import com.example.sanggar.view.activity.common.BaseActivity
 import com.example.sanggar.view.activity.fasilitas.FasilitasActivity
 import com.example.sanggar.view.activity.jadwal_sanggar.JadwalSanggarActivity
 import com.example.sanggar.view.activity.jam_operasional.JamOperasionalActivity
 import com.example.sanggar.view.activity.kegiatan.KegiatanActivity
 import com.example.sanggar.view.activity.pembelajaran.PembelajaranActivity
 import com.example.sanggar.view.activity.platform_transaksi.PlatformTransaksiActivity
+import com.example.sanggar.view.activity.profile.EditProfilActivity
 import com.example.sanggar.view.activity.sewa.PenyewaanActivity
 import com.example.sanggar.view.activity.studio.StudioActivity
-import com.example.sanggar.view.activity.user_sanggar.UserSanggarActivity
 import kotlinx.android.synthetic.main.fragment_lainnya.*
 
-class LainnyaFragment : Fragment() {
+class LainnyaFragment : Fragment(), ProfileContract.View {
+
+    private lateinit var baseActivity: BaseActivity
+    var data : ProfileData? = null
+    var presenter = ProfilePresenter(this)
 
     val preferences = Preferences(GlobalClass.context)
 //    var data
@@ -34,6 +42,12 @@ class LainnyaFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        btn_detail_profil?.clickWithDebounce {
+            val intent = Intent(context, EditProfilActivity::class.java)
+            startActivity(intent)
+        }
+
         cv_jadwal_sanggar?.clickWithDebounce {
             startActivity(Intent(context, JadwalSanggarActivity::class.java))
         }
@@ -66,11 +80,11 @@ class LainnyaFragment : Fragment() {
             startActivity(Intent(context, PembelajaranActivity::class.java))
         }
 
-        btn_logout?.clickWithDebounce {
-            preferences.userLoggedOut()
-            activity?.finishAffinity()
-            startActivity(Intent(context, LoginActivity::class.java))
-        }
+//        btn_logout?.clickWithDebounce {
+//            preferences.userLoggedOut()
+//            activity?.finishAffinity()
+//            startActivity(Intent(context, LoginActivity::class.java))
+//        }
 
 //        setView(data)
     }
@@ -80,10 +94,42 @@ class LainnyaFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_lainnya, container, false)
     }
 
-    private fun setView(data: UserSanggarItem) {
-        data?.run {
-            txt_namauser?.setText(data.sanggar?.nama)
+    private fun initView(data: ProfileData) {
+        data.run{
+            tv_nama_pengelola?.setText(data.username)
+            tv_sanggar?.setText(data.sanggar?.nama)
+            data.photoUrl?.let { iv_profile_pict?.loadImage(it) }
         }
     }
+
+    fun fetchData() {
+        isLoading(true)
+        presenter.getProfile()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        fetchData()
+    }
+
+    private fun isLoading(isLoad: Boolean) {
+        if (isLoad) this.context?.let { Utilities.showProgress(it) }
+        else Utilities.hideProgress()
+    }
+
+    override fun getProfileResponse(response: ProfileResponse) {
+        isLoading(false)
+        data = response.data
+        data?.let { initView(it) }
+    }
+
+    override fun editProfileResponse(response: ProfileResponse) {
+        TODO("Not yet implemented")
+    }
+
+    override fun showError(title: String, message: String) {
+        baseActivity.showErrorAlert(title, message)
+    }
+
 
 }

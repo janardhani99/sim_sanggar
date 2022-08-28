@@ -6,24 +6,16 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.sanggar.GlobalClass
 import com.example.sanggar.R
 import com.example.sanggar.common.Preferences
-import com.example.sanggar.common.Utilities
 import com.example.sanggar.common.clickWithDebounce
 import com.example.sanggar.data.model.sanggar.ProfilSanggarListResponse
 import com.example.sanggar.data.model.sanggar.ProfilSanggarResponse
-import com.example.sanggar.data.model.sanggar.SanggarData
 import com.example.sanggar.presenter.sanggar.ProfilSanggarContract
-import com.example.sanggar.presenter.sanggar.ProfilSanggarPresenter
 import com.example.sanggar.view.activity.auth.LoginActivity
-import com.example.sanggar.view.activity.kegiatan.DetailKegiatanActivity
-import com.example.sanggar.view.activity.sanggar.EditProfilActivity
-import com.example.sanggar.view.adapter.sanggar.ProfilSanggarAdapter
-import kotlinx.android.synthetic.main.activity_kegiatan.*
+import com.example.sanggar.view.activity.profile.EditProfilActivity
 import kotlinx.android.synthetic.main.fragment_profil_sanggar.*
-import kotlinx.android.synthetic.main.recycler_profile_sanggar.*
 
 
 class ProfilFragment(): Fragment(), ProfilSanggarContract.View {

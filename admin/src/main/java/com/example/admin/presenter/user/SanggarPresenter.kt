@@ -4,6 +4,7 @@ import com.example.admin.common.doSubscribe
 import com.example.admin.data.handler.common.ErrorHandler
 import com.example.admin.data.handler.user.SanggarHandler
 import com.example.admin.data.model.user.SanggarListResponse
+import com.example.admin.data.model.user.SanggarResponse
 import com.example.admin.presenter.common.BasePresenter
 
 
@@ -19,5 +20,23 @@ class SanggarPresenter(val view: SanggarContract.View): BasePresenter(view), San
                     }
                 })
 
+    }
+
+    override fun addSanggar(data: HashMap<String, Any?>) {
+        handler.addSanggar(data)
+                .doSubscribe(object : ErrorHandler<SanggarResponse>(this){
+                    override fun onNext(t: SanggarResponse) {
+                        view.sanggarResponse(t)
+                    }
+                })
+    }
+
+    override fun editProfilSanggar(id: Int, data: HashMap<String, Any?>) {
+        handler.editSanggar(id, data)
+                .doSubscribe(object : ErrorHandler<SanggarResponse>(this){
+                    override fun onNext(t: SanggarResponse) {
+                        view.sanggarResponse(t)
+                    }
+                })
     }
 }

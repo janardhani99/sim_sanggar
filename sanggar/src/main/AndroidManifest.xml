@@ -97,7 +97,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".view.activity.sanggar.EditProfilActivity"
+            android:name=".view.activity.profile.EditProfilActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".MainTabActivity"

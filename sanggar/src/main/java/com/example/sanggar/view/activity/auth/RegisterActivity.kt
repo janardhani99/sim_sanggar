@@ -45,12 +45,14 @@ class RegisterActivity: BaseActivity(), AuthContract.View {
         val password = til_password_register?.editText?.text.toString()
         val nama_sanggar = til_nama_sanggar_register?.editText?.text.toString()
         val nomor_telepon = til_telepon_register?.editText?.text.toString()
+        val nama_pengelola = til_nama_pengelola?.editText?.text.toString()
 
         val registerData = HashMap<String, Any?>()
         registerData["email"] = email
         registerData["password"] = password
         registerData["sanggar"] = nama_sanggar
         registerData["telepon"] = nomor_telepon
+        registerData["username"] = nama_pengelola
         isLoadingProcess(true)
         presenter.register(registerData)
 

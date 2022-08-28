@@ -6,17 +6,20 @@ import com.example.admin.R
 import com.example.admin.common.Utilities
 import com.example.admin.common.clickWithDebounce
 import com.example.admin.data.model.common.EmptyResponse
-import com.example.admin.data.model.user.UserData
-import com.example.admin.data.model.user.UserListResponse
-import com.example.admin.data.model.user.UserResponse
+import com.example.admin.data.model.user.*
+import com.example.admin.presenter.user.SanggarContract
+import com.example.admin.presenter.user.SanggarPresenter
 import com.example.admin.presenter.user.UserContract
 import com.example.admin.presenter.user.UserPresenter
 import com.example.admin.view.activity.common.BaseActivity
 import kotlinx.android.synthetic.main.activity_detail_user_sanggar.*
 
-class DetailUserSanggarActivity : BaseActivity(), UserContract.View {
+class DetailUserSanggarActivity : BaseActivity(), UserContract.View, SanggarContract.View {
     var data_user: UserData? = null
+    var data_sanggar : SanggarData? = null
+
     var presenter = UserPresenter(this)
+    val presenterSanggar = SanggarPresenter(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,26 +40,43 @@ class DetailUserSanggarActivity : BaseActivity(), UserContract.View {
         }
     }
 
-    private fun editUser() {
+    private fun addOrEditUser() {
+        val sanggar_id = data_user?.sanggar?.id
         val nama_sanggar = til_nama_sanggar.editText?.text.toString()
+
+        val nama_pengelola = til_nama_pengelola.editText?.text.toString()
         val telepon= til_telepon_sanggar.editText?.text.toString()
         val email = til_email.editText?.text.toString()
         val alamat = til_alamat.editText?.text.toString()
 
         val editData = HashMap<String, Any?>()
-        editData["nama"] = nama_sanggar
+        val editDataSanggar = HashMap<String, Any?>()
+
+        editDataSanggar["nama"] = nama_sanggar
+        editDataSanggar["alamat"] = alamat
+
+        editData["username"] = nama_pengelola
         editData["telepon"] = telepon
         editData["email"] = email
-        editData["alamat"] = alamat
+
 
         isLoading(true)
-        data_user?.id?.let { presenter.editUser(it, editData) }
+        if (data_user == null && data_sanggar == null) {
+            presenter.addUser(editData)
+            presenterSanggar.addSanggar(editDataSanggar)
+        } else {
+            data_user?.id?.let { presenter.editUser(it, editData) }
+            if (sanggar_id != null) {
+                presenterSanggar.editProfilSanggar(sanggar_id, editDataSanggar)
+            }
+        }
+
 
     }
 
     private fun initListener() {
         btn_simpan?.clickWithDebounce {
-            editUser()
+            addOrEditUser()
         }
     }
     private fun isLoading(isLoad: Boolean) {
@@ -75,6 +95,23 @@ class DetailUserSanggarActivity : BaseActivity(), UserContract.View {
 
     override fun deleteUserResponse(response: EmptyResponse) {
         TODO("Not yet implemented")
+    }
+
+    override fun getProfileResponse(response: UserResponse) {
+        TODO("Not yet implemented")
+    }
+
+    override fun editProfileResponse(response: UserResponse) {
+        TODO("Not yet implemented")
+    }
+
+    override fun getSanggarResponse(response: SanggarListResponse) {
+        TODO("Not yet implemented")
+    }
+
+    override fun sanggarResponse(response: SanggarResponse) {
+        isLoading(false)
+        this.showCustomDialogBack("Berhasil", "Data Tersimpan")
     }
 
     override fun showError(title: String, message: String) {

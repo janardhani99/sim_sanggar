@@ -8,6 +8,7 @@ import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.admin.R
 import com.example.admin.common.Utilities
+import com.example.admin.common.clickWithDebounce
 import com.example.admin.data.model.common.EmptyResponse
 import com.example.admin.data.model.user.UserData
 import com.example.admin.data.model.user.UserListResponse
@@ -19,6 +20,9 @@ import com.example.admin.view.UserSanggarAdapter
 import com.example.admin.view.activity.common.BaseActivity
 import com.example.admin.view.activity.common.ButtonDialogListener
 import kotlinx.android.synthetic.main.activity_kelola_user.*
+import kotlinx.android.synthetic.main.activity_kelola_user.rv_user
+import kotlinx.android.synthetic.main.activity_kelola_user.sr_list_user
+import kotlinx.android.synthetic.main.activity_kelola_user_sanggar.*
 
 class KelolaUserSanggarActivity : BaseActivity(), UserContract.View {
 
@@ -60,6 +64,12 @@ class KelolaUserSanggarActivity : BaseActivity(), UserContract.View {
         sr_list_user?.setOnRefreshListener {
             fetchData()
         }
+
+        cv_tambah_sanggar?.clickWithDebounce {
+            val intent = Intent(this, DetailUserSanggarActivity::class.java)
+            intent.putExtra("intent", 0)
+            startActivity(intent)
+        }
     }
 
     override fun onResume() {
@@ -92,6 +102,14 @@ class KelolaUserSanggarActivity : BaseActivity(), UserContract.View {
     override fun deleteUserResponse(response: EmptyResponse) {
         isLoading(false)
         fetchData()
+    }
+
+    override fun getProfileResponse(response: UserResponse) {
+        TODO("Not yet implemented")
+    }
+
+    override fun editProfileResponse(response: UserResponse) {
+        TODO("Not yet implemented")
     }
 
     override fun showError(title: String, message: String) {

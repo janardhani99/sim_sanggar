@@ -2,6 +2,7 @@ package com.example.sim_sanggar.presenter.sewa
 
 import com.example.sim_sanggar.data.model.sewa.SewaListResponse
 import com.example.sim_sanggar.data.model.sewa.SewaResponse
+import com.example.sim_sanggar.data.model.studio.StudioData
 import com.example.sim_sanggar.presenter.common.BaseContract
 import io.reactivex.Observable
 import okhttp3.MultipartBody
@@ -21,7 +22,7 @@ interface SewaContract {
     interface Presenter {
         fun addSewa(data: HashMap<String, Any?>)
         fun getSewa()
-        fun getTanggalTersewa(tanggal: String, studio: Int)
+        fun getTanggalTersewa(studio: Int, tanggal: String)
         fun uploadBukti(id: Int, data: HashMap<String, Any?>)
         fun addImage(id: Int, part: MultipartBody.Part)
         fun uploadBuktiPembayaran(id: Int, image: File, tf_via: String, status: String) {}
@@ -41,8 +42,8 @@ interface SewaContract {
 
         @GET("penyewaan/tanggal")
         fun getTanggalTersewa(
-            @Query ("date") tanggal: String,
-            @Query("studio") studio: Int
+            @Query("studio") studio: Int,
+            @Query ("date") tanggal: String
         ): Observable<SewaListResponse>
 
         @FormUrlEncoded

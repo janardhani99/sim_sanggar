@@ -13,51 +13,53 @@
         android:orientation="vertical">
 
         <RelativeLayout
+            android:id="@+id/btn_detail_profil"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginRight="20dp"
             android:layout_marginTop="35dp">
 
             <TextView
-                android:id="@+id/txt_namauser"
-                android:layout_width="300dp"
+                android:id="@+id/tv_sanggar"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Ubud Art Studio"
+                android:text="Nama Sanggar"
                 android:textColor="#000000"
                 android:textSize="24dp"
                 android:textStyle="bold"
+                android:layout_toRightOf="@+id/iv_profile_pict"
                 android:fontFamily="sans-serif"/>
 
-<!--            <TextView-->
-<!--                android:id="@+id/txt_sanggar_user"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="Citranala Art Studio"-->
-<!--                android:textColor="#CF5900"-->
-<!--                android:textSize="12dp"-->
-<!--                android:layout_below="@+id/txt_namauser"-->
-<!--                android:layout_marginLeft="80dp"-->
-<!--                android:layout_marginTop="6dp"-->
-<!--                android:fontFamily="sans-serif"/>-->
-
-
-
-            <Button
-                android:id="@+id/btn_edit_profil"
+            <TextView
+                android:id="@+id/tv_nama_pengelola"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Profil"
-                android:layout_below="@+id/txt_namauser"
-                android:backgroundTint="@color/teal_700"/>
+                android:text="Nama Pengelola"
+                android:textColor="#CF5900"
+                android:textSize="12dp"
+                android:layout_below="@+id/tv_sanggar"
+                android:layout_marginLeft="80dp"
+                android:layout_marginTop="6dp"
+                android:fontFamily="sans-serif"/>
 
-            <Button
-                android:id="@+id/btn_logout"
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/iv_profile_pict"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="5dp"
+                android:src="@drawable/foto"/>
+
+            <ImageView
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Logout"
-                android:layout_toRightOf="@+id/txt_namauser"
-                android:backgroundTint="@color/red"/>
+                android:src="@drawable/ic_baseline_chevron_right_24"
+                android:layout_toRightOf="@+id/tv_sanggar"
+                android:layout_marginTop="6dp"
+                android:layout_marginLeft="10dp"/>
 
         </RelativeLayout>
 

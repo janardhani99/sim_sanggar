@@ -6,6 +6,7 @@ import com.example.admin.data.model.user.UserListResponse
 import com.example.admin.data.model.user.UserResponse
 import com.example.admin.presenter.user.UserContract
 import io.reactivex.Observable
+import okhttp3.MultipartBody
 
 class UserHandler: BaseHandler() {
 
@@ -25,5 +26,17 @@ class UserHandler: BaseHandler() {
 
     fun deleteUser(id: Int): Observable<EmptyResponse> {
         return service.deleteUser(id)
+    }
+
+    fun getProfile(): Observable<UserResponse> {
+        return service.getProfile()
+    }
+
+    fun editProfile(data: HashMap<String, Any?>):Observable<UserResponse> {
+        return service.editProfile(data)
+    }
+
+    fun updateProfilePhoto(data: MultipartBody.Part): Observable<UserResponse> {
+        return service.updateProfilePhoto(data)
     }
 }

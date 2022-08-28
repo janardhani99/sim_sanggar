@@ -27,7 +27,7 @@ class SewaPerTanggalAdapter(): RecyclerView.Adapter<SewaPerTanggalAdapter.ViewHo
         val item = sewaList[position]
         holder.itemView.apply {
 //            tv_nama_penyewa.text = "Oleh ${item.user_id}"
-
+            tv_studio.text = item.studio_id?.nama_studio
             tv_jam_sewa.text = "${item.jam_mulai?.let { getTimeFormat(it) }}--${item.jam_selesai?.let { getTimeFormat(it) }}"
         }
 

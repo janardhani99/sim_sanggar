@@ -1,16 +1,17 @@
-package com.example.admin.data.model.user
+package com.example.sanggar.data.model.profile
 
 import android.os.Parcelable
-import com.example.admin.data.model.common.BaseResultData
+import com.example.sanggar.data.model.common.BaseResultData
+import com.example.sanggar.data.model.sanggar.SanggarData
 import com.google.gson.annotations.Expose
 import kotlinx.android.parcel.Parcelize
 
-data class UserResponse(@Expose var data: UserData? = null): BaseResultData()
+data class ProfileResponse(@Expose var data: ProfileData? = null): BaseResultData()
 
-data class UserListResponse(@Expose var data: List<UserData>? = null): BaseResultData()
+data class ProfileListResponse(@Expose var data: List<ProfileData>? = null): BaseResultData()
 
 @Parcelize
-data class UserData (
+data class ProfileData (
         @Expose
         var id: Int? = null,
         @Expose

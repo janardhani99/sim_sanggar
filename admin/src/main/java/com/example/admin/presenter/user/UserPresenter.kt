@@ -7,6 +7,7 @@ import com.example.admin.data.model.common.EmptyResponse
 import com.example.admin.data.model.user.UserListResponse
 import com.example.admin.data.model.user.UserResponse
 import com.example.admin.presenter.common.BasePresenter
+import okhttp3.MultipartBody
 
 
 class UserPresenter(val view: UserContract.View): BasePresenter(view), UserContract.Presenter {
@@ -44,6 +45,33 @@ class UserPresenter(val view: UserContract.View): BasePresenter(view), UserContr
                 .doSubscribe(object: ErrorHandler<EmptyResponse>(this) {
                     override fun onNext(t: EmptyResponse) {
                         view.deleteUserResponse(t)
+                    }
+                })
+    }
+
+    override fun getProfile() {
+        handler.getProfile()
+                .doSubscribe(object : ErrorHandler<UserResponse>(this) {
+                    override fun onNext(t: UserResponse) {
+                        view.getProfileResponse(t)
+                    }
+                })
+    }
+
+    override fun editProfile( data: HashMap<String, Any?>) {
+        handler.editProfile( data)
+                .doSubscribe(object : ErrorHandler<UserResponse>(this) {
+                    override fun onNext(t: UserResponse) {
+                        view.editProfileResponse(t)
+                    }
+                })
+    }
+
+    override fun updateProfilePhot(data: MultipartBody.Part) {
+        handler.updateProfilePhoto(data)
+                .doSubscribe(object : ErrorHandler<UserResponse>(this) {
+                    override fun onNext(t: UserResponse) {
+                        view.editProfileResponse(t)
                     }
                 })
     }

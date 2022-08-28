@@ -3,6 +3,7 @@ package com.example.sim_sanggar.data.handler.sewa
 import com.example.sim_sanggar.data.handler.common.BaseHandler
 import com.example.sim_sanggar.data.model.sewa.SewaListResponse
 import com.example.sim_sanggar.data.model.sewa.SewaResponse
+import com.example.sim_sanggar.data.model.studio.StudioData
 import com.example.sim_sanggar.presenter.sewa.SewaContract
 import io.reactivex.Observable
 import okhttp3.MultipartBody
@@ -36,8 +37,8 @@ class SewaHandler : BaseHandler() {
         return service.addImage(id, part)
     }
 
-    fun getTanggalTersewa(tanggal: String, studio: Int): Observable<SewaListResponse> {
-        return service.getTanggalTersewa(tanggal, studio)
+    fun getTanggalTersewa(studio: Int, tanggal: String): Observable<SewaListResponse> {
+        return service.getTanggalTersewa( studio, tanggal)
     }
 
     fun getSewaStatus1(status: String): Observable<SewaListResponse> {
